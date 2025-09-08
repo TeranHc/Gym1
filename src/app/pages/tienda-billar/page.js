@@ -107,6 +107,47 @@ function TiendaCaninaContent() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 pb-8 md:pb-12">
+        {/* NUEVA SECCIÓN: Filtros horizontales móviles */}
+        <div className="lg:hidden mb-6">
+          <div className="flex gap-3 pb-4 overflow-x-auto scrollbar-hide">
+            {/* Botón de búsqueda */}
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="flex-shrink-0 bg-white rounded-xl shadow-md px-4 py-2.5 flex items-center gap-2 hover:shadow-lg transition-all border border-gray-200"
+            >
+              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <span className="text-sm font-medium text-gray-700">Buscar</span>
+            </button>
+
+            {/* Chips de categorías */}
+            {categories.map((category) => (
+              <button
+                key={category.name}
+                onClick={() => handleCategoryChange(category.name)}
+                className={`flex-shrink-0 px-4 py-2.5 rounded-xl font-medium text-sm transition-all ${
+                  selectedCategory === category.name
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
+                    : 'bg-white text-gray-700 shadow-md hover:shadow-lg border border-gray-200'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  {category.icon && <span className="text-sm">{category.icon}</span>}
+                  <span>{category.name}</span>
+                  <span className={`px-1.5 py-0.5 text-xs rounded-full ${
+                    selectedCategory === category.name
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {category.count}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="flex gap-6">
           {/* Sidebar de categorías - Desktop */}
           <div className="hidden lg:block w-72 flex-shrink-0">
@@ -161,29 +202,17 @@ function TiendaCaninaContent() {
             </div>
           </div>
 
-          {/* Botón de menú móvil */}
-          <div className="lg:hidden fixed top-4 left-4 z-50">
-            <button
-              onClick={() => setIsSidebarOpen(true)}
-              className="bg-white rounded-xl shadow-lg p-3 hover:shadow-xl transition-shadow"
-            >
-              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Overlay y Sidebar móvil */}
+          {/* Overlay y Sidebar móvil - MEJORADO */}
           {isSidebarOpen && (
             <>
               <div 
                 className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
                 onClick={() => setIsSidebarOpen(false)}
               ></div>
-              <div className="lg:hidden fixed left-0 top-0 h-full w-80 bg-white shadow-xl z-50 transform transition-transform">
-                <div className="p-6">
+              <div className="lg:hidden fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-xl z-50 transform transition-transform">
+                <div className="p-6 h-full overflow-y-auto">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-gray-900">Categorías</h3>
+                    <h3 className="text-lg font-bold text-gray-900">Buscar y Filtrar</h3>
                     <button
                       onClick={() => setIsSidebarOpen(false)}
                       className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -196,6 +225,7 @@ function TiendaCaninaContent() {
 
                   {/* Barra de búsqueda móvil */}
                   <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Buscar productos</label>
                     <div className="relative group">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,36 +237,52 @@ function TiendaCaninaContent() {
                         placeholder="Buscar productos..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="block w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl text-sm"
+                        className="block w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                   </div>
 
+                  {/* Separador */}
+                  <div className="border-t border-gray-200 mb-6"></div>
+
                   {/* Categorías móvil */}
-                  <div className="space-y-2">
-                    {categories.map((category) => (
-                      <button
-                        key={category.name}
-                        onClick={() => handleCategoryChange(category.name)}
-                        className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-all ${
-                          selectedCategory === category.name
-                            ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-500 font-medium'
-                            : 'text-gray-700 hover:bg-gray-50'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="text-lg">{category.icon}</span>
-                          <span className="font-medium">{category.name}</span>
-                        </div>
-                        <span className={`text-xs px-2 py-1 rounded-full ${
-                          selectedCategory === category.name
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'bg-gray-100 text-gray-600'
-                        }`}>
-                          {category.count}
-                        </span>
-                      </button>
-                    ))}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-3">Categorías</label>
+                    <div className="space-y-2">
+                      {categories.map((category) => (
+                        <button
+                          key={category.name}
+                          onClick={() => handleCategoryChange(category.name)}
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-all ${
+                            selectedCategory === category.name
+                              ? 'bg-blue-50 text-blue-700 border-2 border-blue-200 font-medium'
+                              : 'text-gray-700 hover:bg-gray-50 border-2 border-gray-100'
+                          }`}
+                        >
+                          <div className="flex items-center gap-3">
+                            {category.icon && <span className="text-lg">{category.icon}</span>}
+                            <span className="font-medium">{category.name}</span>
+                          </div>
+                          <span className={`text-xs px-2 py-1 rounded-full ${
+                            selectedCategory === category.name
+                              ? 'bg-blue-100 text-blue-700'
+                              : 'bg-gray-100 text-gray-600'
+                          }`}>
+                            {category.count}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Botón aplicar cambios */}
+                  <div className="mt-6 pt-6 border-t border-gray-200">
+                    <button
+                      onClick={() => setIsSidebarOpen(false)}
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-xl font-medium transition-colors"
+                    >
+                      Aplicar filtros
+                    </button>
                   </div>
                 </div>
               </div>
@@ -245,26 +291,6 @@ function TiendaCaninaContent() {
 
           {/* Contenido principal */}
           <div className="flex-1">
-            {/* Barra de búsqueda móvil (solo visible en móvil cuando no hay sidebar) */}
-            <div className="lg:hidden mb-6 mt-16">
-              <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  placeholder="Buscar productos..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="block w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl bg-white shadow-md"
-                />
-              </div>
-            </div>
-
-
-
             {/* Grid de productos */}
             {isLoading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">

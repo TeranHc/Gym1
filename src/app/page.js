@@ -176,17 +176,17 @@ export default function EalLeaderHomePage() {
               </p>
             </div>
 
-            {/* Carousel Container - RESPONSIVE */}
+{/* Carousel Container - RESPONSIVE */}
             <div className="relative">
               {/* Navigation Buttons - MEJORADOS COMO RECTANGULOS */}
-              <div className="flex justify-center gap-4 mb-4">
+              <div className="flex justify-center gap-4 mb-6">
                 <button
                   onClick={prevSlide}
                   className="bg-red-500 hover:bg-red-600 text-white 
                             px-6 py-3 md:px-8 md:py-4 rounded-xl 
                             font-semibold text-sm md:text-base
                             transition-all duration-300 hover:scale-105 shadow-lg
-                            flex items-center justify-center gap-1 min-w-[120px] md:min-w-[140px]"
+                            flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
                   disabled={totalSlides <= 1}
                 >
                   <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -201,7 +201,7 @@ export default function EalLeaderHomePage() {
                             px-6 py-3 md:px-8 md:py-4 rounded-xl 
                             font-semibold text-sm md:text-base
                             transition-all duration-300 hover:scale-105 shadow-lg
-                            flex items-center justify-center gap-1 min-w-[120px] md:min-w-[140px]"
+                            flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
                   disabled={totalSlides <= 1}
                 >
                   <span className="hidden sm:inline">Siguiente</span>
@@ -210,7 +210,6 @@ export default function EalLeaderHomePage() {
                   </svg>
                 </button>
               </div>
-
               {/* Products Grid - MANTENIENDO ESTRUCTURA ORIGINAL DE 3 COLUMNAS */}
               <div className="overflow-hidden mx-4">
                 <div 
@@ -220,10 +219,9 @@ export default function EalLeaderHomePage() {
                   {Array.from({ length: totalSlides }, (_, slideIndex) => (
                     <div key={slideIndex} className="w-full flex-shrink-0">
                       {/* Contenedor más pequeño: max-w-3xl en lugar de 4xl */}
-                      <div className="max-w-3xl mx-auto">
+<div className="max-w-sm md:max-w-3xl mx-auto">
                         {/* Grid con 3 columnas - EXACTAMENTE IGUAL AL ORIGINAL */}
-                        <div className="grid grid-cols-3 gap-6">
-                          {allProducts.slice(slideIndex * productsPerSlide, (slideIndex + 1) * productsPerSlide).map((product) => (
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">                          {allProducts.slice(slideIndex * productsPerSlide, (slideIndex + 1) * productsPerSlide).map((product) => (
                             <div
                               key={product.id}
                               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
@@ -336,47 +334,45 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
 
-       {/* Services Grid */}
-      <section className="py-12 bg-zinc-800">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-1">
-            {/* Content */}
-            <div className="space-y-8">
-
-              <h2 className="text-5xl font-black leading-tight text-white">
+{/* Services Grid - RESPONSIVE */}
+      <section className="py-8 md:py-12 bg-zinc-800">
+        <div className="max-w-7xl mx-auto px-4 md:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-1">
+            {/* Content - RESPONSIVE TEXT */}
+            <div className="space-y-6 md:space-y-8 order-2 lg:order-1">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-white">
                 Servicios <span className="text-red-500">Integrales</span>
                 <br />
                 para tu proyecto.
               </h2>
               
-              <p className="text-xl text-gray-400">
+              <p className="text-lg md:text-xl text-gray-400">
                 Desde la consultoría hasta la instalación completa, te acompañamos en cada paso para crear el gimnasio ideal.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-white">Diseño y consultoría personalizada</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2 text-white">Diseño y consultoría personalizada</h3>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-white">Instalación y montaje profesional</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2 text-white">Instalación y montaje profesional</h3>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-white">Mantenimiento y soporte técnico</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2 text-white">Mantenimiento y soporte técnico</h3>
                   </div>
                 </div>
               </div>
 
-              {/* O si prefieres con onClick para más control */}
               <button 
                 onClick={() => {
                   document.getElementById('formulario-cotizacion').scrollIntoView({ 
@@ -384,15 +380,15 @@ export default function EalLeaderHomePage() {
                     block: 'center' 
                   });
                 }}
-                className="bg-red-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="bg-red-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl font-bold text-base md:text-lg hover:bg-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Solicitar Cotización
               </button>
             </div>
 
-            {/* Image */}
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden h-96">
+            {/* Image - RESPONSIVE */}
+            <div className="relative order-1 lg:order-2">
+              <div className="rounded-2xl md:rounded-3xl overflow-hidden h-64 md:h-96">
                 <Image  
                   src="https://poolsecuritysolution.com/wp-content/uploads/servicio-tecnico-para-equipos-y-maquinas-de-gimnasio.jpg" 
                   alt="Instalación profesional de equipamiento de gimnasio"
