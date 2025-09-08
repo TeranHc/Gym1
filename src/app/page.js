@@ -56,6 +56,7 @@ export default function EalLeaderHomePage() {
         <Image  
           src="https://www.salter.es/modules/ph_simpleblog/covers/271.png" 
           alt="Equipamiento de gimnasio profesional"
+          fill
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50"></div>
@@ -115,6 +116,7 @@ export default function EalLeaderHomePage() {
                 <Image  
                   src="https://www.hola.com/horizon/landscape/8f63637f78d5-maquinasgimnasio-t.jpg?im=Resize=(640),type=downsize" 
                   alt="Equipamiento profesional de gimnasio"
+                  fill
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20"></div>
@@ -217,11 +219,13 @@ export default function EalLeaderHomePage() {
                             >
                               {/* Product Image */}
                               <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 relative overflow-hidden">
-                                <img
-                                  src={product.image}
-                                  alt={product.alt}
-                                  className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                                />
+                                <Image
+                                src={product.image}
+                                alt={product.alt}
+                                width={300}
+                                height={300}
+                                className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                              />
                                 <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                                   <div className="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-md">
                                     <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -387,6 +391,7 @@ export default function EalLeaderHomePage() {
                 <Image  
                   src="https://poolsecuritysolution.com/wp-content/uploads/servicio-tecnico-para-equipos-y-maquinas-de-gimnasio.jpg" 
                   alt="Instalación profesional de equipamiento de gimnasio"
+                  fill
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20"></div>
@@ -403,15 +408,16 @@ export default function EalLeaderHomePage() {
             
             {/* Imagen representativa - Más compacta */}
             <div className="xl:col-span-1 py-10">
-              <div className="rounded-3xl overflow-hidden h-80">
-                <Image  
-                  src="https://www.gymtek.com.ec/wp-content/uploads/2019/08/como-elegir-equipos-de-gimnasio-gymtek.jpg" 
-                  alt="Gimnasio con equipamiento profesional"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-black/30"></div>
-              </div>
-            </div>
+  <div className="rounded-3xl overflow-hidden h-80 relative"> {/* ← Agrega 'relative' aquí */}
+    <Image  
+      src="https://www.gymtek.com.ec/wp-content/uploads/2019/08/como-elegir-equipos-de-gimnasio-gymtek.jpg" 
+      alt="Gimnasio con equipamiento profesional"
+      fill  
+      className="object-cover" 
+    />
+    <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-black/30"></div>
+  </div>
+</div>
             
             {/* Información */}
             <div className="xl:col-span-1 space-y-6">
