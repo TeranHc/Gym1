@@ -15,16 +15,18 @@ export default function EalLeaderHomePage() {
     { name: "Cinta de Correr Premium", price: "$2,299", image: "🏃" }
   ];
 
-  // Configuración del carousel
-  const productsPerSlide = 3;
+  // Configuración del carousel - RESPONSIVE
+  const productsPerSlide = 3; // Desktop
+  const productsPerSlideMobile = 1; // Mobile
   const totalSlides = Math.ceil(allProducts.length / productsPerSlide);
+  const totalSlidesMobile = Math.ceil(allProducts.length / productsPerSlideMobile);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentProduct((prev) => (prev + 1) % products.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [products.length]); // ✅ Agregar dependencia
+  }, [products.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -49,70 +51,70 @@ export default function EalLeaderHomePage() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      {/* Hero Section - With Background Image */}
-      <section className="min-h-[70vh] flex items-center relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image  
-          src="https://www.salter.es/modules/ph_simpleblog/covers/271.png" 
-          alt="Equipamiento de gimnasio profesional"
-          fill
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
+      {/* Hero Section - RESPONSIVE */}
+      <section className="min-h-[60vh] md:min-h-[70vh] flex items-center relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image  
+            src="https://www.salter.es/modules/ph_simpleblog/covers/271.png" 
+            alt="Equipamiento de gimnasio profesional"
+            fill
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
 
-      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="max-w-2xl space-y-8">
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white">
-            Tu Gimnasio.
-            <br />
-            <span className="text-red-400">Nuestro Equipamiento.</span>
-          </h1>
+        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 relative z-10">
+          <div className="max-w-2xl space-y-6 md:space-y-8">
+            {/* Title - RESPONSIVE */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-white">
+              Tu Gimnasio.
+              <br />
+              <span className="text-red-400">Nuestro Equipamiento.</span>
+            </h1>
 
-          {/* Description */}
-          <p className="text-lg sm:text-xl text-white/90 leading-relaxed font-light max-w-xl">
-            RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Desde máquinas profesionales hasta accesorios especializados para crear el gimnasio perfecto.
-          </p>
+            {/* Description - RESPONSIVE */}
+            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-light max-w-xl">
+              RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Desde máquinas profesionales hasta accesorios especializados para crear el gimnasio perfecto.
+            </p>
 
-          {/* Enhanced Stats */}
-          <div className="flex  gap-6 pt-8">
-            {/* Productos */}
-            <div className="bg-black/10 backdrop-blur-md rounded-2xl px-6 py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-black text-white mb-1">500+</div>
-              <div className="text-sm text-white/80 font-semibold uppercase tracking-wider">Productos</div>
-            </div>
+            {/* Enhanced Stats - RESPONSIVE GRID */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 pt-6 md:pt-8">
+              {/* Productos */}
+              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
+                <div className="text-xl md:text-3xl font-black text-white mb-1">500+</div>
+                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Productos</div>
+              </div>
 
-            {/* Garantía */}
-            <div className="bg-black/10 backdrop-blur-md rounded-2xl px-6 py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-black text-white mb-1">5</div>
-              <div className="text-sm text-white/80 font-semibold uppercase tracking-wider">Años Garantía</div>
-            </div>
+              {/* Garantía */}
+              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
+                <div className="text-xl md:text-3xl font-black text-white mb-1">5</div>
+                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Años Garantía</div>
+              </div>
 
-            {/* Años de Experiencia */}
-            <div className="bg-black/10 backdrop-blur-md rounded-2xl px-6 py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-black text-white mb-1">15+</div>
-              <div className="text-sm text-white/80 font-semibold uppercase tracking-wider">Años Experiencia</div>
-            </div>
+              {/* Años de Experiencia */}
+              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
+                <div className="text-xl md:text-3xl font-black text-white mb-1">15+</div>
+                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Años Experiencia</div>
+              </div>
 
-            {/* Marcas */}
-            <div className="bg-black/10 backdrop-blur-md rounded-2xl px-6 py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-black text-white mb-1">50+</div>
-              <div className="text-sm text-white/80 font-semibold uppercase tracking-wider">Marcas Premium</div>
+              {/* Marcas - AHORA VISIBLE */}
+              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
+                <div className="text-xl md:text-3xl font-black text-white mb-1">50+</div>
+                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Marcas Premium</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-      {/* Equipment Benefits */}
-      <section className="py-12 bg-gray-100 text-black">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-9">
-            {/* Image */}
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden h-96">
+      {/* Equipment Benefits - RESPONSIVE */}
+      <section className="py-8 md:py-12 bg-gray-100 text-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-6 md:mb-9">
+            {/* Image - RESPONSIVE HEIGHT */}
+            <div className="relative order-2 lg:order-1">
+              <div className="rounded-2xl md:rounded-3xl overflow-hidden h-64 md:h-96">
                 <Image  
                   src="https://www.hola.com/horizon/landscape/8f63637f78d5-maquinasgimnasio-t.jpg?im=Resize=(640),type=downsize" 
                   alt="Equipamiento profesional de gimnasio"
@@ -122,84 +124,94 @@ export default function EalLeaderHomePage() {
               </div>
             </div>
 
-            {/* Content */}
-            <div className="space-y-8">
+            {/* Content - RESPONSIVE TEXT */}
+            <div className="space-y-6 md:space-y-8 order-1 lg:order-2">
               <div className="text-sm font-bold text-red-500 tracking-wider uppercase">
                 Equipamiento Premium
               </div>
               
-              <h2 className="text-5xl font-black leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight">
                 La mejor calidad en
                 <br />
                 equipamiento fitness.
               </h2>
               
-              <p className="text-xl text-gray-600">
+              <p className="text-lg md:text-xl text-gray-600">
                 Ofrecemos equipamiento de las mejores marcas internacionales con garantía extendida y servicio técnico especializado.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Máquinas cardiovasculares de última tecnología.</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">Máquinas cardiovasculares de última tecnología.</h3>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Equipos de fuerza y musculación profesional.</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">Equipos de fuerza y musculación profesional.</h3>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Accesorios y equipos de entrenamiento funcional.</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">Accesorios y equipos de entrenamiento funcional.</h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Products Showcase Section - AQUÍ ESTÁ EL CAROUSEL */}
-          <div className="border-t border-gray-200 pt-10">
-            <div className="text-center mb-5">
-
-              <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">
-                Nuestros produtos
+          {/* Products Showcase Section - CAROUSEL RESPONSIVE */}
+          <div className="border-t border-gray-200 pt-8 md:pt-10">
+            <div className="text-center mb-6 md:mb-8">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-2">
+                Nuestros productos
               </h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
                 Conoce nuestra variedad de productos diseñados para llevar tu gimnasio al siguiente nivel.
-
               </p>
             </div>
 
-            {/* Carousel Container */}
-            <div className="relative ">
-              {/* Navigation Buttons */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-40 top-1/2 transform -translate-y-1/2 z-10 bg-white hover:bg-gray-50 text-gray-800 p-2 rounded-full shadow-lg border hover:border-red-300 transition-all duration-300 hover:scale-105"
-                disabled={totalSlides <= 1}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
+            {/* Carousel Container - RESPONSIVE */}
+            <div className="relative">
+              {/* Navigation Buttons - MEJORADOS COMO RECTANGULOS */}
+              <div className="flex justify-center gap-4 mb-4">
+                <button
+                  onClick={prevSlide}
+                  className="bg-red-500 hover:bg-red-600 text-white 
+                            px-6 py-3 md:px-8 md:py-4 rounded-xl 
+                            font-semibold text-sm md:text-base
+                            transition-all duration-300 hover:scale-105 shadow-lg
+                            flex items-center justify-center gap-1 min-w-[120px] md:min-w-[140px]"
+                  disabled={totalSlides <= 1}
+                >
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  <span className="hidden sm:inline">Anterior</span>
+                </button>
 
-              <button
-                onClick={nextSlide}
-                className="absolute right-40 top-1/2 transform -translate-y-1/2 z-10 bg-white hover:bg-gray-50 text-gray-800 p-2 rounded-full shadow-lg border hover:border-red-300 transition-all duration-300 hover:scale-105"
-                disabled={totalSlides <= 1}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+                <button
+                  onClick={nextSlide}
+                  className="bg-red-500 hover:bg-red-600 text-white 
+                            px-6 py-3 md:px-8 md:py-4 rounded-xl 
+                            font-semibold text-sm md:text-base
+                            transition-all duration-300 hover:scale-105 shadow-lg
+                            flex items-center justify-center gap-1 min-w-[120px] md:min-w-[140px]"
+                  disabled={totalSlides <= 1}
+                >
+                  <span className="hidden sm:inline">Siguiente</span>
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
 
-              {/* Products Grid - SECCIÓN AJUSTADA */}
+              {/* Products Grid - MANTENIENDO ESTRUCTURA ORIGINAL DE 3 COLUMNAS */}
               <div className="overflow-hidden mx-4">
                 <div 
                   className="flex transition-transform duration-500 ease-in-out"
@@ -209,7 +221,7 @@ export default function EalLeaderHomePage() {
                     <div key={slideIndex} className="w-full flex-shrink-0">
                       {/* Contenedor más pequeño: max-w-3xl en lugar de 4xl */}
                       <div className="max-w-3xl mx-auto">
-                        {/* Grid con 3 columnas */}
+                        {/* Grid con 3 columnas - EXACTAMENTE IGUAL AL ORIGINAL */}
                         <div className="grid grid-cols-3 gap-6">
                           {allProducts.slice(slideIndex * productsPerSlide, (slideIndex + 1) * productsPerSlide).map((product) => (
                             <div
@@ -252,15 +264,10 @@ export default function EalLeaderHomePage() {
                                   </span>
                                 </div>
 
-                                {/* Product Name */}
+                                {/* Product Name - SIN DESCRIPCIÓN */}
                                 <h3 className="font-bold text-gray-900 mb-2 text-base line-clamp-2 group-hover:text-red-600 transition-colors">
                                   {product.name}
                                 </h3>
-
-                                {/* Product Description */}
-                                <p className="text-gray-600 text-xs mb-3 line-clamp-2">
-                                  {product.description}
-                                </p>
 
                                 {/* Price */}
                                 <div className="mb-3">
@@ -327,10 +334,9 @@ export default function EalLeaderHomePage() {
       </div>
 
         </div>
-        
       </section>
 
-      {/* Services Grid */}
+       {/* Services Grid */}
       <section className="py-12 bg-zinc-800">
         <div className="max-w-7xl mx-auto px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-1">
@@ -399,14 +405,14 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
 
-      {/* Sección Quiénes Somos con Formulario */}
-      <section className="py-12 bg-neutral-700" id="quienes-somos">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-12 items-start">
+      {/* Sección Quiénes Somos con Formulario - RESPONSIVE */}
+      <section className="py-8 md:py-12 bg-neutral-700" id="quienes-somos">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
             
-            {/* Imagen representativa - Más compacta */}
-            <div className="xl:col-span-1 py-10">
-              <div className="rounded-3xl overflow-hidden h-80 relative"> {/* ← Agrega 'relative' aquí */}
+            {/* Imagen representativa - RESPONSIVE */}
+            <div className="lg:col-span-1 order-1 lg:order-1">
+              <div className="rounded-2xl md:rounded-3xl overflow-hidden h-64 md:h-80 relative">
                 <Image  
                   src="https://www.gymtek.com.ec/wp-content/uploads/2019/08/como-elegir-equipos-de-gimnasio-gymtek.jpg" 
                   alt="Gimnasio con equipamiento profesional"
@@ -416,13 +422,13 @@ export default function EalLeaderHomePage() {
               </div>
             </div>
             
-            {/* Información */}
-            <div className="xl:col-span-1 space-y-6">
+            {/* Información - RESPONSIVE */}
+            <div className="lg:col-span-1 space-y-4 md:space-y-6 order-2 lg:order-2">
               <div className="text-xs font-bold text-red-500 tracking-wider uppercase">
                 Quiénes Somos
               </div>
               
-              <h2 className="text-3xl font-black leading-snug text-white">
+              <h2 className="text-2xl md:text-3xl font-black leading-snug text-white">
                 Pasión por el <span className="text-red-500">Fitness</span>,<br />
                 compromiso con tu gimnasio.
               </h2>
@@ -449,10 +455,10 @@ export default function EalLeaderHomePage() {
               </ul>
             </div>
             
-            {/* Formulario - Ahora con fondo blanco y borde rojo */}
-            <div className="xl:col-span-1" id="formulario-cotizacion">
-              <div className="bg-white p-8 rounded-2xl shadow-xl border-2 border-red-500">
-                <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">
+            {/* Formulario - RESPONSIVE */}
+            <div className="lg:col-span-1 order-3 lg:order-3" id="formulario-cotizacion">
+              <div className="bg-white p-6 md:p-8 rounded-2xl shadow-xl border-2 border-red-500">
+                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
                   Solicita tu Cotización
                 </h3>
                 
@@ -461,7 +467,7 @@ export default function EalLeaderHomePage() {
                     <input 
                       type="text" 
                       placeholder="Nombre completo" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                     />
                   </div>
                   
@@ -469,7 +475,7 @@ export default function EalLeaderHomePage() {
                     <input 
                       type="email" 
                       placeholder="Correo electrónico" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                     />
                   </div>
                   
@@ -477,7 +483,7 @@ export default function EalLeaderHomePage() {
                     <input 
                       type="tel" 
                       placeholder="Número de teléfono" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                     />
                   </div>
         
@@ -485,13 +491,13 @@ export default function EalLeaderHomePage() {
                     <input 
                       type="text" 
                       placeholder="Indica tu presupuesto" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                     />
                   </div>
                   
                   <button 
                     type="submit" 
-                    className="w-full bg-red-500 text-white py-3 rounded-xl font-bold hover:bg-red-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                    className="w-full bg-red-500 text-white py-3 rounded-xl font-bold text-sm md:text-base hover:bg-red-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
                   >
                     Enviar Cotización
                   </button>
@@ -593,7 +599,8 @@ export default function EalLeaderHomePage() {
             </button>
 
 
-            <button onClick={() => window.open('https://instagram.com/tu-perfil', '_blank')} className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-4 rounded-full hover:from-purple-700 hover:to-pink-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Instagram" > <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/> </svg> </button>
+            <button onClick={() => window.open('https://instagram.com/tu-perfil', '_blank')} 
+            className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-4 rounded-full hover:from-purple-700 hover:to-pink-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Instagram" > <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/> </svg> </button>
 
             {/* TikTok */}
             <button 
