@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { allProducts } from './pages/tienda-billar/products';
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function EalLeaderHomePage() {
   const [activeTab, setActiveTab] = useState(0);
@@ -23,7 +24,7 @@ export default function EalLeaderHomePage() {
       setCurrentProduct((prev) => (prev + 1) % products.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [products.length]); // ✅ Agregar dependencia
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -52,7 +53,7 @@ export default function EalLeaderHomePage() {
       <section className="min-h-[70vh] flex items-center relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
+        <Image  
           src="https://www.salter.es/modules/ph_simpleblog/covers/271.png" 
           alt="Equipamiento de gimnasio profesional"
           className="w-full h-full object-cover"
@@ -111,7 +112,7 @@ export default function EalLeaderHomePage() {
             {/* Image */}
             <div className="relative">
               <div className="rounded-3xl overflow-hidden h-96">
-                <img 
+                <Image  
                   src="https://www.hola.com/horizon/landscape/8f63637f78d5-maquinasgimnasio-t.jpg?im=Resize=(640),type=downsize" 
                   alt="Equipamiento profesional de gimnasio"
                   className="w-full h-full object-cover"
@@ -383,7 +384,7 @@ export default function EalLeaderHomePage() {
             {/* Image */}
             <div className="relative">
               <div className="rounded-3xl overflow-hidden h-96">
-                <img 
+                <Image  
                   src="https://poolsecuritysolution.com/wp-content/uploads/servicio-tecnico-para-equipos-y-maquinas-de-gimnasio.jpg" 
                   alt="Instalación profesional de equipamiento de gimnasio"
                   className="w-full h-full object-cover"
@@ -403,7 +404,7 @@ export default function EalLeaderHomePage() {
             {/* Imagen representativa - Más compacta */}
             <div className="xl:col-span-1 py-10">
               <div className="rounded-3xl overflow-hidden h-80">
-                <img 
+                <Image  
                   src="https://www.gymtek.com.ec/wp-content/uploads/2019/08/como-elegir-equipos-de-gimnasio-gymtek.jpg" 
                   alt="Gimnasio con equipamiento profesional"
                   className="w-full h-full object-cover"
