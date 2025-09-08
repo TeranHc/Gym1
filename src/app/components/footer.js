@@ -5,7 +5,6 @@ export default function Footer() {
     <>
       {/* CDN de Font Awesome y Tailwind */}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-      <script src="https://cdn.tailwindcss.com"></script>
       
       <footer className="text-white relative overflow-hidden" style={{
         background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2a2a2a 100%)'
@@ -28,29 +27,29 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4 text-white">MENÚ</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="/" className="hover:text-red-500 transition-colors">
+                  <Link  href="/" className="hover:text-red-500 transition-colors">
                     Inicio
-                  </a>
+                  </Link >
                 </div>
                 <div>
-                  <a href="/clases" className="hover:text-red-500 transition-colors">
+                  <Link  href="/clases" className="hover:text-red-500 transition-colors">
                     Quiénes Somos
-                  </a>
+                  </Link >
                 </div>
                 <div>
-                  <a href="/membresias" className="hover:text-red-500 transition-colors">
+                  <Link  href="/membresias" className="hover:text-red-500 transition-colors">
                     Membresías
-                  </a>
+                  </Link >
                 </div>
                 <div>
-                  <a href="/tienda" className="hover:text-red-500 transition-colors">
+                  <Link  href="/tienda" className="hover:text-red-500 transition-colors">
                     Tienda
-                  </a>
+                  </Link >
                 </div>
                 <div>
-                  <a href="/contacto" className="hover:text-red-500 transition-colors">
+                  <Link  href="/contacto" className="hover:text-red-500 transition-colors">
                     Contacto
-                  </a>
+                  </Link >
                 </div>
               </div>
             </div>

@@ -408,16 +408,16 @@ export default function EalLeaderHomePage() {
             
             {/* Imagen representativa - Más compacta */}
             <div className="xl:col-span-1 py-10">
-  <div className="rounded-3xl overflow-hidden h-80 relative"> {/* ← Agrega 'relative' aquí */}
-    <Image  
-      src="https://www.gymtek.com.ec/wp-content/uploads/2019/08/como-elegir-equipos-de-gimnasio-gymtek.jpg" 
-      alt="Gimnasio con equipamiento profesional"
-      fill  
-      className="object-cover" 
-    />
-    <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-black/30"></div>
-  </div>
-</div>
+              <div className="rounded-3xl overflow-hidden h-80 relative"> {/* ← Agrega 'relative' aquí */}
+                <Image  
+                  src="https://www.gymtek.com.ec/wp-content/uploads/2019/08/como-elegir-equipos-de-gimnasio-gymtek.jpg" 
+                  alt="Gimnasio con equipamiento profesional"
+                  fill  
+                  className="object-cover" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-black/30"></div>
+              </div>
+            </div>
             
             {/* Información */}
             <div className="xl:col-span-1 space-y-6">
