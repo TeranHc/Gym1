@@ -344,7 +344,7 @@ const TermsAndConditions = () => {
                   <p><strong>Teléfono:</strong> +593 4 123-4567</p>
                 </div>
                 <div>
-                  <p><strong>Dirección:</strong> Ciudad, Guayaquil</p>
+                  <p><strong>Dirección:</strong> Ciudad, Puebla</p>
                   <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</p>
                 </div>
               </div>

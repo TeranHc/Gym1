@@ -5,7 +5,7 @@ import Footer from './components/footer';
 import Script from 'next/script';
 
 export const metadata = {
-  title: 'Billares Alfale',
+  title: 'Gym RealLeader',
   description: 'Veterinaria especializada en el cuidado de mascotas',
 };
 
@@ -29,12 +29,18 @@ export default function RootLayout({ children }) {
             }
           `}
         </Script>
+        
       </head>
       <body className="flex flex-col min-h-screen">
         <CartProvider>
-          <Header className="py-10 lg:py-20"></Header>
+          <Header className="py-10 lg:py-20">
+            
+          </Header>
           <main className=" lg:pt-2 bg-main ">{children}</main>
-          <Footer />
+          <Footer>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+          </Footer>
         </CartProvider>
       </body>
     </html>

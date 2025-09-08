@@ -89,7 +89,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <i className="fas fa-map-marker-alt"></i>
-                  <span>Guayaquil, Ecuador</span>
+                  <span>Puebla, Mexico</span>
                 </div>
               </div>
               
