@@ -2,7 +2,6 @@ import { CartProvider } from './pages/carrito/CartContext';
 import './globals.css';
 import Header from './components/header';
 import Footer from './components/footer';
-import CookieBanner from './pages/cookies/CookieBanner';
 import Script from 'next/script';
 
 export const metadata = {
@@ -36,7 +35,6 @@ export default function RootLayout({ children }) {
           <Header className="py-10 lg:py-20"></Header>
           <main className=" lg:pt-2 bg-main ">{children}</main>
           <Footer />
-          <CookieBanner />
         </CartProvider>
       </body>
     </html>
