@@ -156,10 +156,9 @@ export default function ProductDetailPage({ params }) {
                 <button
                   onClick={() => handleCategoryClick(product.category)}
                   className={`inline-block px-3 py-1 text-sm font-medium rounded-full transition-colors hover:opacity-80 ${
-                    product.category === 'Comida' ? 'bg-green-100 text-green-800 hover:bg-green-200' :
-                    product.category === 'Limpieza' ? 'bg-blue-100 text-blue-800 hover:bg-blue-200' :
-                    product.category === 'Medicina' ? 'bg-red-100 text-red-800 hover:bg-red-200' :
-                    product.category === 'Ropa' ? 'bg-purple-100 text-purple-800 hover:bg-purple-200' :
+                          product.category === 'Máquinas de Fuerza' ? 'bg-red-100 text-red-700' :
+                          product.category === 'Máquinas de Pecho' ? 'bg-green-100 text-green-700' :
+                          product.category === 'Máquinas de Cadera' ? 'bg-purple-100 text-purple-700' :
                     'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
                   }`}
                 >
@@ -195,20 +194,20 @@ export default function ProductDetailPage({ params }) {
               <div className="mb-4 md:mb-6">
 
 
-                <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-3">Cantidad</h3>
+                <h3 className="text-black md:text-lg font-semibold text-gray-800 mb-3">Cantidad</h3>
                 <div className="flex items-center space-x-3 md:space-x-4">
                   <button
                     onClick={() => handleQuantityChange(-1)}
                     disabled={quantity <= 1}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-lg md:text-xl font-bold"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-400 text-black flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-lg md:text-xl font-bold"
                   >
                     -
                   </button>
-                  <span className="text-xl md:text-2xl font-semibold w-12 md:w-16 text-center">{quantity}</span>
+                  <span className="text-xl md:text-2xl font-semibold w-12 md:w-16 text-center text-black">{quantity}</span>
                   <button
                     onClick={() => handleQuantityChange(1)}
                     disabled={quantity >= 10}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-lg md:text-xl font-bold"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-500 flex text-black items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-lg md:text-xl font-bold"
                   >
                     +
                   </button>
@@ -220,7 +219,7 @@ export default function ProductDetailPage({ params }) {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    const productUrl = `https://billar1.vercel.app/pages/tienda-billar/productos/${product.id}`;
+                    const productUrl = `https://gym1-nine.vercel.app/pages/tienda-billar/productos/${product.id}`;
                     const message = encodeURIComponent(
                       `Hola, estoy interesado en este producto:\n` +
                       `- *Producto:* ${product.name}\n` +
@@ -300,7 +299,7 @@ export default function ProductDetailPage({ params }) {
           <div className="p-4 md:p-6">
             {activeTab === 'descripcion' && (
               <div>
-                <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Descripción del producto</h3>
+                <h3 className="text-black md:text-lg font-semibold mb-3 md:mb-4">Descripción del producto</h3>
                 <p className="text-gray-600 leading-relaxed mb-3 md:mb-4 text-sm md:text-base">{product.description}</p>
                 <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                   Este producto ha sido cuidadosamente seleccionado para ofrecer la mejor calidad y 
@@ -312,12 +311,14 @@ export default function ProductDetailPage({ params }) {
 
             {activeTab === 'especificaciones' && (
               <div>
-                <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Especificaciones técnicas</h3>
+                <h3 className="text-black md:text-lg font-semibold mb-3 md:mb-4">Especificaciones técnicas</h3>
                 {product.specifications && (
                   <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
                     {Object.entries(product.specifications).map(([key, value]) => (
                       <div key={key} className="flex flex-col md:flex-row md:justify-between border-b pb-2">
-                        <span className="font-medium text-gray-700 capitalize mb-1 md:mb-0 text-sm md:text-base">{key}:</span>
+                      <span className="font-bold text-gray-700 capitalize mb-1 md:mb-0 text-sm md:text-base">
+                        {key}:
+                      </span>
                         <span className="text-gray-600 md:text-right text-sm md:text-base">{value}</span>
                       </div>
                     ))}
@@ -328,7 +329,7 @@ export default function ProductDetailPage({ params }) {
 
             {activeTab === 'caracteristicas' && (
               <div>
-                <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Características principales</h3>
+                <h3 className="text-black md:text-lg font-semibold mb-3 md:mb-4">Características principales</h3>
                 {product.features && (
                   <ul className="space-y-2 md:space-y-3">
                     {product.features.map((feature, index) => (

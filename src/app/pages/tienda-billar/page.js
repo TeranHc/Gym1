@@ -21,10 +21,9 @@ function TiendaCaninaContent() {
   // Categorías disponibles
   const categories = [
     { name: 'Todos', icon: '', count: allProducts.length },
-    { name: 'Billar', icon: '🎱', count: allProducts.filter(p => p.category === 'Billar').length },
-    { name: 'Futbolito', icon: '⚽', count: allProducts.filter(p => p.category === 'Futbolito').length },
-    { name: 'Poker', icon: '♠️', count: allProducts.filter(p => p.category === 'Poker').length },
-    { name: 'Otros', icon: '📦', count: allProducts.filter(p => p.category === 'Otros').length }
+    { name: 'Máquinas de Fuerza', icon: '', count: allProducts.filter(p => p.category === 'Máquinas de Fuerza').length },
+    { name: 'Máquinas de Pecho', icon: '', count: allProducts.filter(p => p.category === 'Máquinas de Pecho').length },
+    { name: 'Máquinas de Cadera', icon: '', count: allProducts.filter(p => p.category === 'Máquinas de Cadera').length },
   ];
 
   // Efecto para manejar el parámetro de categoría de la URL
@@ -73,6 +72,18 @@ function TiendaCaninaContent() {
 
   const handleProductClick = (productId) => {
     router.push(`/pages/tienda-billar/productos/${productId}`);
+  };
+
+  // Función para manejar búsqueda con Enter
+  const handleSearchEnter = () => {
+    setIsSidebarOpen(false);
+    // Hacer scroll hacia los resultados
+    setTimeout(() => {
+      const resultsSection = document.querySelector('.flex-1');
+      if (resultsSection) {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   return (
@@ -165,7 +176,12 @@ function TiendaCaninaContent() {
                     placeholder="Buscar productos..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="block w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        handleSearchEnter();
+                      }
+                    }}
+                    className="block w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm text-gray-900"
                   />
                 </div>
               </div>
@@ -206,7 +222,7 @@ function TiendaCaninaContent() {
           {isSidebarOpen && (
             <>
               <div 
-                className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+                className="lg:hidden fixed inset-0 bg-opacity-50 z-40"
                 onClick={() => setIsSidebarOpen(false)}
               ></div>
               <div className="lg:hidden fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-xl z-50 transform transition-transform">
@@ -237,7 +253,12 @@ function TiendaCaninaContent() {
                         placeholder="Buscar productos..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="block w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter') {
+                            handleSearchEnter();
+                          }
+                        }}
+                        className="block w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500 bg-white"
                       />
                     </div>
                   </div>
@@ -275,15 +296,7 @@ function TiendaCaninaContent() {
                     </div>
                   </div>
 
-                  {/* Botón aplicar cambios */}
-                  <div className="mt-6 pt-6 border-t border-gray-200">
-                    <button
-                      onClick={() => setIsSidebarOpen(false)}
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-xl font-medium transition-colors"
-                    >
-                      Aplicar filtros
-                    </button>
-                  </div>
+
                 </div>
               </div>
             </>
@@ -360,17 +373,15 @@ function TiendaCaninaContent() {
                     <div className="p-4 md:p-6">
                       <div className="mb-2 md:mb-3">
                         <span className={`inline-flex items-center gap-1 px-2 py-1 md:px-3 md:py-1 text-xs font-semibold rounded-full ${
-                          product.category === 'Billar' ? 'bg-red-100 text-red-700' :
-                          product.category === 'Futbolito' ? 'bg-green-100 text-green-700' :
-                          product.category === 'Poker' ? 'bg-purple-100 text-purple-700' :
-                          product.category === 'Otros' ? 'bg-yellow-100 text-yellow-700' :
+                          product.category === 'Máquinas de Fuerza' ? 'bg-red-100 text-red-700' :
+                          product.category === 'Máquinas de Pecho' ? 'bg-green-100 text-green-700' :
+                          product.category === 'Máquinas de Cadera' ? 'bg-purple-100 text-purple-700' :
                           'bg-gray-100 text-gray-700'
                         }`}>
                           <span className="text-xs">
-                            {product.category === 'Billar' ? '🎱' :
-                             product.category === 'Futbolito' ? '⚽' :
-                             product.category === 'Poker' ? '♠️' :
-                             product.category === 'Otros' ? '📦' : '🎯'}
+                            {product.category === 'Máquinas de Fuerza' ? '' :
+                             product.category === 'Máquinas de Pecho' ? '' :
+                             product.category === 'Máquinas de Cadera' ? '' : ''}
                           </span>
                           {product.category}
                         </span>
@@ -399,7 +410,7 @@ function TiendaCaninaContent() {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            const productUrl = `https://billar1.vercel.app/pages/tienda-billar/productos/${product.id}`;
+                            const productUrl = `https://gym1-nine.vercel.app/pages/tienda-billar/productos/${product.id}`;
                             const message = encodeURIComponent(
                               `Hola, estoy interesado en este producto:\n` +
                               `- *Producto:* ${product.name}\n` +

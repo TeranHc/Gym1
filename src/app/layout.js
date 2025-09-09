@@ -6,7 +6,7 @@ import Script from 'next/script';
 
 export const metadata = {
   title: 'Gym RealLeader',
-  description: 'Veterinaria especializada en el cuidado de mascotas',
+  description: 'Venta de equipos para tu gimnasio ideal',
 };
 
 export default function RootLayout({ children }) {

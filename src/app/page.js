@@ -7,7 +7,9 @@ import Image from 'next/image';
 export default function EalLeaderHomePage() {
   const [activeTab, setActiveTab] = useState(0);
   const [currentProduct, setCurrentProduct] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlideDesktop, setCurrentSlideDesktop] = useState(0);
+  const [currentSlideMobile, setCurrentSlideMobile] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   
   const products = [
     { name: "Mancuernas Profesionales", price: "$299", image: "🏋️" },
@@ -18,8 +20,19 @@ export default function EalLeaderHomePage() {
   // Configuración del carousel - RESPONSIVE
   const productsPerSlide = 3; // Desktop
   const productsPerSlideMobile = 1; // Mobile
-  const totalSlides = Math.ceil(allProducts.length / productsPerSlide);
+  const totalSlidesDesktop = Math.ceil(allProducts.length / productsPerSlide);
   const totalSlidesMobile = Math.ceil(allProducts.length / productsPerSlideMobile);
+
+  // Hook para detectar tamaño de pantalla
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -29,16 +42,19 @@ export default function EalLeaderHomePage() {
   }, [products.length]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    if (isMobile) {
+      setCurrentSlideMobile((prev) => (prev + 1) % totalSlidesMobile);
+    } else {
+      setCurrentSlideDesktop((prev) => (prev + 1) % totalSlidesDesktop);
+    }
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const getCurrentProducts = () => {
-    const start = currentSlide * productsPerSlide;
-    return allProducts.slice(start, start + productsPerSlide);
+    if (isMobile) {
+      setCurrentSlideMobile((prev) => (prev - 1 + totalSlidesMobile) % totalSlidesMobile);
+    } else {
+      setCurrentSlideDesktop((prev) => (prev - 1 + totalSlidesDesktop) % totalSlidesDesktop);
+    }
   };
 
   const formatPrice = (price) => {
@@ -48,6 +64,80 @@ export default function EalLeaderHomePage() {
       minimumFractionDigits: 0,
     }).format(price);
   };
+
+  // Componente ProductCard para reutilizar
+  const ProductCard = ({ product }) => (
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+      {/* Product Image */}
+      <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 relative overflow-hidden">
+        <Image
+          src={product.image}
+          alt={product.alt}
+          width={300}
+          height={300}
+          className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-md">
+            <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* Product Info */}
+      <div className="p-4">
+        {/* Category Badge */}
+        <div className="mb-2">
+          <span className={`inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full ${
+            product.category === 'Máquinas de Fuerza' ? 'bg-red-100 text-red-700' :
+            product.category === 'Máquinas de Pecho' ? 'bg-green-100 text-green-700' :
+            product.category === 'Máquinas de Cadera' ? 'bg-purple-100 text-purple-700' :
+            'bg-gray-100 text-gray-700'
+          }`}>
+            {product.category === 'Máquinas de Fuerza' && ''}
+            {product.category === 'Máquinas de Pecho' && ''}
+            {product.category === 'Máquinas de Cadera' && ''}
+            {product.category}
+          </span>
+        </div>
+
+        {/* Product Name */}
+        <h3 className="font-bold text-gray-900 mb-2 text-base line-clamp-2 group-hover:text-red-600 transition-colors">
+          {product.name}
+        </h3>
+
+        {/* Price */}
+        <div className="mb-3">
+          <span className="text-lg font-bold text-red-600">
+            {formatPrice(product.price)}
+          </span>
+        </div>
+
+        {/* Action Button */}
+        <button 
+          onClick={() => {
+            const message = encodeURIComponent(
+              `Hola, estoy interesado en este producto:\n` +
+              `- Producto: ${product.name}\n` +
+              `- Precio: ${formatPrice(product.price)}\n` +
+              `- Categoría: ${product.category}\n\n` +
+              `¿Podrían proporcionarme más información?`
+            );
+            window.open(`https://wa.me/5212213683565?text=${message}`, "_blank");
+          }}
+          className="w-full bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg font-semibold transition-all text-xs flex items-center justify-center gap-2"
+        >
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          Preguntar
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -165,7 +255,7 @@ export default function EalLeaderHomePage() {
             </div>
           </div>
 
-          {/* Products Showcase Section - CAROUSEL RESPONSIVE */}
+          {/* Products Showcase Section - CAROUSEL RESPONSIVE MEJORADO */}
           <div className="border-t border-gray-200 pt-8 md:pt-10">
             <div className="text-center mb-6 md:mb-8">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-2">
@@ -176,9 +266,9 @@ export default function EalLeaderHomePage() {
               </p>
             </div>
 
-{/* Carousel Container - RESPONSIVE */}
+            {/* Carousel Container - RESPONSIVE */}
             <div className="relative">
-              {/* Navigation Buttons - MEJORADOS COMO RECTANGULOS */}
+              {/* Navigation Buttons */}
               <div className="flex justify-center gap-4 mb-6">
                 <button
                   onClick={prevSlide}
@@ -187,7 +277,7 @@ export default function EalLeaderHomePage() {
                             font-semibold text-sm md:text-base
                             transition-all duration-300 hover:scale-105 shadow-lg
                             flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
-                  disabled={totalSlides <= 1}
+                  disabled={isMobile ? totalSlidesMobile <= 1 : totalSlidesDesktop <= 1}
                 >
                   <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -202,7 +292,7 @@ export default function EalLeaderHomePage() {
                             font-semibold text-sm md:text-base
                             transition-all duration-300 hover:scale-105 shadow-lg
                             flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
-                  disabled={totalSlides <= 1}
+                  disabled={isMobile ? totalSlidesMobile <= 1 : totalSlidesDesktop <= 1}
                 >
                   <span className="hidden sm:inline">Siguiente</span>
                   <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -210,131 +300,88 @@ export default function EalLeaderHomePage() {
                   </svg>
                 </button>
               </div>
-              {/* Products Grid - MANTENIENDO ESTRUCTURA ORIGINAL DE 3 COLUMNAS */}
+
+              {/* Products Grid - RESPONSIVE */}
               <div className="overflow-hidden mx-4">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {Array.from({ length: totalSlides }, (_, slideIndex) => (
-                    <div key={slideIndex} className="w-full flex-shrink-0">
-                      {/* Contenedor más pequeño: max-w-3xl en lugar de 4xl */}
-<div className="max-w-sm md:max-w-3xl mx-auto">
-                        {/* Grid con 3 columnas - EXACTAMENTE IGUAL AL ORIGINAL */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6">                          {allProducts.slice(slideIndex * productsPerSlide, (slideIndex + 1) * productsPerSlide).map((product) => (
-                            <div
-                              key={product.id}
-                              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
-                            >
-                              {/* Product Image */}
-                              <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 relative overflow-hidden">
-                                <Image
-                                src={product.image}
-                                alt={product.alt}
-                                width={300}
-                                height={300}
-                                className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                              />
-                                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-md">
-                                    <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Product Info */}
-                              <div className="p-4">
-                                {/* Category Badge */}
-                                <div className="mb-2">
-                                  <span className={`inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full ${
-                                    product.category === 'Billar' ? 'bg-red-100 text-red-700' :
-                                    product.category === 'Futbolito' ? 'bg-green-100 text-green-700' :
-                                    product.category === 'Poker' ? 'bg-purple-100 text-purple-700' :
-                                    'bg-gray-100 text-gray-700'
-                                  }`}>
-                                    {product.category === 'Billar' && '🎱'}
-                                    {product.category === 'Futbolito' && '⚽'}
-                                    {product.category === 'Poker' && '♠️'}
-                                    {product.category}
-                                  </span>
-                                </div>
-
-                                {/* Product Name - SIN DESCRIPCIÓN */}
-                                <h3 className="font-bold text-gray-900 mb-2 text-base line-clamp-2 group-hover:text-red-600 transition-colors">
-                                  {product.name}
-                                </h3>
-
-                                {/* Price */}
-                                <div className="mb-3">
-                                  <span className="text-lg font-bold text-red-600">
-                                    {formatPrice(product.price)}
-                                  </span>
-                                </div>
-
-                                {/* Action Button */}
-                                <button 
-                                  onClick={() => {
-                                    const message = encodeURIComponent(
-                                      `Hola, estoy interesado en este producto:\n` +
-                                      `- Producto: ${product.name}\n` +
-                                      `- Precio: ${formatPrice(product.price)}\n` +
-                                      `- Categoría: ${product.category}\n\n` +
-                                      `¿Podrían proporcionarme más información?`
-                                    );
-                                    window.open(`https://wa.me/5212213683565?text=${message}`, "_blank");
-                                  }}
-                                  className="w-full bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg font-semibold transition-all text-xs flex items-center justify-center gap-2"
-                                >
-                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                                  </svg>
-                                  Preguntar
-                                </button>
-                              </div>
-                            </div>
-                          ))}
+                {/* Desktop: Carrusel de 3 productos */}
+                <div className="hidden md:block">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentSlideDesktop * 100}%)` }}
+                  >
+                    {Array.from({ length: totalSlidesDesktop }, (_, slideIndex) => (
+                      <div key={slideIndex} className="w-full flex-shrink-0">
+                        <div className="max-w-3xl mx-auto">
+                          <div className="grid grid-cols-3 gap-6">
+                            {allProducts.slice(slideIndex * productsPerSlide, (slideIndex + 1) * productsPerSlide).map((product) => (
+                              <ProductCard key={product.id} product={product} />
+                            ))}
+                          </div>
                         </div>
-                        
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-                
+
+                {/* Mobile: Carrusel de 1 producto */}
+                <div className="block md:hidden">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentSlideMobile * 100}%)` }}
+                  >
+                    {allProducts.map((product, index) => (
+                      <div key={product.id} className="w-full flex-shrink-0">
+                        <div className="max-w-sm mx-auto px-4">
+                          <ProductCard product={product} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-
-
-              {/* Slide Indicators */}
-              {totalSlides > 1 && (
-                <div className="flex justify-center mt-6 space-x-2">
-                  {Array.from({ length: totalSlides }, (_, index) => (
+              {/* Slide Indicators - RESPONSIVE */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {/* Desktop indicators */}
+                <div className="hidden md:flex space-x-2">
+                  {totalSlidesDesktop > 1 && Array.from({ length: totalSlidesDesktop }, (_, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentSlide(index)}
+                      onClick={() => setCurrentSlideDesktop(index)}
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        currentSlide === index ? 'bg-red-500' : 'bg-gray-300 hover:bg-gray-400'
+                        currentSlideDesktop === index ? 'bg-red-500' : 'bg-gray-300 hover:bg-gray-400'
                       }`}
                     />
                   ))}
                 </div>
-              )}
+                
+                {/* Mobile indicators */}
+                <div className="flex md:hidden space-x-2">
+                  {totalSlidesMobile > 1 && Array.from({ length: totalSlidesMobile }, (_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlideMobile(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        currentSlideMobile === index ? 'bg-red-500' : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
+          
           <div className="flex justify-center pt-4">
-          <Link href="/pages/tienda-billar">
-          <button className="bg-black text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-800 transition-all duration-300">
-            Ver Catálogo
-          </button>
-        </Link>
-      </div>
-
+            <Link href="/pages/tienda-billar">
+              <button className="bg-black text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-800 transition-all duration-300">
+                Ver Catálogo
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 
-{/* Services Grid - RESPONSIVE */}
+      {/* Services Grid - RESPONSIVE */}
       <section className="py-8 md:py-12 bg-zinc-800">
         <div className="max-w-7xl mx-auto px-4 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-1">
@@ -504,121 +551,119 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
 
-
       {/* Location Section */}
-<section className="py-10 bg-gray-100 text-black">
-  <div className="max-w-7xl mx-auto px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      {/* Content */}
-      <div className="space-y-8">
-        <h2 className="text-5xl font-black leading-tight">
-          Visita nuestro
-          <br />
-          Local especializado.
-        </h2>
-        
-        <p className="text-xl text-gray-600">
-          Conoce de cerca nuestro equipamiento. Prueba las máquinas y recibe asesoramiento personalizado de nuestros expertos.
-        </p>
+      <section className="py-10 bg-gray-100 text-black">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Content */}
+            <div className="space-y-8">
+              <h2 className="text-5xl font-black leading-tight">
+                Visita nuestro
+                <br />
+                Local especializado.
+              </h2>
+              
+              <p className="text-xl text-gray-600">
+                Conoce de cerca nuestro equipamiento. Prueba las máquinas y recibe asesoramiento personalizado de nuestros expertos.
+              </p>
 
-        <div className="space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="text-2xl">📍</div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">Local Principal</h3>
-              <p className="text-gray-600">Av. 9 de Octubre 1234, Puebla, Mexico</p>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="text-2xl">📍</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Local Principal</h3>
+                    <p className="text-gray-600">Av. 9 de Octubre 1234, Puebla, Mexico</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="text-2xl">🕒</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Horarios de Atención</h3>
+                    <p className="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="text-2xl">🚚</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Entrega e Instalación</h3>
+                    <p className="text-gray-600">Servicio a toda la República Mexicana</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Botones de acción */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => {
+                    document.getElementById('formulario-cotizacion').scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'center' 
+                    });
+                  }}
+                  className="bg-red-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Agendar Visita
+                </button>
+              </div>
+            </div>
+
+            {/* Real Google Map */}
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden shadow-2xl h-96">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6168089282453!2d-99.14370368507614!3d19.43682928689048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92b8c8b5555%3A0x5555555555555555!2sCalle%20Col%C3%B3n%20Balderas%2C%20Colonia%20Centro%2C%20Cuauht%C3%A9moc%2C%2006040%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1699999999999!5m2!1ses-419!2smx"
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="filter brightness-90 hover:brightness-100 transition-all duration-300"
+                ></iframe>
+              </div>
+
+              {/* Redes Sociales debajo del mapa */}
+              <div className="mt-8 text-center">
+                <h3 className="text-lg font-bold mb-4 text-gray-800">Síguenos en nuestras redes</h3>
+                
+                <div className="flex justify-center gap-6">
+                  {/* Facebook */}
+                  <button 
+                    onClick={() => window.open('https://facebook.com/tu-pagina', '_blank')}
+                    className="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    title="Síguenos en Facebook"
+                  >
+                    <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </button>
+
+                  <button onClick={() => window.open('https://instagram.com/tu-perfil', '_blank')} 
+                  className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-4 rounded-full hover:from-purple-700 hover:to-pink-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Instagram" > <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/> </svg> </button>
+
+                  {/* TikTok */}
+                  <button 
+                    onClick={() => window.open('https://tiktok.com/@tu-perfil', '_blank')}
+                    className="bg-black text-white p-4 rounded-full hover:bg-gray-800 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    title="Síguenos en TikTok"
+                  >
+                    <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" >
+                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Texto adicional */}
+                <p className="text-sm text-gray-600 mt-4">
+                  Mantente al día con nuestras últimas ofertas y novedades del mundo fitness.
+                </p>
+              </div>
             </div>
           </div>
-
-          <div className="flex items-start gap-4">
-            <div className="text-2xl">🕒</div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">Horarios de Atención</h3>
-              <p className="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <div className="text-2xl">🚚</div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">Entrega e Instalación</h3>
-              <p className="text-gray-600">Servicio a toda la República Mexicana</p>
-            </div>
-          </div>
         </div>
-
-        {/* Botones de acción */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button 
-            onClick={() => {
-              document.getElementById('formulario-cotizacion').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'center' 
-              });
-            }}
-            className="bg-red-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Agendar Visita
-          </button>
-        </div>
-      </div>
-
-      {/* Real Google Map */}
-      <div className="relative">
-        <div className="rounded-3xl overflow-hidden shadow-2xl h-96">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6168089282453!2d-99.14370368507614!3d19.43682928689048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92b8c8b5555%3A0x5555555555555555!2sCalle%20Col%C3%B3n%20Balderas%2C%20Colonia%20Centro%2C%20Cuauht%C3%A9moc%2C%2006040%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1699999999999!5m2!1ses-419!2smx"
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-            className="filter brightness-90 hover:brightness-100 transition-all duration-300"
-          ></iframe>
-        </div>
-
-        {/* Redes Sociales debajo del mapa */}
-        <div className="mt-8 text-center">
-          <h3 className="text-lg font-bold mb-4 text-gray-800">Síguenos en nuestras redes</h3>
-          
-          <div className="flex justify-center gap-6">
-            {/* Facebook */}
-            <button 
-              onClick={() => window.open('https://facebook.com/tu-pagina', '_blank')}
-              className="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-              title="Síguenos en Facebook"
-            >
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </button>
-
-
-            <button onClick={() => window.open('https://instagram.com/tu-perfil', '_blank')} 
-            className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-4 rounded-full hover:from-purple-700 hover:to-pink-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Instagram" > <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/> </svg> </button>
-
-            {/* TikTok */}
-            <button 
-              onClick={() => window.open('https://tiktok.com/@tu-perfil', '_blank')}
-              className="bg-black text-white p-4 rounded-full hover:bg-gray-800 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-              title="Síguenos en TikTok"
-            >
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" >
-                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-              </svg>
-            </button>
-          </div>
-
-          {/* Texto adicional */}
-          <p className="text-sm text-gray-600 mt-4">
-            Mantente al día con nuestras últimas ofertas y novedades del mundo fitness.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* CTA Final */}
       <section className="py-15 bg-zinc-800 from-red-500 to-orange-500">
@@ -633,16 +678,15 @@ export default function EalLeaderHomePage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button 
               onClick={() => {
-    document.getElementById('formulario-cotizacion').scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'center' 
-    });
-  }}
-            className="bg-white text-red-500 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl">
-              Solicitar Cotización
+                document.getElementById('formulario-cotizacion').scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'center' 
+                });
+              }}
+              className="bg-white text-red-500 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl">
+                Solicitar Cotización
             </button>
               <Link href="/pages/tienda-billar">
-
                 <button className="border-2 border-white text-white px-12 py-6 rounded-2xl font-bold text-xl hover:bg-white hover:text-red-500 transition-all duration-300">
                 Ver catalogo
               </button>
