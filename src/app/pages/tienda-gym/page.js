@@ -493,7 +493,6 @@ useEffect(() => {
                             const message = encodeURIComponent(
                               `Hola, estoy interesado en este producto:\n` +
                               `- *Producto:* ${product.name}\n` +
-                              `- *Precio:* ${product.price}\n` +
                               `- *Categoría:* ${product.category}\n\n` +
                               `- *Ver producto:* ${productUrl}`
                             );
