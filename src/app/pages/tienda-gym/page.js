@@ -461,7 +461,7 @@ useEffect(() => {
                     
                     <div className="p-6 flex-1">
 
-                      <h3 className="font-bold text-gray-900 mb-2 text-[15px] line-clamp-2 group-hover:text-red-600 transition-colors">
+                      <h3 className="font-bold text-gray-900 mb-2 text-[15px] line-clamp-2 group-hover:text-red-600 transition-colors text-center">
                         {product.name || 'Producto sin nombre'}
                       </h3>
 
