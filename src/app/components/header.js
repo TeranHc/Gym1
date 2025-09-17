@@ -11,7 +11,7 @@ export default function GymHeader() {
   const menuItems = [
     { href: '/', label: 'Inicio' },
     { href: '/#quienes-somos', label: 'Quiénes Somos'},
-    { href: '/pages/tienda-billar', label: 'Tienda' },
+    { href: '/pages/tienda-gym', label: 'Tienda' },
     { href: '/contacto', label: 'Contacto' }
   ];
 

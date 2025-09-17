@@ -1,4 +1,4 @@
-// tienda-mesas/products.js
+// tienda-gym/products.js
 export const allProducts = [
   // Gym - 3 productos
 {
@@ -15,23 +15,16 @@ export const allProducts = [
     "Sistema de peso integrado con selector de carga",
     "Movimiento guiado para un entrenamiento seguro",
     "Asiento y respaldo acolchados, ajustables en altura",
-    "Diseño ergonómico para correcta postura",
-    "Recubrimiento en pintura electrostática anticorrosión",
-    "Manerales antideslizantes para mayor comodidad",
-    "Base amplia para máxima estabilidad",
-    "Ideal para entrenamiento de pectorales y brazos"
+
   ],
   
 specifications: {
   dimensiones: "190 x 110 x 150 cm",
-  material: "Acero reforzado con recubrimiento anticorrosión",
-  "peso máximo usuario": "150 kg",
-  "peso integrado": "100 kg en placas con selector",
+  "músculo trabajado": "Pectorales y tríceps",
   color: "Negro con detalles plateados",
-  ajuste: "Asiento regulable en altura",
-  uso: "Profesional / Gimnasio",
-  garantía: "1 año en estructura y componentes"
+  uso: "Profesional / Gimnasio"
 }
+
 
 },
 

@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { allProducts } from './pages/tienda-billar/products';
+import { allProducts } from './pages/tienda-gym/products';
 import Link from "next/link";
 import Image from 'next/image';
 
@@ -372,7 +372,7 @@ export default function EalLeaderHomePage() {
           </div>
           
           <div className="flex justify-center pt-4">
-            <Link href="/pages/tienda-billar">
+            <Link href="/pages/tienda-gym">
               <button className="bg-black text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-800 transition-all duration-300">
                 Ver Catálogo
               </button>
@@ -686,7 +686,7 @@ export default function EalLeaderHomePage() {
               className="bg-white text-red-500 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl">
                 Solicitar Cotización
             </button>
-              <Link href="/pages/tienda-billar">
+              <Link href="/pages/tienda-gym">
                 <button className="border-2 border-white text-white px-12 py-6 rounded-2xl font-bold text-xl hover:bg-white hover:text-red-500 transition-all duration-300">
                 Ver catalogo
               </button>
