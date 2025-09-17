@@ -306,7 +306,7 @@ useEffect(() => {
                     placeholder="¿Qué estás buscando?"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="block w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder-gray-500"
+      className="block w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder-gray-500 text-gray-900"
                   />
                 </div>
               </div>
@@ -388,7 +388,7 @@ useEffect(() => {
                         placeholder="¿Qué estás buscando?"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="block w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder-black"
+      className="block w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder-gray-500 text-gray-900"
                       />
                     </div>
                   </div>
