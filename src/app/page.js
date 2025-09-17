@@ -109,12 +109,7 @@ export default function EalLeaderHomePage() {
           {product.name}
         </h3>
 
-        {/* Price */}
-        <div className="mb-3">
-          <span className="text-lg font-bold text-red-600">
-            {formatPrice(product.price)}
-          </span>
-        </div>
+
 
         {/* Action Button */}
         <button 

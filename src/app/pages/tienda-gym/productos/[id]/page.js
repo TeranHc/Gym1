@@ -68,18 +68,24 @@ export default function ProductDetailPage({ params }) {
     router.push(`/pages/tienda-gym/productos/${productId}`);
   };
 
-  const getCategoryColor = (category) => {
-    switch (category) {
-      case 'Máquinas de Fuerza':
-        return 'bg-red-100 text-red-700';
-      case 'Máquinas de Pecho':
-        return 'bg-green-100 text-green-700';
-      case 'Máquinas de Cadera':
-        return 'bg-purple-100 text-purple-700';
-      default:
-        return 'bg-blue-100 text-blue-700';
-    }
-  };
+const getCategoryColor = (category) => {
+  switch (category) {
+    case 'Pecho':
+    case 'Hombros':
+    case 'Cadera':
+    case 'Piernas':
+    case 'Abdominales':
+    case 'Espalda':
+    case 'Glúteos':
+    case 'Bíceps':
+    case 'Tríceps':
+    case 'Pecho y Hombros':
+      return 'bg-gray-100 text-gray-700';
+    default:
+      return 'bg-gray-100 text-gray-700';
+  }
+};
+
 
   if (isLoading) {
     return (
@@ -408,11 +414,7 @@ export default function ProductDetailPage({ params }) {
               <div>
                 <h3 className="text-black md:text-lg font-semibold mb-3 md:mb-4">Descripción del producto</h3>
                 <p className="text-gray-600 leading-relaxed mb-3 md:mb-4 text-sm md:text-base">{product.description}</p>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                  Este producto ha sido cuidadosamente seleccionado para ofrecer la mejor calidad y 
-                  satisfacer las necesidades de tu gimnasio. Confía en nuestra experiencia y brinda 
-                  lo mejor para tu entrenamiento.
-                </p>
+
               </div>
             )}
 

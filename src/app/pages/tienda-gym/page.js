@@ -24,32 +24,74 @@ function TiendaCaninaContent() {
   const [sortBy, setSortBy] = useState('');
 
   // Categorías principales con subcategorías
-  const categories = [
-    { 
-      name: 'Todos', 
-      icon: '', 
-      count: allProducts.length,
-      subFilters: []
-    },
-    { 
-      name: 'Máquinas de Fuerza', 
-      icon: '', 
-      count: allProducts.filter(p => p.category === 'Máquinas de Fuerza').length,
-      subFilters: ['Serie FM', 'Serie PW', 'Serie M2', 'Serie M3']
-    },
-    { 
-      name: 'Máquinas de Pecho', 
-      icon: '', 
-      count: allProducts.filter(p => p.category === 'Máquinas de Pecho').length,
-      subFilters: ['Banco Inclinado', 'Banco Plano', 'Press de Pecho', 'Fondos']
-    },
-    { 
-      name: 'Máquinas de Cadera', 
-      icon: '', 
-      count: allProducts.filter(p => p.category === 'Máquinas de Cadera').length,
-      subFilters: ['Prensa', 'Extensión', 'Flexión', 'Abducción']
-    },
-  ];
+const categories = [
+  { 
+    name: 'Todos', 
+    icon: '', 
+    count: allProducts.length,
+    subFilters: [""]
+  },
+  { 
+    name: 'Pecho', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Pecho').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Hombros', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Hombros').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Cadera', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Cadera').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Piernas', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Piernas').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Abdominales', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Abdominales').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Espalda', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Espalda').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Glúteos', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Glúteos').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Bíceps', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Bíceps').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Tríceps', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Tríceps').length,
+    subFilters: ['']
+  },
+  { 
+    name: 'Pecho y Hombros', 
+    icon: '', 
+    count: allProducts.filter(p => p.category === 'Pecho y Hombros').length,
+    subFilters: ['']
+  }
+];
 
   // Filtros adicionales removidos - solo categorías
 
@@ -152,19 +194,18 @@ useEffect(() => {
           </div>
         </div>
       </div>
-
-    {/* Breadcrumb */}
-    <div className="max-w-7xl mx-auto px-4 mb-6">
-      <nav className="flex items-center space-x-2 text-sm text-gray-600">
-        <Link href="/">
-          <a className="text-gray-900 font-medium hover:underline">Inicio</a>
-        </Link>
-        <span>&gt;</span>
-        <Link href="/pages/tienda-gym">
-          <a className="text-gray-900 font-medium hover:underline">Productos</a>
-        </Link>
-      </nav>
-    </div>
+        {/* Breadcrumb */}
+        <div className="max-w-7xl mx-auto px-4 mb-6">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+            <Link href="/" className="text-gray-900 font-medium hover:underline">
+              Inicio
+            </Link>
+            <span>&gt;</span>
+            <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">
+              Productos
+            </Link>
+          </nav>
+        </div>
       <div className="max-w-7xl mx-auto px-4 pb-12">
         {/* Filtros superiores móviles */}
         <div className="lg:hidden mb-6">
@@ -271,28 +312,28 @@ useEffect(() => {
               </div>
 
               {/* Filtros por categoría */}
-              <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Categoría</h4>
-                <div className="space-y-2">
-                  {categories.map((category) => (
-                    <div key={category.name}>
-                      <label className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg cursor-pointer transition-colors">
-                        <div className="flex items-center gap-3">
-                          <input
-                            type="radio"
-                            name="category"
-                            checked={selectedCategory === category.name}
-                            onChange={() => handleCategoryChange(category.name)}
-                            className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
-                          />
-                        <span className="font-medium text-gray-900 text-[15px]">{category.name}</span>
-                        </div>
-                        <span className="text-sm text-gray-500">({category.count})</span>
-                      </label>
-                    </div>
-                  ))}
-                </div>
+            <div className="mb-6">
+              <h4 className="font-semibold text-gray-900 mb-2">Categoría</h4>
+              <div className="space-y-1"> {/* Cambié de space-y-2 a space-y-1 */}
+                {categories.map((category) => (
+                  <div key={category.name}>
+                    <label className="flex items-center justify-between py-1.5 px-2 hover:bg-gray-50 rounded-md cursor-pointer transition-colors"> {/* Cambié p-3 por py-1.5 px-2 */}
+                      <div className="flex items-center gap-2"> {/* Cambié gap-3 por gap-2 */}
+                        <input
+                          type="radio"
+                          name="category"
+                          checked={selectedCategory === category.name}
+                          onChange={() => handleCategoryChange(category.name)}
+                          className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
+                        />
+                        <span className="font-medium text-gray-900 text-[17px]">{category.name}</span> {/* Cambié text-[15px] por text-sm */}
+                      </div>
+                      <span className="text-[15px] text-gray-500">({category.count})</span> {/* Cambié text-sm por text-xs */}
+                    </label>
+                  </div>
+                ))}
               </div>
+            </div>
 
               {/* Ordenar desktop */}
                 <div>
@@ -461,7 +502,7 @@ useEffect(() => {
                     
                     <div className="p-6 flex-1">
 
-                      <h3 className="font-bold text-gray-900 mb-2 text-[15px] line-clamp-2 group-hover:text-red-600 transition-colors text-center">
+                      <h3 className="font-bold text-gray-900 mb-2 text-[15px] line-clamp-2 group-hover:text-red-600 transition-colors text-center h-12 flex items-center justify-center">
                         {product.name || 'Producto sin nombre'}
                       </h3>
 
@@ -471,22 +512,26 @@ useEffect(() => {
                           </p>
                         )}
 
+                          <div className="mb-3 flex justify-center">
+                            <span className={`inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full ${
+                              product.category === 'Pecho' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Hombros' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Cadera' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Piernas' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Abdominales' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Espalda' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Glúteos' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Bíceps' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Tríceps' ? 'bg-gray-200 text-gray-700' :
+                              product.category === 'Pecho y Hombros' ? 'bg-gray-200 text-gray-900' :
+                              'bg-gray-100 text-gray-700'
+                            }`}>
+                              {product.category}
+                            </span>
+                          </div>
 
-                        <div className="mb-3 flex justify-center">
-                          <span className={`inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full ${
-                            product.category === 'Máquinas de Fuerza' ? 'bg-red-100 text-red-700' :
-                            product.category === 'Máquinas de Pecho' ? 'bg-green-100 text-green-700' :
-                            product.category === 'Máquinas de Cadera' ? 'bg-purple-100 text-purple-700' :
-                            'bg-gray-100 text-gray-700'
-                          }`}>
-                            {product.category}
-                          </span>
-                        </div>
-                                              
-
-
-                      <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-between' : 'justify-between'}`}>
-                        <button
+                        <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'}`}>                         
+                          <button
                           onClick={(e) => {
                             e.stopPropagation();
                             const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
