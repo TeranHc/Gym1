@@ -472,17 +472,17 @@ useEffect(() => {
                         )}
 
 
-                      <div className="mb-3">
-                        <span className={`inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full ${
-                          product.category === 'Máquinas de Fuerza' ? 'bg-red-100 text-red-700' :
-                          product.category === 'Máquinas de Pecho' ? 'bg-green-100 text-green-700' :
-                          product.category === 'Máquinas de Cadera' ? 'bg-purple-100 text-purple-700' :
-                          'bg-gray-100 text-gray-700'
-                        }`}>
-                          {product.category}
-                        </span>
-                      </div>
-                      
+                        <div className="mb-3 flex justify-center">
+                          <span className={`inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full ${
+                            product.category === 'Máquinas de Fuerza' ? 'bg-red-100 text-red-700' :
+                            product.category === 'Máquinas de Pecho' ? 'bg-green-100 text-green-700' :
+                            product.category === 'Máquinas de Cadera' ? 'bg-purple-100 text-purple-700' :
+                            'bg-gray-100 text-gray-700'
+                          }`}>
+                            {product.category}
+                          </span>
+                        </div>
+                                              
 
 
                       <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-between' : 'justify-between'}`}>
