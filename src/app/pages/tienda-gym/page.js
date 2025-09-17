@@ -5,6 +5,8 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useCart } from '../carrito/CartContext';
 import { allProducts } from './products';
+import Link from 'next/link';
+
 
 // Componente interno que usa useSearchParams
 function TiendaCaninaContent() {
@@ -151,15 +153,18 @@ useEffect(() => {
         </div>
       </div>
 
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 mb-6">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600">
-          <a href="/" className="text-gray-900 font-medium hover:underline">Inicio</a>
-          <span>&gt;</span>
-          <a href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">Productos</a>
-        </nav>
-      </div>
-
+    {/* Breadcrumb */}
+    <div className="max-w-7xl mx-auto px-4 mb-6">
+      <nav className="flex items-center space-x-2 text-sm text-gray-600">
+        <Link href="/">
+          <a className="text-gray-900 font-medium hover:underline">Inicio</a>
+        </Link>
+        <span>&gt;</span>
+        <Link href="/pages/tienda-gym">
+          <a className="text-gray-900 font-medium hover:underline">Productos</a>
+        </Link>
+      </nav>
+    </div>
       <div className="max-w-7xl mx-auto px-4 pb-12">
         {/* Filtros superiores móviles */}
         <div className="lg:hidden mb-6">
