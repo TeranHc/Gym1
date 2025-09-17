@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
+
 
 export default function GymHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,26 +31,25 @@ export default function GymHeader() {
         <div className="relative z-10">
           {/* Layout principal */}
           <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 py-3 lg:py-5">
-            
-            {/* Logo y marca */}
-            <div className="flex items-center group flex-shrink-0">
-              <div className="relative">
-                {/* Logo placeholder - reemplaza con tu logo */}
-                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-red-500/25 transition-all duration-300">
-                  <span className="text-white font-black text-lg sm:text-xl lg:text-2xl">E</span>
-                </div>
-                
-                {/* Efecto de brillo al hover */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-              </div>
-              
-              <div className="ml-3">
-                <h1 className="text-white font-black text-xl sm:text-2xl lg:text-3xl xl:text-4xl tracking-tight drop-shadow-lg cursor-pointer hover:text-red-400 transition-colors duration-300">
-                  realLeader
-                  <span className="block text-xs sm:text-sm lg:text-base font-medium text-gray-400 tracking-wider">FITNESS CLUB</span>
-                </h1>
-              </div>
+        {/* Logo y marca */}
+        <Link href="/" className="flex items-center group flex-shrink-0">
+          <div className="relative">
+            {/* Logo placeholder - reemplaza con tu logo */}
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-red-500/25 transition-all duration-300">
+              <span className="text-white font-black text-lg sm:text-xl lg:text-2xl">E</span>
             </div>
+
+            {/* Efecto de brillo al hover */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
+          </div>
+
+          <div className="ml-3">
+            <h1 className="text-white font-black text-xl sm:text-2xl lg:text-3xl xl:text-4xl tracking-tight drop-shadow-lg cursor-pointer hover:text-red-400 transition-colors duration-300">
+              realLeader
+              <span className="block text-xs sm:text-sm lg:text-base font-medium text-gray-400 tracking-wider">FITNESS CLUB</span>
+            </h1>
+          </div>
+        </Link>
 
             {/* Navegación central - solo desktop */}
             <nav className="hidden lg:block">

@@ -503,7 +503,7 @@ useEffect(() => {
                           Más Información
                         </button>
                       </div>
-                    </div>
+                    </div>  
                   </div>
                 ))}
               </div>
