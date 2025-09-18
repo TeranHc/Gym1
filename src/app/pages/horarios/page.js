@@ -199,12 +199,11 @@ export default function Contact() {
                 title: "Asesoría Especializada",
                 desc: "Nuestros expertos te guiarán en la selección perfecta según tu espacio, presupuesto y objetivos específicos."
               },
-    
               {
-                icon: "💰",
-                title: "Financiamiento Flexible",
-                desc: "Opciones de pago adaptadas a tu presupuesto, con planes desde 12 hasta 36 meses sin complicaciones."
-              },
+                icon: "🛠️",
+                title: "Servicio Integral",
+                desc: "Desde la entrega hasta la instalación y mantenimiento. Un solo contacto para todo tu proyecto fitness."
+              }
             ].map((benefit, idx) => (
               <div 
                 key={idx}
