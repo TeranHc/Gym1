@@ -530,24 +530,26 @@ useEffect(() => {
                             </span>
                           </div>
 
-                        <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'}`}>                         
-                          <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
-                            const message = encodeURIComponent(
-                              `Hola, estoy interesado en este producto:\n` +
-                              `- *Producto:* ${product.name}\n` +
-                              `- *Categoría:* ${product.category}\n\n` +
-                              `- *Ver producto:* ${productUrl}`
-                            );
-                            window.open(`https://wa.me/5212213683565?text=${message}`, "_blank");
-                          }}
-                          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg text-sm"
-                        >
-                          Más Información
-                        </button>
-                      </div>
+                            <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'}`}>                         
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
+                                  const subject = encodeURIComponent(`Consulta sobre producto: ${product.name}`);
+                                  const body = encodeURIComponent(
+                                    `Hola, estoy interesado en este producto y quisiera saber el precio:\n\n` +
+                                    `Producto:  ${product.name}\n` +
+                                    `Categoría:  ${product.category}\n\n` +
+                                    `Ver producto: ${productUrl}`
+                                  );
+                                  window.location.href = `mailto:ventas@realleadermex.com?subject=${subject}&body=${body}`;
+                                }}
+                                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg text-sm"
+                              >
+                                Más Información
+                              </button>
+                            </div>
+
                     </div>  
                   </div>
                 ))}

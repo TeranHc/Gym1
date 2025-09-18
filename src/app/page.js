@@ -546,119 +546,93 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
 
-      {/* Location Section */}
-      <section className="py-10 bg-gray-100 text-black">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Content */}
-            <div className="space-y-8">
-              <h2 className="text-5xl font-black leading-tight">
-                Visita nuestro
-                <br />
-                Local especializado.
-              </h2>
-              
-              <p className="text-xl text-gray-600">
-                Conoce de cerca nuestro equipamiento. Prueba las máquinas y recibe asesoramiento personalizado de nuestros expertos.
-              </p>
+{/* Contacto Resumido - Sección de Inicio */}
+<section className="py-12 bg-gray-50 text-black">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+      Contáctanos
+    </h2>
+    <p className="text-lg sm:text-xl text-gray-600 mb-10">
+      ¿Tienes dudas o quieres más información sobre nuestras máquinas? <br />
+      Elige una opción y te atenderemos con gusto.
+    </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl">📍</div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Local Principal</h3>
-                    <p className="text-gray-600">Av. 9 de Octubre 1234, Puebla, Mexico</p>
-                  </div>
-                </div>
+    {/* Contact Buttons grandes */}
+<div className="flex flex-col sm:flex-row justify-center gap-6 mb-10">
+  <button
+    onClick={() => window.location.href = `mailto:ventas@realleadermex.com?subject=Consulta%20sobre%20máquinas&body=Hola,%20me%20gustaría%20más%20información%20sobre%20el%20costo%20de%20las%20máquinas.`}
+    className="bg-red-500 text-white py-5 px-8 rounded-xl font-bold text-lg 
+               hover:bg-red-600 hover:scale-105 transform transition-all duration-300"
+  >
+    📧 Email Comercial
+  </button>
 
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl">🕒</div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Horarios de Atención</h3>
-                    <p className="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-                  </div>
-                </div>
+  <button
+    onClick={() => window.location.href = `mailto:info@realleadermex.com?subject=Consulta%20informativa&body=Hola,%20quisiera%20recibir%20más%20información%20sobre%20sus%20productos.`}
+    className="bg-gray-100 text-gray-800 py-5 px-8 rounded-xl font-bold text-lg 
+               hover:bg-gray-200 hover:text-red-500 border border-gray-200 transition-all duration-300"
+  >
+    ℹ️ Información General
+  </button>
 
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl">🚚</div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Entrega e Instalación</h3>
-                    <p className="text-gray-600">Servicio a toda la República Mexicana</p>
-                  </div>
-                </div>
-              </div>
+  <button
+    onClick={() => window.location.href = `mailto:ventas@realleadermex.com?subject=Solicitud%20de%20Cotización&body=Hola,%20me%20interesa%20recibir%20una%20cotización%20de%20sus%20máquinas.`}
+    className="bg-red-500 text-white py-5 px-8 rounded-xl font-bold text-lg 
+               hover:bg-red-600 hover:scale-105 transform transition-all duration-300"
+  >
+    💰 Cotizaciones
+  </button>
+</div>
 
-              {/* Botones de acción */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={() => {
-                    document.getElementById('formulario-cotizacion').scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'center' 
-                    });
-                  }}
-                  className="bg-red-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Agendar Visita
-                </button>
-              </div>
-            </div>
 
-            {/* Real Google Map */}
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl h-96">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6168089282453!2d-99.14370368507614!3d19.43682928689048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92b8c8b5555%3A0x5555555555555555!2sCalle%20Col%C3%B3n%20Balderas%2C%20Colonia%20Centro%2C%20Cuauht%C3%A9moc%2C%2006040%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1699999999999!5m2!1ses-419!2smx"
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen="" 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="filter brightness-90 hover:brightness-100 transition-all duration-300"
-                ></iframe>
-              </div>
+      {/* Social Media Section */}
+      <div className="max-w-4xl mx-auto text-center">
+        <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-gray-800 px-4">Síguenos en nuestras redes</h3>
+        
+        <div className="flex justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 px-4">
+          {/* Facebook */}
+          <button 
+            onClick={() => window.open('https://www.facebook.com/Realleadermx', '_blank')}
+            className="bg-blue-600 text-white p-3 sm:p-4 rounded-full hover:bg-blue-700 transform hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
+            title="Síguenos en Facebook"
+          >
+            <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </button>
 
-              {/* Redes Sociales debajo del mapa */}
-              <div className="mt-8 text-center">
-                <h3 className="text-lg font-bold mb-4 text-gray-800">Síguenos en nuestras redes</h3>
-                
-                <div className="flex justify-center gap-6">
-                  {/* Facebook */}
-                  <button 
-                    onClick={() => window.open('https://facebook.com/tu-pagina', '_blank')}
-                    className="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    title="Síguenos en Facebook"
-                  >
-                    <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                  </button>
+          {/* Instagram */}
+          <button 
+            onClick={() => window.open('https://www.instagram.com/realleader_mexico/', '_blank')} 
+            className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-3 sm:p-4 rounded-full hover:from-purple-700 hover:to-pink-600 transform hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl" 
+            title="Síguenos en Instagram"
+          >
+            <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </button>
 
-                  <button onClick={() => window.open('https://instagram.com/tu-perfil', '_blank')} 
-                  className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-4 rounded-full hover:from-purple-700 hover:to-pink-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Instagram" > <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/> </svg> </button>
-
-                  {/* TikTok */}
-                  <button 
-                    onClick={() => window.open('https://tiktok.com/@tu-perfil', '_blank')}
-                    className="bg-black text-white p-4 rounded-full hover:bg-gray-800 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    title="Síguenos en TikTok"
-                  >
-                    <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" >
-                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                    </svg>
-                  </button>
-                </div>
-
-                {/* Texto adicional */}
-                <p className="text-sm text-gray-600 mt-4">
-                  Mantente al día con nuestras últimas ofertas y novedades del mundo fitness.
-                </p>
-              </div>
-            </div>
-          </div>
+          {/* TikTok */}
+          <button 
+            onClick={() => window.open('https://www.tiktok.com/@realleader.mexico?_t=ZS-8zprbDCSPi4&_r=1', '_blank')}
+            className="bg-black text-white p-3 sm:p-4 rounded-full hover:bg-gray-800 transform hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
+            title="Síguenos en TikTok"
+          >
+            <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          </button>
         </div>
-      </section>
+
+        <p className="text-gray-600 text-sm sm:text-base px-4">
+          Mantente al día con nuestras últimas ofertas y novedades del mundo fitness.
+        </p>
+      </div>
+
+  </div>
+</section>
+
+
 
       {/* CTA Final */}
       <section className="py-15 bg-zinc-800 from-red-500 to-orange-500">

@@ -23,56 +23,50 @@ export default function Contact() {
           transformar tu espacio fitness
         </p>
       </div>
-
-      {/* Quick Contact Bar */}
-      <div className="max-w-6xl mx-auto mb-8 sm:mb-10 lg:mb-12">
-        <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-          {[
-            {
-              icon: "💬",
-              title: "WhatsApp Directo",
-              desc: "Respuesta inmediata",
-              action: () => window.open('https://wa.me/5212213683565', '_blank')
-            },
-            {
-              icon: "📱",
-              title: "Llamada Directa", 
-              desc: "+52 1 221 368 3565",
-              action: () => window.location.href='tel:+5212213683565'
-            },
-            {
-              icon: "📧",
-              title: "Email Comercial",
-              desc: "ventas@realleader.com.ec",
-              action: () => window.location.href='mailto:ventas@realleader.com.ec'
-            },
-            {
-              icon: "⚡",
-              title: "Cotización Express",
-              desc: "Información inmediata",
-              action: () => document.getElementById('showroom')?.scrollIntoView({behavior: 'smooth'})
-            }
-          ].map((item, idx) => (
-            <div 
-              key={idx}
-              onClick={item.action}
-              onMouseEnter={() => setIsHovered(idx)}
-              onMouseLeave={() => setIsHovered(null)}
-              className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg lg:rounded-xl cursor-pointer transition-all duration-300 ${
-                isHovered === idx ? 'bg-gray-50 transform -translate-y-1 shadow-lg' : 'hover:bg-gray-50'
-              } active:scale-95`}
-            >
-              <div className="text-2xl sm:text-3xl lg:text-4xl bg-gradient-to-br from-red-500 to-red-600 text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                {item.icon}
-              </div>
-              <div className="min-w-0 flex-1">
-                <h4 className="font-bold text-gray-800 text-sm sm:text-base truncate">{item.title}</h4>
-                <p className="text-gray-600 text-xs sm:text-sm truncate">{item.desc}</p>
-              </div>
+    {/* Quick Contact Bar */}
+    <div className="max-w-6xl mx-auto mb-8 sm:mb-10 lg:mb-12">
+    <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl grid lg:grid-cols-3 gap-4">
+        {[
+        {
+            icon: "📧",
+            title: "Email Comercial",
+            desc: "ventas@realleadermex.com",
+            action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Consulta%20sobre%20máquinas&body=Hola,%20me%20gustaría%20más%20información%20sobre%20el%20costo%20de%20las%20máquinas%20y%20si%20podría%20agendar%20una%20cita.`
+        },
+        {
+            icon: "ℹ️",
+            title: "Información General", 
+            desc: "info@realleadermex.com",
+            action: () => window.location.href = `mailto:info@realleadermex.com?subject=Consulta%20informativa&body=Hola,%20quisiera%20recibir%20más%20información%20sobre%20sus%20productos%20y%20servicios.%20También%20me%20gustaría%20saber%20cómo%20puedo%20contactarlos%20directamente%20o%20agendar%20una%20cita%20para%20visitar%20sus%20instalaciones.`
+        },
+        {
+            icon: "💰",
+            title: "Cotizaciones",
+            desc: "Solicita tu propuesta",
+            action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Solicitud%20de%20Cotización%20para%20Gimnasio&body=Hola,%20me%20interesa%20recibir%20una%20cotización%20de%20sus%20máquinas%20para%20mi%20gimnasio.%20Por%20favor%20indíquenme%20las%20opciones%20disponibles%20y%20los%20detalles%20de%20precios.%20Gracias.`
+        }
+        ].map((item, idx) => (
+        <div 
+            key={idx}
+            onClick={item.action}
+            onMouseEnter={() => setIsHovered(idx)}
+            onMouseLeave={() => setIsHovered(null)}
+            className={`mx-auto flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg lg:rounded-xl cursor-pointer transition-all duration-300 ${
+            isHovered === idx ? 'bg-gray-50 transform -translate-y-1 shadow-lg' : 'hover:bg-gray-50'
+            } active:scale-95`}
+        >
+            <div className="text-2xl sm:text-3xl lg:text-4xl bg-gradient-to-br from-red-500 to-red-600 text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+            {item.icon}
             </div>
-          ))}
+            <div className="min-w-0 flex-1">
+            <h4 className="font-bold text-gray-800 text-sm sm:text-base truncate">{item.title}</h4>
+            <p className="text-gray-600 text-xs sm:text-sm truncate">{item.desc}</p>
+            </div>
         </div>
-      </div>
+        ))}
+    </div>
+    </div>
+
 
       {/* Showroom Section */}
       <div id="showroom" className="max-w-7xl mx-auto mb-10 sm:mb-12 lg:mb-16">
@@ -88,12 +82,12 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* Content */}
-          <div className="grid lg:grid-cols-2">
-            {/* Info Side */}
-            <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center order-2 lg:order-1">
-              {/* Location Card */}
-              <div className="bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl lg:rounded-2xl mb-6 sm:mb-7 lg:mb-8 border-l-4 border-red-500">
+          {/* Content Grid - Reorganizado para eliminar el espacio en blanco */}
+          <div className="p-6 sm:p-8 lg:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+              
+              {/* Location Card - Lado izquierdo */}
+              <div className="bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl lg:rounded-2xl border-l-4 border-red-500">
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 lg:mb-6">
                   <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-red-500 rounded-lg lg:rounded-xl flex items-center justify-center text-white text-lg sm:text-xl flex-shrink-0">
                     🏢
@@ -102,9 +96,9 @@ export default function Contact() {
                 </div>
                 
                 {[
-                  { icon: "📍", label: "Dirección", value: "Av. 9 de Octubre 1234, Puebla, Mexico" },
-                  { icon: "🌃", label: "Lugar", value: "Puebla, Mexico" },
-                  { icon: "📞", label: "Teléfono", value: "+52 1 221 368 3565" },
+                  { icon: "🌃", label: "Lugar", value: "Puebla, México" },
+                  { icon: "📧", label: "Email Ventas", value: "ventas@realleadermex.com" },
+                  { icon: "📧", label: "Email Info", value: "info@realleadermex.com" },
                   { icon: "⏰", label: "Atención", value: "Lunes a Viernes: 9:00 AM - 6:00 PM" },
                   { icon: "🚚", label: "Cobertura", value: "Servicio a toda la República Mexicana" }
                 ].map((item, idx) => (
@@ -116,60 +110,40 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Services Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-7 lg:mb-8">
+              {/* Services Grid - Lado derecho */}
+              <div className="grid grid-cols-1  sm:grid-cols-2 gap-3 sm:gap-4">
                 {[
                   { icon: "🏋️", title: "Prueba de Equipos", desc: "Experimenta nuestras máquinas antes de comprar" },
                   { icon: "👨‍💼", title: "Asesoría Experta", desc: "Consulta con nuestros especialistas" },
-                  { icon: "📋", title: "Cotización Inmediata", desc: "Recibe tu propuesta al instante" },
+                  { icon: "📋", title: "Cotización Inmediata", desc: "Recibe tu propuesta detallada" },
                   { icon: "🎯", title: "Diseño Personalizado", desc: "Planificamos tu gimnasio ideal" }
                 ].map((service, idx) => (
-                  <div key={idx} className="bg-white p-4 sm:p-5 rounded-xl lg:rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                  <div key={idx} className="bg-white p-4 sm:p-5 rounded-xl lg:rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow duration-300 border border-gray-100">
                     <div className="text-2xl sm:text-3xl mb-2">{service.icon}</div>
-                    <h4 className="font-bold text-gray-800 mb-2 text-xs sm:text-sm">{service.title}</h4>
-                    <p className="text-gray-600 text-xs leading-tight">{service.desc}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-[20px] ">{service.title}</h4>
+                    <p className="text-gray-600 text-[17px] leading-tight">{service.desc}</p>
                   </div>
                 ))}
               </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button 
-                  onClick={() => window.location.href='tel:+5212213683565'}
-                  className="flex-1 bg-red-500 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg lg:rounded-xl font-bold hover:bg-red-600 transition-colors duration-300 flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
-                >
-                  📞 Agendar Visita
-                </button>
-                <button 
-                  onClick={() => window.open('https://wa.me/5212213683565', '_blank')}
-                  className="flex-1 bg-gray-100 text-gray-800 py-3 sm:py-4 px-4 sm:px-6 rounded-lg lg:rounded-xl font-bold hover:bg-gray-200 border-2 border-gray-200 hover:border-red-500 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
-                >
-                  💬 WhatsApp
-                </button>
-              </div>
+            </div>
+            {/* CTA Buttons - Ahora centrados debajo */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 lg:mt-10">
+            <button 
+                onClick={() => window.location.href = 
+                `mailto:info@realleadermex.com?subject=Solicitud%20de%20Visita%20al%20Showroom&body=Hola,%20quisiera%20agendar%20una%20visita%20a%20su%20showroom%20para%20conocer%20las%20máquinas%20y%20productos%20disponibles.%20Por%20favor%20indíquenme%20las%20fechas%20y%20horarios%20disponibles.%20Gracias.`}
+                className="flex-1 bg-red-500 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg lg:rounded-xl font-bold hover:bg-red-600 transition-colors duration-300 flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
+            >
+                📧 Agendar Visita
+            </button>
+            <button 
+                onClick={() => window.location.href = 
+                `mailto:ventas@realleadermex.com?subject=Solicitud%20de%20Cotización%20para%20Gimnasio&body=Hola,%20me%20interesa%20recibir%20una%20cotización%20de%20sus%20máquinas%20para%20mi%20gimnasio.%20Por%20favor%20indíquenme%20las%20opciones%20disponibles%20y%20los%20detalles%20de%20precios.%20Gracias.`}
+                className="flex-1 bg-gray-100 text-gray-800 py-3 sm:py-4 px-4 sm:px-6 rounded-lg lg:rounded-xl font-bold hover:bg-gray-200 border-2 border-gray-200 hover:border-red-500 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
+            >
+                💰 Cotizar
+            </button>
             </div>
 
-            {/* Google Maps Side */}
-            <div className="relative order-1 lg:order-2">
-              <div className="h-64 sm:h-80 lg:h-full lg:min-h-96 rounded-t-2xl lg:rounded-t-none lg:rounded-r-3xl overflow-hidden shadow-2xl">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6168089282453!2d-99.14370368507614!3d19.43682928689048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92b8c8b5555%3A0x5555555555555555!2sCalle%20Col%C3%B3n%20Balderas%2C%20Colonia%20Centro%2C%20Cuauht%C3%A9moc%2C%2006040%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1699999999999!5m2!1ses-419!2smx"
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen="" 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="filter brightness-90 hover:brightness-100 transition-all duration-300"
-                ></iframe>
-              </div>
-              
-              {/* Map Overlay */}
-              <div className="absolute top-3 sm:top-4 lg:top-5 right-3 sm:right-4 lg:right-5 bg-white p-3 sm:p-4 rounded-lg lg:rounded-xl shadow-lg">
-                <h5 className="font-bold mb-1 text-sm sm:text-base">📍 Puebla</h5>
-                <p className="text-xs sm:text-sm text-gray-600">Fácil acceso y estacionamiento</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -227,7 +201,7 @@ export default function Contact() {
         <div className="flex justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 px-4">
           {/* Facebook */}
           <button 
-            onClick={() => window.open('https://facebook.com/realleader-fitness', '_blank')}
+            onClick={() => window.open('https://www.facebook.com/Realleadermx', '_blank')}
             className="bg-blue-600 text-white p-3 sm:p-4 rounded-full hover:bg-blue-700 transform hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
             title="Síguenos en Facebook"
           >
@@ -238,7 +212,7 @@ export default function Contact() {
 
           {/* Instagram */}
           <button 
-            onClick={() => window.open('https://instagram.com/realleader_fitness', '_blank')} 
+            onClick={() => window.open('https://www.instagram.com/realleader_mexico/', '_blank')} 
             className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-3 sm:p-4 rounded-full hover:from-purple-700 hover:to-pink-600 transform hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl" 
             title="Síguenos en Instagram"
           >
@@ -249,7 +223,7 @@ export default function Contact() {
 
           {/* TikTok */}
           <button 
-            onClick={() => window.open('https://tiktok.com/@realleader_fitness', '_blank')}
+            onClick={() => window.open('https://www.tiktok.com/@realleader.mexico?_t=ZS-8zprbDCSPi4&_r=1', '_blank')}
             className="bg-black text-white p-3 sm:p-4 rounded-full hover:bg-gray-800 transform hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
             title="Síguenos en TikTok"
           >
@@ -264,13 +238,13 @@ export default function Contact() {
         </p>
       </div>
 
-      {/* WhatsApp Float Button */}
+      {/* Email Float Button */}
       <button
-        onClick={() => window.open('https://wa.me/5212213683565', '_blank')}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-8 lg:right-8 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center text-lg sm:text-xl lg:text-2xl animate-bounce"
-        title="Contactar por WhatsApp"
+        onClick={() => window.location.href='mailto:ventas@realleadermex.com?subject=Consulta desde la web'}
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-8 lg:right-8 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center text-lg sm:text-xl lg:text-2xl animate-bounce"
+        title="Contactar por Email"
       >
-        💬
+        📧
       </button>
     </section>
   );

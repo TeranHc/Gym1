@@ -39,17 +39,22 @@ export default function Footer() {
                   </Link >
                 </div>
                 <div>
-                  <Link  href="/membresias" className="hover:text-red-500 transition-colors">
-                    Membresías
-                  </Link >
-                </div>
-                <div>
-                  <Link  href="/tienda" className="hover:text-red-500 transition-colors">
+                  <Link  href="/pages/tienda-gym" className="hover:text-red-500 transition-colors">
                     Tienda
                   </Link >
                 </div>
                 <div>
-                  <Link  href="/contacto" className="hover:text-red-500 transition-colors">
+                  <Link  href="/pages/fotos" className="hover:text-red-500 transition-colors">
+                    Galeria
+                  </Link >
+                </div>
+                <div>
+                  <Link  href="/pages/Blog" className="hover:text-red-500 transition-colors">
+                    Blog
+                  </Link >
+                </div>
+                <div>
+                  <Link  href="/pages/horarios" className="hover:text-red-500 transition-colors">
                     Contacto
                   </Link >
                 </div>
@@ -61,13 +66,7 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4 text-white">SERVICIOS</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="/membresias" className="hover:text-red-500 transition-colors">
-                    Membresías
-                  </a>
-                </div>
-
-                <div>
-                  <a href="/tienda" className="hover:text-red-500 transition-colors">
+                  <a href="//pages/tienda-gym" className="hover:text-red-500 transition-colors">
                     Tienda de Equipamiento
                   </a>
                 </div>
@@ -80,12 +79,12 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4">Contáctanos</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <i className="fas fa-phone"></i>
-                  <span>+99 99 999 9999</span>
+                  <i className="fas fa-envelope"></i>
+                  <span>info@realleadermex.com</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <i className="fas fa-envelope"></i>
-                  <span>contacto@aaaaaaaa.com</span>
+                  <span>ventas@realleadermex.com</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <i className="fas fa-map-marker-alt"></i>
@@ -96,7 +95,7 @@ export default function Footer() {
               {/* Redes sociales */}
             <div className="flex justify-center md:justify-start gap-4 mt-6">
               <button
-                onClick={() => window.open("https://facebook.com/tu-pagina", "_blank")}
+                onClick={() => window.open("https://www.facebook.com/Realleadermx", "_blank")}
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
                 title="Síguenos en Facebook"
               >
@@ -104,7 +103,7 @@ export default function Footer() {
               </button>
 
               <button
-                onClick={() => window.open("https://instagram.com/tu-perfil", "_blank")}
+                onClick={() => window.open("https://www.instagram.com/realleader_mexico/", "_blank")}
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition-colors"
                 title="Síguenos en Instagram"
               >
@@ -112,7 +111,7 @@ export default function Footer() {
               </button>
 
               <button
-                onClick={() => window.open("https://tiktok.com/@tu-perfil", "_blank")}
+                onClick={() => window.open("https://www.tiktok.com/@realleader.mexico?_t=ZS-8zprbDCSPi4&_r=1", "_blank")}
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-black transition-colors"
                 title="Síguenos en TikTok"
               >

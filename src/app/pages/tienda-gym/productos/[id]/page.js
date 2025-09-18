@@ -201,50 +201,30 @@ const getCategoryColor = (category) => {
                 )}
               </div>
 
-              {/* Selector de cantidad */}
-              <div className="mb-4">
-                <h3 className="text-base font-semibold text-gray-800 mb-3">Cantidad</h3>
-                <div className="flex items-center space-x-3">
-                  <button
-                    onClick={() => handleQuantityChange(-1)}
-                    disabled={quantity <= 1}
-                    className="w-10 h-10 rounded-full border-2 border-gray-400 text-black flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-lg font-bold"
-                  >
-                    -
-                  </button>
-                  <span className="text-xl font-semibold w-12 text-center text-black">{quantity}</span>
-                  <button
-                    onClick={() => handleQuantityChange(1)}
-                    disabled={quantity >= 10}
-                    className="w-10 h-10 rounded-full border-2 border-gray-500 flex text-black items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-lg font-bold"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
+{/* Botón de contacto */}
+<div className="mb-4">
+  <button
+    onClick={(e) => {
+      e.stopPropagation();
+      const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
+      const subject = encodeURIComponent(`Consulta sobre producto: ${product.name}`);
+      const body = encodeURIComponent(
+        `Hola, estoy interesado en este producto y quisiera saber el precio:\n\n` +
+        `Producto: ${product.name}\n` +
+        `Categoría: ${product.category}\n\n` +
+        `Ver producto: ${productUrl}`
+      );
+      window.location.href = `mailto:ventas@realleadermex.com?subject=${subject}&body=${body}`;
+    }}
+    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+  >
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6 0v6a2 2 0 11-4 0v-6m6 0a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>
+    Más Información
+  </button>
+</div>
 
-              {/* Botón de contacto */}
-              <div className="mb-4">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
-                    const message = encodeURIComponent(
-                      `Hola, estoy interesado en este producto:\n` +
-                      `- *Producto:* ${product.name}\n` +
-                      `- *Categoría:* ${product.category}\n\n` +
-                      `- *Ver producto:* ${productUrl}`
-                    );
-                    window.open(`https://wa.me/5212213683565?text=${message}`, "_blank");
-                  }}
-                  className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6 0v6a2 2 0 11-4 0v-6m6 0a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                  Más Información
-                </button>
-              </div>
 
               {/* Información adicional */}
               <div className="border-t pt-3">
@@ -306,50 +286,32 @@ const getCategoryColor = (category) => {
                 )}
               </div>
 
-              {/* Selector de cantidad */}
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Cantidad</h3>
-                <div className="flex items-center space-x-4">
-                  <button
-                    onClick={() => handleQuantityChange(-1)}
-                    disabled={quantity <= 1}
-                    className="w-12 h-12 rounded-full border-2 border-gray-400 text-black flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-xl font-bold"
-                  >
-                    -
-                  </button>
-                  <span className="text-2xl font-semibold w-16 text-center text-black">{quantity}</span>
-                  <button
-                    onClick={() => handleQuantityChange(1)}
-                    disabled={quantity >= 10}
-                    className="w-12 h-12 rounded-full border-2 border-gray-500 flex text-black items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed text-xl font-bold"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
 
-              {/* Botón de contacto */}
-              <div className="mb-6">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
-                    const message = encodeURIComponent(
-                      `Hola, estoy interesado en este producto:\n` +
-                      `- *Producto:* ${product.name}\n` +
-                      `- *Categoría:* ${product.category}\n\n` +
-                      `- *Ver producto:* ${productUrl}`
-                    );
-                    window.open(`https://wa.me/5212213683565?text=${message}`, "_blank");
-                  }}
-                  className="w-auto group/btn bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
-                >
-                  <svg className="w-4 h-4 transition-transform group-hover/btn:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6 0v6a2 2 0 11-4 0v-6m6 0a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                  Más Información
-                </button>
-              </div>
+
+{/* Botón de contacto */}
+<div className="mb-6">
+  <button
+    onClick={(e) => {
+      e.stopPropagation();
+      const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
+      const subject = encodeURIComponent(`Consulta sobre producto: ${product.name}`);
+      const body = encodeURIComponent(
+        `Hola, estoy interesado en este producto y quisiera saber el precio:\n\n` +
+        `Producto: ${product.name}\n` +
+        `Categoría: ${product.category}\n\n` +
+        `Ver producto: ${productUrl}`
+      );
+      window.location.href = `mailto:ventas@realleadermex.com?subject=${subject}&body=${body}`;
+    }}
+    className="w-auto group/btn bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+  >
+    <svg className="w-4 h-4 transition-transform group-hover/btn:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6 0v6a2 2 0 11-4 0v-6m6 0a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>
+    Más Información
+  </button>
+</div>
+
 
               {/* Información adicional */}
               <div className="border-t pt-4">
