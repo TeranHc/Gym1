@@ -23,49 +23,50 @@ export default function Contact() {
           transformar tu espacio fitness
         </p>
       </div>
-    {/* Quick Contact Bar */}
-    <div className="max-w-6xl mx-auto mb-8 sm:mb-10 lg:mb-12">
-    <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl grid lg:grid-cols-3 gap-4">
-        {[
-        {
-            icon: "📧",
-            title: "Email Comercial",
-            desc: "ventas@realleadermex.com",
-            action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Consulta%20sobre%20máquinas&body=Hola,%20me%20gustaría%20más%20información%20sobre%20el%20costo%20de%20las%20máquinas%20y%20si%20podría%20agendar%20una%20cita.`
-        },
-        {
-            icon: "ℹ️",
-            title: "Información General", 
-            desc: "info@realleadermex.com",
-            action: () => window.location.href = `mailto:info@realleadermex.com?subject=Consulta%20informativa&body=Hola,%20quisiera%20recibir%20más%20información%20sobre%20sus%20productos%20y%20servicios.%20También%20me%20gustaría%20saber%20cómo%20puedo%20contactarlos%20directamente%20o%20agendar%20una%20cita%20para%20visitar%20sus%20instalaciones.`
-        },
-        {
-            icon: "💰",
-            title: "Cotizaciones",
-            desc: "Solicita tu propuesta",
-            action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Solicitud%20de%20Cotización%20para%20Gimnasio&body=Hola,%20me%20interesa%20recibir%20una%20cotización%20de%20sus%20máquinas%20para%20mi%20gimnasio.%20Por%20favor%20indíquenme%20las%20opciones%20disponibles%20y%20los%20detalles%20de%20precios.%20Gracias.`
-        }
-        ].map((item, idx) => (
-        <div 
-            key={idx}
-            onClick={item.action}
-            onMouseEnter={() => setIsHovered(idx)}
-            onMouseLeave={() => setIsHovered(null)}
-            className={`mx-auto flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg lg:rounded-xl cursor-pointer transition-all duration-300 ${
-            isHovered === idx ? 'bg-gray-50 transform -translate-y-1 shadow-lg' : 'hover:bg-gray-50'
-            } active:scale-95`}
-        >
-            <div className="text-2xl sm:text-3xl lg:text-4xl bg-gradient-to-br from-red-500 to-red-600 text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-            {item.icon}
-            </div>
-            <div className="min-w-0 flex-1">
-            <h4 className="font-bold text-gray-800 text-sm sm:text-base truncate">{item.title}</h4>
-            <p className="text-gray-600 text-xs sm:text-sm truncate">{item.desc}</p>
-            </div>
+{/* Quick Contact Bar */}
+<div className="max-w-6xl mx-auto mb-8 sm:mb-10 lg:mb-12">
+  <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl grid lg:grid-cols-3 gap-4">
+    {[
+      {
+        icon: "📧",
+        title: "Email Comercial",
+        desc: "ventas@realleadermex.com",
+        action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Consulta%20sobre%20máquinas&body=Hola,%20me%20gustaría%20más%20información%20sobre%20el%20costo%20de%20las%20máquinas%20y%20si%20podría%20agendar%20una%20cita.`
+      },
+      {
+        icon: "ℹ️",
+        title: "Información General", 
+        desc: "info@realleadermex.com",
+        action: () => window.location.href = `mailto:info@realleadermex.com?subject=Consulta%20informativa&body=Hola,%20quisiera%20recibir%20más%20información%20sobre%20sus%20productos%20y%20servicios.%20También%20me%20gustaría%20saber%20cómo%20puedo%20contactarlos%20directamente%20o%20agendar%20una%20cita%20para%20visitar%20sus%20instalaciones.`
+      },
+      {
+        icon: "💰",
+        title: "Cotizaciones",
+        desc: "Solicita tu propuesta",
+        action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Solicitud%20de%20Cotización%20para%20Gimnasio&body=Hola,%20me%20interesa%20recibir%20una%20cotización%20de%20sus%20máquinas%20para%20mi%20gimnasio.%20Por%20favor%20indíquenme%20las%20opciones%20disponibles%20y%20los%20detalles%20de%20precios.%20Gracias.`
+      }
+    ].map((item, idx) => (
+      <div 
+        key={idx}
+        onClick={item.action}
+        onMouseEnter={() => setIsHovered(idx)}
+        onMouseLeave={() => setIsHovered(null)}
+        className={`mx-auto flex items-center gap-3 sm:gap-4 p-4 rounded-lg lg:rounded-xl cursor-pointer transition-all duration-300 border-2 border-gray-400 shadow-md hover:shadow-xl
+          ${isHovered === idx ? 'bg-gray-50 transform -translate-y-1 shadow-xl' : 'hover:bg-gray-50'} 
+          active:scale-95`}
+      >
+        <div className="text-2xl sm:text-3xl lg:text-4xl bg-gradient-to-br from-red-500 to-red-600 text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+          {item.icon}
         </div>
-        ))}
-    </div>
-    </div>
+        <div className="min-w-0 flex-1">
+          <h4 className="font-bold text-gray-800 text-sm sm:text-base truncate">{item.title}</h4>
+          <p className="text-gray-600 text-xs sm:text-sm truncate">{item.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
 
 
       {/* Showroom Section */}
