@@ -1,6 +1,6 @@
 // tienda-gym/products.js
 export const allProducts = [
-  // Gym - 3 productos
+  // Pecho
 {
   id: 1,
   name: "M2-1001 Chest Press",
@@ -49,6 +49,7 @@ export const allProducts = [
 },
 
 
+//Hombros
 {
   id: 7,
   name: "M2-1007 Shoulder Press",
@@ -120,7 +121,7 @@ export const allProducts = [
   }
 },
 
-
+//Cadera
 
 {
   id: 3,
@@ -193,6 +194,8 @@ export const allProducts = [
   }
 },
 
+
+//Piernas
 
 {
   id: 5,
@@ -311,6 +314,8 @@ export const allProducts = [
   }
 },
 
+//Abdominales
+
 {
   id: 8,
   name: "M2-1008 Abdominal Crunch",
@@ -357,6 +362,8 @@ export const allProducts = [
     uso: "Profesional / Gimnasio"
   }
 },
+
+//Espalda
 
 {
   id: 16,
@@ -435,6 +442,8 @@ export const allProducts = [
 },
 
 
+//Gluteos
+
 {
   id: 23,
   name: "M2-1022 Glute Machine",
@@ -480,6 +489,8 @@ export const allProducts = [
   }
 },
 
+//Bíceps
+
 {
   id: 11,
   name: "M2-1010B Biceps Curl",
@@ -504,7 +515,7 @@ export const allProducts = [
 },
 
 
-
+//Tríceps
 
 {
   id: 12,
@@ -553,7 +564,7 @@ export const allProducts = [
 },
 
 
-
+//Pecho y Hombros
 {
   id: 19,
   name: "M2-1017 Rear Delt - Pec Fly",

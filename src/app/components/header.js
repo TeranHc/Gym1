@@ -14,7 +14,9 @@ export default function GymHeader() {
     { href: '/', label: 'Inicio' },
     { href: '/#quienes-somos', label: 'Quiénes Somos'},
     { href: '/pages/tienda-gym', label: 'Tienda' },
-    { href: '/contacto', label: 'Contacto' }
+    { href: '/pages/fotos', label: 'Galeria' },
+    { href: '/pages/Blog', label: 'Blog' },
+    { href: '/pages/horarios', label: 'Contacto' }
   ];
 
   return (
@@ -52,9 +54,9 @@ export default function GymHeader() {
         </Link>
 
             {/* Navegación central - solo desktop */}
-            <nav className="hidden lg:block">
+            <nav className="hidden lg:flex flex-1 justify-center">
               <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl 
-              inline-flex items-center px-2 xl:px-8 py-2">
+              inline-flex items-center px-2 xl:px-8 py-2 mx-auto">
                 {menuItems.map((item, index) => (
                   <div key={item.href} className="flex items-center">
                     <a 
@@ -63,7 +65,6 @@ export default function GymHeader() {
                     >
                       <span className="text-lg xl:text-xl group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
                       <span className="group-hover:tracking-wide transition-all duration-300 whitespace-nowrap hidden xl:inline">{item.label}</span>
-                      {/* Versión corta para pantallas medianas */}
                       <span className="group-hover:tracking-wide transition-all duration-300 whitespace-nowrap xl:hidden">
                         {item.label}
                       </span>
@@ -75,6 +76,7 @@ export default function GymHeader() {
                 ))}
               </div>
             </nav>
+
 
             {/* Controles de la derecha */}
             <div className="flex items-center gap-3 flex-shrink-0">
