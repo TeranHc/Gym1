@@ -11,8 +11,8 @@ export default function GymHeader() {
   };
 
   const menuItems = [
-    { href: '/', label: 'Inicio' },
-    { href: '/#quienes-somos', label: 'Quiénes Somos'},
+    { href: '/layout', label: 'Inicio' },
+    { href: '/layout/#quienes-somos', label: 'Quiénes Somos'},
     { href: '/pages/tienda-gym', label: 'Tienda' },
     { href: '/pages/fotos', label: 'Galeria' },
     { href: '/pages/Blog', label: 'Blog' },
@@ -38,7 +38,7 @@ export default function GymHeader() {
           <div className="relative">
             {/* Logo placeholder - reemplaza con tu logo */}
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-red-500/25 transition-all duration-300">
-              <span className="text-white font-black text-lg sm:text-xl lg:text-2xl">E</span>
+              <span className="text-white font-black text-lg sm:text-xl lg:text-2xl">R</span>
             </div>
 
             {/* Efecto de brillo al hover */}
@@ -47,7 +47,7 @@ export default function GymHeader() {
 
           <div className="ml-3">
             <h1 className="text-white font-black text-xl sm:text-2xl lg:text-3xl xl:text-4xl tracking-tight drop-shadow-lg cursor-pointer hover:text-red-400 transition-colors duration-300">
-              realLeader
+              ealLeader
               <span className="block text-xs sm:text-sm lg:text-base font-medium text-gray-400 tracking-wider">FITNESS CLUB</span>
             </h1>
           </div>

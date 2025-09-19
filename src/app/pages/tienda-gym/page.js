@@ -182,7 +182,7 @@ useEffect(() => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
       <div className="relative overflow-hidden bg-white shadow-sm mb-6">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-red-600/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 "></div>
         <div className="relative max-w-7xl mx-auto px-4 py-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
