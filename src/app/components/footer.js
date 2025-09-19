@@ -14,14 +14,15 @@ export default function Footer() {
         
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Logo y nombre */}
-            <div className="flex flex-col items-center md:items-start">
-              <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center shadow-none mb-2">
-                <span className="text-white font-black text-xl">E</span>
+            
+            {/* Logo y nombre - SECCIÓN CORREGIDA */}
+            <div className="flex items-center gap-3">
+              <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center shadow-none">
+                <span className="text-white font-black text-xl">R</span>
               </div>
-              <h2 className="text-2xl font-bold text-white mb-2">
-                realLeader <span className="text-red-400">FITNESS CLUB</span>
-              </h2>            
+              <h2 className="text-2xl font-bold text-white">
+                ealLeader <span className="text-red-400">FITNESS CLUB</span>
+              </h2>             
             </div>
 
             {/* Sección MENÚ */}
@@ -70,7 +71,6 @@ export default function Footer() {
                     Tienda de Equipamiento
                   </a>
                 </div>
-     
               </div>
             </div>
 
@@ -118,8 +118,6 @@ export default function Footer() {
                 <i className="fab fa-tiktok text-white"></i>
               </button>
             </div>
-              
-
             </div>
           </div>
         </div>

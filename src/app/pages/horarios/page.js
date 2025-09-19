@@ -1,9 +1,174 @@
 "use client";
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 export default function Contact() {
   const [isHovered, setIsHovered] = useState(null);
+  const [formData, setFormData] = useState({
+    interes: '', plazo: '', instalacion: '', valor: '', origen: '', correo: '',
+    descripcion: '', empresa: '', inversion: '', fecha: '', recepcion: '', telefono: ''
+  });
+  
+  const [mostrarFase2, setMostrarFase2] = useState(false);
+  const [mensaje, setMensaje] = useState(null);
+  const [resultado, setResultado] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // Nuevo estado para la carga
 
+  const weightsF1 = {
+    interes: {renovar: 1, abrir: 2, personal: 0},
+    plazo: {inmediato: 3, mediano: 1, explorando: -1},
+    instalacion: {comercial: 3, personal: 1, casa: 0},
+    valor: {durabilidad: 2, diseno: 1, precio: -1},
+    origen: {recomendacion: 1, instagram: 0, facebook: 0, google: 0, otro: 0}
+  };
+
+  const scoreF1 = useMemo(() => {
+    let s = 0;
+    s += weightsF1.interes[formData.interes] || 0;
+    s += weightsF1.plazo[formData.plazo] || 0;
+    s += weightsF1.instalacion[formData.instalacion] || 0;
+    s += weightsF1.valor[formData.valor] || 0;
+    s += weightsF1.origen[formData.origen] || 0;
+    return s;
+  }, [formData]);
+
+  const camposFase1 = ['interes', 'plazo', 'instalacion', 'valor', 'origen', 'correo'];
+  const camposFase2 = ['descripcion', 'empresa', 'inversion', 'fecha', 'recepcion', 'telefono'];
+
+  const progreso1 = useMemo(() => {
+    const completados = camposFase1.filter(campo => formData[campo] && formData[campo] !== '').length;
+    return Math.round((completados / camposFase1.length) * 100);
+  }, [formData, camposFase1]);
+
+  const progreso2 = useMemo(() => {
+    const completados = camposFase2.filter(campo => formData[campo] && formData[campo] !== '').length;
+    return Math.round((completados / camposFase2.length) * 100);
+  }, [formData, camposFase2]);
+
+  const puedeAvanzar = camposFase1.every(campo => formData[campo] && formData[campo] !== '');
+  const puedeEnviar = camposFase2.every(campo => formData[campo] && formData[campo] !== '');
+
+  const handleInputChange = (campo, valor) => {
+    setFormData(prev => ({...prev, [campo]: valor}));
+    if (mensaje) setMensaje(null);
+  };
+
+  const limpiarFormulario = () => {
+    setFormData({
+      interes: '', plazo: '', instalacion: '', valor: '', origen: '', correo: '',
+      descripcion: '', empresa: '', inversion: '', fecha: '', recepcion: '', telefono: ''
+    });
+    setMostrarFase2(false);
+    setMensaje(null);
+    setResultado(null);
+  };
+
+  const avanzarFase2 = () => {
+    if (!puedeAvanzar) {
+      setMensaje({tipo: 'error', texto: 'Completa todos los campos para continuar.'});
+      return;
+    }
+
+    const threshold = 3;
+    if (scoreF1 >= threshold) {
+      setMostrarFase2(true);
+      setMensaje({tipo: 'success', texto: 'Perfecto. Continuemos con los detalles para tu cotización personalizada.'});
+    } else {
+      setMensaje({
+        tipo: 'warning', 
+        texto: 'Gracias por tu interés. Te recomendamos explorar nuestro catálogo. Si tu proyecto avanza, vuelve a completar el formulario.'
+      });
+    }
+  };
+
+  const detectarContradicciones = () => {
+    const contradictions = [];
+    const fecha = formData.fecha.toLowerCase();
+    const recepcion = formData.recepcion.toLowerCase();
+    
+    if (formData.plazo === 'inmediato' && (fecha.includes('2026') || fecha.includes('diciembre'))) {
+      contradictions.push('Plazo inmediato pero fecha lejana');
+    }
+    if (formData.plazo === 'explorando' && (fecha.includes('oct') || fecha.includes('nov') || fecha.includes('2025'))) {
+      contradictions.push('Solo explorando pero fecha cercana');
+    }
+    
+    return contradictions;
+  };
+
+  const calcularTiering = () => {
+    let score = scoreF1;
+    const desc = formData.descripcion.trim();
+    const contradictions = detectarContradicciones();
+    
+    if (desc.length > 60) score += 2;
+    else if (desc.length > 20) score += 1;
+    else score -= 1;
+    
+    if (formData.inversion === 'nd') score -= 1;
+    else if (formData.inversion === '200-500') score += 1;
+    else if (formData.inversion === '500-1000') score += 2;
+    else if (formData.inversion === '>1000') score += 3;
+    
+    const tel = formData.telefono.replace(/\D/g, '');
+    if (tel.length >= 10) score += 1;
+    else score -= 1;
+    
+    score -= contradictions.length * 2;
+    
+    let tier = 'C';
+    let mensaje = 'Gracias por tu interés. Puedes explorar nuestro catálogo completo y contactarnos cuando tu proyecto avance.';
+    
+    if (score >= 8 && contradictions.length === 0) {
+      tier = 'A';
+      mensaje = 'Proyecto prioritario. Un asesor te contactará para cotización personalizada.';
+    } else if (score >= 4) {
+      tier = 'B';
+      mensaje = 'Proyecto con potencial. Podemos avanzar con una llamada exploratoria.';
+    }
+    
+    return { tier, mensaje, score, contradictions: contradictions.length };
+  };
+
+  // --- FUNCIÓN MODIFICADA ---
+  const enviarSolicitud = async () => {
+    if (!puedeEnviar) {
+      setMensaje({ tipo: 'error', texto: 'Completa todos los campos requeridos para enviar.' });
+      return;
+    }
+    
+    setIsLoading(true);
+    setMensaje(null);
+    const resultadoEvaluacion = calcularTiering();
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ formData, resultadoEvaluacion }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Algo salió mal al enviar el correo.');
+      }
+      
+      // Si todo sale bien, mostramos el resultado
+      setResultado(resultadoEvaluacion);
+
+    } catch (error) {
+      setMensaje({ tipo: 'error', texto: error.message });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const nuevaSolicitud = () => {
+    limpiarFormulario();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-6 sm:py-8 lg:py-12 px-3 sm:px-4 lg:px-6">
       {/* Hero Section */}
@@ -23,128 +188,321 @@ export default function Contact() {
           transformar tu espacio fitness
         </p>
       </div>
-      {/* Quick Contact Bar */}
-      <div className="max-w-6xl mx-auto mb-8 sm:mb-10 lg:mb-12">
-        <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl grid lg:grid-cols-3 gap-4">
-          {[
-            {
-              icon: "📧",
-              title: "Email Comercial",
-              desc: "ventas@realleadermex.com",
-              action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Consulta%20sobre%20máquinas&body=Hola,%20me%20gustaría%20más%20información%20sobre%20el%20costo%20de%20las%20máquinas%20y%20si%20podría%20agendar%20una%20cita.`
-            },
-            {
-              icon: "ℹ️",
-              title: "Información General", 
-              desc: "info@realleadermex.com",
-              action: () => window.location.href = `mailto:info@realleadermex.com?subject=Consulta%20informativa&body=Hola,%20quisiera%20recibir%20más%20información%20sobre%20sus%20productos%20y%20servicios.%20También%20me%20gustaría%20saber%20cómo%20puedo%20contactarlos%20directamente%20o%20agendar%20una%20cita%20para%20visitar%20sus%20instalaciones.`
-            },
-            {
-              icon: "💰",
-              title: "Cotizaciones",
-              desc: "Solicita tu propuesta",
-              action: () => window.location.href = `mailto:ventas@realleadermex.com?subject=Solicitud%20de%20Cotización%20para%20Gimnasio&body=Hola,%20me%20interesa%20recibir%20una%20cotización%20de%20sus%20máquinas%20para%20mi%20gimnasio.%20Por%20favor%20indíquenme%20las%20opciones%20disponibles%20y%20los%20detalles%20de%20precios.%20Gracias.`
-            }
-          ].map((item, idx) => (
-            <div 
-              key={idx}
-              onClick={item.action}
-              onMouseEnter={() => setIsHovered(idx)}
-              onMouseLeave={() => setIsHovered(null)}
-              className={`mx-auto flex items-center gap-3 sm:gap-4 p-4 rounded-lg lg:rounded-xl cursor-pointer transition-all duration-300 border-2 border-gray-400 shadow-md hover:shadow-xl
-                ${isHovered === idx ? 'bg-gray-50 transform -translate-y-1 shadow-xl' : 'hover:bg-gray-50'} 
-                active:scale-95`}
-            >
-              <div className="text-2xl sm:text-3xl lg:text-4xl bg-gradient-to-br from-red-500 to-red-600 text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                {item.icon}
-              </div>
-              <div className="min-w-0 flex-1">
-                <h4 className="font-bold text-gray-800 text-sm sm:text-base truncate">{item.title}</h4>
-                <p className="text-gray-600 text-xs sm:text-sm truncate">{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
 
 
-
-      {/* Showroom Section */}
-      <div id="showroom" className="max-w-7xl mx-auto mb-10 sm:mb-12 lg:mb-16">
+      {/* Formulario de Prospectos */}
+      <div id="formulario" className="max-w-7xl mx-auto mb-10 sm:mb-12 lg:mb-16">
         <div className="bg-white rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
           {/* Header */}
-          <div className="bg-gradient-to-r from-gray-800 to-gray-600 text-white p-6 sm:p-8 lg:p-10 text-center">
+          <div className="bg-gradient-to-r from-gray-800 to-gray-700 text-white p-6 sm:p-8 lg:p-10 text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
-              Visita Nuestro Local Especializado
+              Solicitud de Cotización Personalizada
             </h2>
             <p className="text-lg sm:text-xl opacity-90 max-w-2xl mx-auto px-2">
-              Conoce de cerca nuestro equipamiento. Prueba las máquinas y recibe 
-              asesoramiento personalizado de nuestros expertos.
+              Completa este formulario para recibir una propuesta ajustada a tus necesidades
             </p>
           </div>
 
-          {/* Content Grid - Reorganizado para eliminar el espacio en blanco */}
           <div className="p-6 sm:p-8 lg:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-              
-              {/* Location Card - Lado izquierdo */}
-              <div className="bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl lg:rounded-2xl border-l-4 border-red-500">
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 lg:mb-6">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-red-500 rounded-lg lg:rounded-xl flex items-center justify-center text-white text-lg sm:text-xl flex-shrink-0">
-                    🏢
+            {/* Fase 1 */}
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Información General</h3>
+              <p className="text-gray-600 mb-4 text-sm sm:text-base">Datos básicos para entender tu proyecto (Tiempo estimado: 1 minuto)</p>
+              <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+                <div className="bg-red-500 h-2 rounded-full transition-all duration-300 ease-out" style={{width: `${progreso1}%`}}></div>
+              </div>
+
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cuál es tu principal interés?</label>
+                    <select 
+                      value={formData.interes} 
+                      onChange={(e) => handleInputChange('interes', e.target.value)}
+                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    >
+                      <option value="">Selecciona una opción</option>
+                      <option value="renovar">Renovar equipo existente</option>
+                      <option value="abrir">Abrir nuevo gimnasio</option>
+                      <option value="personal">Uso personal/hogar</option>
+                    </select>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800">Local Principal</h3>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Plazo para tu compra</label>
+                    <select 
+                      value={formData.plazo} 
+                      onChange={(e) => handleInputChange('plazo', e.target.value)}
+                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    >
+                      <option value="">Selecciona una opción</option>
+                      <option value="inmediato">Inmediato (1-2 meses)</option>
+                      <option value="mediano">Mediano plazo (3-6 meses)</option>
+                      <option value="explorando">Solo explorando opciones</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Dónde instalarías el equipo?</label>
+                    <select 
+                      value={formData.instalacion} 
+                      onChange={(e) => handleInputChange('instalacion', e.target.value)}
+                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    >
+                      <option value="">Selecciona una opción</option>
+                      <option value="casa">Casa/departamento</option>
+                      <option value="personal">Gimnasio personal</option>
+                      <option value="comercial">Gimnasio comercial</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Qué valoras más?</label>
+                    <select 
+                      value={formData.valor} 
+                      onChange={(e) => handleInputChange('valor', e.target.value)}
+                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    >
+                      <option value="">Selecciona una opción</option>
+                      <option value="durabilidad">Durabilidad y calidad</option>
+                      <option value="precio">Mejor precio</option>
+                      <option value="diseno">Diseño y personalización</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cómo supiste de nosotros?</label>
+                    <select 
+                      value={formData.origen} 
+                      onChange={(e) => handleInputChange('origen', e.target.value)}
+                      className="w-full p-3 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    >
+                      <option value="">Selecciona una opción</option>
+                      <option value="instagram">Instagram</option>
+                      <option value="recomendacion">Recomendación</option>
+                      <option value="facebook">Facebook</option>
+                      <option value="google">Google</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Correo electrónico</label>
+                    <input 
+                      type="email" 
+                      value={formData.correo} 
+                      onChange={(e) => handleInputChange('correo', e.target.value)}
+                      placeholder="tu@email.com"
+                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    />
+                  </div>
                 </div>
-                
-                {[
-                  { icon: "🌃", label: "Lugar", value: "Puebla, México" },
-                  { icon: "📧", label: "Email Ventas", value: "ventas@realleadermex.com" },
-                  { icon: "📧", label: "Email Info", value: "info@realleadermex.com" },
-                  { icon: "⏰", label: "Atención", value: "Lunes a Viernes: 9:00 AM - 6:00 PM" },
-                  { icon: "🚚", label: "Cobertura", value: "Servicio a toda la República Mexicana" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 text-gray-700 text-sm sm:text-base">
-                    <span className="text-base sm:text-lg lg:text-xl flex-shrink-0 mt-0.5">{item.icon}</span>
-                    <span className="font-semibold min-w-16 sm:min-w-20 flex-shrink-0">{item.label}:</span>
-                    <span className="break-words">{item.value}</span>
-                  </div>
-                ))}
-              </div>
 
-              {/* Services Grid - Lado derecho */}
-              <div className="grid grid-cols-1  sm:grid-cols-2 gap-3 sm:gap-4">
-                {[
-                  { icon: "🏋️", title: "Prueba de Equipos", desc: "Experimenta nuestras máquinas antes de comprar" },
-                  { icon: "👨‍💼", title: "Asesoría Experta", desc: "Consulta con nuestros especialistas" },
-                  { icon: "📋", title: "Cotización Inmediata", desc: "Recibe tu propuesta detallada" },
-                  { icon: "🎯", title: "Diseño Personalizado", desc: "Planificamos tu gimnasio ideal" }
-                ].map((service, idx) => (
-                  <div key={idx} className="bg-white p-4 sm:p-5 rounded-xl lg:rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow duration-300 border border-gray-100">
-                    <div className="text-2xl sm:text-3xl mb-2">{service.icon}</div>
-                    <h4 className="font-bold text-gray-800 mb-2 text-[20px] ">{service.title}</h4>
-                    <p className="text-gray-600 text-[17px] leading-tight">{service.desc}</p>
+                {!mostrarFase2 && (
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <button 
+                      onClick={avanzarFase2}
+                      disabled={!puedeAvanzar}
+                      className={`flex-1 py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
+                        puedeAvanzar 
+                          ? 'bg-red-500 text-white hover:bg-red-600 active:scale-95' 
+                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
+                    >
+                      Continuar → Detalles del Proyecto
+                    </button>
+                    <button 
+                      onClick={limpiarFormulario}
+                      className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                    >
+                      Limpiar
+                    </button>
                   </div>
-                ))}
-              </div>
-            </div>
-            {/* CTA Buttons - Ahora centrados debajo */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 lg:mt-10">
-            <button 
-                onClick={() => window.location.href = 
-                `mailto:info@realleadermex.com?subject=Solicitud%20de%20Visita%20al%20Showroom&body=Hola,%20quisiera%20agendar%20una%20visita%20a%20su%20showroom%20para%20conocer%20las%20máquinas%20y%20productos%20disponibles.%20Por%20favor%20indíquenme%20las%20fechas%20y%20horarios%20disponibles.%20Gracias.`}
-                className="flex-1 bg-red-500 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg lg:rounded-xl font-bold hover:bg-red-600 transition-colors duration-300 flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
-            >
-                📧 Agendar Visita
-            </button>
-            <button 
-                onClick={() => window.location.href = 
-                `mailto:ventas@realleadermex.com?subject=Solicitud%20de%20Cotización%20para%20Gimnasio&body=Hola,%20me%20interesa%20recibir%20una%20cotización%20de%20sus%20máquinas%20para%20mi%20gimnasio.%20Por%20favor%20indíquenme%20las%20opciones%20disponibles%20y%20los%20detalles%20de%20precios.%20Gracias.`}
-                className="flex-1 bg-gray-100 text-gray-800 py-3 sm:py-4 px-4 sm:px-6 rounded-lg lg:rounded-xl font-bold hover:bg-gray-200 border-2 border-gray-200 hover:border-red-500 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
-            >
-                💰 Cotizar
-            </button>
+                )}
+
+                {mensaje && (
+                  <div className={`p-4 rounded-lg border-l-4 ${
+                    mensaje.tipo === 'success' ? 'bg-green-50 border-green-500 text-green-700' :
+                    mensaje.tipo === 'warning' ? 'bg-yellow-50 border-yellow-500 text-yellow-700' :
+                    'bg-red-50 border-red-500 text-red-700'
+                  }`}>
+                    {mensaje.texto}
+                    {mensaje.tipo === 'warning' && (
+                      <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                        <button 
+                          onClick={limpiarFormulario}
+                          className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                        >
+                          Nueva Solicitud
+                        </button>
+                        <button 
+                          onClick={() => window.location.href = '/pages/tienda-gym'}
+                          className="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 active:scale-95"
+                        >
+                          Ver Catálogo
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </form>
             </div>
 
+            {/* Fase 2 */}
+            {mostrarFase2 && (
+              <div className="mt-10 pt-8 border-t border-gray-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Detalles del Proyecto</h3>
+                <p className="text-gray-600 mb-4 text-sm sm:text-base">Información específica para una cotización personalizada</p>
+                <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+                  <div className="bg-red-500 h-2 rounded-full transition-all duration-300 ease-out" style={{width: `${progreso2}%`}}></div>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="lg:col-span-2">
+                      <label className="block text-sm text-black font-semibold text-gray-700 mb-2">Describe tu proyecto</label>
+                      <textarea 
+                        value={formData.descripcion} 
+                        onChange={(e) => handleInputChange('descripcion', e.target.value)}
+                        placeholder="Ej: Gimnasio de 200 m² en Monterrey; necesito 12 máquinas de fuerza y 6 de cardio; área libre de 60 m²"
+                        rows={4}
+                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Nombre de tu empresa/gimnasio</label>
+                      <input 
+                        type="text" 
+                        value={formData.empresa} 
+                        onChange={(e) => handleInputChange('empresa', e.target.value)}
+                        placeholder="Ej: Titan Gym Monterrey"
+                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Rango de inversión aproximado</label>
+                      <select 
+                        value={formData.inversion} 
+                        onChange={(e) => handleInputChange('inversion', e.target.value)}
+                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      >
+                        <option value="">Selecciona un rango</option>
+                        <option value="200-500">$200,000 - $500,000 MXN</option>
+                        <option value="500-1000">$500,000 - $1,000,000 MXN</option>
+                        <option value=">1000">Más de $1,000,000 MXN</option>
+                        <option value="nd">Aún no definido</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm  font-semibold text-gray-700 mb-2">Fecha para iniciar el proyecto</label>
+                      <input 
+                        type="text" 
+                        value={formData.fecha} 
+                        onChange={(e) => handleInputChange('fecha', e.target.value)}
+                        placeholder="Ej: Octubre 2025"
+                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cuándo necesitas el equipo?</label>
+                      <input 
+                        type="text" 
+                        value={formData.recepcion} 
+                        onChange={(e) => handleInputChange('recepcion', e.target.value)}
+                        placeholder="Ej: Noviembre 2025"
+                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">WhatsApp</label>
+                      <input 
+                        type="tel" 
+                        value={formData.telefono} 
+                        onChange={(e) => handleInputChange('telefono', e.target.value)}
+                        placeholder="+52 55 0000 0000"
+                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      />
+                    </div>
+                  </div>
+
+                        {/* --- BOTÓN DE ENVÍO MODIFICADO --- */}
+                    {/* Busca este botón dentro de la "Fase 2" y reemplázalo */}
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                      <button 
+                        onClick={enviarSolicitud}
+                        disabled={!puedeEnviar || isLoading} // Deshabilitar si está cargando
+                        className={`flex-1 py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
+                          puedeEnviar && !isLoading
+                            ? 'bg-red-500 text-white hover:bg-red-600 active:scale-95' 
+                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        }`}
+                      >
+                        {isLoading ? 'Enviando...' : 'Enviar Solicitud'}
+                      </button>
+                      <button 
+                        onClick={() => setFormData({...formData, descripcion: '', empresa: '', inversion: '', fecha: '', recepcion: '', telefono: ''})}
+                        className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                      >
+                        Limpiar Fase 2
+                      </button>
+                    </div>
+
+                  <p className="text-sm text-gray-500 text-center">
+                    Al enviar, aceptas que revisemos la información para priorizar la atención según tu proyecto.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Resultado */}
+            {resultado && (
+              <div className="mt-10 pt-8 border-t border-gray-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Resultado de Evaluación</h3>
+                <div className={`p-6 rounded-lg border-l-4 ${
+                  resultado.tier === 'A' ? 'bg-green-50 border-green-500' :
+                  resultado.tier === 'B' ? 'bg-yellow-50 border-yellow-500' :
+                  'bg-blue-50 border-blue-500'
+                }`}>
+                  <p className={`text-lg font-semibold ${
+                    resultado.tier === 'A' ? 'text-green-700' :
+                    resultado.tier === 'B' ? 'text-yellow-700' :
+                    'text-blue-700'
+                  }`}>
+                    {resultado.mensaje} (Categoría {resultado.tier})
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-4 mt-4">
+
+                    {resultado.contradictions > 0 && (
+                      <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
+                  <button 
+                    onClick={nuevaSolicitud}
+                    className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                  >
+                    Nueva Solicitud
+                  </button>
+                  {resultado.tier === 'C' && (
+                    <button 
+                      onClick={() => window.location.href = '/pages/tienda-gym'}
+                      className="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 active:scale-95"
+                    >
+                      Ver Catálogo
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -239,14 +597,6 @@ export default function Contact() {
         </p>
       </div>
 
-      {/* Email Float Button */}
-      <button
-        onClick={() => window.location.href='mailto:ventas@realleadermex.com?subject=Consulta desde la web'}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-8 lg:right-8 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center text-lg sm:text-xl lg:text-2xl animate-bounce"
-        title="Contactar por Email"
-      >
-        📧
-      </button>
     </section>
   );
 }
