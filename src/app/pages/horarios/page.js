@@ -61,6 +61,18 @@ export default function Contact() {
     setMensaje(null);
     setResultado(null);
   };
+  
+  const limpiarFase2 = () => {
+    setFormData(prev => ({
+      ...prev,
+      descripcion: '', 
+      empresa: '', 
+      inversion: '', 
+      fecha: '', 
+      recepcion: '', 
+      telefono: ''
+    }));
+  };
 
   const avanzarFase2 = () => {
     if (!puedeAvanzar) {
@@ -78,6 +90,11 @@ export default function Contact() {
         texto: 'Gracias por tu interés. Te recomendamos explorar nuestro catálogo. Si tu proyecto avanza, vuelve a completar el formulario.'
       });
     }
+  };
+  
+  const volverAFase1 = () => {
+    setMostrarFase2(false);
+    setMensaje(null);
   };
 
   const detectarContradicciones = () => {
@@ -129,7 +146,6 @@ export default function Contact() {
     return { tier, mensaje, score, contradictions: contradictions.length };
   };
 
-  // --- FUNCIÓN MODIFICADA ---
   const enviarSolicitud = async () => {
     if (!puedeEnviar) {
       setMensaje({ tipo: 'error', texto: 'Completa todos los campos requeridos para enviar.' });
@@ -155,7 +171,6 @@ export default function Contact() {
         throw new Error(data.message || 'Algo salió mal al enviar el correo.');
       }
       
-      // Si todo sale bien, mostramos el resultado
       setResultado(resultadoEvaluacion);
 
     } catch (error) {
@@ -171,7 +186,6 @@ export default function Contact() {
   };
   return (
     <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-6 sm:py-8 lg:py-12 px-3 sm:px-4 lg:px-6">
-      {/* Hero Section */}
       <div className="text-center mb-8 sm:mb-10 lg:mb-12">
         <div className="flex items-center justify-center mb-3 sm:mb-4">
           <div className="h-px bg-red-600 w-8 sm:w-12 lg:w-16"></div>
@@ -189,11 +203,8 @@ export default function Contact() {
         </p>
       </div>
 
-
-      {/* Formulario de Prospectos */}
       <div id="formulario" className="max-w-7xl mx-auto mb-10 sm:mb-12 lg:mb-16">
         <div className="bg-white rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
-          {/* Header */}
           <div className="bg-gradient-to-r from-gray-800 to-gray-700 text-white p-6 sm:p-8 lg:p-10 text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
               Solicitud de Cotización Personalizada
@@ -204,263 +215,277 @@ export default function Contact() {
           </div>
 
           <div className="p-6 sm:p-8 lg:p-10">
-            {/* Fase 1 */}
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Información General</h3>
-              <p className="text-gray-600 mb-4 text-sm sm:text-base">Datos básicos para entender tu proyecto (Tiempo estimado: 1 minuto)</p>
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                <div className="bg-red-500 h-2 rounded-full transition-all duration-300 ease-out" style={{width: `${progreso1}%`}}></div>
-              </div>
-
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cuál es tu principal interés?</label>
-                    <select 
-                      value={formData.interes} 
-                      onChange={(e) => handleInputChange('interes', e.target.value)}
-                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    >
-                      <option value="">Selecciona una opción</option>
-                      <option value="renovar">Renovar equipo existente</option>
-                      <option value="abrir">Abrir nuevo gimnasio</option>
-                      <option value="personal">Uso personal/hogar</option>
-                    </select>
+            {!resultado ? (
+              <>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Información General</h3>
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base">Datos básicos para entender tu proyecto (Tiempo estimado: 1 minuto)</p>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+                    <div className="bg-red-500 h-2 rounded-full transition-all duration-300 ease-out" style={{width: `${progreso1}%`}}></div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Plazo para tu compra</label>
-                    <select 
-                      value={formData.plazo} 
-                      onChange={(e) => handleInputChange('plazo', e.target.value)}
-                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    >
-                      <option value="">Selecciona una opción</option>
-                      <option value="inmediato">Inmediato (1-2 meses)</option>
-                      <option value="mediano">Mediano plazo (3-6 meses)</option>
-                      <option value="explorando">Solo explorando opciones</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Dónde instalarías el equipo?</label>
-                    <select 
-                      value={formData.instalacion} 
-                      onChange={(e) => handleInputChange('instalacion', e.target.value)}
-                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    >
-                      <option value="">Selecciona una opción</option>
-                      <option value="casa">Casa/departamento</option>
-                      <option value="personal">Gimnasio personal</option>
-                      <option value="comercial">Gimnasio comercial</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Qué valoras más?</label>
-                    <select 
-                      value={formData.valor} 
-                      onChange={(e) => handleInputChange('valor', e.target.value)}
-                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    >
-                      <option value="">Selecciona una opción</option>
-                      <option value="durabilidad">Durabilidad y calidad</option>
-                      <option value="precio">Mejor precio</option>
-                      <option value="diseno">Diseño y personalización</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cómo supiste de nosotros?</label>
-                    <select 
-                      value={formData.origen} 
-                      onChange={(e) => handleInputChange('origen', e.target.value)}
-                      className="w-full p-3 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    >
-                      <option value="">Selecciona una opción</option>
-                      <option value="instagram">Instagram</option>
-                      <option value="recomendacion">Recomendación</option>
-                      <option value="facebook">Facebook</option>
-                      <option value="google">Google</option>
-                      <option value="otro">Otro</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Correo electrónico</label>
-                    <input 
-                      type="email" 
-                      value={formData.correo} 
-                      onChange={(e) => handleInputChange('correo', e.target.value)}
-                      placeholder="tu@email.com"
-                      className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-
-                {!mostrarFase2 && (
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                    <button 
-                      onClick={avanzarFase2}
-                      disabled={!puedeAvanzar}
-                      className={`flex-1 py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
-                        puedeAvanzar 
-                          ? 'bg-red-500 text-white hover:bg-red-600 active:scale-95' 
-                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      }`}
-                    >
-                      Continuar → Detalles del Proyecto
-                    </button>
-                    <button 
-                      onClick={limpiarFormulario}
-                      className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
-                    >
-                      Limpiar
-                    </button>
-                  </div>
-                )}
-
-                {mensaje && (
-                  <div className={`p-4 rounded-lg border-l-4 ${
-                    mensaje.tipo === 'success' ? 'bg-green-50 border-green-500 text-green-700' :
-                    mensaje.tipo === 'warning' ? 'bg-yellow-50 border-yellow-500 text-yellow-700' :
-                    'bg-red-50 border-red-500 text-red-700'
-                  }`}>
-                    {mensaje.texto}
-                    {mensaje.tipo === 'warning' && (
-                      <div className="flex flex-col sm:flex-row gap-3 mt-4">
-                        <button 
-                          onClick={limpiarFormulario}
-                          className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                  <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cuál es tu principal interés?</label>
+                        <select 
+                          disabled={mostrarFase2}
+                          value={formData.interes} 
+                          onChange={(e) => handleInputChange('interes', e.target.value)}
+                          className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100"
                         >
-                          Nueva Solicitud
+                          <option value="">Selecciona una opción</option>
+                          <option value="renovar">Renovar equipo existente</option>
+                          <option value="abrir">Abrir nuevo gimnasio</option>
+                          <option value="personal">Uso personal/hogar</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Plazo para tu compra</label>
+                        <select 
+                          disabled={mostrarFase2}
+                          value={formData.plazo} 
+                          onChange={(e) => handleInputChange('plazo', e.target.value)}
+                          className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100"
+                        >
+                          <option value="">Selecciona una opción</option>
+                          <option value="inmediato">Inmediato (1-2 meses)</option>
+                          <option value="mediano">Mediano plazo (3-6 meses)</option>
+                          <option value="explorando">Solo explorando opciones</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">¿Dónde instalarías el equipo?</label>
+                        <select 
+                          disabled={mostrarFase2}
+                          value={formData.instalacion} 
+                          onChange={(e) => handleInputChange('instalacion', e.target.value)}
+                          className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100"
+                        >
+                          <option value="">Selecciona una opción</option>
+                          <option value="casa">Casa/departamento</option>
+                          <option value="personal">Gimnasio personal</option>
+                          <option value="comercial">Gimnasio comercial</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">¿Qué valoras más?</label>
+                        <select 
+                          disabled={mostrarFase2}
+                          value={formData.valor} 
+                          onChange={(e) => handleInputChange('valor', e.target.value)}
+                          className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100"
+                        >
+                          <option value="">Selecciona una opción</option>
+                          <option value="durabilidad">Durabilidad y calidad</option>
+                          <option value="precio">Mejor precio</option>
+                          <option value="diseno">Diseño y personalización</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cómo supiste de nosotros?</label>
+                        <select 
+                          disabled={mostrarFase2}
+                          value={formData.origen} 
+                          onChange={(e) => handleInputChange('origen', e.target.value)}
+                          className="w-full p-3 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100"
+                        >
+                          <option value="">Selecciona una opción</option>
+                          <option value="instagram">Instagram</option>
+                          <option value="recomendacion">Recomendación</option>
+                          <option value="facebook">Facebook</option>
+                          <option value="google">Google</option>
+                          <option value="otro">Otro</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Correo electrónico</label>
+                        <input 
+                          disabled={mostrarFase2}
+                          type="email" 
+                          value={formData.correo} 
+                          onChange={(e) => handleInputChange('correo', e.target.value)}
+                          placeholder="tu@email.com"
+                          className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100"
+                        />
+                      </div>
+                    </div>
+
+                    {!mostrarFase2 && (
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
+                        <button 
+                          onClick={avanzarFase2}
+                          disabled={!puedeAvanzar}
+                          className={`flex-1 py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
+                            puedeAvanzar 
+                              ? 'bg-red-500 text-white hover:bg-red-600 active:scale-95' 
+                              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          }`}
+                        >
+                          Continuar → Detalles del Proyecto
                         </button>
                         <button 
-                          onClick={() => window.location.href = '/pages/tienda-gym'}
-                          className="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 active:scale-95"
+                          onClick={limpiarFormulario}
+                          className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
                         >
-                          Ver Catálogo
+                          Limpiar
                         </button>
                       </div>
                     )}
+
+                    {mensaje && !mostrarFase2 && (
+                      <div className={`p-4 rounded-lg border-l-4 mt-4 ${
+                        mensaje.tipo === 'success' ? 'bg-green-50 border-green-500 text-green-700' :
+                        mensaje.tipo === 'warning' ? 'bg-yellow-50 border-yellow-500 text-yellow-700' :
+                        'bg-red-50 border-red-500 text-red-700'
+                      }`}>
+                        {mensaje.texto}
+                        {mensaje.tipo === 'warning' && (
+                          <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                            <button 
+                              onClick={limpiarFormulario}
+                              className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                            >
+                              Nueva Solicitud
+                            </button>
+                            <button 
+                              onClick={() => window.location.href = '/pages/tienda-gym'}
+                              className="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 active:scale-95"
+                            >
+                              Ver Catálogo
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </form>
+                </div>
+
+                {mostrarFase2 && (
+                  <div className="mt-10 pt-8 border-t border-gray-200">
+                    {mensaje && mensaje.tipo === 'success' && (
+                      <div className={`p-4 rounded-lg border-l-4 mb-6 ${'bg-green-50 border-green-500 text-green-700'}`}>
+                        {mensaje.texto}
+                      </div>
+                    )}
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Detalles del Proyecto</h3>
+                    <p className="text-gray-600 mb-4 text-sm sm:text-base">Información específica para una cotización personalizada</p>
+                    <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+                      <div className="bg-red-500 h-2 rounded-full transition-all duration-300 ease-out" style={{width: `${progreso2}%`}}></div>
+                    </div>
+
+                    <div className="space-y-6">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div className="lg:col-span-2">
+                          <label className="block text-sm text-black font-semibold text-gray-700 mb-2">Describe tu proyecto</label>
+                          <textarea 
+                            value={formData.descripcion} 
+                            onChange={(e) => handleInputChange('descripcion', e.target.value)}
+                            placeholder="Ej: Gimnasio de 200 m² en Monterrey; necesito 12 máquinas de fuerza y 6 de cardio; área libre de 60 m²"
+                            rows={4}
+                            className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">Nombre de tu empresa/gimnasio</label>
+                          <input 
+                            type="text" 
+                            value={formData.empresa} 
+                            onChange={(e) => handleInputChange('empresa', e.target.value)}
+                            placeholder="Ej: Titan Gym Monterrey"
+                            className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">Rango de inversión aproximado</label>
+                          <select 
+                            value={formData.inversion} 
+                            onChange={(e) => handleInputChange('inversion', e.target.value)}
+                            className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                          >
+                            <option value="">Selecciona un rango</option>
+                            <option value="200-500">$200,000 - $500,000 MXN</option>
+                            <option value="500-1000">$500,000 - $1,000,000 MXN</option>
+                            <option value=">1000">Más de $1,000,000 MXN</option>
+                            <option value="nd">Aún no definido</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">Fecha para iniciar el proyecto</label>
+                          <input 
+                            type="text" 
+                            value={formData.fecha} 
+                            onChange={(e) => handleInputChange('fecha', e.target.value)}
+                            placeholder="Ej: Octubre 2025"
+                            className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cuándo necesitas el equipo?</label>
+                          <input 
+                            type="text" 
+                            value={formData.recepcion} 
+                            onChange={(e) => handleInputChange('recepcion', e.target.value)}
+                            placeholder="Ej: Noviembre 2025"
+                            className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">WhatsApp</label>
+                          <input 
+                            type="tel" 
+                            value={formData.telefono} 
+                            onChange={(e) => handleInputChange('telefono', e.target.value)}
+                            placeholder="+52 55 0000 0000"
+                            className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <button 
+                          onClick={enviarSolicitud}
+                          disabled={!puedeEnviar || isLoading}
+                          className={`flex-1 py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
+                            puedeEnviar && !isLoading
+                              ? 'bg-red-500 text-white hover:bg-red-600 active:scale-95' 
+                              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          }`}
+                        >
+                          {isLoading ? 'Enviando...' : 'Enviar Solicitud'}
+                        </button>
+                        <button 
+                          onClick={limpiarFase2}
+                          className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                        >
+                          Limpiar Fase 2
+                        </button>
+                        <button 
+                          onClick={volverAFase1}
+                          className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
+                        >
+                          Volver a la Fase 1
+                        </button>
+                      </div>
+
+                      <p className="text-sm text-gray-500 text-center">
+                        Al enviar, aceptas que revisemos la información para priorizar la atención según tu proyecto.
+                      </p>
+                    </div>
                   </div>
                 )}
-              </form>
-            </div>
-
-            {/* Fase 2 */}
-            {mostrarFase2 && (
-              <div className="mt-10 pt-8 border-t border-gray-200">
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Detalles del Proyecto</h3>
-                <p className="text-gray-600 mb-4 text-sm sm:text-base">Información específica para una cotización personalizada</p>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                  <div className="bg-red-500 h-2 rounded-full transition-all duration-300 ease-out" style={{width: `${progreso2}%`}}></div>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="lg:col-span-2">
-                      <label className="block text-sm text-black font-semibold text-gray-700 mb-2">Describe tu proyecto</label>
-                      <textarea 
-                        value={formData.descripcion} 
-                        onChange={(e) => handleInputChange('descripcion', e.target.value)}
-                        placeholder="Ej: Gimnasio de 200 m² en Monterrey; necesito 12 máquinas de fuerza y 6 de cardio; área libre de 60 m²"
-                        rows={4}
-                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Nombre de tu empresa/gimnasio</label>
-                      <input 
-                        type="text" 
-                        value={formData.empresa} 
-                        onChange={(e) => handleInputChange('empresa', e.target.value)}
-                        placeholder="Ej: Titan Gym Monterrey"
-                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Rango de inversión aproximado</label>
-                      <select 
-                        value={formData.inversion} 
-                        onChange={(e) => handleInputChange('inversion', e.target.value)}
-                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      >
-                        <option value="">Selecciona un rango</option>
-                        <option value="200-500">$200,000 - $500,000 MXN</option>
-                        <option value="500-1000">$500,000 - $1,000,000 MXN</option>
-                        <option value=">1000">Más de $1,000,000 MXN</option>
-                        <option value="nd">Aún no definido</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm  font-semibold text-gray-700 mb-2">Fecha para iniciar el proyecto</label>
-                      <input 
-                        type="text" 
-                        value={formData.fecha} 
-                        onChange={(e) => handleInputChange('fecha', e.target.value)}
-                        placeholder="Ej: Octubre 2025"
-                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">¿Cuándo necesitas el equipo?</label>
-                      <input 
-                        type="text" 
-                        value={formData.recepcion} 
-                        onChange={(e) => handleInputChange('recepcion', e.target.value)}
-                        placeholder="Ej: Noviembre 2025"
-                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">WhatsApp</label>
-                      <input 
-                        type="tel" 
-                        value={formData.telefono} 
-                        onChange={(e) => handleInputChange('telefono', e.target.value)}
-                        placeholder="+52 55 0000 0000"
-                        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-
-                        {/* --- BOTÓN DE ENVÍO MODIFICADO --- */}
-                    {/* Busca este botón dentro de la "Fase 2" y reemplázalo */}
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      <button 
-                        onClick={enviarSolicitud}
-                        disabled={!puedeEnviar || isLoading} // Deshabilitar si está cargando
-                        className={`flex-1 py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
-                          puedeEnviar && !isLoading
-                            ? 'bg-red-500 text-white hover:bg-red-600 active:scale-95' 
-                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                        }`}
-                      >
-                        {isLoading ? 'Enviando...' : 'Enviar Solicitud'}
-                      </button>
-                      <button 
-                        onClick={() => setFormData({...formData, descripcion: '', empresa: '', inversion: '', fecha: '', recepcion: '', telefono: ''})}
-                        className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 active:scale-95"
-                      >
-                        Limpiar Fase 2
-                      </button>
-                    </div>
-
-                  <p className="text-sm text-gray-500 text-center">
-                    Al enviar, aceptas que revisemos la información para priorizar la atención según tu proyecto.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* Resultado */}
-            {resultado && (
+              </>
+            ) : (
               <div className="mt-10 pt-8 border-t border-gray-200">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Resultado de Evaluación</h3>
                 <div className={`p-6 rounded-lg border-l-4 ${
@@ -477,7 +502,6 @@ export default function Contact() {
                   </p>
                   
                   <div className="flex flex-wrap gap-4 mt-4">
-
                     {resultado.contradictions > 0 && (
                       <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">
                       </span>
@@ -495,7 +519,7 @@ export default function Contact() {
                   {resultado.tier === 'C' && (
                     <button 
                       onClick={() => window.location.href = '/pages/tienda-gym'}
-                      className="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 active:scale-95"
+                      className="flex-1 bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 active:scale-95"
                     >
                       Ver Catálogo
                     </button>
