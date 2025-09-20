@@ -368,11 +368,17 @@ export default function Contact() {
 
                 {mostrarFase2 && (
                   <div className="mt-10 pt-8 border-t border-gray-200">
-                    {mensaje && mensaje.tipo === 'success' && (
-                      <div className={`p-4 rounded-lg border-l-4 mb-6 ${'bg-green-50 border-green-500 text-green-700'}`}>
+                    {/* --- INICIO DEL CAMBIO --- */}
+                    {/* Este bloque ahora muestra CUALQUIER tipo de mensaje en la Fase 2 */}
+                    {mensaje && (
+                      <div className={`p-4 rounded-lg border-l-4 mb-6 ${
+                        mensaje.tipo === 'success' ? 'bg-green-50 border-green-500 text-green-700' :
+                        'bg-red-50 border-red-500 text-red-700'
+                      }`}>
                         {mensaje.texto}
                       </div>
                     )}
+                    {/* --- FIN DEL CAMBIO --- */}
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Detalles del Proyecto</h3>
                     <p className="text-gray-600 mb-4 text-sm sm:text-base">Información específica para una cotización personalizada</p>
                     <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
