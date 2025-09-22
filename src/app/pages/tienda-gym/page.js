@@ -1,168 +1,103 @@
-// src/app/pages/tienda-gym/page.js
 "use client";
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useCart } from '../carrito/CartContext';
-import { allProducts } from './products';
+import { allProducts, primaryCategories, subCategories } from './products';
 import Link from 'next/link';
 
-
-// Componente interno que usa useSearchParams
-function TiendaCaninaContent() {
+// Componente interno para poder usar hooks de Next.js
+function TiendaGymContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { addToCart, formatPrice } = useCart();
   
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Todos');
-  const [selectedSubFilters, setSelectedSubFilters] = useState([]);
+  const [selectedPrimaryCategory, setSelectedPrimaryCategory] = useState('Todos');
+  const [selectedSubCategories, setSelectedSubCategories] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
   const [isLoading, setIsLoading] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' o 'list'
+  const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  // <-- CAMBIO: Se aumenta el número de productos para mostrar 4 filas en PC (4x4=16)
+  const PRODUCTS_PER_PAGE = 16;
 
-  // Categorías principales con subcategorías
-const categories = [
-  { 
-    name: 'Todos', 
-    icon: '', 
-    count: allProducts.length,
-    subFilters: [""]
-  },
-  { 
-    name: 'Pecho', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Pecho').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Hombros', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Hombros').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Cadera', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Cadera').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Piernas', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Piernas').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Abdominales', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Abdominales').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Espalda', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Espalda').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Glúteos', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Glúteos').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Bíceps', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Bíceps').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Tríceps', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Tríceps').length,
-    subFilters: ['']
-  },
-  { 
-    name: 'Pecho y Hombros', 
-    icon: '', 
-    count: allProducts.filter(p => p.category === 'Pecho y Hombros').length,
-    subFilters: ['']
-  }
-];
-
-  // Filtros adicionales removidos - solo categorías
-
-  // Efecto para manejar el parámetro de categoría de la URL
+  // Efecto para leer la categoría desde la URL al cargar la página
   useEffect(() => {
     const categoryFromUrl = searchParams.get('category');
-    if (categoryFromUrl && categories.some(cat => cat.name === categoryFromUrl)) {
-      setSelectedCategory(categoryFromUrl);
+    if (categoryFromUrl && primaryCategories.includes(categoryFromUrl)) {
+      setSelectedPrimaryCategory(categoryFromUrl);
     }
   }, [searchParams]);
 
-  // Efecto para filtrar productos con delay para mejor UX
-useEffect(() => {
-  setIsLoading(true);
+  // Efecto principal para filtrar y ordenar los productos
+  useEffect(() => {
+    setIsLoading(true);
+    const timeoutId = setTimeout(() => {
+      let filtered = [...allProducts];
 
-  const timeoutId = setTimeout(() => {
-    // Siempre partimos de allProducts original
-    let filtered = [...allProducts];
+      if (selectedPrimaryCategory !== 'Todos') {
+        filtered = filtered.filter(product => product.primaryCategory === selectedPrimaryCategory);
+      }
+      if (selectedSubCategories.length > 0) {
+        filtered = filtered.filter(product => 
+          product.subCategories && product.subCategories.some(sub => selectedSubCategories.includes(sub))
+        );
+      }
+      if (searchTerm) {
+        filtered = filtered.filter(product =>
+          (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+          (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()))
+        );
+      }
+      if (sortBy === 'name-asc') {
+        filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+      } else if (sortBy === 'name-desc') {
+        filtered.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
+      }
 
-    // Filtrar por categoría principal
-    if (selectedCategory !== 'Todos') {
-      filtered = filtered.filter(product => product.category === selectedCategory);
-    }
+      setFilteredProducts(filtered);
+      setIsLoading(false);
+    }, 300);
+    return () => clearTimeout(timeoutId);
+  }, [selectedPrimaryCategory, selectedSubCategories, searchTerm, sortBy]);
 
-    // Filtrar por búsqueda
-    if (searchTerm) {
-      filtered = filtered.filter(product =>
-        (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
-    }
+  // Efecto para resetear la página a 1 cuando cambian los filtros
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedPrimaryCategory, selectedSubCategories, searchTerm, sortBy]);
 
-    // Ordenar productos según sortBy
-    if (sortBy === 'name-asc') {
-      filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
-    } else if (sortBy === 'name-desc') {
-      filtered.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
-    }
-    // Si sortBy === '', mantiene el orden original
+  // --- MANEJADORES DE EVENTOS ---
 
-    setFilteredProducts(filtered);
-    setIsLoading(false);
-  }, 300);
-
-  return () => clearTimeout(timeoutId);
-}, [selectedCategory, searchTerm, sortBy]);
-
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    setSelectedSubFilters([]); // Resetear subfiltros al cambiar categoría
+  const handlePrimaryCategoryChange = (category) => {
+    setSelectedPrimaryCategory(category);
+    setSelectedSubCategories([]);
     setIsSidebarOpen(false);
-    if (category === 'Todos') {
-      router.push('/pages/tienda-gym', { scroll: false });
-    } else {
-      router.push(`/pages/tienda-gym?category=${encodeURIComponent(category)}`, { scroll: false });
-    }
+    const params = new URLSearchParams();
+    if (category !== 'Todos') params.set('category', category);
+    router.push(`/pages/tienda-gym?${params.toString()}`, { scroll: false });
   };
 
-  const handleSubFilterToggle = (filter) => {
-    setSelectedSubFilters(prev => 
-      prev.includes(filter) 
-        ? prev.filter(f => f !== filter)
-        : [...prev, filter]
+  const handleSubCategoryToggle = (subCategory) => {
+    setSelectedSubCategories(prev =>
+      prev.includes(subCategory)
+        ? prev.filter(s => s !== subCategory)
+        : [...prev, subCategory]
     );
+  };
+  
+  const handleSearchKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      setIsSidebarOpen(false);
+    }
   };
 
   const clearAllFilters = () => {
-    setSelectedCategory('Todos');
-    setSelectedSubFilters([]);
+    setSelectedPrimaryCategory('Todos');
+    setSelectedSubCategories([]);
     setSearchTerm('');
+    setSortBy('');
     router.push('/pages/tienda-gym', { scroll: false });
   };
 
@@ -172,412 +107,223 @@ useEffect(() => {
 
   const getActiveFiltersCount = () => {
     let count = 0;
-    if (selectedCategory !== 'Todos') count++;
-    count += selectedSubFilters.length;
+    if (selectedPrimaryCategory !== 'Todos') count++;
+    count += selectedSubCategories.length;
     if (searchTerm) count++;
     return count;
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Header */}
-      <div className="relative overflow-hidden bg-white shadow-sm mb-6">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 "></div>
-        <div className="relative max-w-7xl mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
-              Productos
-            </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Equipa tu gimnasio con nuestras máquinas de alta calidad y accesorios profesionales
-            </p>
+  // --- LÓGICA DE PAGINACIÓN ---
+  const indexOfLastProduct = currentPage * PRODUCTS_PER_PAGE;
+  const indexOfFirstProduct = indexOfLastProduct - PRODUCTS_PER_PAGE;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+
+  const handleNextPage = () => {
+    setCurrentPage(prev => Math.min(prev + 1, totalPages));
+  };
+  const handlePrevPage = () => {
+    setCurrentPage(prev => Math.max(prev - 1, 1));
+  };
+
+  // --- RENDERIZADO DEL COMPONENTE DE FILTROS (REUTILIZABLE) ---
+  const renderSidebarFilters = () => (
+    <>
+      <div className="mb-6">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
           </div>
+          <input
+            type="text"
+            placeholder="¿Qué estás buscando?"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleSearchKeyDown}
+            className="block w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder-gray-500 text-gray-900"
+          />
         </div>
       </div>
-        {/* Breadcrumb */}
-        <div className="max-w-7xl mx-auto px-4 mb-6">
-          <nav className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link href="/" className="text-gray-900 font-medium hover:underline">
-              Inicio
-            </Link>
-            <span>&gt;</span>
-            <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">
-              Productos
-            </Link>
-          </nav>
+      
+      <div className="mb-6">
+        <h4 className="font-semibold text-gray-900 mb-2">Categoría Principal</h4>
+        <select
+          value={selectedPrimaryCategory}
+          onChange={(e) => handlePrimaryCategoryChange(e.target.value)}
+          className="w-full p-3 border-2 border-gray-200 text-black rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+        >
+          {primaryCategories.map(cat => (
+            <option key={cat} value={cat}>{cat}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* <-- CAMBIO: Se eliminó la condición que envolvía este div */}
+      <div className="mb-6">
+        <h4 className="font-semibold text-gray-900 mb-2">Subcategorías</h4>
+        <div className="space-y-1 max-h-60 overflow-y-auto pr-2">
+          {subCategories.filter(sc => sc !== 'Todos').map((subCat) => (
+            <label key={subCat} className="flex items-center justify-between py-1.5 px-2 hover:bg-gray-50 rounded-md cursor-pointer transition-colors">
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={selectedSubCategories.includes(subCat)}
+                  onChange={() => handleSubCategoryToggle(subCat)}
+                  className="w-4 h-4 text-red-600 border-2 border-gray-300 rounded focus:ring-red-500"
+                />
+                <span className="font-medium text-gray-900 text-sm">{subCat}</span>
+              </div>
+            </label>
+          ))}
         </div>
+      </div>
+
+      <div>
+        <h4 className="font-semibold text-gray-900 mb-3">Ordenar por</h4>
+        <select
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          className="w-full p-3 border-2 border-gray-200 text-black rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+        >
+          <option value="">Sin ordenar</option>
+          <option value="name-asc">Nombre A-Z</option>
+          <option value="name-desc">Nombre Z-A</option>
+        </select>
+      </div>
+    </>
+  );
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="relative overflow-hidden bg-white shadow-sm mb-6">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 "></div>
+        <div className="relative max-w-7xl mx-auto px-4 py-8 text-center">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">Productos</h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Equipa tu gimnasio con nuestras máquinas de alta calidad y accesorios profesionales</p>
+        </div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 mb-6">
+        <nav className="flex items-center space-x-2 text-sm text-gray-600">
+          <Link href="/" className="text-gray-900 font-medium hover:underline">Inicio</Link>
+          <span>&gt;</span>
+          <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">Productos</Link>
+        </nav>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 pb-12">
-        {/* Filtros superiores móviles */}
         <div className="lg:hidden mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-bold text-gray-900">Productos</h2>
-            <button
-              onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
-              className="p-2 bg-black rounded-lg shadow-md hover:shadow-lg transition-all"
-            >
-              {viewMode === 'grid' ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
-              )}
+            <button onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')} className="p-2 bg-black rounded-lg shadow-md hover:shadow-lg transition-all">
+              {viewMode === 'grid' ? <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg> : <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>}
             </button>
           </div>
-
-          <div className="flex items-center gap-3 mb-4">
-            <button
-              onClick={() => setIsSidebarOpen(true)}
-              className="flex items-center gap-2 bg-white border-2 border-gray-300 text-gray-700 px-4 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-all"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-              </svg>
-              <span>Filtros</span>
-              {getActiveFiltersCount() > 0 && (
-                <span className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {getActiveFiltersCount()}
-                </span>
-              )}
-            </button>
-
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-white border-2 border-gray-300 text-gray-700 px-4 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-all"
-            >
-              <option value="name">Ordenar por</option>
-                  <option value="name-asc">Nombres de A-Z</option>
-                  <option value="name-desc">Nombres Z-A</option>
-            </select>
-          </div>
-
-          {/* Filtros activos móvil */}
-          {getActiveFiltersCount() > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {selectedCategory !== 'Todos' && (
-                <span className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-3 py-1.5 rounded-full text-sm font-medium">
-                  {selectedCategory}
-                  <button onClick={() => handleCategoryChange('Todos')}>
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </span>
-              )}
-              <button
-                onClick={clearAllFilters}
-                className="px-2 py-1 text-xs font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors"
-              >
-                Limpiar filtros
-              </button>
-            </div>
-          )}
+          <button onClick={() => setIsSidebarOpen(true)} className="w-full flex items-center justify-center gap-2 bg-white border-2 border-gray-300 text-gray-700 px-4 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-all">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg>
+            <span>Filtros</span>
+            {getActiveFiltersCount() > 0 && <span className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">{getActiveFiltersCount()}</span>}
+          </button>
         </div>
 
         <div className="flex gap-8">
-          {/* Sidebar Desktop */}
-          <div className="hidden lg:block w-64 flex-shrink-0">
+          <aside className="hidden lg:block w-64 flex-shrink-0">
             <div className="bg-white rounded-xl shadow-lg p-6 sticky top-6">
-              {/* Título y controles desktop */}
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-900">Filtros</h3>
-              <button
-                onClick={clearAllFilters}
-                className="px-2 py-1 text-xs font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors"
-              >
-                Limpiar filtros
-              </button>
-
+                <button onClick={clearAllFilters} className="px-2 py-1 text-xs font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors">Limpiar</button>
               </div>
-
-              {/* Barra de búsqueda */}
-              <div className="mb-6">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="¿Qué estás buscando?"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-      className="block w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder-gray-500 text-gray-900"
-                  />
-                </div>
-              </div>
-
-              {/* Filtros por categoría */}
-            <div className="mb-6">
-              <h4 className="font-semibold text-gray-900 mb-2">Categoría</h4>
-              <div className="space-y-1"> {/* Cambié de space-y-2 a space-y-1 */}
-                {categories.map((category) => (
-                  <div key={category.name}>
-                    <label className="flex items-center justify-between py-1.5 px-2 hover:bg-gray-50 rounded-md cursor-pointer transition-colors"> {/* Cambié p-3 por py-1.5 px-2 */}
-                      <div className="flex items-center gap-2"> {/* Cambié gap-3 por gap-2 */}
-                        <input
-                          type="radio"
-                          name="category"
-                          checked={selectedCategory === category.name}
-                          onChange={() => handleCategoryChange(category.name)}
-                          className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
-                        />
-                        <span className="font-medium text-gray-900 text-[17px]">{category.name}</span> {/* Cambié text-[15px] por text-sm */}
-                      </div>
-                      <span className="text-[15px] text-gray-500">({category.count})</span> {/* Cambié text-sm por text-xs */}
-                    </label>
-                  </div>
-                ))}
-              </div>
+              {renderSidebarFilters()}
             </div>
+          </aside>
 
-              {/* Ordenar desktop */}
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Ordenar por</h4>
-                    <select
-                      value={sortBy} // debe coincidir con ''
-                      onChange={(e) => setSortBy(e.target.value)}
-                      className="w-full p-3 border-2 border-gray-200 text-black rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    >
-                      <option value="">Sin ordenar</option>
-                      <option value="name-asc">Name A-Z</option>
-                      <option value="name-desc">Name Z-A</option>
-                    </select>
-
-                </div>
-
-
-            </div>
-          </div>
-
-          {/* Modal de filtros móvil */}
           {isSidebarOpen && (
             <>
-              <div 
-                className="lg:hidden fixed inset-0 bg-opacity-50 z-40"
-                onClick={() => setIsSidebarOpen(false)}
-              ></div>
+              <div className="lg:hidden fixed inset-0 bg-opacity-50 z-40" onClick={() => setIsSidebarOpen(false)}></div>
               <div className="lg:hidden fixed right-0 top-0 h-full w-96 max-w-[90vw] bg-white shadow-xl z-50 overflow-y-auto">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-bold text-gray-900">Filtros</h3>
-                    <button
-                      onClick={() => setIsSidebarOpen(false)}
-                      className="p-2 hover:bg-gray-100 rounded-lg"
-                    >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
+                    <button onClick={() => setIsSidebarOpen(false)} className="p-2 hover:bg-gray-100 rounded-lg"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></button>
                   </div>
-
-                  {/* Búsqueda móvil */}
-                  <div className="mb-6">
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="¿Qué estás buscando?"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-      className="block w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder-gray-500 text-gray-900"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Categorías móvil */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-3">Categoría</label>
-                    <div className="space-y-2">
-                      {categories.map((category) => (
-                        <label key={category.name} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
-                          <div className="flex items-center gap-3">
-                            <input
-                              type="radio"
-                              name="category-mobile"
-                              checked={selectedCategory === category.name}
-                              onChange={() => handleCategoryChange(category.name)}
-                              className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
-                            />
-                            <span className="font-medium text-black">{category.name}</span>
-                          </div>
-                          <span className="text-sm text-gray-500">({category.count})</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
+                  {renderSidebarFilters()}
                 </div>
               </div>
             </>
           )}
 
-          {/* Contenido principal */}
-          <div className="flex-1">
-            {/* Controles superiores desktop */}
+          <main className="flex-1">
             <div className="hidden lg:flex items-center justify-between mb-6">
-              <div className="flex items-center gap-4">
-                <h2 className="text-2xl font-bold text-gray-900">PRODUCTOS</h2>
-                <span className="text-gray-500">
-                  ({filteredProducts.length} productos)
-                </span>
-              </div>
+              <span className="text-gray-500">({filteredProducts.length} productos)</span>
               <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                  </svg>
-                </button>
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                  </svg>
-                </button>
+                <button onClick={() => setViewMode('grid')} className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg></button>
+                <button onClick={() => setViewMode('list')} className={`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg></button>
               </div>
             </div>
 
-            {/* Grid de productos */}
             {isLoading ? (
-              <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
+              <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
                 {[...Array(8)].map((_, i) => (
-                  <div key={i} className="bg-white rounded-xl shadow-md overflow-hidden animate-pulse">
-                    <div className="aspect-square bg-gray-200"></div>
-                    <div className="p-6">
-                      <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                      <div className="h-6 bg-gray-200 rounded mb-4"></div>
-                      <div className="flex justify-between items-center">
-                        <div className="h-6 w-20 bg-gray-200 rounded"></div>
-                        <div className="h-10 w-32 bg-red-200 rounded"></div>
-                      </div>
-                    </div>
-                  </div>
+                  <div key={i} className="bg-white rounded-xl shadow-md overflow-hidden animate-pulse"><div className="aspect-square bg-gray-200"></div><div className="p-6"><div className="h-4 bg-gray-200 rounded mb-2 w-3/4"></div><div className="h-6 bg-gray-200 rounded mb-4"></div><div className="flex justify-end"><div className="h-10 w-32 bg-red-200 rounded"></div></div></div></div>
                 ))}
               </div>
             ) : filteredProducts.length === 0 ? (
-              <div className="text-center py-16">
-                <div className="inline-block p-6 rounded-full bg-gray-100 mb-6">
-                  <svg className="mx-auto h-16 w-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">No se encontraron productos</h3>
-                <p className="text-gray-500 text-lg mb-6">
-                  Intente ajustar sus filtros o términos de búsqueda
-                </p>
-                <button
-                  onClick={clearAllFilters}
-                  className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  Borrar todos los filtros
-                </button>
-              </div>
+              <div className="text-center py-16"><div className="inline-block p-6 rounded-full bg-gray-100 mb-6"><svg className="mx-auto h-16 w-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div><h3 className="text-2xl font-bold text-gray-900 mb-3">No se encontraron productos</h3><p className="text-gray-500 text-lg mb-6">Intente ajustar sus filtros o términos de búsqueda</p><button onClick={clearAllFilters} className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">Borrar todos los filtros</button></div>
             ) : (
-              <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
-                {filteredProducts.map((product) => (
-                  <div
-                    key={product.id}
-                    className={`group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer ${viewMode === 'list' ? 'flex' : ''}`}
-                    onClick={() => handleProductClick(product.id)}
-                  >
-                    <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden ${viewMode === 'list' ? 'w-48 flex-shrink-0' : 'aspect-square'}`}>
-                      <img
-                        src={product.image || '/placeholder-image.jpg'}
-                        alt={product.alt || product.name || 'Producto'}
-                        className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                      />
+              <>
+                <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
+                  {currentProducts.map((product) => (
+                    <div key={product.id} className={`group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col`} onClick={() => handleProductClick(product.id)}>
+                      <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden ${viewMode === 'list' ? 'w-48 h-48 flex-shrink-0' : 'aspect-square'}`}><img src={product.image || '/placeholder-image.jpg'} alt={product.alt || product.name || 'Producto'} className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105" /></div>
+                      <div className="p-6 flex-1 flex flex-col">
+                        <div>
+                          <h3 className={`font-bold text-gray-900 mb-2 text-sm line-clamp-2 group-hover:text-red-600 transition-colors ${viewMode === 'grid' ? 'text-center h-12 flex items-center justify-center' : ''}`}>{product.name || 'Producto sin nombre'}</h3>
+                          {viewMode === 'list' && <p className="text-gray-600 text-sm mb-4 line-clamp-3">{product.description || 'Sin descripción disponible.'}</p>}
+                          <div className={`mb-3 flex flex-wrap gap-1 ${viewMode === 'grid' ? 'justify-center' : 'justify-start'}`}>{product.subCategories && product.subCategories.map(sc => (<span key={sc} className="bg-gray-200 text-gray-700 px-2 py-1 text-xs font-semibold rounded-full">{sc}</span>))}</div>
+                        </div>
+                        <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'} mt-auto`}>
+                          <Link 
+                            href="/pages/horarios" 
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg text-sm w-full text-center"
+                          >
+                            Contáctanos
+                          </Link>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <div className="p-6 flex-1">
-
-                      <h3 className="font-bold text-gray-900 mb-2 text-[15px] line-clamp-2 group-hover:text-red-600 transition-colors text-center h-12 flex items-center justify-center">
-                        {product.name || 'Producto sin nombre'}
-                      </h3>
-
-                        {viewMode === 'list' && (
-                          <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                            {product.description || 'Sin descripción'}
-                          </p>
-                        )}
-
-                          <div className="mb-3 flex justify-center">
-                            <span className={`inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full ${
-                              product.category === 'Pecho' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Hombros' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Cadera' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Piernas' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Abdominales' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Espalda' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Glúteos' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Bíceps' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Tríceps' ? 'bg-gray-200 text-gray-700' :
-                              product.category === 'Pecho y Hombros' ? 'bg-gray-200 text-gray-900' :
-                              'bg-gray-100 text-gray-700'
-                            }`}>
-                              {product.category}
-                            </span>
-                          </div>
-
-                            <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'}`}>                         
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  const productUrl = `https://gym1-nine.vercel.app/pages/tienda-gym/productos/${product.id}`;
-                                  const subject = encodeURIComponent(`Consulta sobre producto: ${product.name}`);
-                                  const body = encodeURIComponent(
-                                    `Hola, estoy interesado en este producto y quisiera saber el precio:\n\n` +
-                                    `Producto:  ${product.name}\n` +
-                                    `Categoría:  ${product.category}\n\n` +
-                                    `Ver producto: ${productUrl}`
-                                  );
-                                  window.location.href = `mailto:ventas@realleadermex.com?subject=${subject}&body=${body}`;
-                                }}
-                                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg text-sm"
-                              >
-                                Más Información
-                              </button>
-                            </div>
-
-                    </div>  
+                  ))}
+                </div>
+                
+                {totalPages > 1 && (
+                  <div className="mt-12 flex items-center justify-center gap-4">
+                    <button onClick={handlePrevPage} disabled={currentPage === 1} className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Anterior</button>
+                    <span className="text-gray-700 font-medium">Página {currentPage} de {totalPages}</span>
+                    <button onClick={handleNextPage} disabled={currentPage === totalPages} className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Siguiente</button>
                   </div>
-                ))}
-              </div>
+                )}
+              </>
             )}
-          </div>
+          </main>
         </div>
       </div>
     </div>
   );
 }
 
-// Componente principal que envuelve con Suspense
-export default function TiendaCanina() {
+// --- COMPONENTE PRINCIPAL QUE ENVUELVE CON SUSPENSE ---
+export default function TiendaGym() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4">
         <div className="text-center">
-          <div className="relative">
-            <div className="animate-spin rounded-full h-16 w-16 border-4 border-red-200 border-t-red-600 mx-auto mb-6"></div>
-            <div className="absolute inset-0 rounded-full bg-red-100 opacity-20 animate-ping"></div>
-          </div>
+          <div className="relative"><div className="animate-spin rounded-full h-16 w-16 border-4 border-red-200 border-t-red-600 mx-auto mb-6"></div><div className="absolute inset-0 rounded-full bg-red-100 opacity-20 animate-ping"></div></div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">Cargando productos...</h3>
           <p className="text-gray-600">Preparando el mejor equipo para ti</p>
         </div>
       </div>
     }>
-      <TiendaCaninaContent />
+      <TiendaGymContent />
     </Suspense>
   );
 }
