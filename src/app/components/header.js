@@ -12,7 +12,8 @@ export default function GymHeader() {
 
   const menuItems = [
     { href: '/layout', label: 'Inicio' },
-    { href: '/layout/#quienes-somos', label: 'Quiénes Somos'},
+    // { href: '/layout/#quienes-somos', label: 'Quiénes Somos'},
+    { href: '/pages/nosotros', label: 'Quiénes Somos'},
     { href: '/pages/tienda-gym', label: 'Tienda' },
     { href: '/pages/fotos', label: 'Galeria' },
     { href: '/pages/Blog', label: 'Blog' },

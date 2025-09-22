@@ -2,11 +2,65 @@
 import { useState, useMemo } from 'react';
 
 export default function Contact() {
-  const [isHovered, setIsHovered] = useState(null);
   const [formData, setFormData] = useState({
-    interes: '', plazo: '', instalacion: '', valor: '', origen: '', correo: '',
-    descripcion: '', empresa: '', inversion: '', fecha: '', recepcion: '', telefono: ''
+    interes: "",
+    plazo: "",
+    instalacion: "",
+    valor: "",
+    origen: "",
+    correo: "",
+    descripcion: "",
+    empresa: "",
+    inversion: "",
+    fecha: "",
+    recepcion: "",
+    telefono: "",
   });
+
+  const [errores, setErrores] = useState({}); // ✅ Nuevo estado para errores
+  // ---------------- VALIDACIONES ----------------
+  const validarCampo = (campo, valor) => {
+    let error = "";
+
+    if (!valor || valor.trim() === "") {
+      error = "Este campo es obligatorio";
+    } else {
+      switch (campo) {
+        case "correo":
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor)) {
+            error = "Correo inválido (ej: ejemplo@mail.com)";
+          }
+          break;
+
+        case "telefono":
+          const tel = valor.replace(/\D/g, "");
+          if (tel.length < 10) {
+            error = "El teléfono debe tener al menos 10 dígitos";
+          }
+          break;
+
+        case "descripcion":
+          if (valor.length < 15) {
+            error = "La descripción debe tener al menos 15 caracteres";
+          }
+          break;
+
+        case "empresa":
+          if (valor.length < 3) {
+            error = "El nombre de la empresa es demasiado corto";
+          }
+          break;
+
+        case "fecha":
+        case "recepcion":
+          if (!/^[A-Za-z]+\s\d{4}$/.test(valor)) {
+            error = "Formato inválido (ej: Octubre 2025)";
+          }
+          break;
+      }
+    }
+    return error;
+  };
   
   const [mostrarFase2, setMostrarFase2] = useState(false);
   const [mensaje, setMensaje] = useState(null);
@@ -31,6 +85,7 @@ export default function Contact() {
     return s;
   }, [formData]);
 
+  
   const camposFase1 = ['interes', 'plazo', 'instalacion', 'valor', 'origen', 'correo'];
   const camposFase2 = ['descripcion', 'empresa', 'inversion', 'fecha', 'recepcion', 'telefono'];
 
@@ -48,10 +103,12 @@ export default function Contact() {
   const puedeEnviar = camposFase2.every(campo => formData[campo] && formData[campo] !== '');
 
   const handleInputChange = (campo, valor) => {
-    setFormData(prev => ({...prev, [campo]: valor}));
-    if (mensaje) setMensaje(null);
-  };
+    setFormData((prev) => ({ ...prev, [campo]: valor }));
 
+    // ✅ Validar en tiempo real
+    const error = validarCampo(campo, valor);
+    setErrores((prev) => ({ ...prev, [campo]: error }));
+  };
   const limpiarFormulario = () => {
     setFormData({
       interes: '', plazo: '', instalacion: '', valor: '', origen: '', correo: '',
@@ -305,14 +362,15 @@ export default function Contact() {
 
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Correo electrónico</label>
-                        <input 
+                        <input
                           disabled={mostrarFase2}
-                          type="email" 
-                          value={formData.correo} 
-                          onChange={(e) => handleInputChange('correo', e.target.value)}
+                          type="email"
+                          value={formData.correo}
+                          onChange={(e) => handleInputChange("correo", e.target.value)}
                           placeholder="tu@email.com"
                           className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100"
                         />
+                        {errores.correo && <p className="text-red-500 text-sm mt-1">{errores.correo}</p>}
                       </div>
                     </div>
 
@@ -448,13 +506,14 @@ export default function Contact() {
 
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">WhatsApp</label>
-                          <input 
-                            type="tel" 
-                            value={formData.telefono} 
-                            onChange={(e) => handleInputChange('telefono', e.target.value)}
+                          <input
+                            type="tel"
+                            value={formData.telefono}
+                            onChange={(e) => handleInputChange("telefono", e.target.value)}
                             placeholder="+52 55 0000 0000"
                             className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                           />
+                          {errores.telefono && <p className="text-red-500 text-sm mt-1">{errores.telefono}</p>}
                         </div>
                       </div>
 
@@ -537,6 +596,7 @@ export default function Contact() {
         </div>
       </div>
 
+
       {/* Why Visit Section */}
       <div className="max-w-6xl mx-auto mb-10 sm:mb-12 lg:mb-16">
         <div className="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl">
@@ -545,7 +605,7 @@ export default function Contact() {
               ¿Por qué visitarnos?
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2">
-              Más de 15 años de experiencia nos avalan. Descubre por qué somos la mejor 
+              Más de 10 años de experiencia nos avalan. Descubre por qué somos la mejor 
               opción para tu proyecto fitness.
             </p>
           </div>
@@ -626,6 +686,8 @@ export default function Contact() {
           Mantente al día con nuestras últimas ofertas y novedades del mundo fitness.
         </p>
       </div>
+
+
 
     </section>
   );

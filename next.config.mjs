@@ -5,7 +5,9 @@ const nextConfig = {
       'www.salter.es',
       'www.hola.com',
       'poolsecuritysolution.com',
-      'www.gymtek.com.ec'
+      'www.gymtek.com.ec',
+      'images.unsplash.com',
+      'image.made-in-china.com' // <-- Añade esta línea
     ],
   },
 };
