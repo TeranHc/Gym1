@@ -3010,7 +3010,7 @@ export const allProducts = [
     "name": "RS-1008 Incline Chest Press",
     "primaryCategory": "RS",
     "subCategories": ["Pecho", "Hombros"],
-    "image": "/rs/RS-1008 Incline Chest Press.png",
+    "image": "/rs/RS-1008 Incline Chest Pres.png",
     "alt": "RS-1008 Incline Chest Press",
     "description": "",
     "features": [
