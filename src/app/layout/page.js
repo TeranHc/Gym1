@@ -167,7 +167,7 @@ export default function EalLeaderHomePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 pt-6 md:pt-8">
               {/* Productos */}
               <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-                <div className="text-xl md:text-3xl font-black text-white mb-1">500+</div>
+                <div className="text-xl md:text-3xl font-black text-white mb-1">200+</div>
                 <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Productos</div>
               </div>
 
@@ -179,15 +179,11 @@ export default function EalLeaderHomePage() {
 
               {/* Años de Experiencia */}
               <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-                <div className="text-xl md:text-3xl font-black text-white mb-1">15+</div>
+                <div className="text-xl md:text-3xl font-black text-white mb-1">10+</div>
                 <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Años Experiencia</div>
               </div>
 
-              {/* Marcas - AHORA VISIBLE */}
-              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-                <div className="text-xl md:text-3xl font-black text-white mb-1">50+</div>
-                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Marcas Premium</div>
-              </div>
+
             </div>
           </div>
         </div>

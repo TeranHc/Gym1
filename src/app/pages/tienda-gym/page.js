@@ -19,8 +19,6 @@ function TiendaGymContent() {
   const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  
-  // <-- CAMBIO: Se aumenta el número de productos para mostrar 4 filas en PC (4x4=16)
   const PRODUCTS_PER_PAGE = 16;
 
   // Efecto para leer la categoría desde la URL al cargar la página
@@ -158,7 +156,6 @@ function TiendaGymContent() {
         </select>
       </div>
 
-      {/* <-- CAMBIO: Se eliminó la condición que envolvía este div */}
       <div className="mb-6">
         <h4 className="font-semibold text-gray-900 mb-2">Subcategorías</h4>
         <div className="space-y-1 max-h-60 overflow-y-auto pr-2">
@@ -273,7 +270,11 @@ function TiendaGymContent() {
               <>
                 <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
                   {currentProducts.map((product) => (
-                    <div key={product.id} className={`group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col`} onClick={() => handleProductClick(product.id)}>
+                    <div 
+                      key={product.id} 
+                      className={`group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer ${viewMode === 'grid' ? 'flex flex-col' : 'flex flex-row items-center'}`} 
+                      onClick={() => handleProductClick(product.id)}
+                    >
                       <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden ${viewMode === 'list' ? 'w-48 h-48 flex-shrink-0' : 'aspect-square'}`}><img src={product.image || '/placeholder-image.jpg'} alt={product.alt || product.name || 'Producto'} className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105" /></div>
                       <div className="p-6 flex-1 flex flex-col">
                         <div>
@@ -281,14 +282,15 @@ function TiendaGymContent() {
                           {viewMode === 'list' && <p className="text-gray-600 text-sm mb-4 line-clamp-3">{product.description || 'Sin descripción disponible.'}</p>}
                           <div className={`mb-3 flex flex-wrap gap-1 ${viewMode === 'grid' ? 'justify-center' : 'justify-start'}`}>{product.subCategories && product.subCategories.map(sc => (<span key={sc} className="bg-gray-200 text-gray-700 px-2 py-1 text-xs font-semibold rounded-full">{sc}</span>))}</div>
                         </div>
-                        <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'} mt-auto`}>
-                          <Link 
-                            href="/pages/horarios" 
-                            onClick={(e) => e.stopPropagation()}
-                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg text-sm w-full text-center"
-                          >
-                            Contáctanos
-                          </Link>
+                        <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'} ${viewMode === 'grid' ? 'mt-auto' : 'mt-2'}`}>
+                           <Link 
+                              href="/pages/horarios" 
+                              onClick={(e) => e.stopPropagation()}
+                              // <-- CAMBIO: Se aplica ancho condicional al botón -->
+                              className={`bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg text-sm text-center ${viewMode === 'grid' ? 'w-full' : 'w-auto'}`}
+                            >
+                              Contáctanos
+                            </Link>
                         </div>
                       </div>
                     </div>
