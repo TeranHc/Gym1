@@ -2573,9 +2573,12 @@ export const allProducts = [
       "Rango de movimiento ajustable para un ejercicio seguro"
     ],
     "specifications": {
-      "dimensiones": "",
+      "dimensiones": "1",
+      "placas (Weight Stack)": "11",
+      "peso neto (N.W.)": "1",
+      "peso bruto (W.G.)": "1",
       "músculo trabajado": "Oblicuos Internos y Externos",
-      "color": "",
+      "color": "1",
       "uso": "Profesional / Gimnasio"
     }
   },
@@ -3914,8 +3917,8 @@ export const allProducts = [
   {
     "id": 186,
     "name": "RCT-900M Commercial Treadmill Led Screen 4hp",
-    "primaryCategory": "RCT",
-    "subCategories": ["Cardio", "Piernas"],
+    "primaryCategory": "Cardio",
+    "subCategories": ["Piernas"],
     "image": "/cardio/RCT-900M Commercial Treadmil Led Screen 4hp.png",
     "alt": "RCT-900M Commercial Treadmill Led Screen 4hp",
     "description": "",
@@ -3935,8 +3938,8 @@ export const allProducts = [
   {
     "id": 187,
     "name": "RE-6600R Recumbent Bike",
-    "primaryCategory": "RE",
-    "subCategories": ["Cardio", "Piernas"],
+    "primaryCategory": "Cardio",
+    "subCategories": ["Piernas"],
     "image": "/cardio/RE-6600R Recumbent Bike.png",
     "alt": "RE-6600R Recumbent Bike",
     "description": "",
@@ -3956,8 +3959,8 @@ export const allProducts = [
   {
     "id": 188,
     "name": "RE-6600U Upright Bike",
-    "primaryCategory": "RE",
-    "subCategories": ["Cardio", "Piernas"],
+    "primaryCategory": "Cardio",
+    "subCategories": ["Piernas"],
     "image": "/cardio/RE-6600U Upright Bike.png",
     "alt": "RE-6600U Upright Bike",
     "description": "",
@@ -3977,8 +3980,8 @@ export const allProducts = [
   {
     "id": 189,
     "name": "RS-260 Spinning Bike",
-    "primaryCategory": "RS",
-    "subCategories": ["Cardio", "Piernas"],
+    "primaryCategory": "Cardio",
+    "subCategories": ["Piernas"],
     "image": "/cardio/RS-260 Spinning Bike.png",
     "alt": "RS-260 Spinning Bike",
     "description": "",
@@ -3998,8 +4001,8 @@ export const allProducts = [
   {
     "id": 190,
     "name": "RS-800 Stair Mill",
-    "primaryCategory": "RS",
-    "subCategories": ["Cardio", "Piernas", "Glúteos"],
+    "primaryCategory": "Cardio",
+    "subCategories": ["Piernas", "Glúteos"],
     "image": "/cardio/RS-800 Stair Mill.png",
     "alt": "RS-800 Stair Mill",
     "description": "",
@@ -4019,8 +4022,8 @@ export const allProducts = [
   {
     "id": 191,
     "name": "RS-6600E Elliptical",
-    "primaryCategory": "RS",
-    "subCategories": ["Cardio", "Piernas", "Glúteos", "Bíceps", "Tríceps"],
+    "primaryCategory": "Cardio",
+    "subCategories": ["Piernas", "Glúteos", "Bíceps", "Tríceps"],
     "image": "/cardio/RS-6600E Elliptical.png",
     "alt": "RS-6600E Elliptical",
     "description": "",
@@ -4040,8 +4043,8 @@ export const allProducts = [
   {
     "id": 192,
     "name": "RTC-900A Commercial Treadmill Touch Screen",
-    "primaryCategory": "RTC",
-    "subCategories": ["Cardio", "Piernas"],
+    "primaryCategory": "Cardio",
+    "subCategories": ["Piernas"],
     "image": "/cardio/RTC-900A Commercial Treadmill Touch Screen.png",
     "alt": "RTC-900A Commercial Treadmill Touch Screen",
     "description": "",
@@ -4063,17 +4066,15 @@ export const allProducts = [
 ];
 export const primaryCategories = [
   'Todos',
-  'M2',
-  'FM',
-  'FW',
   'LD',
+  'M2',
   'M3',
   'M7',
-  'PF',
   'RS',
-  'RCT',
-  'RE',
-  'RTC'
+  'FM',
+  'FW',
+  'PF',
+  'Cardio',
 ];
 
 export const subCategories = [
@@ -4086,6 +4087,5 @@ export const subCategories = [
   'Piernas',
   'Glúteos',
   'Abdominales',
-  'Cadera',
-  'Cardio'
+  'Cadera'
 ];
