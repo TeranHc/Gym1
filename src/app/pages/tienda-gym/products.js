@@ -16,7 +16,10 @@ export const allProducts = [
       "Estructura resistente de acero con recubrimiento anticorrosión"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 140 cm",
+      dimensiones: "1343 x 1313 x 1515 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "188 kg",
+      "peso bruto (W.G.)": "228 kg",
       "músculo trabajado": "Pectorales, hombros y tríceps",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -37,7 +40,10 @@ export const allProducts = [
       "Estructura estable de acero"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 140 cm",
+      dimensiones: "1650 x 1175 x 1515 mm",
+      "placas (Weight Stack)": "263lbs/119.25kg",
+      "peso neto (N.W.)": "130 kg",
+      "peso bruto (W.G.)": "170 kg",
       "músculo trabajado": "Pectorales y hombros",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -58,7 +64,10 @@ export const allProducts = [
       "Estructura resistente de acero"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 140 cm",
+      dimensiones: "1455 x 1685 x 1515 mm",
+      "placas (Weight Stack)": "218 lbs/99 kg",
+      "peso neto (N.W.)": "172 kg",
+      "peso bruto (W.G.)": "212 kg",
       "músculo trabajado": "Deltoides y hombros",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -79,7 +88,10 @@ export const allProducts = [
       "Estructura estable de acero"
     ],
     specifications: {
-      dimensiones: "120 cm x 110 cm x 140 cm",
+      dimensiones: "1140 x 1190 x 1515 mm",
+      "placas (Weight Stack)": "174 lbs/78.75 kg",
+      "peso neto (N.W.)": "165 kg",
+      "peso bruto (W.G.)": "205 kg",
       "músculo trabajado": "Deltoides laterales y hombros",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -100,7 +112,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 140 cm",
+      dimensiones: "1480 x 940 x 1515 mm",
+      "placas (Weight Stack)": "	263 lbs/119.25 kg",
+      "peso neto (N.W.)": "140 kg",
+      "peso bruto (W.G.)": "180 kg",
       "músculo trabajado": "Deltoides posteriores y dorsales",
       color: "Negro con detalles en gris",
       uso: "Profesional / Gimnasio"
@@ -121,7 +136,10 @@ export const allProducts = [
       "Asiento ergonómico"
     ],
     specifications: {
-      dimensiones: "130 cm x 100 cm x 120 cm",
+      dimensiones: "960 x 1555 x 1515 mm",
+      "placas (Weight Stack)": "218 lbs/99 kg",
+      "peso neto (N.W.)": "160 kg",
+      "peso bruto (W.G.)": "200 kg",
       "músculo trabajado": "Abductores de cadera",
       color: "Negro con detalles en azul",
       uso: "Profesional / Gimnasio"
@@ -142,7 +160,10 @@ export const allProducts = [
       "Estructura robusta de acero"
     ],
     specifications: {
-      dimensiones: "130 cm x 100 cm x 120 cm",
+      dimensiones: "960 x 1555 x 1515 mm",
+      "placas (Weight Stack)": "218 lbs/99 kg",
+      "peso neto (N.W.)": "160 kg",
+      "peso bruto (W.G.)": "200 kg",
       "músculo trabajado": "Aductores de cadera",
       color: "Negro con detalles en azul",
       uso: "Profesional / Gimnasio"
@@ -163,7 +184,10 @@ export const allProducts = [
       "Estructura robusta de acero"
     ],
     specifications: {
-      dimensiones: "140 cm x 120 cm x 130 cm",
+      dimensiones: "1180 x 1125 x 1615 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "220 kg",
+      "peso bruto (W.G.)": "260 kg",
       "músculo trabajado": "Abductores y aductores de cadera",
       color: "Negro con detalles en azul",
       uso: "Profesional / Gimnasio"
@@ -184,7 +208,10 @@ export const allProducts = [
       "Estructura de acero resistente"
     ],
     specifications: {
-      dimensiones: "140 cm x 120 cm x 130 cm",
+      dimensiones: "1255 x 1080 x 1615 mm	",
+      "placas (Weight Stack)": "293 lbs/132.75 kg",
+      "peso neto (N.W.)": "153 kg",
+      "peso bruto (W.G.)": "193 kg",
       "músculo trabajado": "Cuádriceps",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -205,7 +232,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "140 cm x 120 cm x 120 cm",
+      dimensiones: "1045 x 1500 x 1518 mm	",
+      "placas (Weight Stack)": "263 lbs/119.25 kg	",
+      "peso neto (N.W.)": "132 kg",
+      "peso bruto (W.G.)": "172 kg",
       "músculo trabajado": "Isquiotibiales",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -226,7 +256,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "160 cm x 140 cm x 130 cm",
+      dimensiones: "1945 x 1010 x 1715 mm	",
+      "placas (Weight Stack)": "293 lbs/132.75 kg",
+      "peso neto (N.W.)": "256 kg	",
+      "peso bruto (W.G.)": "296 kg",
       "músculo trabajado": "Cuádriceps, glúteos e isquiotibiales",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -247,7 +280,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "130 cm x 100 cm x 140 cm",
+      dimensiones: "1108 x 1018 x 1633 mm	",
+      "placas (Weight Stack)": "263 lbs/119.25 kg	",
+      "peso neto (N.W.)": "123 kg",
+      "peso bruto (W.G.)": "163 kg",
       "músculo trabajado": "Pantorrillas",
       color: "Negro con detalles en gris",
       uso: "Profesional / Gimnasio"
@@ -268,7 +304,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "140 cm x 120 cm x 120 cm",
+      dimensiones: "1500 x 1077 x 1515 mm	",
+      "placas (Weight Stack)": "293 lbs/132.75 kg	",
+      "peso neto (N.W.)": "160 kg",
+      "peso bruto (W.G.)": "200 kg",
       "músculo trabajado": "Isquiotibiales",
       color: "Negro con detalles en azul",
       uso: "Profesional / Gimnasio"
@@ -289,7 +328,10 @@ export const allProducts = [
       "Estructura estable de acero"
     ],
     specifications: {
-      dimensiones: "130 cm x 110 cm x 120 cm",
+      dimensiones: "1285 x 1095 x 1515 mm",
+      "placas (Weight Stack)": "218 lbs/99 kg",
+      "peso neto (N.W.)": "155 kg",
+      "peso bruto (W.G.)": "195 kg",
       "músculo trabajado": "Abdominales",
       color: "Negro con detalles en gris",
       uso: "Profesional / Gimnasio"
@@ -310,7 +352,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 140 cm",
+      dimensiones: "1970 x 1135 x 1887 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "167 kg",
+      "peso bruto (W.G.)": "207 kg",
       "músculo trabajado": "Dorsal ancho y espalda",
       color: "Negro con detalles en gris",
       uso: "Profesional / Gimnasio"
@@ -331,7 +376,10 @@ export const allProducts = [
       "Estructura estable de acero"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 140 cm",
+      dimensiones: "1325 x 1255 x 2215 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "135 kg",
+      "peso bruto (W.G.)": "175 kg",
       "músculo trabajado": "Dorsal ancho y espalda",
       color: "Negro con detalles en gris",
       uso: "Profesional / Gimnasio"
@@ -352,7 +400,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 130 cm",
+      dimensiones: "1810 x 1185 x 2015 mm",
+      "placas (Weight Stack)": "293 lbs/132.75 kg",
+      "peso neto (N.W.)": "125 kg",
+      "peso bruto (W.G.)": "165 kg",
       "músculo trabajado": "Dorsal ancho y espalda",
       color: "Negro con detalles en gris",
       uso: "Profesional / Gimnasio"
@@ -373,7 +424,10 @@ export const allProducts = [
       "Almohadillas para rodillas acolchadas"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 200 cm",
+      dimensiones: "1278 x 1202 x 2208 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "210 kg",
+      "peso bruto (W.G.)": "250 kg",
       "músculo trabajado": "Espalda, bíceps y tríceps",
       color: "Negro con detalles en azul",
       uso: "Profesional / Gimnasio"
@@ -394,7 +448,10 @@ export const allProducts = [
       "Estructura robusta de acero"
     ],
     specifications: {
-      dimensiones: "140 cm x 120 cm x 130 cm",
+      dimensiones: "1310 x 1108 x 1595 mm",
+      "placas (Weight Stack)": "174 lbs/78.75 kg",
+      "peso neto (N.W.)": "155 kg",
+      "peso bruto (W.G.)": "195 kg",
       "músculo trabajado": "Glúteos y femorales",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -415,7 +472,10 @@ export const allProducts = [
       "Estructura resistente de acero"
     ],
     specifications: {
-      dimensiones: "120 cm x 100 cm x 130 cm",
+      dimensiones: "1200 x 1375 x 1515 mm",
+      "placas (Weight Stack)": "174 lbs/78.75 kg",
+      "peso neto (N.W.)": "140 kg",
+      "peso bruto (W.G.)": "180 kg",
       "músculo trabajado": "Bíceps",
       color: "Negro con detalles en azul",
       uso: "Profesional / Gimnasio"
@@ -436,7 +496,10 @@ export const allProducts = [
       "Estructura de acero resistente"
     ],
     specifications: {
-      dimensiones: "120 cm x 100 cm x 130 cm",
+      dimensiones: "1176 x 1020 x 1515 mm",
+      "placas (Weight Stack)": "174 lbs/78.75 kg",
+      "peso neto (N.W.)": "171 kg",
+      "peso bruto (W.G.)": "211 kg",
       "músculo trabajado": "Bíceps",
       color: "Negro con detalles en azul",
       uso: "Profesional / Gimnasio"
@@ -457,7 +520,10 @@ export const allProducts = [
       "Estructura sólida de acero"
     ],
     specifications: {
-      dimensiones: "120 cm x 100 cm x 130 cm",
+      dimensiones: "1660 x 1050 x 1515 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "140 kg",
+      "peso bruto (W.G.)": "180 kg",
       "músculo trabajado": "Tríceps",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -478,7 +544,10 @@ export const allProducts = [
       "Estructura robusta de acero"
     ],
     specifications: {
-      dimensiones: "120 cm x 100 cm x 130 cm",
+      dimensiones: "1020 x 928 x 1515 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "165 kg",
+      "peso bruto (W.G.)": "205 kg",
       "músculo trabajado": "Tríceps",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -499,7 +568,10 @@ export const allProducts = [
       "Estructura estable de acero"
     ],
     specifications: {
-      dimensiones: "150 cm x 120 cm x 140 cm",
+      dimensiones: "1400 x 1280 x 1850 mm",
+      "placas (Weight Stack)": "218 lbs/99 kg",
+      "peso neto (N.W.)": "145 kg",
+      "peso bruto (W.G.)": "185 kg",
       "músculo trabajado": "Pectorales y deltoides posteriores",
       color: "Negro con detalles en rojo",
       uso: "Profesional / Gimnasio"
@@ -524,7 +596,10 @@ export const allProducts = [
       "Permite entrenar el cuerpo completo"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "1840 x 1350 x 2490 mm",
+      "placas (Weight Stack)": "437 lbs/198 kg",
+      "peso neto (N.W.)": "208 kg",
+      "peso bruto (W.G.)": "248 kg",
       "músculo trabajado": "Cuerpo completo (Pecho, espalda, hombros, brazos, core)",
       color: "",
       uso: "Profesional / Gimnasio"
@@ -545,7 +620,10 @@ export const allProducts = [
       "Diseño optimizado para ahorrar espacio"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "3405 x 1675 x 2330 mm",
+      "placas (Weight Stack)": "918 lbs/416.25 kg",
+      "peso neto (N.W.)": "289 kg",
+      "peso bruto (W.G.)": "329 kg",
       "músculo trabajado": "Múltiples (Dorsales, hombros, bíceps, tríceps)",
       color: "",
       uso: "Profesional / Gimnasio"
@@ -566,7 +644,10 @@ export const allProducts = [
       "Permite una gran variedad de rutinas de entrenamiento"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "3405 x 4710 x 2330 mm",
+      "placas (Weight Stack)": "1136 lbs/515.25 kg",
+      "peso neto (N.W.)": "398 kg",
+      "peso bruto (W.G.)": "438 kg",
       "músculo trabajado": "Múltiples (Dorsales, hombros, bíceps, tríceps, pecho)",
       color: "",
       uso: "Profesional / Gimnasio"
@@ -587,13 +668,17 @@ export const allProducts = [
       "Estructura robusta y estable"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "3405 x 5200 x 2330 mm",
+      "placas (Weight Stack)": "1835 lbs/832.5 kg",
+      "peso neto (N.W.)": "710 kg",
+      "peso bruto (W.G.)": "750 kg",
       "músculo trabajado": "Cuerpo completo",
       color: "",
       uso: "Profesional / Gimnasio"
     }
   },
-  {
+  { 
+    // PENDIENTE POR AGREGAR DATOS
     id: 29,
     name: "FM-1008 Cable Crossover",
     primaryCategory: "FM",
@@ -609,6 +694,9 @@ export const allProducts = [
     ],
     specifications: {
       dimensiones: "",
+      "placas (Weight Stack)": "",
+      "peso neto (N.W.)": "",
+      "peso bruto (W.G.)": "",
       "músculo trabajado": "Pectorales, deltoides (hombros)",
       color: "",
       uso: "Profesional / Gimnasio"
@@ -629,7 +717,10 @@ export const allProducts = [
       "Construcción de acero de alta resistencia"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "2266 x 1380 x 2330 mm",
+      "placas (Weight Stack)": " - ",
+      "peso neto (N.W.)": "242 kg",
+      "peso bruto (W.G.)": "282 kg",
       "músculo trabajado": "Múltiples (Cuádriceps, glúteos, pectorales, hombros)",
       color: "",
       uso: "Profesional / Gimnasio"
@@ -650,7 +741,10 @@ export const allProducts = [
       "Asiento y respaldo ergonómicos para una postura correcta"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "2266 x 1585 x 1630 mm",
+      "placas (Weight Stack)": " - ",
+      "peso neto (N.W.)": "268 kg",
+      "peso bruto (W.G.)": "308 kg",
       "músculo trabajado": "Cuádriceps, glúteos, isquiotibiales",
       color: "",
       uso: "Profesional / Gimnasio"
@@ -671,7 +765,10 @@ export const allProducts = [
       "Soportes laterales para carga y descarga de discos"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "1792 x 1425 x 1425 mm",
+      "placas (Weight Stack)": " - ",
+      "peso neto (N.W.)": "204 kg",
+      "peso bruto (W.G.)": "244 kg",
       "músculo trabajado": "Cuádriceps, glúteos",
       color: "",
       uso: "Profesional / Gimnasio"
@@ -692,7 +789,10 @@ export const allProducts = [
       "Topes de seguridad para entrenar sin asistencia"
     ],
     specifications: {
-      dimensiones: "",
+      dimensiones: "1935 x 2217 x 1125 mm",
+      "placas (Weight Stack)": " -",
+      "peso neto (N.W.)": "215 kg",
+      "peso bruto (W.G.)": "255 kg",
       "músculo trabajado": "Cuádriceps, glúteos",
       color: "",
       uso: "Profesional / Gimnasio"
