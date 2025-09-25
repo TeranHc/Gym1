@@ -26,6 +26,9 @@ function TiendaGymContent() {
     const categoryFromUrl = searchParams.get('category');
     if (categoryFromUrl && primaryCategories.includes(categoryFromUrl)) {
       setSelectedPrimaryCategory(categoryFromUrl);
+    } else {
+      // Si no hay categoría en la URL, establece el filtro a "Todos"
+      setSelectedPrimaryCategory('Todos');
     }
   }, [searchParams]);
 
