@@ -4630,7 +4630,7 @@ export const allProducts = [
     ],
     "specifications": {
       dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
+      "placas (Weight Stack)": "hola como esta",
       "peso neto (N.W.)": "500 kg",
       "peso bruto (W.G.)": "540 kg",
       "músculo trabajado": "Cardiovascular, Piernas (Cuádriceps, Isquiotibiales, Glúteos)",
