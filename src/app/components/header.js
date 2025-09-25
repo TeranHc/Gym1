@@ -195,6 +195,8 @@ export default function GymHeader() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
       </header>
       <div className="h-20 lg:h-24"></div>
+
+      
     </>
   );
 }
