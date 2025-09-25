@@ -1936,7 +1936,7 @@ export const allProducts = [
     }
   },
 
-  //Equpos M3
+  //Equipos M3
 
   {
     "id": 81,
