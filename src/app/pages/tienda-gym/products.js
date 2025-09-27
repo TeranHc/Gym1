@@ -3282,10 +3282,10 @@ export const allProducts = [
       "Asiento ajustable en altura"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "	14988 x 1076 x 1778 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "140 kg",
+      "peso bruto (W.G.)": "180 kg",
       "músculo trabajado": "Pectoral, Deltoides Anterior, Tríceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3306,10 +3306,10 @@ export const allProducts = [
       "Apoyo pectoral y respaldo para una postura correcta en ambos ejercicios"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1887 x 1764 x 2127 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "174 kg",
+      "peso bruto (W.G.)": "214 kg",
       "músculo trabajado": "Pectoral, Espalda (Dorsales y Romboides)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3330,10 +3330,10 @@ export const allProducts = [
       "Asiento ajustable para adaptarse a diferentes usuarios"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1710 x 1580 x 1777 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "170 kg",
+      "peso bruto (W.G.)": "210 kg",
       "músculo trabajado": "Pectoral Inferior",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3354,10 +3354,10 @@ export const allProducts = [
       "Plataforma para pies antideslizante para mayor estabilidad"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1674 x 1472 x 2106 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "160 kg",
+      "peso bruto (W.G.)": "200 kg",
       "músculo trabajado": "Dorsal Ancho, Romboides, Espalda Media",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3378,10 +3378,10 @@ export const allProducts = [
       "Asiento en ángulo para una mayor activación dorsal"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1620 x 1400 x 2075 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "150 kg",
+      "peso bruto (W.G.)": "190 kg",
       "músculo trabajado": "Dorsal Ancho, Bíceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3402,10 +3402,10 @@ export const allProducts = [
       "Fortalece trapecios, romboides y deltoides posterior"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1778 x 1490 x 2085 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "175 kg",
+      "peso bruto (W.G.)": "215 kg",
       "músculo trabajado": "Espalda Alta, Trapecio, Deltoides Posterior",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3426,10 +3426,10 @@ export const allProducts = [
       "Topes ajustables para limitar el rango de movimiento"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1707 x 1905 x 1195 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "155 kg",
+      "peso bruto (W.G.)": "195 kg",
       "músculo trabajado": "Pectoral, Deltoides Anterior, Tríceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3450,10 +3450,10 @@ export const allProducts = [
       "Plataforma para asistente (spotter)"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1707 x 1400 x 1933 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "133 kg",
+      "peso bruto (W.G.)": "173 kg",
       "músculo trabajado": "Pectoral Superior, Deltoides Anterior",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3474,10 +3474,10 @@ export const allProducts = [
       "Plataforma para pies amplia para mayor estabilidad"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1646 x 1323 x 1728 mm	",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "135 kg",
+      "peso bruto (W.G.)": "175 kg",
       "músculo trabajado": "Dorsal Ancho, Espalda Media",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3498,10 +3498,10 @@ export const allProducts = [
       "Rodillos de sujeción para tobillos y pantorrillas ajustables"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1486 x 827 x 540 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "44 kg",
+      "peso bruto (W.G.)": "84 kg",
       "músculo trabajado": "Cuádriceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3522,10 +3522,10 @@ export const allProducts = [
       "Múltiples opciones de agarre"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1640 x 1445 x 1445 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "143 kg",
+      "peso bruto (W.G.)": "183 kg",
       "músculo trabajado": "Dorsales, Romboides, Trapecio",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3546,10 +3546,10 @@ export const allProducts = [
       "Movimiento convergente para mayor comodidad articular"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1130 x 1827 x 1921 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "144 kg",
+      "peso bruto (W.G.)": "184 kg",
       "músculo trabajado": "Deltoides, Tríceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3570,10 +3570,10 @@ export const allProducts = [
       "Asiento ajustable en altura"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1315 x 1796 x 1335 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "150 kg",
+      "peso bruto (W.G.)": "190 kg",
       "músculo trabajado": "Deltoides, Tríceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3594,10 +3594,10 @@ export const allProducts = [
       "Plataforma para asistente (spotter)"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1365 x 1820 x 1550 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "121 kg",
+      "peso bruto (W.G.)": "161 kg",
       "músculo trabajado": "Pectoral Superior, Deltoides Anterior",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3618,10 +3618,10 @@ export const allProducts = [
       "Soportes de almacenamiento de discos integrados"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1433 x 1680 x 1700 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "172 kg",
+      "peso bruto (W.G.)": "212 kg",
       "músculo trabajado": "Pectoral (fibras externas)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3642,10 +3642,10 @@ export const allProducts = [
       "Rodillos de sujeción para muslos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1808 x 1265 x 1915 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "110 kg",
+      "peso bruto (W.G.)": "150 kg",
       "músculo trabajado": "Dorsal Ancho (fibras superiores)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3666,10 +3666,10 @@ export const allProducts = [
       "Asiento y almohadillas ajustables"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1230 x 1165 x 1320 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "154 kg",
+      "peso bruto (W.G.)": "194 kg",
       "músculo trabajado": "Deltoides Medial",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3690,10 +3690,10 @@ export const allProducts = [
       "Activa los dorsales y el serrato anterior"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1040 x 1540 x 1510 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "168 kg",
+      "peso bruto (W.G.)": "208 kg",
       "músculo trabajado": "Dorsales, Serrato Anterior, Pectoral",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3714,10 +3714,10 @@ export const allProducts = [
       "Agarres pivotantes para comodidad de la muñeca"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1265 x 1376 x 1050 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "108 kg",
+      "peso bruto (W.G.)": "148 kg",
       "músculo trabajado": "Bíceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3738,10 +3738,10 @@ export const allProducts = [
       "Estructura robusta para soportar cargas pesadas"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1105 x 1080 x 1755 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "105 kg",
+      "peso bruto (W.G.)": "145 kg",
       "músculo trabajado": "Gastrocnemios (Gemelos)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3762,10 +3762,10 @@ export const allProducts = [
       "Fácil carga y descarga de discos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1305 x 1272 x 1765 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "147 kg",
+      "peso bruto (W.G.)": "187 kg",
       "músculo trabajado": "Gastrocnemios (Gemelos)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3786,10 +3786,10 @@ export const allProducts = [
       "Aísla eficazmente los isquiotibiales"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1488 x 1550 x 910 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "68 kg",
+      "peso bruto (W.G.)": "108 kg",
       "músculo trabajado": "Isquiotibiales",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3810,10 +3810,10 @@ export const allProducts = [
       "Movimiento suave y centrado en el cuádriceps"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1664 x 1745 x 1215 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "134 kg",
+      "peso bruto (W.G.)": "174 kg",
       "músculo trabajado": "Cuádriceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3834,10 +3834,10 @@ export const allProducts = [
       "Soportes de almacenamiento de discos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1335 x 1895 x 1475 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "194 kg",
+      "peso bruto (W.G.)": "234 kg",
       "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3858,10 +3858,10 @@ export const allProducts = [
       "Ajustes intuitivos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1556 x 1922 x 1160 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "113 kg",
+      "peso bruto (W.G.)": "153 kg",
       "músculo trabajado": "Cuádriceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3882,10 +3882,10 @@ export const allProducts = [
       "Sistema de palanca para una resistencia suave y constante"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1430 x 1600 x 1377 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "144 kg",
+      "peso bruto (W.G.)": "184 kg",
       "músculo trabajado": "Pantorrillas (Gemelos y Sóleo)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3907,10 +3907,10 @@ export const allProducts = [
       "Hombreras acolchadas y agarres de seguridad"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1540 x 1525 x 2165 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "130 kg",
+      "peso bruto (W.G.)": "170 kg",
       "músculo trabajado": "Cuádriceps, Glúteos",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3931,10 +3931,10 @@ export const allProducts = [
       "Barra de dominadas multi-agarre integrada"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "2265 x 1695 x 2285 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "185 kg",
+      "peso bruto (W.G.)": "225 kg",
       "músculo trabajado": "Cuerpo Completo (Soporte para múltiples ejercicios)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3955,10 +3955,10 @@ export const allProducts = [
       "Plataforma amplia para una base estable"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1347 x 1636 x 1000 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "97 kg",
+      "peso bruto (W.G.)": "137 kg",
       "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -3979,10 +3979,10 @@ export const allProducts = [
       "Soportes de almacenamiento de discos integrados"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "	2212 x 1713 x 1490 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "216 kg",
+      "peso bruto (W.G.)": "256 kg",
       "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4003,10 +4003,10 @@ export const allProducts = [
       "Apoyos acolchados para el pecho y la rodilla"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1632 x 1040 x 1360 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "148 kg",
+      "peso bruto (W.G.)": "188 kg",
       "músculo trabajado": "Isquiotibiales",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4027,10 +4027,10 @@ export const allProducts = [
       "Agarres ergonómicos para reducir la tensión en las muñecas"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "	1471 x 1510 x 965 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "108 kg",
+      "peso bruto (W.G.)": "148 kg",
       "músculo trabajado": "Tríceps",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4051,10 +4051,10 @@ export const allProducts = [
       "Mecanismo de seguridad de fácil liberación"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "2450 x 1410 x 1180 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "135 kg",
+      "peso bruto (W.G.)": "175 kg",
       "músculo trabajado": "Cuádriceps, Glúteos",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4075,10 +4075,10 @@ export const allProducts = [
       "Diseño de carga de discos simple y efectivo"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "395 x 1175 x 400 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "20 kg",
+      "peso bruto (W.G.)": "60 kg",
       "músculo trabajado": "Tibial Anterior",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4099,10 +4099,10 @@ export const allProducts = [
       "Estructura robusta para uso intensivo"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1940 x 1550 x 1565 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "190 kg",
+      "peso bruto (W.G.)": "230 kg",
       "músculo trabajado": "Cuádriceps, Glúteos",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4123,10 +4123,10 @@ export const allProducts = [
       "Carga de discos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1232 x 625 x 980 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "32 kg",
+      "peso bruto (W.G.)": "72 kg",
       "músculo trabajado": "Músculos del antebrazo (Flexores y extensores de la muñeca)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4147,10 +4147,10 @@ export const allProducts = [
       "Movimiento de arco para una contracción abdominal completa"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "	1450 x 1300 x 1625 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "103 kg",
+      "peso bruto (W.G.)": "143 kg",
       "músculo trabajado": "Recto Abdominal",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4171,10 +4171,10 @@ export const allProducts = [
       "Almohadillas ajustables para las piernas"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1810 x 1827 x 1285 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "112 kg",
+      "peso bruto (W.G.)": "152 kg",
       "músculo trabajado": "Glúteo Medio y Menor",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4195,10 +4195,10 @@ export const allProducts = [
       "Diseño compacto"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "	1810 x 1700 x 2155 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "260 kg",
+      "peso bruto (W.G.)": "300 kg",
       "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4219,10 +4219,10 @@ export const allProducts = [
       "Esencial para atletas de deportes de contacto"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "995 x 1575 x 1635 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "139 kg",
+      "peso bruto (W.G.)": "179 kg",
       "músculo trabajado": "Músculos del cuello (Esternocleidomastoideo, Escalenos, etc.)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4243,10 +4243,10 @@ export const allProducts = [
       "Asiento ajustable en altura"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1640 x 1290 x 1705 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "120 kg",
+      "peso bruto (W.G.)": "160 kg",
       "músculo trabajado": "Soporte para press de hombros con barra",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4267,10 +4267,10 @@ export const allProducts = [
       "Escalones para un fácil acceso"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1395 x 1160 x 2265 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "109 kg",
+      "peso bruto (W.G.)": "149 kg",
       "músculo trabajado": "Dorsales, Bíceps, Espalda Alta",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4291,10 +4291,10 @@ export const allProducts = [
       "Barra de dominadas integrada"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1545 x 1853 x 2400 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "162 kg",
+      "peso bruto (W.G.)": "202 kg",
       "músculo trabajado": "Soporte para ejercicios de cuerpo completo",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4315,10 +4315,10 @@ export const allProducts = [
       "Soportes de almacenamiento de discos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1455 x 1650 x 2370 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "137 kg",
+      "peso bruto (W.G.)": "177 kg",
       "músculo trabajado": "Soporte para ejercicios de cuerpo completo",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4339,10 +4339,10 @@ export const allProducts = [
       "Ideal para levantadores de pesas serios"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1270 x 1315 x 2365 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "157 kg",
+      "peso bruto (W.G.)": "197 kg",
       "músculo trabajado": "Soporte para ejercicios de cuerpo completo",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4363,10 +4363,10 @@ export const allProducts = [
       "Perfecta para el entrenamiento de fuerza pesado"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1270 x 1315 x 2365 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "157 kg",
+      "peso bruto (W.G.)": "197 kg",
       "músculo trabajado": "Soporte para ejercicios de cuerpo completo",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4387,10 +4387,10 @@ export const allProducts = [
       "Solución de entrenamiento todo en uno"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1735 x 2200 x 2355 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "191 kg",
+      "peso bruto (W.G.)": "231 kg",
       "músculo trabajado": "Soporte para ejercicios de cuerpo completo",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4411,10 +4411,10 @@ export const allProducts = [
       "Movimiento de arco para una máxima contracción pectoral"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1515 x 1443 x 1015 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "80 kg",
+      "peso bruto (W.G.)": "120 kg",
       "músculo trabajado": "Pectoral",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4435,10 +4435,10 @@ export const allProducts = [
       "Aísla y desarrolla los glúteos de forma efectiva y segura"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "1600 x 1520 x 800 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "95 kg",
+      "peso bruto (W.G.)": "135 kg",
       "músculo trabajado": "Glúteos, Isquiotibiales",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4459,10 +4459,10 @@ export const allProducts = [
       "Carga de discos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
+      dimensiones: "2000 x 824 x 1655 mm",
       "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      "peso neto (N.W.)": "175 kg",
+      "peso bruto (W.G.)": "215 kg",
       "músculo trabajado": "Deltoides Medial y Posterior",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4485,10 +4485,9 @@ export const allProducts = [
       "Ajuste electrónico de velocidad e inclinación"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      dimensiones: "2170 x 930 x 1650 mm",
+      "peso neto (N.W.)": "230 kg",
+      "peso bruto (W.G.)": "260 kg",
       "músculo trabajado": "Cardiovascular, Piernas (Cuádriceps, Isquiotibiales, Glúteos)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4509,10 +4508,9 @@ export const allProducts = [
       "Múltiples niveles de resistencia magnética"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      dimensiones: "1520 x 585 x 1130 mm",
+      "peso neto (N.W.)": "89 kg",
+      "peso bruto (W.G.)": "92 kg",
       "músculo trabajado": "Cardiovascular, Piernas (bajo impacto)",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4533,10 +4531,9 @@ export const allProducts = [
       "Consola con programas de entrenamiento preestablecidos"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      dimensiones: "1120 x 580 x 1460 mm",
+      "peso neto (N.W.)": "69 kg",
+      "peso bruto (W.G.)": "85 kg",
       "músculo trabajado": "Cardiovascular, Piernas, Glúteos",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4557,10 +4554,9 @@ export const allProducts = [
       "Manillar y sillín con micro-ajustes para una ergonomía perfecta"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      dimensiones: "1145 x 630 x 970 mm",
+      "peso neto (N.W.)": "58 kg",
+      "peso bruto (W.G.)": "60 kg",
       "músculo trabajado": "Cardiovascular de alta intensidad, Piernas, Glúteos",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4581,10 +4577,9 @@ export const allProducts = [
       "Panel de control con diversos programas de entrenamiento"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      dimensiones: "1570 x 760 x 2270 mm",
+      "peso neto (N.W.)": "260 kg",
+      "peso bruto (W.G.)": "300 kg",
       "músculo trabajado": "Cardiovascular, Glúteos, Cuádriceps, Pantorrillas",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4605,10 +4600,9 @@ export const allProducts = [
       "Niveles de resistencia ajustables y programas de entrenamiento"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      dimensiones: "2130 x 670 x 1780 mm",
+      "peso neto (N.W.)": "100 kg",
+      "peso bruto (W.G.)": "120 kg",
       "músculo trabajado": "Cardiovascular (Cuerpo completo), Piernas, Glúteos, Brazos",
       "color": "",
       "uso": "Profesional / Gimnasio"
@@ -4629,10 +4623,9 @@ export const allProducts = [
       "Sistema de inclinación y declinación para simular terrenos variados"
     ],
     "specifications": {
-      dimensiones: "2653 x 1600 x 560",
-      "placas (Weight Stack)": " -",
-      "peso neto (N.W.)": "500 kg",
-      "peso bruto (W.G.)": "540 kg",
+      dimensiones: "2170 x 930 x 1650 mm",
+      "peso neto (N.W.)": "230 kg",
+      "peso bruto (W.G.)": "260 kg",
       "músculo trabajado": "Cardiovascular, Piernas (Cuádriceps, Isquiotibiales, Glúteos)",
       "color": "",
       "uso": "Profesional / Gimnasio"
