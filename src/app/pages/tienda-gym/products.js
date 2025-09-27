@@ -4477,8 +4477,12 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/cardio/RCT-900M Commercial Treadmil Led Screen 4hp.png",
     "alt": "RCT-900M Commercial Treadmill Led Screen 4hp",
-    "description": "",
-    "features": [
+  "description": [
+    "Cinta de correr comercial RCT 900M. Una cinta de correr potente y duradera es esencial en cualquier gimnasio.",
+    "Tiene ajustes de inclinación, una velocidad máxima de 20 km/h y más de 30 programas para elegir y disfrutar de una variedad de estímulos.",
+    "Su pantalla LED muestra el tiempo, la distancia, la inclinación, la velocidad, la frecuencia cardíaca y las calorías quemadas, e incluye funciones de parada automática y de emergencia."
+  ],
+      "features": [
       "Motor de corriente alterna de 4 HP para uso comercial intensivo",
       "Pantalla LED de fácil lectura con métricas de entrenamiento",
       "Amplia superficie de carrera con sistema de amortiguación",

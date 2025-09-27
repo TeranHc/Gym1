@@ -74,40 +74,60 @@ export default function ProductDetailPage({ params }) {
 
   const renderProductInfoTabs = () => (
     <div className="mt-4">
-      <div className="border-b border-gray-200">
-        <nav className="flex -mb-px space-x-6">
-          <button
-            onClick={() => setInfoView('descripcion')}
-            className={`py-3 px-1 border-b-2 font-medium text-sm ${infoView === 'descripcion' ? 'border-red-500 text-red-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
-          >
-            Descripción
-          </button>
-          <button
-            onClick={() => setInfoView('especificaciones')}
-            className={`py-3 px-1 border-b-2 font-medium text-sm ${infoView === 'especificaciones' ? 'border-red-500 text-red-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
-          >
-            Especificaciones
-          </button>
-          <button
-            onClick={() => setInfoView('caracteristicas')}
-            className={`py-3 px-1 border-b-2 font-medium text-sm ${infoView === 'caracteristicas' ? 'border-red-500 text-red-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
-          >
-            Características
-          </button>
-        </nav>
-      </div>
+    <div className="border-b border-gray-200">
+      <nav className="flex -mb-px space-x-6">
+        <button
+          onClick={() => setInfoView('descripcion')}
+          // Se cambió 'font-medium' por 'font-bold'
+          className={`py-3 px-1 border-b-2 font-bold text-sm ${infoView === 'descripcion' ? 'border-red-500 text-red-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+        >
+          Descripción
+        </button>
+        <button
+          onClick={() => setInfoView('especificaciones')}
+          // Se cambió 'font-medium' por 'font-bold'
+          className={`py-3 px-1 border-b-2 font-bold text-sm ${infoView === 'especificaciones' ? 'border-red-500 text-red-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+        >
+          Especificaciones
+        </button>
+        <button
+          onClick={() => setInfoView('caracteristicas')}
+          // Se cambió 'font-medium' por 'font-bold'
+          className={`py-3 px-1 border-b-2 font-bold text-sm ${infoView === 'caracteristicas' ? 'border-red-500 text-red-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+        >
+          Características
+        </button>
+      </nav>
+    </div>
       <div className="py-6">
+
         {infoView === 'descripcion' && (
-          <p className="text-gray-600 leading-relaxed text-sm md:text-base animate-fade-in">{product.description}</p>
-        )}
+        <div className="space-y-4 animate-fade-in">
+          {/* Comprueba si la descripción es una lista (array) */}
+          {Array.isArray(product.description) ? (
+            // Si SÍ es una lista, la mapea
+            product.description.map((paragraph, index) => (
+              <p key={index} className="text-gray-600 leading-relaxed text-xs md:text-sm animate-fade-in space-y-3">
+                {paragraph}
+              </p>
+            ))
+          ) : (
+            // Si NO es una lista (es el texto antiguo), simplemente lo muestra
+            <p className="text-gray-600 leading-relaxed text-xs md:text-sm animate-fade-in space-y-3">
+              {product.description}
+            </p>
+          )}
+        </div>
+      )}
         {infoView === 'especificaciones' && (
           <div className="animate-fade-in">
             {product.specifications ? (
               <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
                 {Object.entries(product.specifications).map(([key, value]) => value && (
                   <div key={key} className="border-b pb-2">
-                    <span className="font-bold text-gray-700 capitalize text-sm md:text-base">{key}:</span>
-                    <span className="text-gray-600 ml-2 text-sm md:text-base">{value}</span>
+                    <span className="font-bold text-gray-700 capitalize text-xs md:text-sm">{key}:</span>
+                    <span className="text-gray-600 ml-2 text-xs md:text-sm">{value}</span>
+
                   </div>
                 ))}
               </div>
@@ -120,12 +140,21 @@ export default function ProductDetailPage({ params }) {
               <ul className="space-y-2 md:space-y-3">
                 {product.features.map((feature, index) => feature && (
                   <li key={index} className="flex items-start">
-                    <svg className="w-4 h-4 md:w-5 md:h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                    <span className="text-gray-600 text-sm md:text-base">{feature}</span>
+                    <svg
+                      className="w-4 h-4 md:w-5 md:h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-600 text-xs md:text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
-            ) : <p className="text-sm text-gray-500">No hay características disponibles.</p>}
+            ) : (
+              <p className="text-xs md:text-sm text-gray-500">No hay características disponibles.</p>
+            )}
           </div>
         )}
       </div>
