@@ -163,13 +163,13 @@ export default function ProductDetailPage({ params }) {
               </div>
             </div>
             <div className="p-6 flex flex-col">
+
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">{product.name}</h1>
               <div className="mb-4 flex flex-wrap gap-2">
                 {product.subCategories.map(sc => (
                   <span key={sc} className="inline-block bg-gray-100 text-gray-700 px-3 py-1 text-sm font-medium rounded-full">{sc}</span>
                 ))}
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">{product.name}</h1>
-              
               {renderProductInfoTabs()}
               
               <div className="mt-auto pt-6 border-t">
