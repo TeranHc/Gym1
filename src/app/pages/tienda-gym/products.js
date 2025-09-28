@@ -937,7 +937,6 @@ export const allProducts = [
       "músculo trabajado": "Soporte para entrenamiento de pectoral inferior",
     }
   },
-  // ward
   {
     id: 37,
     name: "FW-1004 - Seated Arm Curl",
@@ -945,7 +944,10 @@ export const allProducts = [
     subCategories: ["Bíceps"],
     image: "/FW/FW-1004 - Seated Arm Curl.png",
     alt: "FW-1004 - Seated Arm Curl",
-    description: "",
+    "description": [
+      "FW-1004 - Seated Arm Curl. Este soporte para curl de brazos sentado está diseñado principalmente para curls de predicador.",
+      "Está bien acolchado, cuenta con rieles de seguridad acolchados para proteger el equipo y un asiento ajustable a la altura del usuario."    
+    ],
     features: [
       "También conocido como banco predicador (Preacher Curl)",
       "Aísla el músculo bíceps de manera efectiva",
@@ -953,13 +955,12 @@ export const allProducts = [
       "Asiento ajustable en altura"
     ],
     specifications: {
+      modelo: "FW-1004",
       dimensiones: "796 x 1322 x 1031 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "90 kg",
       "peso bruto (W.G.)": "130 kg",
       "músculo trabajado": "Bíceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -969,7 +970,10 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/FW/FW-1005 T-Bar Row.png",
     alt: "FW-1005 T-Bar Row",
-    description: "",
+    "description": [
+      "FW-1005 T-Bar Row. Esta máquina de remo con barra en T de pie ocupa un espacio mínimo y tiene un diseño sólido y resistente.",
+      "Cuenta con una plataforma para los pies ligeramente inclinada para una mejor posición, un pequeño soporte de goma para la barra que protege la máquina y asas con agarre ancho y neutro para trabajar diferentes zonas de la espalda."    
+    ],
     features: [
       "Plataforma para remo con barra T",
       "Superficie antideslizante para los pies",
@@ -977,13 +981,12 @@ export const allProducts = [
       "Punto de pivote de alta resistencia"
     ],
     specifications: {
+      modelo: "FW-1005",
       dimensiones: "2630 x 987 x 680 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "73 kg",
       "peso bruto (W.G.)": "113 kg",
       "músculo trabajado": "Espalda (dorsales, romboides)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -993,7 +996,10 @@ export const allProducts = [
     subCategories: ["Espalda", "Glúteos"],
     image: "/FW/FW-1006 - Hyperextension.png",
     alt: "FW-1006 - Hyperextension",
-    description: "",
+    "description": [
+      "FW-1006 - Hyperextension. Las almohadillas para la cadera de esta máquina cuentan con un riel deslizante, lo que facilita su ajuste a la altura del usuario. Cuenta con asas de apoyo adicionales para facilitar el acceso y la salida de la máquina.",
+      "Es muy robusta y duradera en comparación con muchas otras hiperextensiones, lo que la hace ideal para el uso diario intensivo en cualquier gimnasio."    
+    ],
     features: [
       "Banco para hiperextensiones a 45 grados",
       "Fortalece la zona lumbar, glúteos e isquiotibiales",
@@ -1001,13 +1007,12 @@ export const allProducts = [
       "Soportes antideslizantes para los pies"
     ],
     specifications: {
+      modelo: "FW-1006",
       dimensiones: "1500 x 858 x 883 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "73 kg",
       "peso bruto (W.G.)": "113 kg",
       "músculo trabajado": "Espalda baja, glúteos, isquiotibiales",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1017,7 +1022,9 @@ export const allProducts = [
     subCategories: ["Abdominales"],
     image: "/FW/FW-1007- Assist Abdominal Bench.png",
     alt: "FW-1007- Assist Abdominal Bench",
-    description: "",
+    "description": [
+      "FW-1007- Assist Abdominal Bench. Este banco abdominal ofrece un soporte sólido para la espalda, pedales y manijas para ayudar a los usuarios con los movimientos abdominales.",
+    ],
     features: [
       "Banco declinado para ejercicios abdominales",
       "Rodillos de sujeción para piernas",
@@ -1025,23 +1032,24 @@ export const allProducts = [
       "Tapicería cómoda y resistente"
     ],
     specifications: {
+      modelo: "FW-1007",
       dimensiones: "1686 x 798 x 1139 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "60 kg",
       "peso bruto (W.G.)": "100 kg",
       "músculo trabajado": "Abdominales",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
     id: 41,
-    name: "FW-1008 - 75 Degree Bench-",
+    name: "FW-1008 - 75 Degree Bench",
     primaryCategory: "FW",
     subCategories: ["Hombros"],
     image: "/FW/FW-1008 - 75 Degree Bench-.png",
-    alt: "FW-1008 - 75 Degree Bench-",
-    description: "",
+    alt: "FW-1008 - 75 Degree Bench",
+    "description": [
+      "FW-1008 - 75 Degree Bench. Este banco fijo proporciona una gran estabilidad para cargas pesadas de peso libre y tiene un pedal para apoyo adicional.",
+    ],
     features: [
       "Banco con respaldo a 75 grados",
       "Ideal para realizar press militar (press de hombros) sentado",
@@ -1049,13 +1057,12 @@ export const allProducts = [
       "Estructura compacta y estable"
     ],
     specifications: {
+      modelo: "FW-1008",
       dimensiones: "1280 x 708 x 1037 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "33 kg",
       "peso bruto (W.G.)": "73 kg",
       "músculo trabajado": "Soporte para entrenamiento de hombros",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1065,7 +1072,9 @@ export const allProducts = [
     subCategories: ["Pecho", "Espalda", "Hombros"],
     image: "/FW/FW-1009 Flat Bench.png",
     alt: "FW-1009 Flat Bench",
-    description: "",
+    "description": [
+      "FW-1009 Flat Bench. Este banco está bien acolchado y es apto para cargas pesadas de peso libre. Su estructura minimalista ocupa poco espacio.",
+    ],
     features: [
       "Banco plano multiusos",
       "Esencial para press con mancuernas, remos y otros ejercicios",
@@ -1073,13 +1082,12 @@ export const allProducts = [
       "Fácil de mover y posicionar"
     ],
     specifications: {
+      modelo: "FW-1009",     
       dimensiones: "1258 x 700 x 451 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "23 kg",
       "peso bruto (W.G.)": "63 kg",
       "músculo trabajado": "Multipropósito (pectoral, espalda, hombros)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1089,7 +1097,9 @@ export const allProducts = [
     subCategories: ["Abdominales"],
     image: "/FW/FW-1012-Adjustable Abdominal Bench.png",
     alt: "FW-1012-Adjustable Abdominal Bench",
-    description: "",
+    "description": [
+      "FW-1012-Adjustable Abdominal Bench. El ángulo de inclinación de este banco se puede ajustar según las preferencias del usuario y viene con un asa de agarre para mayor apoyo.",
+    ],
     features: [
       "Banco abdominal con ángulo de declinación ajustable",
       "Permite aumentar o disminuir la dificultad del ejercicio",
@@ -1097,13 +1107,12 @@ export const allProducts = [
       "Diseño plegable para ahorrar espacio"
     ],
     specifications: {
+      modelo: "FW-1012",     
       dimensiones: "882 x 1454 x 1002 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "21 kg",
       "peso bruto (W.G.)": "61 kg",
       "músculo trabajado": "Abdominales",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1113,7 +1122,9 @@ export const allProducts = [
     subCategories: ["Pecho", "Hombros", "Bíceps"],
     image: "/FW/FW-1013-Adjustable Bench.png",
     alt: "FW-1013-Adjustable Bench",
-    description: "",
+    "description": [
+      "FW-1013-Adjustable Bench. Este banco resistente es totalmente ajustable, desde posición horizontal hasta 90 grados. Ofrece gran estabilidad y soporte para cargas pesadas de peso libre.",
+    ],
     features: [
       "Banco ajustable en múltiples posiciones (declinado, plano, inclinado, vertical)",
       "Máxima versatilidad para una gran variedad de ejercicios",
@@ -1121,13 +1132,13 @@ export const allProducts = [
       "Ruedas y asa para fácil transporte"
     ],
     specifications: {
+      modelo: "FW-1013",     
       dimensiones: "740 x 1196 x 976 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "43 kg",
       "peso bruto (W.G.)": "83 kg",
       "músculo trabajado": "Multipropósito (press inclinado, press plano, press de hombros, etc.)",
-      color: "",
-      uso: "Profesional / Gimnasio"
+
     }
   },
   {
@@ -1137,7 +1148,9 @@ export const allProducts = [
     subCategories: [],
     image: "/FW/FW-1014-Barbell Rack.png",
     alt: "FW-1014-Barbell Rack",
-    description: "",
+    "description": [
+      "FW-1014-Barbell Rack. Capacidad para 10 barras, fabricadas en acero macizo.",
+    ],
     features: [
       "Soporte para almacenar barras de musculación",
       "Diseño vertical u horizontal según el modelo",
@@ -1145,13 +1158,13 @@ export const allProducts = [
       "Construcción resistente para soportar múltiples barras"
     ],
     specifications: {
+      modelo: "FW-1014",     
       dimensiones: "735 x 883 x 1269 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "65 kg",
       "peso bruto (W.G.)": "105 kg",
       "músculo trabajado": "Almacenamiento y organización de barras",
-      color: "",
-      uso: "Profesional / Gimnasio"
+
     }
   },
   {
@@ -1161,7 +1174,9 @@ export const allProducts = [
     subCategories: [],
     image: "/FW/FW-1015-Dumbbell Rack Double.png",
     alt: "FW-1015-Dumbbell Rack Double",
-    description: "",
+     "description": [
+      "FW-1015-Dumbbell Rack Double. Este soporte tiene capacidad para 20 mancuernas y cuenta con soportes protectores para evitar el desgaste. Es resistente y robusto, apto para mancuernas de cualquier tamaño.",
+    ],
     features: [
       "Soporte de dos o tres niveles para mancuernas",
       "Optimiza el espacio de almacenamiento",
@@ -1169,13 +1184,12 @@ export const allProducts = [
       "Fácil acceso al equipo"
     ],
     specifications: {
+      modelo: "FW-1015",     
       dimensiones: "2306 x 587 x 812 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "69 kg",
       "peso bruto (W.G.)": "109 kg",
       "músculo trabajado": "Almacenamiento y organización de mancuernas",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1185,7 +1199,9 @@ export const allProducts = [
     subCategories: [],
     image: "/FW/FW-1016-Plate Rack.png",
     alt: "FW-1016-Plate Rack",
-    description: "",
+     "description": [
+      "FW-1016-Plate Rack. Este soporte para platos cuenta con 7 secciones para un amplio almacenamiento de platos, ocupando el mínimo espacio. Robusto, resistente e ideal para cualquier gimnasio.",
+    ],
     features: [
       "Soporte tipo árbol para discos de peso",
       "Múltiples postes para organizar discos por tamaño y peso",
@@ -1193,13 +1209,12 @@ export const allProducts = [
       "Facilita la carga y descarga de barras"
     ],
     specifications: {
+      modelo: "FW-1016",     
       dimensiones: "798 x 798 x 765 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "19 kg",
       "peso bruto (W.G.)": "59 kg",
       "músculo trabajado": "Almacenamiento y organización de discos",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1209,7 +1224,10 @@ export const allProducts = [
     subCategories: ["Piernas"],
     image: "/FW/FW-1017-Seated Calf Raise.png",
     alt: "FW-1017-Seated Calf Raise",
-    description: "",
+     "description": [
+      "FW-1017-Seated Calf Raise. Esta máquina para levantar pantorrillas sentado incluye una palanca para ajustar la altura de la rodillera según las preferencias del usuario. Una palanca de seguridad lateral soporta el peso hasta que el usuario esté listo para realizar el ejercicio.",
+      "Las asas en la parte superior de la rodillera facilitan el agarre durante el ejercicio, y los pedales sólidos con agarre firme garantizan la seguridad durante el ejercicio."
+    ],
     features: [
       "Máquina para elevación de talones sentado",
       "Aísla y trabaja el músculo sóleo",
@@ -1217,13 +1235,12 @@ export const allProducts = [
       "Soporte para carga de discos de peso"
     ],
     specifications: {
+      modelo: "FW-1017",     
       dimensiones: "887 x 1316 x 1020 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "74 kg",
       "peso bruto (W.G.)": "114 kg",
       "músculo trabajado": "Pantorrillas (sóleo)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1233,7 +1250,9 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/FW/FW-1018 Squat Rack.png",
     alt: "FW-1018 Squat Rack",
-    description: "",
+     "description": [
+      "FW-1018 Squat Rack. Este soporte para sentadillas es muy duradero y robusto, ideal para soportar pesos libres muy pesados. Incluye rieles de seguridad y amplio espacio de almacenamiento para discos de pesas.",
+    ],
     features: [
       "Estructura robusta para realizar sentadillas de forma segura",
       "Soportes de barra (J-cups) ajustables en altura",
@@ -1241,13 +1260,12 @@ export const allProducts = [
       "Puede incluir una barra para dominadas (pull-ups)"
     ],
     specifications: {
+      modelo: "FW-1018",     
       dimensiones: "1600 x 1552 x 1756 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "100 kg",
       "peso bruto (W.G.)": "140 kg",
       "músculo trabajado": "Soporte para sentadillas, press de banca y press militar",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1257,7 +1275,10 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/FW/FW-2012 Lying T-Bar Row.png",
     alt: "FW-2012 Lying T-Bar Row",
-    description: "",
+     "description": [
+      "FW-2012 Lying T-Bar Row. Este remo con barra en T tiene una posición fija, lo que ofrece gran estabilidad y no tiene funciones ajustables.",
+      "Cuenta con asas con múltiples ángulos para trabajar diferentes zonas de la espalda. Incluye un pequeño compartimento adicional para discos de pesas."
+    ],
     features: [
       "Remo con barra T con apoyo en el pecho",
       "Aísla los músculos de la espalda al reducir el impulso",
@@ -1265,13 +1286,12 @@ export const allProducts = [
       "Agarres múltiples para diferentes enfoques"
     ],
     specifications: {
+      modelo: "FW-2012",           
       dimensiones: "1857 x 1103 x 1191 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "86 kg",
       "peso bruto (W.G.)": "126 kg",
       "músculo trabajado": "Espalda (dorsales, romboides, trapecio)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1281,7 +1301,10 @@ export const allProducts = [
     subCategories: ["Abdominales", "Tríceps"],
     image: "/FW/FW-2025 -Vertical Knee Up.png",
     alt: "FW-2025 -Vertical Knee Up",
-    description: "",
+     "description": [
+      "FW-2025 -Vertical Knee Up. Marcada como máquina de elevación de piernas, esta máquina es multifuncional y también permite realizar fondos.",
+      "Las asas verticales ofrecen soporte para el posicionamiento en los movimientos de entrenamiento de core, mientras que las asas horizontales son ideales para fondos y entrenamiento de core."
+    ],
     features: [
       "Estación de elevación de rodillas vertical (VKR)",
       "Trabaja intensamente los abdominales inferiores",
@@ -1289,13 +1312,12 @@ export const allProducts = [
       "Respaldo y apoyabrazos acolchados"
     ],
     specifications: {
+      modelo: "FW-2025",     
       dimensiones: "1122 x 805 x 1690 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "105 kg",
       "peso bruto (W.G.)": "145 kg",
       "músculo trabajado": "Abdominales inferiores, Tríceps, Pectoral inferior",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1305,7 +1327,9 @@ export const allProducts = [
     subCategories: ["Glúteos", "Piernas", "Espalda"],
     image: "/FW/FW-2029 Glute Ham Raise.png",
     alt: "FW-2029 Glute Ham Raise",
-    description: "",
+     "description": [
+      "FW-2029 Glute Ham Raise. Esta máquina de elevación de glúteos y isquiotibiales incluye una plataforma y almohadillas de apoyo ajustables, ambas sobre un riel deslizante, lo que permite ajustes precisos según la altura del usuario y la selección de ejercicios. Además, cuenta con rodilleras y asas acolchadas para facilitar su entrada y salida. Sus materiales y diseño la hacen duradera, resistente y ligera.",
+    ],
     features: [
       "Máquina GHD (Glute Ham Developer)",
       "Excelente para fortalecer la cadena posterior",
@@ -1313,19 +1337,16 @@ export const allProducts = [
       "Permite realizar GHR, hiperextensiones y sit-ups"
     ],
     specifications: {
+      modelo: "FW-2029",     
       dimensiones: "1715 x 678 x 1210 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "84 kg",
       "peso bruto (W.G.)": "124 kg",
       "músculo trabajado": "Glúteos, isquiotibiales, espalda baja",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
 
-  // Equipos LD
-
-  
+  // Equipos LD 
   {
     id: 53,
     name: "LD-1001 Chest Press",
