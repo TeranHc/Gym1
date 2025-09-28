@@ -634,7 +634,9 @@ export const allProducts = [
     subCategories: ["Pecho", "Espalda", "Hombros", "Bíceps", "Tríceps"],
     image: "/fm/FM-1001 Dual Adjustable Pulley.png",
     alt: "FM-1001 Dual Adjustable Pulley",
-    description: "",
+    "description": [
+      "FM-1001 Dual Adjustable Pulley. Esta compacta máquina de cable doble es versátil y ofrece múltiples opciones de entrenamiento en un espacio reducido. Es apta tanto para ejercicios con cable doble como con cable simple. Cada lado cuenta con una columna de pesas independiente con pasador y polea de altura ajustable."
+    ],
     features: [
       "Poleas ajustables en múltiples alturas",
       "Sistema de doble polea para movimientos unilaterales",
@@ -642,13 +644,12 @@ export const allProducts = [
       "Permite entrenar el cuerpo completo"
     ],
     specifications: {
+      modelo: "FM-1001",
       dimensiones: "1840 x 1350 x 2490 mm",
       "placas (Weight Stack)": "437 lbs/198 kg",
       "peso neto (N.W.)": "208 kg",
       "peso bruto (W.G.)": "248 kg",
       "músculo trabajado": "Cuerpo completo (Pecho, espalda, hombros, brazos, core)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -658,7 +659,9 @@ export const allProducts = [
     subCategories: ["Espalda", "Hombros", "Bíceps", "Tríceps"],
     image: "/fm/FM-1005 Multi Jungle 4 Stack.png",
     alt: "FM-1005 Multi Jungle 4 Stack",
-    description: "",
+    "description": [
+      "FM-1005 Multi Jungle 4 Stack. Esta estación de entrenamiento multifunción es una excelente adición a cualquier gimnasio. Cuenta con 4 estaciones que ofrecen múltiples opciones de entrenamiento, incluyendo una estación de polea para dorsales, una estación de remo con polea, una estación de extensión de tríceps y una estación de polea individual con altura ajustable."
+    ],
     features: [
       "Estación para 4 usuarios simultáneos",
       "Incluye estaciones de polea alta (jalón), polea baja (remo) y poleas ajustables",
@@ -666,13 +669,12 @@ export const allProducts = [
       "Diseño optimizado para ahorrar espacio"
     ],
     specifications: {
+      modelo: "FM-1005",
       dimensiones: "3405 x 1675 x 2330 mm",
       "placas (Weight Stack)": "918 lbs/416.25 kg",
       "peso neto (N.W.)": "289 kg",
       "peso bruto (W.G.)": "329 kg",
       "músculo trabajado": "Múltiples (Dorsales, hombros, bíceps, tríceps)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -682,7 +684,10 @@ export const allProducts = [
     subCategories: ["Espalda", "Hombros", "Bíceps", "Tríceps"],
     image: "/fm/FM-1006 Multi Jungle 5 Stack.png",
     alt: "FM-1006 Multi Jungle 5 Stack",
-    description: "",
+    "description": [
+      "FM-1006 Multi Jungle 5 Stack. Esta estación de entrenamiento está equipada con una variedad de opciones, lo que la hace ideal para gimnasios concurridos que buscan maximizar el espacio de entrenamiento.",
+      "Cuenta con una estación de polea para dorsales, una estación de remo, una estación de flexión, dos barras de dominadas (neutral y estándar) y una estación de poleas en el centro."
+    ],
     features: [
       "Estación para 5 usuarios simultáneos",
       "Añade una estación adicional a la versión de 4 stacks",
@@ -690,13 +695,12 @@ export const allProducts = [
       "Permite una gran variedad de rutinas de entrenamiento"
     ],
     specifications: {
+      color: "FM-1006",
       dimensiones: "3405 x 4710 x 2330 mm",
       "placas (Weight Stack)": "1136 lbs/515.25 kg",
       "peso neto (N.W.)": "398 kg",
       "peso bruto (W.G.)": "438 kg",
       "músculo trabajado": "Múltiples (Dorsales, hombros, bíceps, tríceps, pecho)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -706,7 +710,10 @@ export const allProducts = [
     subCategories: ["Espalda", "Hombros", "Bíceps", "Tríceps", "Pecho"],
     image: "/fm/FM-1007 Multi Jungle 8 Stack.png",
     alt: "FM-1007 Multi Jungle 8 Stack",
-    description: "",
+    "description": [
+      "FM-1007 Multi Jungle 8 Stack. Esta amplia estación de entrenamiento está equipada con una variedad de opciones, lo que la hace ideal para gimnasios concurridos que buscan maximizar el espacio de entrenamiento.",
+      "Cuenta con 2 estaciones de remo, 2 estaciones de polea dorsal, 2 juegos de barras de dominadas (una neutra y una estándar), 2 estaciones de flexión de brazos y una estación de polea en el centro."
+    ],
     features: [
       "Estación central para 8 usuarios simultáneos",
       "Solución completa para entrenamiento de fuerza en gimnasios",
@@ -714,13 +721,12 @@ export const allProducts = [
       "Estructura robusta y estable"
     ],
     specifications: {
+      color: "FM-1007",
       dimensiones: "3405 x 5200 x 2330 mm",
       "placas (Weight Stack)": "1835 lbs/832.5 kg",
       "peso neto (N.W.)": "710 kg",
       "peso bruto (W.G.)": "750 kg",
       "músculo trabajado": "Cuerpo completo",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   { 
@@ -731,7 +737,9 @@ export const allProducts = [
     subCategories: ["Pecho", "Hombros"],
     image: "/fm/FM-1008 Cable Crossover.png",
     alt: "FM-1008 Cable Crossover",
-    description: "",
+    "description": [
+      "FM-1008 Cable Crossover. Esta máquina es apta para ejercicios con polea simple y doble. Cada lado cuenta con una columna de pesas independiente con pasador y polea de altura ajustable."
+    ],
     features: [
       "Dos torres de poleas ajustables en altura",
       "Barra de conexión superior para dominadas (pull-ups)",
@@ -739,16 +747,12 @@ export const allProducts = [
       "Ideal para ejercicios de apertura de pecho (flys) y elevaciones de hombros"
     ],
     specifications: {
+      modelo: "FM-1008",
       dimensiones: "1935 x 2217 x 1125 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "215 kg",
       "peso bruto (W.G.)": "255 kg",
-      "placas (Weight Stack)": "",
-      "peso neto (N.W.)": "",
-      "peso bruto (W.G.)": "",
       "músculo trabajado": "Pectorales, deltoides (hombros)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -758,7 +762,10 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos", "Pecho", "Hombros"],
     image: "/fm/FM-1009 Smith Machine.png",
     alt: "FM-1009 Smith Machine",
-    description: "",
+    "description": [
+      "FM-1009 Smith Machine. Esta máquina Smith es resistente y capaz de soportar cargas extremas. El recorrido de la barra está ligeramente inclinado, lo que permite un movimiento más natural para ciertos ejercicios.",
+      "Esta barra cuenta con cierres de seguridad que se pueden girar para un entrenamiento más seguro. También cuenta con un amplio espacio de almacenamiento para discos de pesas."
+    ],
     features: [
       "Barra guiada con movimiento vertical para mayor seguridad",
       "Múltiples topes de seguridad ajustables",
@@ -766,13 +773,12 @@ export const allProducts = [
       "Construcción de acero de alta resistencia"
     ],
     specifications: {
+      modelo: "FM-1009",
       dimensiones: "2266 x 1380 x 2330 mm",
       "placas (Weight Stack)": " - ",
       "peso neto (N.W.)": "242 kg",
       "peso bruto (W.G.)": "282 kg",
       "músculo trabajado": "Múltiples (Cuádriceps, glúteos, pectorales, hombros)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -782,7 +788,9 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/fm/FM-1024D 45 Leg Press.png",
     alt: "FM-1024D 45 Leg Press",
-    description: "",
+    "description": [
+      "FM-1024D 45 Leg Press. Esta prensa de piernas con discos soporta pesos extremos y proporciona un movimiento suave. Incluye cierres de seguridad, una plataforma ancha para los pies, asas de apoyo y espacio para guardar discos."    
+    ],
     features: [
       "Plataforma amplia y antideslizante para los pies",
       "Inclinación de 45 grados para un trabajo intenso de piernas",
@@ -790,13 +798,12 @@ export const allProducts = [
       "Asiento y respaldo ergonómicos para una postura correcta"
     ],
     specifications: {
+      modelo: "FM-1024D",
       dimensiones: "2266 x 1585 x 1630 mm",
       "placas (Weight Stack)": " - ",
       "peso neto (N.W.)": "268 kg",
       "peso bruto (W.G.)": "308 kg",
       "músculo trabajado": "Cuádriceps, glúteos, isquiotibiales",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -806,7 +813,9 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/fm/FM-1024E Hack Squat.png",
     alt: "FM-1024E Hack Squat",
-    description: "",
+    "description": [
+      "FM-1024E Hack Squat. Esta prensa de piernas con discos soporta pesos extremos y proporciona un movimiento suave. Incluye cierres de seguridad, una plataforma ancha para los pies, asas de apoyo y espacio para guardar discotecas."    
+    ],
     features: [
       "Movimiento guiado para una sentadilla segura y efectiva",
       "Enfocado en el desarrollo de los cuádriceps",
@@ -814,13 +823,12 @@ export const allProducts = [
       "Soportes laterales para carga y descarga de discos"
     ],
     specifications: {
+      modelo: "FM-1024E",
       dimensiones: "1792 x 1425 x 1425 mm",
       "placas (Weight Stack)": " - ",
       "peso neto (N.W.)": "204 kg",
       "peso bruto (W.G.)": "244 kg",
       "músculo trabajado": "Cuádriceps, glúteos",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -830,7 +838,10 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/fm/FM-1024F Hack Squat.png",
     alt: "FM-1024F Hack Squat",
-    description: "",
+    "description": [
+      "FM-1024F Hack Squat. Esta máquina Hack Squat incluye una plataforma ajustable para los pies, lo que permite ajustar el ángulo a su gusto. Incorpora palancas de seguridad para retirar y volver a colocar el peso, además de asas de apoyo adicionales durante el ejercicio.",
+      "Está bien acolchada y soporta cargas extremas (hasta 1200 kg), ofreciendo un movimiento muy suave y es una máquina con discos de pesaje y espacio adicional para almacenarlos."    
+    ],
     features: [
       "Diseño ergonómico que minimiza la tensión en la espalda baja",
       "Plataforma ajustable para variar el enfoque muscular",
@@ -838,13 +849,12 @@ export const allProducts = [
       "Topes de seguridad para entrenar sin asistencia"
     ],
     specifications: {
+      modelo: "FM-1024F",      
       dimensiones: "1935 x 2217 x 1125 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "215 kg",
       "peso bruto (W.G.)": "255 kg",
       "músculo trabajado": "Cuádriceps, glúteos",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
 
@@ -856,7 +866,10 @@ export const allProducts = [
     subCategories: ["Pecho"],
     image: "/FW/FW-1001 - Olympic Flat Bench.png",
     alt: "FW-1001 - Olympic Flat Bench",
-    description: "",
+    "description": [
+      "FW-1001 - Olympic Flat Bench. Este banco resistente está bien acolchado y es apto para pesas libres pesadas.",
+      "Incluye amplio espacio para discos de pesas y una plataforma para apoyarse."    
+    ],
     features: [
       "Diseñado para press de banca plano con barra olímpica",
       "Tapicería de alta densidad y durabilidad",
@@ -864,13 +877,12 @@ export const allProducts = [
       "Estructura de acero reforzado para máxima estabilidad"
     ],
     specifications: {
+      modelo: "FW-1001",
       dimensiones: "1610 x 1728 x 1263 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "80 kg",
       "peso bruto (W.G.)": "120 kg",
       "músculo trabajado": "Soporte para entrenamiento de pectoral",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -880,7 +892,10 @@ export const allProducts = [
     subCategories: ["Pecho", "Hombros"],
     image: "/FW/FW-1002 - Olympic Incline Bench.png",
     alt: "FW-1002 - Olympic Incline Bench",
-    description: "",
+    "description": [
+      "FW-1002 - Olympic Incline Bench. Este robusto banco inclinado cuenta con un asiento ajustable a la altura del usuario. Está bien acolchado y es apto para pesas libres pesadas.",
+      "Incluye amplio espacio para discos de pesas y una plataforma para apoyarse."    
+    ],
     features: [
       "Diseñado para press de banca inclinado con barra olímpica",
       "Ángulo fijo para un enfoque óptimo en el pectoral superior",
@@ -888,13 +903,12 @@ export const allProducts = [
       "Plataforma para asistente (spotter)"
     ],
     specifications: {
+      modelo: "FW-1002",
       dimensiones: "1636 x 1995 x 1483 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "105 kg",
       "peso bruto (W.G.)": "145 kg",
       "músculo trabajado": "Soporte para entrenamiento de pectoral superior y hombros",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -904,7 +918,10 @@ export const allProducts = [
     subCategories: ["Pecho"],
     image: "/FW/FW-1003 - Olympic Decline Bench.png",
     alt: "FW-1003 - Olympic Decline Bench",
-    description: "",
+    "description": [
+      "FW-1003 - Olympic Decline Bench. Este robusto banco fijo declinado proporciona gran estabilidad y soporte para pesas libres pesadas.",
+      "También incluye un amplio espacio de almacenamiento para discos de pesas."    
+    ],
     features: [
       "Diseñado para press de banca declinado con barra olímpica",
       "Enfoque específico en el pectoral inferior",
@@ -912,15 +929,15 @@ export const allProducts = [
       "Estructura estable y segura para cargas pesadas"
     ],
     specifications: {
+      modelo: "FW-1003",
       dimensiones: "1636 x 2135 x 1333 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "91 kg",
       "peso bruto (W.G.)": "131 kg",
       "músculo trabajado": "Soporte para entrenamiento de pectoral inferior",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
+  // ward
   {
     id: 37,
     name: "FW-1004 - Seated Arm Curl",
@@ -4636,7 +4653,7 @@ export const allProducts = [
       "músculo trabajado": "Deltoides Medial y Posterior",
     }
   },
-  
+
  // equipo cardio
   {
     "id": 186,
