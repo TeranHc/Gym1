@@ -1354,7 +1354,10 @@ export const allProducts = [
     subCategories: ["Pecho"],
     image: "/ld/LD-1001 Chest Press.png",
     alt: "LD-1001 Chest Press",
-    description: "",
+     "description": [
+      "LD-1001 Chest Press. Esta prensa de pecho de alta resistencia cuenta con brazos convergentes para un movimiento más natural. Una palanca debajo del asiento se ajusta a la altura del usuario.",
+      "El pedal inferior ayuda a activar el cierre de seguridad para iniciar y finalizar el movimiento. La máquina cuenta con discos de pesas a ambos lados."
+    ],
     features: [
       "Movimiento convergente para una contracción pectoral natural",
       "Agarres múltiples (vertical y horizontal)",
@@ -1362,13 +1365,13 @@ export const allProducts = [
       "Biomecánica optimizada para aislar el pecho"
     ],
     specifications: {
+      modelo: "",
       dimensiones: "1350 x 1550 x 1830 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "153 kg",
       "peso bruto (W.G.)": "193 kg",
       "músculo trabajado": "Pectoral mayor",
-      color: "",
-      uso: "Profesional / Gimnasio"
+      modelo: "LD-1001",
     }
   },
   {
@@ -1378,7 +1381,10 @@ export const allProducts = [
     subCategories: ["Pecho"],
     image: "/ld/LD-1002 Horizontal Bench Press.png",
     alt: "LD-1002 Horizontal Bench Press",
-    description: "",
+     "description": [
+      "LD-1002 Horizontal Bench Press. Este banco de press de banca de alta resistencia permite entrenar ambos lados de forma unilateral o bilateral.",
+      "Se cargan discos a ambos lados de la máquina y cuenta con espacio adicional para almacenarlos. El pedal ofrece apoyo al retirar y volver a colocar las pesas en el soporte."
+    ],
     features: [
       "Simula el movimiento de press de banca plano con barra",
       "Brazos independientes para un desarrollo muscular equilibrado",
@@ -1386,13 +1392,12 @@ export const allProducts = [
       "Asiento ajustable para una correcta alineación"
     ],
     specifications: {
+      modelo: "LD-1002",
       dimensiones: "1880 x 1950 x 850 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "165 kg",
       "peso bruto (W.G.)": "205 kg",
       "músculo trabajado": "Pectoral, deltoides anterior, tríceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1402,7 +1407,10 @@ export const allProducts = [
     subCategories: ["Hombros"],
     image: "/ld/LD-1003 Shoulder Press.png",
     alt: "LD-1003 Shoulder Press",
-    description: "",
+     "description": [
+      "LD-1003 Shoulder Press. Esta máquina de prensa de hombros premium es duradera y apta para uso frecuente e intensivo. Su asiento se ajusta a la altura del usuario. Cuenta con protectores de seguridad para soportar el peso antes y después del ejercicio.",
+      "Sus asas están en ángulo, lo que permite diferentes agarres de presión y ofrece una trayectoria de movimiento natural y suave. Es ideal para entrenamiento bilateral y con un solo brazo."
+    ],
     features: [
       "Máquina para press de hombros sentado",
       "Movimiento convergente que imita la trayectoria natural del hombro",
@@ -1410,13 +1418,12 @@ export const allProducts = [
       "Agarres ergonómicos para reducir la tensión en las muñecas"
     ],
     specifications: {
+      modelo: "LD-1003",
       dimensiones: "1650 x 1600 x 1435 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "210 kg",
       "peso bruto (W.G.)": "250 kg",
       "músculo trabajado": "Deltoides, tríceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1426,7 +1433,10 @@ export const allProducts = [
     subCategories: ["Hombros"],
     image: "/ld/LD-1004 Standing Lateral Rise Rear Deltoid.png",
     alt: "LD-1004 Standing Lateral Rise Rear Deltoid",
-    description: "",
+     "description": [
+      "LD-1004 Standing Lateral Rise Rear Deltoi. Esta máquina premium para deltoides laterales/posteriores está configurada para realizar elevaciones de pie y sentado en lados opuestos. Tanto el asiento como la plataforma son ajustables.",
+      "Cada brazo de la máquina está equipado con discos de pesas y es apta para entrenamiento bilateral o individual. Las asas también permiten un movimiento natural durante el ejercicio."
+    ],
     features: [
       "Máquina para elevaciones laterales y posteriores de hombro",
       "Brazos ajustables para variar el ejercicio",
@@ -1434,13 +1444,12 @@ export const allProducts = [
       "Almohadillas acolchadas para el pecho y los brazos"
     ],
     specifications: {
+      modelo: "LD-1004",
       dimensiones: "2100 x 810 x 1710 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "160 kg",
       "peso bruto (W.G.)": "200 kg",
       "músculo trabajado": "Deltoides lateral y posterior",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1450,7 +1459,10 @@ export const allProducts = [
     subCategories: ["Bíceps"],
     image: "/ld/LD-1005 Biceps Curl.png",
     alt: "LD-1005 Biceps Curl",
-    description: "",
+     "description": [
+      "LD-1005 Biceps Curl. Esta robusta máquina de curl de bíceps incluye una palanca debajo del asiento para ajustar la altura del usuario. Está bien acolchada y cuenta con pedales con agarres firmes para mayor apoyo.",
+      "La máquina admite discos a ambos lados y cuenta con espacio adicional para guardar discos."
+    ],
     features: [
       "Máquina de curl de bíceps sentado",
       "Almohadilla en ángulo para un apoyo óptimo del brazo (tipo predicador)",
@@ -1458,13 +1470,12 @@ export const allProducts = [
       "Agarre giratorio para un movimiento más natural"
     ],
     specifications: {
+      modelo: "LD-1005",
       dimensiones: "1100 x 1420 x 1060 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "128 kg",
       "peso bruto (W.G.)": "168 kg",
       "músculo trabajado": "Bíceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1474,7 +1485,10 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/ld/LD-1006 Front Lat Pull Down.png",
     alt: "LD-1006 Front Lat Pull Down",
-    description: "",
+     "description": [
+      "LD-1006 Front Lat Pull Down. Esta robusta máquina de remo alto cuenta con varias funciones ajustables: la palanca bajo el asiento se ajusta a la altura del usuario, y las almohadillas para los muslos y el pecho también se pueden ajustar según sus preferencias.",
+      "Cuenta con asas de apoyo adicionales para mayor agarre (por ejemplo, durante los pulldowns con un solo brazo) y pedales con agarres firmes. Incorpora discos de pesaje a ambos lados con espacio adicional para almacenarlos."
+    ],
     features: [
       "Máquina para jalón al pecho",
       "Rodillos de sujeción para piernas ajustables en altura",
@@ -1482,13 +1496,12 @@ export const allProducts = [
       "Ideal para desarrollar la amplitud de la espalda"
     ],
     specifications: {
+      modelo: "LD-1006",
       dimensiones: "2000 x 900 x 2050 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "196 kg",
       "peso bruto (W.G.)": "236 kg",
       "músculo trabajado": "Dorsal ancho, bíceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1498,7 +1511,10 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos", "Pecho", "Hombros"],
     image: "/ld/LD-1007 Smith Machine Dual System.png",
     alt: "LD-1007 Smith Machine Dual System",
-    description: "",
+     "description": [
+      "LD-1007 Smith Machine Dual System. Esta robusta máquina de banco plano cuenta con una prensa convergente sobre rieles deslizantes para un movimiento suave y natural.",
+      "Se cargan discos de pesas a ambos lados de la máquina e incluye un ligero espacio de almacenamiento adicional para discos de pesas."
+    ],
     features: [
       "Sistema dual: Smith Machine y Jaula de potencia (Rack)",
       "Barra guiada con contrapeso para un movimiento suave",
@@ -1506,13 +1522,12 @@ export const allProducts = [
       "Incluye soportes J-Cups y brazos de seguridad para uso con barra libre"
     ],
     specifications: {
+      modelo: "LD-1007",
       dimensiones: "2209 x 1867 x 1440 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "200 kg",
       "peso bruto (W.G.)": "240 kg",
       "músculo trabajado": "Cuerpo completo (soporte para sentadillas, press de banca, etc.)",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1522,7 +1537,10 @@ export const allProducts = [
     subCategories: ["Hombros"],
     image: "/ld/LD-1008 Smith Machine Dual System Shoulder.png",
     alt: "LD-1008 Smith Machine Dual System Shoulder",
-    description: "",
+     "description": [
+      "LD-1008 Smith Machine Dual System Shoulder. Esta robusta máquina de banco inclinado cuenta con una prensa convergente sobre rieles deslizantes para un movimiento suave y natural.",
+      "Una palanca bajo el asiento se ajusta a la altura del usuario, con pedales debajo para mayor apoyo. Los discos de pesas se cargan a ambos lados de la máquina y cuenta con espacio adicional para almacenarlos."
+    ],
     features: [
       "Máquina Smith enfocada en el press de hombros",
       "Movimiento guiado vertical o ligeramente angulado",
@@ -1530,13 +1548,12 @@ export const allProducts = [
       "Topes de seguridad para un entrenamiento seguro"
     ],
     specifications: {
+      modelo: "LD-1008",
       dimensiones: "2095 x 1939 x 2055 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "260 kg",
       "peso bruto (W.G.)": "300 kg",
       "músculo trabajado": "Deltoides, tríceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1546,7 +1563,10 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/ld/LD-1009 Rowing.png",
     alt: "LD-1009 Rowing",
-    description: "",
+     "description": [
+      "LD-1009 Rowing. Esta robusta máquina de remo incluye un asiento y un soporte para el pecho ajustables a la altura del usuario.",
+      "Los brazos de la máquina se mueven de forma natural, con mangos estrechos y neutrales y mangos rectos más anchos para optimizar la mecánica en diferentes movimientos de la espalda."
+    ],
     features: [
       "Máquina de remo sentado con apoyo en el pecho",
       "Aísla la espalda al eliminar el balanceo del torso",
@@ -1554,13 +1574,12 @@ export const allProducts = [
       "Plataforma para pies antideslizante"
     ],
     specifications: {
+      modelo: "LD-1009",
       dimensiones: "1643 x 1571 x 1361 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "199 kg",
       "peso bruto (W.G.)": "239 kg",
       "músculo trabajado": "Espalda media, dorsales, romboides",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1570,7 +1589,11 @@ export const allProducts = [
     subCategories: ["Pecho"],
     image: "/ld/LD-1010 Wide Chest Pres.png",
     alt: "LD-1010 Wide Chest Press",
-    description: "",
+     "description": [
+      "LD-1010 Wide Chest Press. Esta prensa de pecho de alta resistencia cuenta con brazos convergentes y asas en ángulo para un movimiento más natural, y también es ideal para entrenar con un solo brazo.",
+      "También cuenta con una plataforma para los pies que permite controlar un cierre de seguridad antes y después del ejercicio.",
+      "El asiento es ajustable a la altura del usuario. Esta máquina admite discos de pesaje a ambos lados y cuenta con un ligero espacio de almacenamiento adicional para ellos."
+    ],
     features: [
       "Press de pecho con agarre ancho",
       "Enfatiza el trabajo en la parte externa del pectoral",
@@ -1578,13 +1601,12 @@ export const allProducts = [
       "Respaldo ajustable para adaptarse a diferentes usuarios"
     ],
     specifications: {
+      modelo: "LD-1010",
       dimensiones: "1620 x 1465 x 1738 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "260 kg",
       "peso bruto (W.G.)": "300 kg",
       "músculo trabajado": "Pectoral (fibras externas), deltoides anterior",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1594,7 +1616,11 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/ld/LD-1011 Level Row.png",
     alt: "LD-1011 Level Row",
-    description: "",
+     "description": [
+      "LD-1010 Wide Chest Press. Esta robusta máquina de remo incluye un asiento y un soporte para el pecho ajustables a la altura del usuario.",
+      "Los brazos de la máquina se mueven de forma natural, con asas en ángulo para una mecánica óptima.",
+      "Los brazos de la máquina se mueven de forma natural, con asas en ángulo para una mecánica óptima."
+    ],
     features: [
       "Máquina de remo con trayectoria horizontal",
       "Simula el movimiento de remo con mancuerna o en polea baja",
@@ -1602,13 +1628,12 @@ export const allProducts = [
       "Asiento y apoyo pectoral ajustables"
     ],
     specifications: {
+      modelo: "LD-1011",
       dimensiones: "1786 x 1435 x 1956 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "235 kg",
       "peso bruto (W.G.)": "275 kg",
       "músculo trabajado": "Dorsal ancho, espalda media",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1618,7 +1643,10 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/ld/LD-1012 High Row.png",
     alt: "LD-1012 High Row",
-    description: "",
+     "description": [
+      "LD-1012 High Row. Esta polea frontal premium incluye varias características ajustables, como asiento, rodilleras y soporte para el pecho, adaptados a la altura del usuario.",
+      "Esta polea ha sido diseñada para una biomecánica óptima, lo que proporciona a los brazos de la máquina una trayectoria de movimiento natural para mejores contracciones.",
+    ],
     features: [
       "Máquina de remo alto para enfocar la espalda superior",
       "El tirón se realiza desde un ángulo superior",
@@ -1626,13 +1654,12 @@ export const allProducts = [
       "Desarrolla el grosor de la espalda alta y trapecios"
     ],
     specifications: {
+      modelo: "LD-1012",
       dimensiones: "1620 x 1775 x 2090 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "217 kg",
       "peso bruto (W.G.)": "257 kg",
       "músculo trabajado": "Espalda alta, trapecio, deltoides posterior",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1642,7 +1669,11 @@ export const allProducts = [
     subCategories: ["Pecho"],
     image: "/ld/LD-1013 Pectoral Machine.png",
     alt: "LD-1013 Pectoral Machine",
-    description: "",
+     "description": [
+      "LD-1013 Pectoral Machine. Esta máquina inclinada para pectorales ha sido diseñada para una biomecánica óptima. Su suave recorrido y sus asas giratorias garantizan las mejores contracciones.",
+      "Una palanca bajo el asiento permite ajustar la altura del usuario. El pedal de seguridad inferior permite comenzar y finalizar el ejercicio en una posición segura, minimizando el riesgo de lesiones.",
+      "La máquina cuenta con pesas a ambos lados y brazos móviles independientes, lo que la hace ideal tanto para entrenamiento bilateral como aislado."
+    ],
     features: [
       "También conocida como máquina de contractor o pec deck",
       "Aísla el pectoral a través de un movimiento de aducción (apertura)",
@@ -1650,13 +1681,12 @@ export const allProducts = [
       "Ajuste sencillo del rango de movimiento"
     ],
     specifications: {
+      modelo: "LD-1013",
       dimensiones: "1475 x 1445 x 1045 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "130 kg",
       "peso bruto (W.G.)": "170 kg",
       "músculo trabajado": "Pectoral",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1666,7 +1696,11 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/ld/LD-1014 Low Row.png",
     alt: "LD-1014 Low Row",
-    description: "",
+     "description": [
+      "LD-1014 Low Row. Esta máquina premium de remo bajo ha sido diseñada para una biomecánica óptima, garantizando una excelente experiencia de usuario. Los brazos de la máquina se mueven con naturalidad y las empuñaduras curvas permiten un agarre neutral o prono.",
+      "Una palanca debajo del asiento y detrás del soporte pectoral permite ajustar la altura del usuario.",
+      "Cada brazo de esta máquina de remo bajo se carga con un disco de pesas en la parte superior y se mueve de forma independiente, lo que la hace ideal para entrenamiento bilateral o isolateral. Las empuñaduras detrás del soporte pectoral ofrecen apoyo durante los movimientos con un solo brazo."
+    ],
     features: [
       "Máquina de remo bajo, similar al remo en polea sentado",
       "Enfoca el trabajo en la parte media y baja del dorsal",
@@ -1674,13 +1708,12 @@ export const allProducts = [
       "Movimiento suave y recorrido completo"
     ],
     specifications: {
+      modelo: "LD-1014",
       dimensiones: "1485 x 1850 x 1751 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "185 kg",
       "peso bruto (W.G.)": "225 kg",
       "músculo trabajado": "Dorsal ancho (fibras inferiores), espalda media",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1698,13 +1731,12 @@ export const allProducts = [
       "Alternativa segura al press inclinado con peso libre"
     ],
     specifications: {
+      modelo: "LD-1015",
       dimensiones: "1350 x 1550 x 1830 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "255 kg",
       "peso bruto (W.G.)": "295 kg",
       "músculo trabajado": "Pectoral superior, deltoides anterior, tríceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
