@@ -46,11 +46,27 @@ function TiendaGymContent() {
           product.subCategories && product.subCategories.some(sub => selectedSubCategories.includes(sub))
         );
       }
-      if (searchTerm) {
-        filtered = filtered.filter(product =>
-          (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
-          (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()))
-        );
+        if (searchTerm) {
+        const lowercasedFilter = searchTerm.toLowerCase();
+        
+        filtered = filtered.filter(product => {
+          // Búsqueda en el nombre (sin cambios)
+          const nameMatch = product.name && product.name.toLowerCase().includes(lowercasedFilter);
+
+          // Búsqueda en la descripción (lógica nueva y segura)
+          let descriptionMatch = false;
+          if (product.description) {
+            if (Array.isArray(product.description)) {
+              // Si es un array, junta los párrafos y luego busca
+              descriptionMatch = product.description.join(' ').toLowerCase().includes(lowercasedFilter);
+            } else if (typeof product.description === 'string') {
+              // Si es un texto, busca como antes
+              descriptionMatch = product.description.toLowerCase().includes(lowercasedFilter);
+            }
+          }
+          
+          return nameMatch || descriptionMatch;
+        });
       }
       if (sortBy === 'name-asc') {
         filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
