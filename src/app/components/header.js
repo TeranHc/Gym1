@@ -31,11 +31,11 @@ export default function GymHeader() {
     { href: '/pages/nosotros', label: 'Quiénes Somos'},
     { 
       href: '/pages/tienda-gym', 
-      label: 'Tienda',
+      label: 'Porductos',
       isDropdown: true
     },
     { href: '/pages/fotos', label: 'Galeria' },
-    { href: '/pages/Blog', label: 'Blog' },
+    { href: '/pages/Blog', label: 'Red Global' },
     { href: '/pages/horarios', label: 'Contacto' }
   ];
 
@@ -65,7 +65,7 @@ export default function GymHeader() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/70 shadow-2xl border-b border-red-500/20">
+      <header className="fixed top-0 left-0 right-0 z-[9999] bg-black/70 shadow-2xl border-b border-red-500/20">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{ backgroundImage: `url("data:image/svg+xml,...")`}}></div>
         </div>

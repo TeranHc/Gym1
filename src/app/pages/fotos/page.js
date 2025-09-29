@@ -114,7 +114,7 @@ export default function GalleryPage() {
       {/* Encabezado de la página */}
       <section className="bg-gray-100 py-12 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900">Nuestra Galería</h1>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900">Realleader in the World</h1>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
             Explora nuestros proyectos, instalaciones de vanguardia y videos demostrativos de uso de equipo.
           </p>

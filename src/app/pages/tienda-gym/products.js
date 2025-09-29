@@ -4866,7 +4866,7 @@ export const allProducts = [
     "image": "/cardio/RCT-900M Commercial Treadmil Led Screen 4hp.png",
     "alt": "RCT-900M Commercial Treadmill Led Screen 4hp",
     "description": [
-      "Cinta de correr comercial RCT 900M. Una cinta de correr potente y duradera es esencial en cualquier gimnasio.",
+      "RCT-900M Commercial Treadmill. Una cinta de correr potente y duradera es esencial en cualquier gimnasio.",
       "Tiene ajustes de inclinación, una velocidad máxima de 20 km/h y más de 30 programas para elegir y disfrutar de una variedad de estímulos.",
       "Su pantalla LED muestra el tiempo, la distancia, la inclinación, la velocidad, la frecuencia cardíaca y las calorías quemadas, e incluye funciones de parada automática y de emergencia."
     ],
@@ -4892,9 +4892,8 @@ export const allProducts = [
     "image": "/cardio/RE-6600R Recumbent Bike.png",
     "alt": "RE-6600R Recumbent Bike",
     "description": [
-      "RE-6600R Recumbent Bike. ",
-      "",
-      ""
+      "RE-6600R Recumbent Bike. Esta bicicleta reclinada ofrece gran comodidad gracias a su asiento acolchado y ajustable en altura.",
+      "Incluye varias pantallas en su consola, como velocidad, tiempo, distancia, calorías, vatios, temperatura y pulso e incluye 32 niveles de resistencia",
     ],
     "features": [
       "Bicicleta reclinada para un ejercicio de bajo impacto",
@@ -4918,9 +4917,8 @@ export const allProducts = [
     "image": "/cardio/RE-6600U Upright Bike.png",
     "alt": "RE-6600U Upright Bike",
     "description": [
-      "RE-6600U Upright Bike. ",
-      "",
-      ""
+      "RE-6600U Upright Bike. Esta bicicleta estática ofrece gran comodidad gracias a su asiento acolchado y ajustable en altura.",
+      "Incluye varias pantallas en su consola, como velocidad, tiempo, distancia, calorías, vatios, temperatura y pulso e incluye 32 niveles de resistencia.",
     ],
     "features": [
       "Bicicleta estática vertical para una posición de ciclismo tradicional",
@@ -4944,9 +4942,8 @@ export const allProducts = [
     "image": "/cardio/RS-260 Spinning Bike.png",
     "alt": "RS-260 Spinning Bike",
     "description": [
-      "RS-260 Spinning Bike. ",
-      "",
-      ""
+      "RS-260 Spinning Bike. Esta bicicleta de spinning está diseñada para durar, con su resistente y duradero marco de acero sólido de 2,5 mm de grosor y su diseño robusto.",
+      "Incluye asiento y manillares ajustables según la altura del usuario.",
     ],
     "features": [
       "Bicicleta de spinning para entrenamiento de alta intensidad",
@@ -4970,9 +4967,9 @@ export const allProducts = [
     "image": "/cardio/RS-800 Stair Mill.png",
     "alt": "RS-800 Stair Mill",
     "description": [
-      "RS-800 Stair Mill. ",
-      "",
-      ""
+      "RS-800 Stair Mill. Ofrece todas las ventajas de una cinta de escaleras eléctrica sin los elevados costes de mantenimiento. Además, al no tener cables, se puede reubicar fácilmente en todo el gimnasio.",
+      "Tiene un diseño elegante y robusto, 16 velocidades diferentes y una pantalla LED con monitor de pulso.",
+      "Ofrezca a sus miembros la misma experiencia de usuario excepcional que esperan de cualquier cinta de escaleras eléctrica de alta gama, a la vez que ahorra una fortuna en gastos de mantenimiento."
     ],
     "features": [
       "Simulador de escaleras con escalones giratorios",
@@ -4996,9 +4993,8 @@ export const allProducts = [
     "image": "/cardio/RS-6600E Elliptical.png",
     "alt": "RS-6600E Elliptical",
     "description": [
-      "RS-6600E Elliptical. ",
-      "",
-      ""
+      "RS-6600E Elliptical. Ofrece un entrenamiento cardiovascular de cuerpo completo y de bajo impacto, ideal para usuarios de todos los niveles. Su movimiento fluido y natural protege las articulaciones mientras activa eficazmente tanto el tren inferior como el superior.",
+      "Gracias a sus manillares móviles y múltiples niveles de resistencia, permite un ejercicio integral que fortalece piernas, glúteos y brazos simultáneamente. Es la máquina perfecta para mejorar la resistencia y quemar calorías de forma eficiente y segura.",
     ],
     "features": [
       "Máquina elíptica para un entrenamiento de cuerpo completo",
@@ -5022,9 +5018,9 @@ export const allProducts = [
     "image": "/cardio/RTC-900A Commercial Treadmill Touch Screen.png",
     "alt": "RTC-900A Commercial Treadmill Touch Screen",
     "description": [
-      "RTC-900A Commercial Treadmill Touch Screen. ",
-      "",
-      ""
+      "RTC-900A Commercial Treadmill Touch Screen. Su pantalla LCD interactiva cuenta con 32 programas, incluyendo experiencias virtuales de caminata/carrera, con una amplia variedad de escenas que los usuarios pueden elegir, incluyendo configuraciones de montaña y colina.",
+      "La pantalla también muestra el tiempo, la distancia, la inclinación, la velocidad, la frecuencia cardíaca y las calorías quemadas. Además, es compatible con USB y MP3.",
+      "Dispone de 5 niveles de inclinación con una pendiente de hasta el 20 % y una velocidad máxima de 20 km/h."
     ],
     "features": [
       "Caminadora comercial de alta gama con pantalla táctil",
