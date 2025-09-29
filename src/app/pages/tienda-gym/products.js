@@ -1723,7 +1723,11 @@ export const allProducts = [
     subCategories: ["Pecho", "Hombros"],
     image: "/ld/LD-1015 Incline Chest Press.png",
     alt: "LD-1015 Incline Chest Press",
-    description: "",
+     "description": [
+      "LD-1015 Incline Chest Press. Esta prensa de pecho inclinada premium ha sido diseñada para una biomecánica óptima y la seguridad del usuario, garantizando una experiencia excepcional.",
+      "Los brazos tienen una trayectoria de movimiento convergente con asas en ángulo para contracciones de mayor calidad. Cada brazo se carga con discos de pesas y se mueve de forma independiente, lo que la hace ideal para entrenamiento bilateral e isolateral.",
+      "El asiento es ajustable a la altura del usuario. Bajo el asiento hay un pedal que permite a los usuarios comenzar y terminar el ejercicio en una posición segura sin necesidad de un observador."
+    ],
     features: [
       "Máquina de press inclinado para el pectoral superior",
       "Movimiento convergente para una mejor contracción muscular",
@@ -1746,7 +1750,10 @@ export const allProducts = [
     subCategories: ["Tríceps"],
     image: "/ld/LD-1016 Leader Triceps.png",
     alt: "LD-1016 Leader Triceps",
-    description: "",
+     "description": [
+      "LD-1016 Leader Triceps. Esta máquina premium para fondos de tríceps ha sido diseñada para una biomecánica óptima, lo que le proporciona una trayectoria de movimiento natural.",
+      "Los brazos de la máquina se pueden ajustar para moverse sincronizados o de forma independiente para un entrenamiento isolateral.",
+    ],
     features: [
       "Máquina de extensiones de tríceps sentado",
       "Aísla las tres cabezas del tríceps",
@@ -1754,13 +1761,12 @@ export const allProducts = [
       "Movimiento fluido para reducir la tensión en los codos"
     ],
     specifications: {
+      modelo: "LD-1016",
       dimensiones: " - ",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": " - ",
       "peso bruto (W.G.)": " - ",
       "músculo trabajado": "Tríceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1770,7 +1776,11 @@ export const allProducts = [
     subCategories: ["Espalda"],
     image: "/ld/LD-1018 Circular Pulldown.png",
     alt: "LD-1018 Circular Pulldown",
-    description: "",
+     "description": [
+      "LD-1018 Circular Pulldown. Esta máquina premium de polea dorsal incluye varias características ajustables, como asiento ajustable, rodilleras y soporte pectoral para la altura del usuario.",
+      "Esta máquina replica una polea dorsal con agarre ancho para trabajar la musculatura de la espalda superior. Su diseño biomecánico optimiza los brazos, proporcionando una trayectoria de movimiento natural para mejores contracciones.",
+      "Cada brazo se mueve de forma independiente, lo que la hace ideal para entrenamiento bilateral o isolateral. Las asas adicionales detrás de la almohadilla pectoral facilitan los movimientos con un solo brazo."
+    ],
     features: [
       "Máquina de jalón con un movimiento circular o de arco",
       "Simula el movimiento de una dominada de forma más natural",
@@ -1778,13 +1788,12 @@ export const allProducts = [
       "Rodillos de sujeción para piernas"
     ],
     specifications: {
+      modelo: "LD-1018",
       dimensiones: " - ",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": " - ",
       "peso bruto (W.G.)": " - ",
       "músculo trabajado": "Dorsal ancho, espalda alta",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1794,7 +1803,10 @@ export const allProducts = [
     subCategories: ["Piernas"],
     image: "/ld/LD-2001 Leg Extension.png",
     alt: "LD-2001 Leg Extension",
-    description: "",
+     "description": [
+      "LD-2001 Leg Extension. Esta robusta extensión de piernas incluye espinilleras y asiento ajustables a la altura del usuario. Cada pierna cuenta con una palanca para ajustar la posición inicial y final del ejercicio.",
+      "Cada pierna se carga con un disco de peso independiente y la máquina es apta para entrenamiento bilateral o individual.",
+    ],
     features: [
       "Máquina para extensiones de cuádriceps",
       "Aísla y define los músculos frontales del muslo",
@@ -1802,13 +1814,12 @@ export const allProducts = [
       "Movimiento controlado para proteger la articulación de la rodilla"
     ],
     specifications: {
+      modelo: "LD-2001",
       dimensiones: "1550 x 1900 x 1200 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "152 kg",
       "peso bruto (W.G.)": "192 kg",
       "músculo trabajado": "Cuádriceps",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1818,7 +1829,11 @@ export const allProducts = [
     subCategories: ["Piernas"],
     image: "/ld/LD-2002 Kneeling Leg Curl.png",
     alt: "LD-2002 Kneeling Leg Curl",
-    description: "",
+     "description": [
+      "LD-2002 Kneeling Leg Curl. Esta máquina de curl de piernas de rodillas permite a los usuarios aislar una pierna de forma óptima gracias a una almohadilla que se desliza de izquierda a derecha.",
+      "Está bien acolchada con rodilleras, protectores para muslos, coderas y espinilleras. Las asas en la parte superior ofrecen soporte durante el movimiento.",
+      "Se cargan discos de pesaje a ambos lados de la máquina y cuenta con espacio de almacenamiento adicional."
+    ],
     features: [
       "Máquina de curl femoral de rodillas",
       "Trabaja una pierna a la vez para un enfoque máximo",
@@ -1826,13 +1841,12 @@ export const allProducts = [
       "Almohadillas de apoyo para pecho y rodilla"
     ],
     specifications: {
+      modelo: "LD-2002",
       dimensiones: "1200 x 1650 x 1350 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "141 kg",
       "peso bruto (W.G.)": "181 kg",
       "músculo trabajado": "Isquiotibiales",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1842,7 +1856,11 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/ld/LD-2003 Super Squat.png",
     alt: "LD-2003 Super Squat",
-    description: "",
+     "description": [
+      "LD-2003 Super Squat. Esta robusta máquina de sentadillas permite realizar movimientos tanto de sentadilla en V como de sentadilla hack. El ángulo de la plataforma es ajustable para diferentes variaciones.",
+      "Está bien acolchada para mayor comodidad con cargas pesadas y cuenta con rieles de seguridad que se controlan con palancas para sostener el peso al comenzar y finalizar el ejercicio. Cuenta con asas junto a las hombreras para mayor agarre durante el ejercicio.",
+      "Se pueden cargar discos de pesas a ambos lados de la máquina, con espacio adicional para guardarlos."
+    ],
     features: [
       "Máquina que simula el movimiento de una sentadilla",
       "El arco de movimiento reduce la tensión en la espalda baja",
@@ -1850,13 +1868,12 @@ export const allProducts = [
       "Hombreras acolchadas para mayor comodidad"
     ],
     specifications: {
+      modelo: "LD-2003",
       dimensiones: "1905 x 1520 x 1610 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "205 kg",
       "peso bruto (W.G.)": "245 kg",
       "músculo trabajado": "Cuádriceps, glúteos",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1866,7 +1883,11 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/ld/LD-2004 Belt Squat.png",
     alt: "LD-2004 Belt Squat",
-    description: "",
+    description: [
+      "LD-2004 Belt Squat. Esta máquina de Belt Squat es muy robusta y duradera, capaz de soportar cargas muy pesadas con un uso frecuente. El ángulo de la plataforma se ajusta mediante una palanca inferior.",
+      "Incluye una palanca de seguridad para soportar el peso antes y después del ejercicio, además de varias asas a diferentes alturas para brindar apoyo durante el movimiento.",
+      "Se carga con discos a ambos lados de la máquina y cuenta con amplio espacio para guardar discos adicionales."
+    ],
     features: [
       "Máquina de sentadilla con cinturón",
       "Carga el peso directamente en las caderas, eliminando la compresión espinal",
@@ -1874,13 +1895,12 @@ export const allProducts = [
       "Plataforma elevada y agarres de soporte"
     ],
     specifications: {
+      modelo: "LD-2004",
       dimensiones: "1580 x 1650 x 1680 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "240 kg",
       "peso bruto (W.G.)": "280 kg",
       "músculo trabajado": "Cuádriceps, glúteos, aductores",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1890,7 +1910,11 @@ export const allProducts = [
     subCategories: ["Glúteos"],
     image: "/ld/LD-2005 Buttocks Bridge.png",
     alt: "LD-2005 Buttocks Bridge",
-    description: "",
+    description: [
+      "LD-2005 Buttocks Bridge. Esta robusta máquina de puente de glúteos permite trabajar con cargas elevadas con la máxima comodidad y seguridad.",
+      "Su asiento es ajustable para el rango de movimiento deseado. En lugar de usar una barra o almohadilla tradicional para levantar el peso, los usuarios se colocan un cinturón de seguridad en las caderas para mayor comodidad.",
+      "Su amplio reposapiés está inclinado para una mejor trayectoria de movimiento y el respaldo acolchado mantiene a los usuarios cómodos incluso con cargas extremas y los discos de pesas se cargan a ambos lados de la máquina. "
+    ],
     features: [
       "Máquina para puente de glúteos (Hip Thrust)",
       "Aísla y desarrolla los glúteos de forma segura y efectiva",
@@ -1898,13 +1922,12 @@ export const allProducts = [
       "Plataforma para pies y respaldo para un soporte óptimo"
     ],
     specifications: {
+      modelo: "LD-2005",
       dimensiones: "1635 x 1800 x 800 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "186 kg",
       "peso bruto (W.G.)": "226 kg",
       "músculo trabajado": "Glúteos, isquiotibiales",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1914,7 +1937,11 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/ld/LD-2006 Pendulum Squat.png",
     alt: "LD-2006 Pendulum Squat",
-    description: "",
+    description: [
+      "LD-2006 Pendulum Squat. Esta robusta máquina de sentadilla de péndulo es una máquina popular, ideal para cualquier gimnasio serio.",
+      "El respaldo y las hombreras bien acolchados ofrecen comodidad incluso con cargas elevadas. Bajo la plataforma para pies hay un tope de goma que protege al usuario si se alcanza el fallo muscular en la parte inferior. ",
+      "El peso se carga con discos en el lateral del respaldo y la máquina incluye amplio espacio de almacenamiento adicional para discos de pesas."
+    ],
     features: [
       "Máquina de sentadilla pendular",
       "Movimiento en arco que mantiene la tensión constante en los cuádriceps",
@@ -1922,13 +1949,12 @@ export const allProducts = [
       "Plataforma en ángulo y respaldo acolchado"
     ],
     specifications: {
+      modelo: "LD-2006",
       dimensiones: "2003 x 890 x 1835 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "223 kg",
       "peso bruto (W.G.)": "263 kg",
       "músculo trabajado": "Cuádriceps, glúteos",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1938,7 +1964,10 @@ export const allProducts = [
     subCategories: ["Glúteos"],
     image: "/ld/LD-2007 Glute Machine.png",
     alt: "LD-2007 Glute Machine",
-    description: "",
+    description: [
+      "LD-2007 Glute Machine. Esta máquina de glúteos con rodillas incluye una almohadilla pectoral ajustable a la altura del usuario. Está bien acolchada y cuenta con asas delanteras para mayor apoyo durante el movimiento.",
+      "La carga de los discos de pesas se realiza en el lateral de la máquina.",
+    ],
     features: [
       "Máquina para patada de glúteo (Glute Kickback)",
       "Aísla el glúteo mayor",
@@ -1946,13 +1975,12 @@ export const allProducts = [
       "Apoyos para el torso y antebrazos"
     ],
     specifications: {
+      modelo: "LD-2007",
       dimensiones: "2022 x 1549 x 1101 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "146 kg",
       "peso bruto (W.G.)": "186 kg",
       "músculo trabajado": "Glúteo mayor",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1962,7 +1990,10 @@ export const allProducts = [
     subCategories: ["Glúteos"],
     image: "/ld/LD-2008 Glute Machine.png",
     alt: "LD-2008 Glute Machine",
-    description: "",
+    description: [
+      "LD-2008 Glute Machine. Esta robusta máquina de glúteos con contragolpe está completamente acolchada. Incluye asas para mayor apoyo durante el ejercicio y un reposapiés que gira suavemente para un movimiento más natural.",
+      "El disco de pesas se carga en el lateral de la máquina.",
+    ],
     features: [
       "Máquina de abducción de cadera de pie",
       "Enfocada en el trabajo del glúteo medio",
@@ -1970,13 +2001,12 @@ export const allProducts = [
       "Permite un gran rango de movimiento"
     ],
     specifications: {
+      modelo: "LD-2008",
       dimensiones: "1330 x 1120 x 1580 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "145 kg",
       "peso bruto (W.G.)": "185 kg",
       "músculo trabajado": "Glúteo medio y menor",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -1986,7 +2016,10 @@ export const allProducts = [
     subCategories: ["Cadera", "Glúteos"],
     image: "/ld/LD-2009 Abductor.png",
     alt: "LD-2009 Abductor",
-    description: "",
+    description: [
+      "LD-2009 Abductor. Esta robusta máquina de abducción de cadera es muy duradera y robusta. Cuenta con palancas para ajustar la posición inicial y final del ejercicio, asas a ambos lados del asiento y pedales para mayor apoyo durante el movimiento.",
+      "Se carga con discos en la parte trasera y cuenta con un ligero espacio de almacenamiento para discos.",
+    ],
     features: [
       "Máquina de abductores sentado",
       "Fortalece la parte externa de los muslos y caderas",
@@ -1994,13 +2027,12 @@ export const allProducts = [
       "Ayuda a mejorar la estabilidad de la cadera"
     ],
     specifications: {
+      modelo: "LD-2009",
       dimensiones: "1865 x 1052 x 1589 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "145 kg",
       "peso bruto (W.G.)": "185 kg",
       "músculo trabajado": "Glúteo medio, glúteo menor, tensor de la fascia lata",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -2010,7 +2042,10 @@ export const allProducts = [
     subCategories: ["Cadera", "Piernas"],
     image: "/ld/LD-2010- Adductor.png",
     alt: "LD-2010- Adductor",
-    description: "",
+    description: [
+      "LD-2010- Adductor. Esta robusta máquina de aducción de cadera entrena la parte interna de los muslos con intensidad. Cuenta con palancas para ajustar la posición inicial y final del ejercicio, asas a ambos lados del asiento y pedales para mayor apoyo durante el movimiento.",
+      "Se carga con discos en la parte trasera y cuenta con un ligero espacio de almacenamiento para discos.",
+    ],
     features: [
       "Máquina de aductores sentado",
       "Fortalece la parte interna de los muslos",
@@ -2018,13 +2053,12 @@ export const allProducts = [
       "Rango de movimiento ajustable"
     ],
     specifications: {
+      modelo: "LD-2010",
       dimensiones: "1865 x 1052 x 1589 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "145 kg",
       "peso bruto (W.G.)": "185 kg",
       "músculo trabajado": "Aductores",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
   {
@@ -2034,7 +2068,10 @@ export const allProducts = [
     subCategories: ["Piernas", "Glúteos"],
     image: "/ld/LD-2011 3 in 1 Leg Press.png",
     alt: "LD-2011 3 in 1 Leg Press",
-    description: "",
+    description: [
+      "LD-2011 3 in 1 Leg Press. Esta prensa de piernas LD premium es única. Está diseñada con una trayectoria de movimiento que sigue una biomecánica óptima.",
+      "Esta prensa de piernas con pesas de disco soporta pesos extremos y proporciona un movimiento suave. Incluye cierres de seguridad, una plataforma ancha y angulada para los pies, asas de apoyo y espacio para guardar pesas.",
+    ],
     features: [
       "Máquina multifuncional: Prensa de piernas, Hack Squat y Elevación de pantorrillas",
       "Ahorra espacio al combinar tres máquinas en una",
@@ -2042,13 +2079,12 @@ export const allProducts = [
       "Plataforma y respaldos ajustables"
     ],
     specifications: {
+      modelo: "LD-2011",
       dimensiones: "2653 x 1600 x 560 mm",
       "placas (Weight Stack)": " -",
       "peso neto (N.W.)": "500 kg",
       "peso bruto (W.G.)": "540 kg",
       "músculo trabajado": "Cuádriceps, glúteos, isquiotibiales, pantorrillas",
-      color: "",
-      uso: "Profesional / Gimnasio"
     }
   },
 
@@ -2061,7 +2097,10 @@ export const allProducts = [
     "subCategories": ["Pecho"],
     "image": "/m3/M3-1001 Chest Press.png",
     "alt": "M3-1001 Chest Press",
-    "description": "",
+    description: [
+      "M3-1001 Chest Press. Esta máquina de prensa de pecho cuenta con un asiento ajustable, palancas para ajustar las asas de presión para una posición de inicio y fin segura, y una columna de pesas con pasador para facilitar su uso.",
+      "Esta máquina de la serie M3 tiene un diseño elegante y moderno. El proceso de pintura consiste en una capa inferior de zinc pulverizado, una capa intermedia de metal pulverizado y una línea final de polvo transparente. El acabado de alta calidad de la serie M3 destaca en cualquier gimnasio.",
+    ],
     "features": [
       "Movimiento convergente para una contracción natural",
       "Asiento con ajuste de altura asistido por gas",
@@ -2069,13 +2108,13 @@ export const allProducts = [
       "Pila de pesas completamente cubierta para seguridad"
     ],
     "specifications": {
+      modelo: "M3-1001",
       dimensiones: "1300 x 1476 x 1518 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "182 kg",
       "peso bruto (W.G.)": "222 kg",
       "músculo trabajado": "Pectoral, Deltoides Anterior, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+
     }
   },
   {
@@ -2085,7 +2124,10 @@ export const allProducts = [
     "subCategories": ["Hombros"],
     "image": "/m3/M3-1002 Lateral Rise.png",
     "alt": "M3-1002 Lateral Rise",
-    "description": "",
+    "description": [
+      "M3-1002 Lateral Rise. Esta máquina incluye un asiento ajustable según la altura del usuario y brazos ajustables para modificar la posición inicial del ejercicio. También incluye una columna de pesas con pasadores y una excelente amortiguación.",
+      "Esta máquina de la serie M3 presenta un diseño elegante y moderno. El proceso de pintura consiste en una capa inferior de zinc pulverizado, una capa intermedia de metal pulverizado y una línea final de polvo transparente. El acabado de alta calidad de la serie M3 destaca en cualquier gimnasio.",
+    ],
     "features": [
       "Máquina para elevaciones laterales",
       "Aísla la cabeza medial del deltoides",
@@ -2093,13 +2135,12 @@ export const allProducts = [
       "Almohadillas acolchadas para un apoyo cómodo del brazo"
     ],
     "specifications": {
-      dimensiones: "1171 x 1137 x 1518 mm",
+      "modelo": "M3-1002",
+      "dimensiones": "1171 x 1137 x 1518 mm",
       "placas (Weight Stack)": "174 lbs/78.75 kg",
       "peso neto (N.W.)": "152 kg",
       "peso bruto (W.G.)": "192 kg",
-      "músculo trabajado": "Deltoides Medial",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Deltoides Medial"
     }
   },
   {
@@ -2109,7 +2150,10 @@ export const allProducts = [
     "subCategories": ["Cadera", "Glúteos"],
     "image": "/m3/M3-1003 Hip Abductor.png",
     "alt": "M3-1003 Hip Abductor",
-    "description": "",
+    "description": [
+      "M3-1003 Hip Abductor. Esta máquina de abducción de cadera incluye rodilleras ajustables que permiten al usuario cambiar la posición inicial, además de pedales para mayor soporte. El peso se ajusta mediante un conjunto de discos con pasadores.",
+      "Esta máquina de la serie M3 presenta un diseño elegante y moderno. El proceso de pintura consiste en una capa inferior de zinc pulverizado, una capa intermedia de metal pulverizado y una línea final de pintura en polvo transparente. El acabado de alta calidad de la serie M3 destaca en cualquier gimnasio.",
+    ],
     "features": [
       "Fortalece los músculos externos de la cadera y los glúteos",
       "Posición sentada para mayor estabilidad",
@@ -2117,13 +2161,12 @@ export const allProducts = [
       "Rango de movimiento ajustable"
     ],
     "specifications": {
-      dimensiones: "992 x 1353 x 1518 mm",
+      "modelo": "M3-1003",
+      "dimensiones": "992 x 1353 x 1518 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "155 kg",
       "peso bruto (W.G.)": "195 kg",
-      "músculo trabajado": "Glúteo Medio, Glúteo Menor",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Glúteo Medio, Glúteo Menor"
     }
   },
   {
@@ -2133,7 +2176,10 @@ export const allProducts = [
     "subCategories": ["Cadera", "Piernas"],
     "image": "/m3/M3-1004 Hip Adductor.png",
     "alt": "M3-1004 Hip Adductor",
-    "description": "",
+    "description": [
+      "M3-1004 Hip Adductor. Esta máquina de aducción de cadera incluye rodilleras ajustables que permiten al usuario cambiar la posición inicial para mejorar su movilidad y flexibilidad. Cuenta con pedales para mayor soporte. El peso se ajusta mediante un conjunto de discos con pasadores.",
+      "Esta máquina de la serie M3 presenta un diseño elegante y moderno. El proceso de pintura consiste en una capa inferior de zinc pulverizado, una capa intermedia de metal pulverizado y una línea final de pintura en polvo transparente. El acabado de alta calidad de la serie M3 destaca en cualquier gimnasio.",
+    ],
     "features": [
       "Fortalece los músculos internos del muslo",
       "Posición sentada cómoda y ergonómica",
@@ -2141,13 +2187,12 @@ export const allProducts = [
       "Pila de pesas para una fácil selección de la carga"
     ],
     "specifications": {
-      dimensiones: "1146 x 1340 x 1518 mm",
+      "modelo": "M3-1004",
+      "dimensiones": "1146 x 1340 x 1518 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "155 kg",
       "peso bruto (W.G.)": "195 kg",
-      "músculo trabajado": "Aductores",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Aductores"
     }
   },
   {
@@ -2157,7 +2202,11 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/m3/M3-1005 Leg Extension.png",
     "alt": "M3-1005 Leg Extension",
-    "description": "",
+    "description": [
+      "M3-1005 Leg Extension. Esta extensión de piernas cuenta con varias funciones ajustables; el asiento y la espinillera se pueden ajustar a la altura del usuario.",
+      "La palanca a la derecha del asiento, en la articulación de la rodilla, ajusta la posición inicial y final del ejercicio, además de permitir al usuario levantarse cómodamente después del ejercicio.",
+      "Esta máquina de la serie M3 tiene un diseño elegante y moderno. El proceso de pintura consiste en una capa inferior de zinc pulverizado, una capa intermedia de metal pulverizado y una línea final de pintura en polvo transparente. El acabado de alta calidad de la serie M3 destaca en cualquier gimnasio."
+    ],
     "features": [
       "Aísla y define los cuádriceps",
       "Almohadilla de rodillo y respaldo ajustables",
@@ -2165,13 +2214,12 @@ export const allProducts = [
       "Movimiento suave y controlado"
     ],
     "specifications": {
-      dimensiones: "1073 x 1587 x 1618 mm",
+      "modelo": "M3-1005",
+      "dimensiones": "1073 x 1587 x 1618 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "140 kg",
       "peso bruto (W.G.)": "180 kg",
-      "músculo trabajado": "Cuádriceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cuádriceps"
     }
   },
   {
@@ -2181,7 +2229,11 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/m3/M3-1006 Prone Leg Curl.png",
     "alt": "M3-1006 Prone Leg Curl",
-    "description": "",
+    "description": [
+      "M3-1006 Prone Leg Curl. Esta máquina de curl de isquiotibiales tumbado es robusta, está bien acolchada y ofrece un movimiento suave.",
+      "La máquina se ajusta mediante una palanca en la articulación de la rodilla para ajustar la posición inicial y otra para ajustar la almohadilla del tobillo según las preferencias del usuario. Cuenta con asas en la parte delantera para mayor agarre y apoyo durante el movimiento.",
+      "El peso se ajusta fácilmente mediante la pila de pesas con pasador."
+    ],
     "features": [
       "Máquina de curl femoral tumbado (boca abajo)",
       "Aísla los isquiotibiales de manera efectiva",
@@ -2189,13 +2241,12 @@ export const allProducts = [
       "Ajuste de la almohadilla del rodillo para diferentes longitudes de pierna"
     ],
     "specifications": {
-      dimensiones: "1043 x 1500 x 1518 mm",
+      "modelo": "M3-1006",
+      "dimensiones": "1043 x 1500 x 1518 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "130 kg",
       "peso bruto (W.G.)": "170 kg",
-      "músculo trabajado": "Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Isquiotibiales"
     }
   },
   {
@@ -2205,7 +2256,10 @@ export const allProducts = [
     "subCategories": ["Hombros"],
     "image": "/m3/M3-1007 Shoulder Press.png",
     "alt": "M3-1007 Shoulder Press",
-    "description": "",
+    "description": [
+      "M3-1007 Shoulder Press. El asiento de esta máquina de prensa de hombros se ajusta a la altura del usuario. Cuenta con asas en ángulo que permiten realizar press con agarre neutro y prono.",
+      "Está bien acolchada, es duradera y ofrece un movimiento suave. Su peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Desarrolla la fuerza y el tamaño de los hombros",
       "Movimiento convergente para una trayectoria de movimiento natural",
@@ -2213,13 +2267,12 @@ export const allProducts = [
       "Agarres múltiples para diferentes anchos"
     ],
     "specifications": {
-      dimensiones: "1444 x 1666 x 1518 mm",
+      "modelo": "M3-1007",
+      "dimensiones": "1444 x 1666 x 1518 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "168 kg",
       "peso bruto (W.G.)": "208 kg",
-      "músculo trabajado": "Deltoides, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Deltoides, Tríceps"
     }
   },
   {
@@ -2229,7 +2282,10 @@ export const allProducts = [
     "subCategories": ["Abdominales"],
     "image": "/m3/M3-1008 Abdominal Crunch.png",
     "alt": "M3-1008 Abdominal Crunch",
-    "description": "",
+    "description": [
+      "M3-1008 Abdominal Crunch. Esta máquina cuenta con asiento ajustable para diferentes alturas. El peso se ajusta mediante una columna de pesas con pasador.",
+      "Incluye pedales, coderas y asas para facilitar la ejecución del ejercicio.",
+    ],
     "features": [
       "Máquina para encogimientos abdominales",
       "Aísla los músculos abdominales de forma segura",
@@ -2237,13 +2293,12 @@ export const allProducts = [
       "Movimiento de crunch biomecánicamente correcto"
     ],
     "specifications": {
-      dimensiones: "1058 x 1280 x 1518 mm",
+      "modelo": "M3-1008",
+      "dimensiones": "1058 x 1280 x 1518 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "142 kg",
       "peso bruto (W.G.)": "182 kg",
-      "músculo trabajado": "Recto Abdominal",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Recto Abdominal"
     }
   },
   {
@@ -2253,7 +2308,11 @@ export const allProducts = [
     "subCategories": ["Piernas", "Glúteos"],
     "image": "/m3/M3-1009 Seated Leg Press.png",
     "alt": "M3-1009 Seated Leg Press",
-    "description": "",
+    "description": [
+      "M3-1009 Seated Leg Press. Esta prensa de piernas horizontal cuenta con un reposapiés fijo, y la resistencia empuja el asiento hacia atrás.",
+      "Esta máquina cuenta con palancas para controlar la profundidad del asiento, lo que facilita su ajuste a la movilidad del usuario y aumenta la seguridad al usar y salir de la máquina.",
+      "El peso se ajusta mediante una columna de pesas con pasador."
+    ],
     "features": [
       "Prensa de piernas sentado con movimiento horizontal",
       "Fortalece cuádriceps, isquiotibiales y glúteos",
@@ -2261,13 +2320,12 @@ export const allProducts = [
       "Respaldo ajustable para diferentes rangos de movimiento"
     ],
     "specifications": {
-      dimensiones: "995 x 1942 x 1718 mm",
+      "modelo": "M3-1009",
+      "dimensiones": "995 x 1942 x 1718 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "256 kg",
       "peso bruto (W.G.)": "296 kg",
-      "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales"
     }
   },
   {
@@ -2277,7 +2335,11 @@ export const allProducts = [
     "subCategories": ["Bíceps"],
     "image": "/m3/M3-1010 Biceps Curl.png",
     "alt": "M3-1010 Biceps Curl",
-    "description": "",
+    "description": [
+      "M3-1010 Biceps Curl. Esta máquina de curl de bíceps se ajusta mediante dos palancas: una debajo del asiento para ajustar la altura del usuario y otra en el brazo para ajustar la posición inicial.",
+      "Las manijas giran naturalmente, lo que permite un movimiento más natural. Ambos lados del asiento cuentan con acolchado para los brazos para mantener una postura correcta, mientras que el respaldo está ligeramente inclinado para permitir la extensión completa de los brazos.",
+      "El peso se ajusta mediante una pila de pesas con pasador."
+    ],
     "features": [
       "Máquina de curl de bíceps sentado",
       "Aísla el bíceps para un desarrollo máximo",
@@ -2285,13 +2347,12 @@ export const allProducts = [
       "Asiento y almohadilla de apoyo ajustables"
     ],
     "specifications": {
-      dimensiones: "1371 x 1208 x 1518 mm",
+      "modelo": "M3-1010",
+      "dimensiones": "1371 x 1208 x 1518 mm",
       "placas (Weight Stack)": "174 lbs/78.75 kg",
       "peso neto (N.W.)": "132 kg",
       "peso bruto (W.G.)": "172 kg",
-      "músculo trabajado": "Bíceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Bíceps"
     }
   },
   {
@@ -2301,7 +2362,10 @@ export const allProducts = [
     "subCategories": ["Tríceps"],
     "image": "/m3/M3-1011 Triceps Extension.png",
     "alt": "M3-1011 Triceps Extension",
-    "description": "",
+    "description": [
+      "M3-1011 Triceps Extension. Esta máquina de extensión de tríceps incluye una palanca debajo del asiento para ajustarla a la altura del usuario.",
+      "Cuenta con asas que giran para adaptarse a la trayectoria de movimiento. Su peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Máquina de extensiones de tríceps sentado",
       "Trabaja las tres cabezas del tríceps",
@@ -2309,13 +2373,12 @@ export const allProducts = [
       "Movimiento suave para proteger la articulación del codo"
     ],
     "specifications": {
-      dimensiones: "1682 x 1157 x 1518 mm",
+      "modelo": "M3-1011",
+      "dimensiones": "1682 x 1157 x 1518 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "132 kg",
       "peso bruto (W.G.)": "172 kg",
-      "músculo trabajado": "Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Tríceps"
     }
   },
   {
@@ -2325,7 +2388,10 @@ export const allProducts = [
     "subCategories": ["Pecho"],
     "image": "/m3/M3-1012 Pectoral Machine.png",
     "alt": "M3-1012 Pectoral Machine",
-    "description": "",
+    "description": [
+      "M3-1012 Pectoral Machine. Esta máquina Pec Fly incluye dos juegos de palancas de ajuste: una debajo del asiento para la altura del usuario y otra en la base de los brazos para ajustar la posición inicial.",
+      "Las manijas de esta máquina giran durante el movimiento, lo que permite un movimiento más natural. El peso se ajusta mediante una pila de pesas con pasador.",
+    ],
     "features": [
       "Máquina de contractor de pecho (Pec Deck)",
       "Aísla el pectoral para definición muscular",
@@ -2333,13 +2399,12 @@ export const allProducts = [
       "Rango de movimiento ajustable"
     ],
     "specifications": {
-      dimensiones: "1090 x 1958 x 1518 mm",
+      "modelo": "M3-1012",
+      "dimensiones": "1090 x 1958 x 1518 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "130 kg",
       "peso bruto (W.G.)": "170 kg",
-      "músculo trabajado": "Pectoral",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Pectoral"
     }
   },
   {
@@ -2349,7 +2414,10 @@ export const allProducts = [
     "subCategories": ["Espalda"],
     "image": "/m3/M3-1013 Lat Pulldown.png",
     "alt": "M3-1013 Lat Pulldown",
-    "description": "",
+    "description": [
+      "M3-1013 Lat Pulldown. Esta máquina de polea dorsal incluye un asiento y rodilleras ajustables en altura para adaptarse a las preferencias del usuario. También incluye una pila de pesas con pasadores.",
+      "Los brazos de esta máquina se mueven juntos siguiendo una trayectoria natural.",
+    ],
     "features": [
       "Máquina de jalón al pecho para espalda",
       "Desarrolla la amplitud (forma de V) de la espalda",
@@ -2357,13 +2425,12 @@ export const allProducts = [
       "Polea alta para un recorrido completo del movimiento"
     ],
     "specifications": {
-      dimensiones: "1090 x 1958 x 1882 mm",
+      "modelo": "M3-1013",
+      "dimensiones": "1090 x 1958 x 1882 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "165 kg",
       "peso bruto (W.G.)": "205 kg",
-      "músculo trabajado": "Dorsal Ancho, Bíceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Dorsal Ancho, Bíceps"
     }
   },
   {
@@ -2373,7 +2440,11 @@ export const allProducts = [
     "subCategories": ["Cadera", "Glúteos", "Piernas"],
     "image": "/m3/M3-1014 Multi Hip.png",
     "alt": "M3-1014 Multi Hip",
-    "description": "",
+    "description": [
+      "M3-1014 Multi Hip. Esta máquina es robusta y muy funcional, con opciones para entrenar glúteos y flexores de cadera desde múltiples ángulos.",
+      "Cuenta con varias funciones ajustables, incluyendo una palanca en el centro para ajustar la posición inicial del ejercicio, una palanca para ajustar la altura de la rodillera según las preferencias del usuario y palancas en las asas de apoyo para ajustar la altura.",
+      "El peso se ajusta mediante una columna de pesas con pasador."
+    ],
     "features": [
       "Máquina multifuncional para la cadera",
       "Permite realizar flexión, extensión, abducción y aducción de cadera",
@@ -2381,13 +2452,12 @@ export const allProducts = [
       "Ideal para la rehabilitación y el fortalecimiento general de la cadera"
     ],
     "specifications": {
-      dimensiones: "1165 x 1113 x 1618 mm",
+      "modelo": "M3-1014",
+      "dimensiones": "1165 x 1113 x 1618 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "215 kg",
       "peso bruto (W.G.)": "255 kg",
-      "músculo trabajado": "Flexores/extensores de cadera, Aductores, Abductores, Glúteos",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Flexores/extensores de cadera, Aductores, Abductores, Glúteos"
     }
   },
   {
@@ -2397,7 +2467,10 @@ export const allProducts = [
     "subCategories": ["Espalda", "Hombros"],
     "image": "/m3/M3-1015 Rower Delt.png",
     "alt": "M3-1015 Rower Delt",
-    "description": "",
+    "description": [
+      "M3-1015 Rower Delt. Esta robusta máquina de remo sentado incluye un asiento y una almohadilla para el pecho ajustables a la altura del usuario.",
+      "Está bien acolchada, ofrece un movimiento suave y cuenta con asas móviles que permiten un movimiento más natural. Su peso es ajustable mediante una columna de pesas con pasadores.",
+    ],
     "features": [
       "Máquina de remo con enfoque en deltoides posterior",
       "Agarres múltiples para variar el ejercicio",
@@ -2405,13 +2478,12 @@ export const allProducts = [
       "Fortalece la parte superior de la espalda y la parte trasera de los hombros"
     ],
     "specifications": {
-      dimensiones: "875 x 1479 x 1518 mm",
+      "modelo": "M3-1015",
+      "dimensiones": "875 x 1479 x 1518 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "138 kg",
       "peso bruto (W.G.)": "178 kg",
-      "músculo trabajado": "Deltoides Posterior, Romboides, Trapecio",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Deltoides Posterior, Romboides, Trapecio"
     }
   },
   {
@@ -2421,7 +2493,10 @@ export const allProducts = [
     "subCategories": ["Espalda", "Hombros"],
     "image": "/m3/M3-1015A Rower Delt.png",
     "alt": "M3-1015A Rower Delt",
-    "description": "",
+    "description": [
+      "M3-1015A Rower Delt. Esta robusta máquina de remo sentado incluye un asiento y una almohadilla pectoral ajustables a la altura del usuario.",
+      "Está bien acolchada, ofrece un movimiento suave y cuenta con asas en ángulo ideales para remar con agarre supino. Su peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Versión alternativa de la máquina de remo para deltoides",
       "Diseño ergonómico mejorado",
@@ -2429,13 +2504,12 @@ export const allProducts = [
       "Ajustes intuitivos para una rápida configuración"
     ],
     "specifications": {
-      dimensiones: "788 x 1458 x 1852 mm",
+      "modelo": "M3-1015A",
+      "dimensiones": "788 x 1458 x 1852 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "147 kg",
       "peso bruto (W.G.)": "187 kg",
-      "músculo trabajado": "Deltoides Posterior, Romboides, Trapecio",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Deltoides Posterior, Romboides, Trapecio"
     }
   },
   {
@@ -2445,7 +2519,9 @@ export const allProducts = [
     "subCategories": ["Espalda", "Glúteos"],
     "image": "/m3/M3-1016 Back Extension.png",
     "alt": "M3-1016 Back Extension",
-    "description": "",
+    "description": [
+      "M3-1016 Back Extension. Una palanca ajustable permite ajustar la almohadilla de extensión según las preferencias del usuario. La máquina está bien acolchada para mayor comodidad e incluye asas y pedales para mayor estabilidad. El peso se ajusta mediante una pila de pesas con pasador.",
+    ],
     "features": [
       "Máquina para extensiones de espalda baja",
       "Fortalece los músculos erectores de la columna",
@@ -2453,13 +2529,12 @@ export const allProducts = [
       "Movimiento seguro y controlado"
     ],
     "specifications": {
-      dimensiones: "945 x 1338 x 1518 mm",
+      "modelo": "M3-1016",
+      "dimensiones": "945 x 1338 x 1518 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "142 kg",
       "peso bruto (W.G.)": "182 kg",
-      "músculo trabajado": "Erectores Espinales, Glúteos, Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Erectores Espinales, Glúteos, Isquiotibiales"
     }
   },
   {
@@ -2469,7 +2544,11 @@ export const allProducts = [
     "subCategories": ["Hombros", "Pecho"],
     "image": "/m3/M3-1017 Rear Delt and Pec Fly.png",
     "alt": "M3-1017 Rear Delt and Pec Fly",
-    "description": "",
+    "description": [
+      "M3-1017 Rear Delt and Pec Fly. Esta máquina de doble función permite entrenar tanto los pectorales como los deltoides posteriores.",
+      "Se ajusta mediante dos juegos de palancas: una debajo del asiento para ajustar la altura del usuario y otra en cada brazo de la máquina para ajustar la posición inicial del ejercicio seleccionado.",
+      "El peso se ajusta mediante una columna de pesas con pasador."
+    ],
     "features": [
       "Máquina dual para deltoides posterior (pájaros) y pectoral (contractor)",
       "Ahorra espacio al combinar dos ejercicios en uno",
@@ -2477,13 +2556,12 @@ export const allProducts = [
       "Brazos pivotantes para adaptarse a diferentes usuarios"
     ],
     "specifications": {
-      dimensiones: "1380 x 1227 x 1868 mm",
+      "modelo": "M3-1017",
+      "dimensiones": "1380 x 1227 x 1868 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "170 kg",
       "peso bruto (W.G.)": "210 kg",
-      "músculo trabajado": "Deltoides Posterior, Pectoral",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Deltoides Posterior, Pectoral"
     }
   },
   {
@@ -2493,7 +2571,11 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/m3/M3-1018 Seated Leg Curl.png",
     "alt": "M3-1018 Seated Leg Curl",
-    "description": "",
+    "description": [
+      "M3-1018 Seated Leg Curl. Esta máquina de curl de piernas sentado cuenta con varias funciones ajustables: el asiento, la almohadilla para los muslos y la almohadilla para los tobillos se pueden ajustar a la altura del usuario.",
+      "Una palanca adicional en la articulación de la rodilla permite ajustar la posición inicial y final del ejercicio.",
+      "El peso se ajusta mediante una columna de pesas con pasador."
+    ],
     "features": [
       "Máquina de curl femoral sentado",
       "Aísla los isquiotibiales en una posición cómoda",
@@ -2501,13 +2583,12 @@ export const allProducts = [
       "Almohadillas de sujeción para muslos y rodillos para tobillos"
     ],
     "specifications": {
-      dimensiones: "1073 x 1067 x 1618 mm",
+      "modelo": "M3-1018",
+      "dimensiones": "1073 x 1067 x 1618 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "170 kg",
       "peso bruto (W.G.)": "210 kg",
-      "músculo trabajado": "Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Isquiotibiales"
     }
   },
   {
@@ -2517,7 +2598,10 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/m3/M3-1019 Standing Calf.png",
     "alt": "M3-1019 Standing Calf",
-    "description": "",
+    "description": [
+      "M3-1019 Standing Calf. Esta máquina de elevación de pantorrillas de pie cuenta con una palanca bajo las hombreras para ajustar la altura del usuario.",
+      "Es una máquina duradera y robusta con reposapiés bien sujetos. El peso se ajusta mediante una pila de discos con pasador.",
+    ],
     "features": [
       "Máquina para elevación de talones de pie",
       "Desarrolla los músculos gastrocnemios (gemelos)",
@@ -2525,13 +2609,12 @@ export const allProducts = [
       "Plataforma antideslizante para los pies"
     ],
     "specifications": {
-      dimensiones: "992 x 1102 x 1633 mm",
+      "modelo": "M3-1019",
+      "dimensiones": "992 x 1102 x 1633 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "123 kg",
       "peso bruto (W.G.)": "163 kg",
-      "músculo trabajado": "Gastrocnemios (Gemelos)",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Gastrocnemios (Gemelos)"
     }
   },
   {
@@ -2541,7 +2624,9 @@ export const allProducts = [
     "subCategories": ["Espalda", "Pecho", "Tríceps", "Bíceps"],
     "image": "/m3/M3-1020 Chin Dip Assist.png",
     "alt": "M3-1020 Chin Dip Assist",
-    "description": "",
+    "description": [
+      "M3-1020 Chin Dip Assist. Esta máquina incluye un asiento ajustable, pedales para subir y bajar de la plataforma con seguridad y una columna de pesas con pasador para ajustar la asistencia de la máquina al usuario. Sus asas también giran para un agarre más amplio o más estrecho.",
+    ],
     "features": [
       "Máquina de dominadas y fondos asistidos",
       "Plataforma de contrapeso para ayudar al usuario a levantar su propio peso",
@@ -2549,13 +2634,12 @@ export const allProducts = [
       "Agarres múltiples para dominadas (ancho, estrecho, neutro)"
     ],
     "specifications": {
-      dimensiones: "992 x 1921 x 2340 mm",
+      "modelo": "M3-1020",
+      "dimensiones": "992 x 1921 x 2340 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "245 kg",
       "peso bruto (W.G.)": "285 kg",
-      "músculo trabajado": "Dorsales, Bíceps, Pectoral, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Dorsales, Bíceps, Pectoral, Tríceps"
     }
   },
   {
@@ -2565,7 +2649,10 @@ export const allProducts = [
     "subCategories": ["Abdominales"],
     "image": "/m3/M3-1021 Rotary Torso.png",
     "alt": "M3-1021 Rotary Torso",
-    "description": "",
+    "description": [
+      "M3-1021 Rotary Torso. Esta máquina de rotación de core cuenta con una palanca ajustable bajo el asiento para ajustar el ángulo inicial.",
+      "Cuenta con pedales y asas para mayor apoyo durante el ejercicio e incluye una columna de pesas con pasadores.",
+    ],
     "features": [
       "Máquina para rotación de torso",
       "Fortalece los músculos oblicuos",
@@ -2573,13 +2660,12 @@ export const allProducts = [
       "Rango de movimiento ajustable para seguridad"
     ],
     "specifications": {
-      dimensiones: "759 x 1163 x 1618 mm",
+      "modelo": "M3-1021",
+      "dimensiones": "759 x 1163 x 1618 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "137 kg",
       "peso bruto (W.G.)": "177 kg",
-      "músculo trabajado": "Oblicuos Internos y Externos",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Oblicuos Internos y Externos"
     }
   },
   {
@@ -2589,7 +2675,9 @@ export const allProducts = [
     "subCategories": ["Glúteos"],
     "image": "/m3/M3-1022 Glute Machine.png",
     "alt": "M3-1022 Glute Machine",
-    "description": "",
+    "description": [
+      "M3-1022 Glute Machine. Esta máquina para glúteos permite realizar patadas de pie. Incluye una almohadilla para el pecho y asas de apoyo, una columna de pesas con pasadores y una plataforma para los pies con rotación suave para un movimiento más natural.",
+    ],
     "features": [
       "Máquina de patada de glúteo (Glute Kickback)",
       "Aísla y tonifica los músculos de los glúteos",
@@ -2597,13 +2685,12 @@ export const allProducts = [
       "Movimiento de extensión de cadera contra resistencia"
     ],
     "specifications": {
-      dimensiones: "1108 x 1117 x 1518 mm",
+      "modelo": "M3-1022",
+      "dimensiones": "1108 x 1117 x 1518 mm",
       "placas (Weight Stack)": "174 lbs/78.75 kg",
       "peso neto (N.W.)": "148 kg",
       "peso bruto (W.G.)": "182 kg",
-      "músculo trabajado": "Glúteo Mayor",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Glúteo Mayor"
     }
   },
   {
@@ -2613,7 +2700,9 @@ export const allProducts = [
     "subCategories": ["Glúteos"],
     "image": "/m3/M3-1023 Glute Machine.png",
     "alt": "M3-1023 Glute Machine",
-    "description": "",
+    "description": [
+      "M3-1023 Glute Machine. Esta máquina para glúteos permite realizar patadas de rodillas. Incluye rodilleras, coderas y asas de apoyo, una almohadilla pectoral de altura ajustable y una columna de pesas con pasadores.",
+    ],
     "features": [
       "Diseño alternativo para el entrenamiento de glúteos",
       "Puede enfocarse en diferentes ángulos del glúteo",
@@ -2621,18 +2710,16 @@ export const allProducts = [
       "Ajustes para adaptarse a diferentes estaturas de usuario"
     ],
     "specifications": {
-      dimensiones: "2011 x 1101 x 1618 mm",
+      "modelo": "M3-1023",
+      "dimensiones": "2011 x 1101 x 1618 mm",
       "placas (Weight Stack)": "174 lbs/78.75 kg",
       "peso neto (N.W.)": "220 kg",
       "peso bruto (W.G.)": "260 kg",
-      "músculo trabajado": "Glúteo Mayor y Medio",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Glúteo Mayor y Medio"
     }
   },
 
   //Equipos M7
-
   {
     "id": 105,
     "name": "M7-1001 Chest Press",
@@ -2640,7 +2727,10 @@ export const allProducts = [
     "subCategories": ["Pecho"],
     "image": "/m7/M7-1001 Chest Press.png",
     "alt": "M7-1001 Chest Press",
-    "description": "",
+    "description": [
+      "M7-1001 Chest Press. Esta máquina de press de pecho tiene un diseño ergonómico y fácil de usar. El respaldo está ligeramente inclinado para una mejor trayectoria de movimiento, y un gatillo en el mango permite al usuario ajustar la posición inicial según su movilidad.",
+      "Cuenta con un asiento ajustable a la altura del usuario y un acolchado completo. El peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Movimiento isolateral para un desarrollo de fuerza equilibrado",
       "Trayectoria de movimiento convergente",
@@ -2648,13 +2738,12 @@ export const allProducts = [
       "Agarres ergonómicos para comodidad y variedad"
     ],
     "specifications": {
-      dimensiones: "1621 x 1506 x 1801 mm",
+      "modelo": "M7-1001",
+      "dimensiones": "1621 x 1506 x 1801 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "175 kg",
       "peso bruto (W.G.)": "215 kg",
-      "músculo trabajado": "Pectoral, Deltoides Anterior, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Pectoral, Deltoides Anterior, Tríceps"
     }
   },
   {
@@ -2664,7 +2753,10 @@ export const allProducts = [
     "subCategories": ["Hombros"],
     "image": "/m7/M7-1002 Seated Lateral Rise.png",
     "alt": "M7-1002 Seated Lateral Rise",
-    "description": "",
+    "description": [
+      "M7-1002 Seated Lateral Rise. El asiento de esta máquina de prensa de hombros se ajusta a la altura del usuario. Cuenta con asas en ángulo que permiten realizar press con agarre neutral y prono.",
+      "Está bien acolchada, es duradera y ofrece un movimiento suave. Su peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Diseñada para aislar la cabeza medial del deltoides",
       "Brazos independientes para un movimiento unilateral",
@@ -2672,13 +2764,12 @@ export const allProducts = [
       "Almohadillas acolchadas para un apoyo cómodo"
     ],
     "specifications": {
-      dimensiones: "1318 x 1112 x 1450 mm",
+      "modelo": "M7-1002",
+      "dimensiones": "1318 x 1112 x 1450 mm",
       "placas (Weight Stack)": "174 lbs/78.75 kg",
       "peso neto (N.W.)": "182 kg",
       "peso bruto (W.G.)": "222 kg",
-      "músculo trabajado": "Deltoides Medial",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Deltoides Medial"
     }
   },
   {
@@ -2688,7 +2779,10 @@ export const allProducts = [
     "subCategories": ["Hombros"],
     "image": "/m7/M7-1003 Shoulder Press.png",
     "alt": "M7-1003 Shoulder Press",
-    "description": "",
+    "description": [
+      "M7-1003 Shoulder Press. El asiento de esta máquina de prensa de hombros se ajusta a la altura del usuario. Cuenta con asas en ángulo que permiten realizar press con agarre neutral y prono.",
+      "Está bien acolchada, es duradera y ofrece un movimiento suave. Su peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Movimiento convergente que simula el levantamiento de peso libre",
       "Respaldo en ángulo para una postura correcta y soporte lumbar",
@@ -2696,13 +2790,12 @@ export const allProducts = [
       "Agarres múltiples para diferentes anchos"
     ],
     "specifications": {
-      dimensiones: "1697 x 1428 x 1450 mm",
+      "modelo": "M7-1003",
+      "dimensiones": "1697 x 1428 x 1450 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "175 kg",
       "peso bruto (W.G.)": "215 kg",
-      "músculo trabajado": "Deltoides, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Deltoides, Tríceps"
     }
   },
   {
@@ -2712,7 +2805,10 @@ export const allProducts = [
     "subCategories": ["Abdominales"],
     "image": "/m7/M7-1004 Abdominal Crunch.png",
     "alt": "M7-1004 Abdominal Crunch",
-    "description": "",
+    "description": [
+      "M7-1004 Abdominal Crunch. Esta máquina de abdominales incluye asiento y espinilleras ajustables para diferentes alturas. El peso se ajusta mediante una columna de pesas con pasador.",
+      "Incluye asas para mayor apoyo durante el movimiento y está completamente acolchada.",
+    ],
     "features": [
       "Aísla los músculos abdominales de forma efectiva",
       "Movimiento biomecánicamente correcto que evita la tensión en el cuello",
@@ -2720,13 +2816,12 @@ export const allProducts = [
       "Pila de pesas para una resistencia ajustable"
     ],
     "specifications": {
-      dimensiones: "1307 x 1180 x 1628 mm",
+      "modelo": "M7-1004",
+      "dimensiones": "1307 x 1180 x 1628 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "163 kg",
       "peso bruto (W.G.)": "203 kg",
-      "músculo trabajado": "Recto Abdominal",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Recto Abdominal"
     }
   },
   {
@@ -2736,7 +2831,11 @@ export const allProducts = [
     "subCategories": ["Bíceps"],
     "image": "/m7/M7-1005 Biceps Curl.png",
     "alt": "M7-1005 Biceps Curl",
-    "description": "",
+    "description": [
+      "M7-1005 Biceps Curl. Esta máquina de curl de bíceps se ajusta mediante dos palancas: una debajo del asiento para ajustar la altura del usuario y otra en el brazo para ajustar la posición inicial.",
+      "Las asas giran naturalmente, lo que permite un movimiento más natural. Ambos lados del asiento cuentan con acolchado para los brazos para mantener una postura correcta, y el respaldo está ligeramente inclinado para permitir la extensión completa de los brazos.",
+      "El peso se ajusta mediante una columna de pesas con pasador."
+    ],
     "features": [
       "Máquina de curl de bíceps sentado",
       "Punto de pivote alineado con la articulación del codo para un aislamiento preciso",
@@ -2744,13 +2843,12 @@ export const allProducts = [
       "Agarres pivotantes para adaptarse al movimiento natural de la muñeca"
     ],
     "specifications": {
-      dimensiones: "1410 x 1235 x 1450 mm",
+      "modelo": "M7-1005",
+      "dimensiones": "1410 x 1235 x 1450 mm",
       "placas (Weight Stack)": "174 lbs/78.75 kg",
       "peso neto (N.W.)": "182 kg",
       "peso bruto (W.G.)": "222 kg",
-      "músculo trabajado": "Bíceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Bíceps"
     }
   },
   {
@@ -2760,7 +2858,10 @@ export const allProducts = [
     "subCategories": ["Tríceps"],
     "image": "/m7/M7-1006 Triceps Extension.png",
     "alt": "M7-1006 Triceps Extension",
-    "description": "",
+    "description": [
+      "M7-1006 Triceps Extension. Esta máquina incluye portabotellas y porta toallas de serie. Su cómodo asiento y su facilidad de uso las hacen ideales para cualquier usuario del gimnasio.",
+      "La soldadura de alta calidad de cada máquina, su elegante diseño y su excelente pintura en polvo las hacen destacar en cualquier gimnasio.",
+    ],
     "features": [
       "Máquina de extensiones de tríceps sentado",
       "Aísla las tres cabezas del tríceps",
@@ -2768,13 +2869,12 @@ export const allProducts = [
       "Brazos autoajustables para adaptarse a diferentes longitudes de brazo"
     ],
     "specifications": {
-      dimensiones: "1685 x 1098 x 1450 mm",
+      "modelo": "M7-1006",
+      "dimensiones": "1685 x 1098 x 1450 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "182 kg",
       "peso bruto (W.G.)": "222 kg",
-      "músculo trabajado": "Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Tríceps"
     }
   },
   {
@@ -2784,7 +2884,10 @@ export const allProducts = [
     "subCategories": ["Pecho"],
     "image": "/m7/M7-1007 Pectoral Machine.png",
     "alt": "M7-1007 Pectoral Machine",
-    "description": "",
+    "description": [
+      "M7-1007 Pectoral Machine. Esta máquina para hacer pectorales tiene un diseño ergonómico y un movimiento suave. Sus asas giran durante el ejercicio para adaptarse al movimiento natural del usuario.",
+      "Una palanca debajo del asiento permite ajustar la altura del usuario. El peso de la máquina se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Máquina de contractor de pecho (Pec Deck)",
       "Brazos pivotantes para un amplio rango de movimiento",
@@ -2792,13 +2895,12 @@ export const allProducts = [
       "Agarres verticales para un movimiento cómodo"
     ],
     "specifications": {
-      dimensiones: "2055 x 1345 x 1630 mm",
+      "modelo": "M7-1007",
+      "dimensiones": "2055 x 1345 x 1630 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "159 kg",
       "peso bruto (W.G.)": "199 kg",
-      "músculo trabajado": "Pectoral",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Pectoral"
     }
   },
   {
@@ -2808,7 +2910,10 @@ export const allProducts = [
     "subCategories": ["Espalda"],
     "image": "/m7/M7-1008 Lat Pull Down.png",
     "alt": "M7-1008 Lat Pull Down",
-    "description": "",
+    "description": [
+      "M7-1008 Lat Pull Down. Esta máquina de polea dorsal tiene un diseño ergonómico y fácil de usar. Incluye asiento y rodilleras ajustables según la altura del usuario.",
+      "El peso se ajusta mediante un conjunto de discos con pasadores.",
+    ],
     "features": [
       "Máquina de jalón al pecho",
       "Rodillos de sujeción para muslos ajustables",
@@ -2816,13 +2921,12 @@ export const allProducts = [
       "Ideal para desarrollar la amplitud de la espalda"
     ],
     "specifications": {
-      dimensiones: "1852 x 1170 x 1930 mm",
+      "modelo": "M7-1008",
+      "dimensiones": "1852 x 1170 x 1930 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "195 kg",
       "peso bruto (W.G.)": "235 kg",
-      "músculo trabajado": "Dorsal Ancho, Bíceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Dorsal Ancho, Bíceps"
     }
   },
   {
@@ -2832,7 +2936,10 @@ export const allProducts = [
     "subCategories": ["Espalda", "Hombros"],
     "image": "/m7/M7-1009 Row Rear Delt.png",
     "alt": "M7-1009 Row Rear Delt",
-    "description": "",
+    "description": [
+      "M7-1009 Row Rear Delt. Esta máquina incluye portabotellas y porta toallas de serie. Su cómodo asiento y su facilidad de uso las hacen ideales para cualquier usuario del gimnasio.",
+      "La soldadura de alta calidad de cada máquina, su elegante diseño y su excelente pintura en polvo las hacen destacar en cualquier gimnasio.",
+    ],
     "features": [
       "Máquina de remo sentado con apoyo pectoral",
       "Agarres duales para enfocar la espalda media o el deltoides posterior",
@@ -2840,13 +2947,12 @@ export const allProducts = [
       "Brazos de movimiento independientes"
     ],
     "specifications": {
-      dimensiones: "1485 x 966 x 1450 mm",
+      "modelo": "M7-1009",
+      "dimensiones": "1485 x 966 x 1450 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "159 kg",
       "peso bruto (W.G.)": "199 kg",
-      "músculo trabajado": "Espalda Media, Romboides, Deltoides Posterior",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Espalda Media, Romboides, Deltoides Posterior"
     }
   },
   {
@@ -2856,7 +2962,10 @@ export const allProducts = [
     "subCategories": ["Espalda", "Pecho", "Tríceps", "Bíceps"],
     "image": "/m7/M7-1010 Chin Dip Assist.png",
     "alt": "M7-1010 Chin Dip Assist",
-    "description": "",
+    "description": [
+      "M7-1010 Chin Dip Assist. Esta máquina te permite ejecutar dominadas y fondos de manera progresiva. Su sistema de contrapeso ajustable te ayuda a medida que ganas fuerza, garantizando una técnica segura y efectiva.",
+      "Utiliza sus agarres múltiples para un entrenamiento completo de espalda, pecho, bíceps y tríceps. Para un mayor desafío, la plataforma de rodillas es abatible, permitiendo un trabajo sin asistencia para los usuarios más avanzados.",
+    ],
     "features": [
       "Máquina de dominadas y fondos con asistencia de contrapeso",
       "Plataforma de rodillas abatible para usuarios avanzados",
@@ -2864,13 +2973,12 @@ export const allProducts = [
       "Permite una progresión segura en ejercicios con peso corporal"
     ],
     "specifications": {
-      dimensiones: "1931 x 1266 x 2286 mm",
+      "modelo": "M7-1010",
+      "dimensiones": "1931 x 1266 x 2286 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "247 kg",
       "peso bruto (W.G.)": "287 kg",
-      "músculo trabajado": "Dorsales, Bíceps, Pectoral, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Dorsales, Bíceps, Pectoral, Tríceps"
     }
   },
   {
@@ -2880,7 +2988,10 @@ export const allProducts = [
     "subCategories": ["Pecho", "Hombros"],
     "image": "/m7/M7-1011 Pec Fly Rear Delt.png",
     "alt": "M7-1011 Pec Fly Rear Delt",
-    "description": "",
+    "description": [
+      "M7-1011 Pec Fly Rear Delt. Esta máquina ofrece doble función para los ejercicios de apertura de pectorales y deltoides posteriores gracias a sus brazos ajustables, que pueden girarse a diversas posiciones iniciales.",
+      "Otras características ajustables incluyen el asiento a la altura del usuario y la columna de pesas con pasadores.",
+    ],
     "features": [
       "Máquina dual: contractor de pecho y pájaros para deltoides posterior",
       "Ahorra espacio al combinar dos máquinas",
@@ -2888,13 +2999,12 @@ export const allProducts = [
       "Brazos pivotantes con 5 posiciones de inicio"
     ],
     "specifications": {
-      dimensiones: "1476 x 1380 x 1975 mm",
+      "modelo": "M7-1011",
+      "dimensiones": "1476 x 1380 x 1975 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "172 kg",
       "peso bruto (W.G.)": "212 kg",
-      "músculo trabajado": "Pectoral, Deltoides Posterior",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Pectoral, Deltoides Posterior"
     }
   },
   {
@@ -2904,7 +3014,10 @@ export const allProducts = [
     "subCategories": ["Espalda", "Glúteos"],
     "image": "/m7/M7-1012 Back Extension.png",
     "alt": "M7-1012 Back Extension",
-    "description": "",
+    "description": [
+      "M7-1012 Back Extension. Esta máquina de extensión de espalda incluye pedales ajustables a la altura del usuario y una palanca para ajustar la posición inicial del ejercicio.",
+      "Dispone de varias asas de apoyo tanto durante la preparación como durante la ejecución del ejercicio. El peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Máquina de extensiones lumbares",
       "Fortalece la cadena posterior",
@@ -2912,13 +3025,12 @@ export const allProducts = [
       "Rango de movimiento controlado para mayor seguridad"
     ],
     "specifications": {
-      dimensiones: "1622 x 1200 x 1450 mm",
+      "modelo": "M7-1012",
+      "dimensiones": "1622 x 1200 x 1450 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "155 kg",
       "peso bruto (W.G.)": "195 kg",
-      "músculo trabajado": "Erectores Espinales, Glúteos",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Erectores Espinales, Glúteos"
     }
   },
   {
@@ -2928,7 +3040,10 @@ export const allProducts = [
     "subCategories": ["Cadera", "Glúteos"],
     "image": "/m7/M7-2001 Hip Abductor.png",
     "alt": "M7-2001 Hip Abductor",
-    "description": "",
+    "description": [
+      "M7-2001 Hip Abductor. Esta máquina de abducción de cadera incluye palancas que ajustan la posición inicial y final del ejercicio.",
+      "Está bien acolchada, con pedales y asas para mayor apoyo durante el movimiento. Su peso se ajusta mediante una pila de pesas con pasador.",
+    ],
     "features": [
       "Fortalece los músculos externos de la cadera y el glúteo medio",
       "Posición sentada para una mayor estabilidad",
@@ -2936,13 +3051,12 @@ export const allProducts = [
       "Rango de movimiento ajustable desde la posición sentada"
     ],
     "specifications": {
-      dimensiones: "1400 x 1122 x 1450 mm",
+      "modelo": "M7-2001",
+      "dimensiones": "1400 x 1122 x 1450 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "175 kg",
       "peso bruto (W.G.)": "215 kg",
-      "músculo trabajado": "Glúteo Medio y Menor",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Glúteo Medio y Menor"
     }
   },
   {
@@ -2952,7 +3066,10 @@ export const allProducts = [
     "subCategories": ["Cadera", "Piernas"],
     "image": "/m7/M7-2001 Hip Adductor.png",
     "alt": "M7-2001 Hip Adductor",
-    "description": "",
+    "description": [
+      "M7-2002 Hip Adductor. Esta máquina para aductores de cadera incluye palancas que ajustan la posición inicial y final del ejercicio.",
+      "Está bien acolchada, con pedales y asas para mayor apoyo durante el movimiento. Su peso se ajusta mediante una pila de pesas con pasador.",
+    ],
     "features": [
       "Fortalece los músculos internos del muslo",
       "Diseño ergonómico para un movimiento correcto",
@@ -2960,13 +3077,12 @@ export const allProducts = [
       "Pila de pesas completamente cubierta"
     ],
     "specifications": {
-      dimensiones: "1455 x 1268 x 1450 mm",
+      "modelo": "M7-2002",
+      "dimensiones": "1455 x 1268 x 1450 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "175 kg",
       "peso bruto (W.G.)": "215 kg",
-      "músculo trabajado": "Aductores",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Aductores"
     }
   },
   {
@@ -2976,7 +3092,10 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/m7/M7-2003 Leg Extension.png",
     "alt": "M7-2003 Leg Extension",
-    "description": "",
+    "description": [
+      "M7-2003 Leg Extension. Esta extensión de piernas cuenta con varias funciones ajustables. El asiento se puede ajustar a la altura del usuario, junto con la almohadilla para el tobillo.",
+      "La palanca a la derecha del asiento, en la articulación de la rodilla, ajusta la posición inicial del ejercicio y permite al usuario levantarse cómodamente después del ejercicio.",
+    ],
     "features": [
       "Aísla y desarrolla los cuádriceps",
       "Respaldo y almohadilla de rodillo ajustables",
@@ -2984,13 +3103,12 @@ export const allProducts = [
       "Movimiento suave y biomecánicamente correcto"
     ],
     "specifications": {
-      dimensiones: "1250 x 1173 x 1630 mm",
+      "modelo": "M7-2003",
+      "dimensiones": "1250 x 1173 x 1630 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "177 kg",
       "peso bruto (W.G.)": "217 kg",
-      "músculo trabajado": "Cuádriceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cuádriceps"
     }
   },
   {
@@ -3000,7 +3118,10 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/m7/M7-2004 Seated Leg Curl.png",
     "alt": "M7-2004 Seated Leg Curl",
-    "description": "",
+    "description": [
+      "M7-2004 Seated Leg Curl. Esta máquina de curl de piernas cuenta con varias funciones ajustables: el asiento, la almohadilla para los muslos y la almohadilla para los tobillos se pueden ajustar a la altura del usuario.",
+      "Una palanca adicional en la articulación de la rodilla permite ajustar la posición inicial y final del ejercicio.",
+    ],
     "features": [
       "Máquina de curl femoral sentado",
       "Aísla los isquiotibiales",
@@ -3008,13 +3129,12 @@ export const allProducts = [
       "Movimiento controlado para maximizar la contracción muscular"
     ],
     "specifications": {
-      dimensiones: "1483 x 1153 x 1630 mm",
+      "modelo": "M7-2004",
+      "dimensiones": "1483 x 1153 x 1630 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "200 kg",
       "peso bruto (W.G.)": "240 kg",
-      "músculo trabajado": "Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Isquiotibiales"
     }
   },
   {
@@ -3024,7 +3144,10 @@ export const allProducts = [
     "subCategories": ["Piernas", "Glúteos"],
     "image": "/m7/M7-2005 Seated Leg Press.png",
     "alt": "M7-2005 Seated Leg Press",
-    "description": "",
+    "description": [
+      "M7-2005 Seated Leg Press. Esta prensa de piernas horizontal cuenta con un reposapiés fijo, y la resistencia empuja el asiento hacia atrás.",
+      "Esta máquina cuenta con palancas para controlar la profundidad del asiento, fácilmente ajustables para la movilidad del usuario y mayor seguridad al usar y salir de la máquina.",
+    ],
     "features": [
       "Prensa de piernas sentado",
       "Trabaja todo el tren inferior de forma segura",
@@ -3032,13 +3155,12 @@ export const allProducts = [
       "Asiento y respaldo ajustables para un confort óptimo"
     ],
     "specifications": {
-      dimensiones: "1985 x 1190 x 1630 mm",
+      "modelo": "M7-2005",
+      "dimensiones": "1985 x 1190 x 1630 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "295 kg",
       "peso bruto (W.G.)": "335 kg",
-      "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales"
     }
   },
   {
@@ -3048,7 +3170,10 @@ export const allProducts = [
     "subCategories": ["Abdominales"],
     "image": "/m7/M7-2006 Rotary Torso.png",
     "alt": "M7-2006 Rotary Torso",
-    "description": "",
+    "description": [
+      "M7-2006 Rotary Torso. Esta máquina de rotación de core cuenta con una palanca ajustable debajo de la almohadilla de rodillas para ajustar la posición inicial.",
+      "Otra palanca en las hombreras se ajusta a la altura del usuario. El peso se ajusta mediante una pila de pesas con pasador.",
+    ],
     "features": [
       "Máquina para rotación de torso",
       "Fortalece los músculos oblicuos",
@@ -3056,23 +3181,25 @@ export const allProducts = [
       "Rango de movimiento ajustable para un ejercicio seguro"
     ],
     "specifications": {
+      "modelo": "M7-2006",
       "dimensiones": "1150 x 1116 x 1450 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "164 kg",
       "peso bruto (W.G.)": "204 kg",
-      "músculo trabajado": "Oblicuos Internos y Externos",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Oblicuos Internos y Externos"
     }
   },
   {
     "id": 123,
-    "name": "M7-2007 Standing Calf Raise",
+    "name": "M7-2007 St anding Calf Raise",
     "primaryCategory": "M7",
     "subCategories": ["Piernas"],
     "image": "/m7/M7-2007 Standing Calf Raise.png",
     "alt": "M7-2007 Standing Calf Raise",
-    "description": "",
+    "description": [
+      "M7-2007 Standing Calf Raise. Esta máquina de elevación de pantorrillas de pie cuenta con una palanca bajo las hombreras para ajustar la altura del usuario.",
+      "Es una máquina duradera y robusta con reposapiés bien sujetos. El peso se ajusta mediante una pila de discos con pasador.",
+    ],
     "features": [
       "Máquina para elevación de talones de pie",
       "Desarrolla los músculos de la pantorrilla (gemelos)",
@@ -3080,13 +3207,12 @@ export const allProducts = [
       "Plataforma antideslizante con bloque para un mayor estiramiento"
     ],
     "specifications": {
-      dimensiones: "1258 x 1103 x 1635 mm",
+      "modelo": "M7-2007",
+      "dimensiones": "1258 x 1103 x 1635 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "147 kg",
       "peso bruto (W.G.)": "187 kg",
-      "músculo trabajado": "Gastrocnemios (Gemelos)",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Gastrocnemios (Gemelos)"
     }
   },
   {
@@ -3096,7 +3222,10 @@ export const allProducts = [
     "subCategories": ["Glúteos"],
     "image": "/m7/M7-2008 Glute Machine.png",
     "alt": "M7-2008 Glute Machine",
-    "description": "",
+    "description": [
+      "M7-2008 Glute Machine. Esta máquina para glúteos cuenta con varias funciones ajustables: su almohadilla pectoral se ajusta a la altura del usuario y el reposapiés gira a la izquierda y a la derecha para trabajar cualquier pierna.",
+      "Esta máquina ofrece un movimiento suave y el peso se ajusta mediante un conjunto de placas con pasadores.",
+    ],
     "features": [
       "Máquina para patada de glúteo (Glute Kickback)",
       "Aísla y tonifica los glúteos",
@@ -3104,13 +3233,12 @@ export const allProducts = [
       "Movimiento de extensión de cadera contra resistencia"
     ],
     "specifications": {
-      dimensiones: "2070 x 1015 x 1630 mm",
+      "modelo": "M7-2008",
+      "dimensiones": "2070 x 1015 x 1630 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "149 kg",
       "peso bruto (W.G.)": "189 kg",
-      "músculo trabajado": "Glúteo Mayor",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Glúteo Mayor"
     }
   },
   {
@@ -3120,7 +3248,10 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/m7/M7-2009 Prone Leg Curl.png",
     "alt": "M7-2009 Prone Leg Curl",
-    "description": "",
+    "description": [
+      "M7-2009 Prone Leg Curl. Esta máquina de curl de isquiotibiales en posición acostado es robusta, está bien acolchada y ofrece un movimiento suave.",
+      "La máquina se ajusta mediante una palanca en la articulación de la rodilla para ajustar la posición inicial y otra para ajustar la almohadilla del tobillo según las preferencias del usuario. Cuenta con asas en la parte delantera para mayor agarre durante el movimiento.",
+    ],
     "features": [
       "Máquina de curl femoral tumbado",
       "Aísla los isquiotibiales de manera efectiva",
@@ -3128,16 +3259,14 @@ export const allProducts = [
       "Rodillo y agarres ajustables para adaptarse a cada usuario"
     ],
     "specifications": {
-      dimensiones: "	1500 x 1080 x 1630 mm",
+      "modelo": "M7-2009",
+      "dimensiones": "1500 x 1080 x 1630 mm",
       "placas (Weight Stack)": "293 lbs/132.75 kg",
       "peso neto (N.W.)": "150 kg",
       "peso bruto (W.G.)": "190 kg",
-      "músculo trabajado": "Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Isquiotibiales"
     }
   },
-
   //Equipos PF
 
   {
@@ -3147,7 +3276,11 @@ export const allProducts = [
     "subCategories": ["Pecho", "Hombros"],
     "image": "/pf/PF-1001 Chest Press - Shoulder Press.png",
     "alt": "PF-1001 Chest Press - Shoulder Press",
-    "description": "",
+    "description": [
+      "PF-1001 Chest Press - Shoulder Press. Esta máquina de doble función permite realizar press de pecho y de hombros, con una palanca bajo el asiento que permite ajustar prácticamente cualquier ángulo, desde plano hasta totalmente inclinado.",
+      "El peso se ajusta fácilmente mediante una columna de pesas con pasador.",
+      "Esta máquina es duradera, cómoda y fácil de usar, ideal para cualquier gimnasio."
+    ],
     "features": [
       "Máquina dual que combina press de pecho y press de hombros",
       "Ajuste sencillo del respaldo y el asiento para cambiar de ejercicio",
@@ -3155,13 +3288,12 @@ export const allProducts = [
       "Ideal para optimizar el espacio en el gimnasio"
     ],
     "specifications": {
-      dimensiones: "1980 x 1236 x 1515 mm",
+      "modelo": "PF-1001",
+      "dimensiones": "1980 x 1236 x 1515 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "154 kg",
       "peso bruto (W.G.)": "194 kg",
-      "músculo trabajado": "Pectoral, Deltoides, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Pectoral, Deltoides, Tríceps"
     }
   },
   {
@@ -3171,7 +3303,11 @@ export const allProducts = [
     "subCategories": ["Bíceps", "Tríceps"],
     "image": "/pf/PF-1002 Biceps - Triceps.png",
     "alt": "PF-1002 Biceps - Triceps",
-    "description": "",
+    "description": [
+      "PF-1002 Biceps - Triceps. Esta robusta máquina ahorra espacio y ofrece doble función para curls de bíceps y extensiones de tríceps.",
+      "Una palanca bajo el asiento se ajusta a la altura del usuario. Las palancas en el brazo de la máquina permiten cambiar la posición inicial para alternar entre ejercicios.",
+      "Las asas están inclinadas para ofrecer múltiples opciones de agarre y su acolchado garantiza comodidad durante el ejercicio. El peso se ajusta mediante una columna de pesas con pasador."
+    ],
     "features": [
       "Máquina dual para curl de bíceps y extensiones de tríceps",
       "Cambio rápido entre ejercicios mediante un pasador de selección",
@@ -3179,13 +3315,12 @@ export const allProducts = [
       "Diseño ergonómico para aislar los músculos del brazo"
     ],
     "specifications": {
-      dimensiones: "1292 x 910 x 1515 mm",
+      "modelo": "PF-1002",
+      "dimensiones": "1292 x 910 x 1515 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "145 kg",
       "peso bruto (W.G.)": "185 kg",
-      "músculo trabajado": "Bíceps, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Bíceps, Tríceps"
     }
   },
   {
@@ -3195,7 +3330,10 @@ export const allProducts = [
     "subCategories": ["Pecho", "Hombros"],
     "image": "/pf/PF-1003 Pec Fly Rear Deltoid.png",
     "alt": "PF-1003 Pec Fly Rear Deltoid",
-    "description": "",
+    "description": [
+      "PF-1003 Pec Fly Rear Deltoid. Esta máquina de doble función permite entrenar tanto los pectorales como los deltoides posteriores.",
+      "Se ajusta mediante dos juegos de palancas: una debajo del asiento para ajustar la altura del usuario y otra en cada brazo de la máquina para ajustar la posición inicial del ejercicio seleccionado.",
+    ],
     "features": [
       "Máquina dual para contractor de pecho (Pec Fly) y deltoides posterior (Rear Delt)",
       "Brazos pivotantes con múltiples posiciones de inicio",
@@ -3203,13 +3341,12 @@ export const allProducts = [
       "Aísla eficazmente los músculos del pecho y la parte posterior de los hombros"
     ],
     "specifications": {
-      dimensiones: "1840 x 1210 x 2006 mm",
+      "modelo": "PF-1003",
+      "dimensiones": "1840 x 1210 x 2006 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "135 kg",
       "peso bruto (W.G.)": "175 kg",
-      "músculo trabajado": "Pectoral, Deltoides Posterior",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Pectoral, Deltoides Posterior"
     }
   },
   {
@@ -3219,7 +3356,10 @@ export const allProducts = [
     "subCategories": ["Espalda"],
     "image": "/pf/PF-1004 Lat Pull Down - Low Row.png",
     "alt": "PF-1004 Lat Pull Down - Low Row",
-    "description": "",
+    "description": [
+      "PF-1004 Lat Pull Down - Low Row. Esta máquina de espalda de doble propósito incluye rodilleras ajustables a la altura del usuario. El mango permite cambiar fácilmente entre polea alta y remo sentado.",
+      "Cuenta con pedales para mayor apoyo durante el ejercicio. El peso se ajusta mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Máquina dual que combina jalón al pecho (Lat Pull Down) y remo bajo (Low Row)",
       "Dos poleas (alta y baja) con una sola pila de pesas",
@@ -3227,13 +3367,12 @@ export const allProducts = [
       "Solución completa para el entrenamiento de espalda"
     ],
     "specifications": {
-      dimensiones: "1746 x 1250 x 2317 mm",
+      "modelo": "PF-1004",
+      "dimensiones": "1746 x 1250 x 2317 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "140 kg",
       "peso bruto (W.G.)": "180 kg",
-      "músculo trabajado": "Dorsal Ancho, Romboides, Bíceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Dorsal Ancho, Romboides, Bíceps"
     }
   },
   {
@@ -3243,7 +3382,10 @@ export const allProducts = [
     "subCategories": ["Espalda", "Abdominales"],
     "image": "/pf/PF-1005 Back Extension - Abdominal Crunch.png",
     "alt": "PF-1005 Back Extension - Abdominal Crunch",
-    "description": "",
+    "description": [
+      "PF-1005 Back Extension - Abdominal Crunch. Esta máquina tiene una doble función: entrenar la espalda y el torso. Las palancas en el brazo permiten ajustar la posición inicial y el ejercicio.",
+      "Su acolchado proporciona una comodidad óptima durante el movimiento. Cuenta con pedales y asas a ambos lados de la silla para mayor apoyo durante el ejercicio.",
+    ],
     "features": [
       "Máquina dual para extensiones lumbares y encogimientos abdominales",
       "Diseño compacto para trabajar los músculos del core",
@@ -3251,13 +3393,12 @@ export const allProducts = [
       "Fortalece la parte frontal y posterior del torso"
     ],
     "specifications": {
-      dimensiones: "1230 x 932 x 1515 mm",
+      "modelo": "PF-1005",
+      "dimensiones": "1230 x 932 x 1515 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "134 kg",
       "peso bruto (W.G.)": "174 kg",
-      "músculo trabajado": "Erectores Espinales, Recto Abdominal",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Erectores Espinales, Recto Abdominal"
     }
   },
   {
@@ -3267,7 +3408,10 @@ export const allProducts = [
     "subCategories": ["Cadera", "Glúteos", "Piernas"],
     "image": "/pf/PF-1006 Abductor-Adductor.png",
     "alt": "PF-1006 Abductor-Adductor",
-    "description": "",
+    "description": [
+      "PF-1006 Abductor-Adductor. Esta máquina dual para abductores y aductores cuenta con brazos totalmente ajustables para cambiar la posición inicial y final, así como el ejercicio deseado.",
+      "Ofrece una resistencia suave en ambas direcciones, con pedales y asas para mayor apoyo durante el movimiento. El peso se ajusta mediante una pila de pesas con pasadores.",
+    ],
     "features": [
       "Máquina dual que trabaja tanto los abductores como los aductores de la cadera",
       "Almohadillas giratorias para cambiar fácilmente entre ejercicios",
@@ -3275,13 +3419,12 @@ export const allProducts = [
       "Rango de movimiento ajustable para adaptarse a cada usuario"
     ],
     "specifications": {
-      dimensiones: "1595 x 1465 x 1515 mm",
+      "modelo": "PF-1006",
+      "dimensiones": "1595 x 1465 x 1515 mm",
       "placas (Weight Stack)": "218 lbs/99 kg",
       "peso neto (N.W.)": "160 kg",
       "peso bruto (W.G.)": "200 kg",
-      "músculo trabajado": "Abductores (Glúteo Medio), Aductores",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Abductores (Glúteo Medio), Aductores"
     }
   },
   {
@@ -3291,7 +3434,10 @@ export const allProducts = [
     "subCategories": ["Piernas"],
     "image": "/pf/PF-1007 Leg Curl-Leg Extension.png",
     "alt": "PF-1007 Leg Curl-Leg Extension",
-    "description": "",
+    "description": [
+      "PF-1007 Leg Curl-Leg Extension. Esta máquina de piernas ofrece funciones duales para extensiones de piernas y flexiones de isquiotibiales. Cuenta con varias funciones ajustables: el asiento, la almohadilla para muslos y la almohadilla para tobillos, todas ajustables a la altura del usuario.",
+      "Una palanca adicional en la articulación de la rodilla permite ajustar la posición inicial y final del ejercicio. Esta palanca también permite alternar entre flexiones y extensiones de piernas.",
+    ],
     "features": [
       "Máquina dual para curl femoral y extensiones de cuádriceps",
       "Un solo puesto para un entrenamiento completo de la parte superior de la pierna",
@@ -3299,13 +3445,12 @@ export const allProducts = [
       "Almohadillas de rodillo y respaldo ajustables"
     ],
     "specifications": {
-      dimensiones: "1708 x 922 x 1515 mm",
+      "modelo": "PF-1007",
+      "dimensiones": "1708 x 922 x 1515 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "155 kg",
       "peso bruto (W.G.)": "195 kg",
-      "músculo trabajado": "Cuádriceps, Isquiotibiales",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cuádriceps, Isquiotibiales"
     }
   },
   {
@@ -3315,7 +3460,10 @@ export const allProducts = [
     "subCategories": ["Espalda", "Pecho", "Tríceps", "Bíceps"],
     "image": "/pf/PF-1008 Chin Dip Assist.png",
     "alt": "PF-1008 Chin Dip Assist",
-    "description": "",
+    "description": [
+      "PF-1008 Chin Dip Assist. Esta máquina permite realizar dominadas y fondos con asistencia.",
+      "Se ajusta mediante una palanca debajo del asiento de apoyo para retirar el soporte. Además, cuenta con asas para fondos que giran hacia adentro o hacia afuera según las preferencias del usuario. Las múltiples asas para dominadas permiten entrenar dominadas y fondos desde diferentes ángulos.",
+    ],
     "features": [
       "Máquina de dominadas y fondos con asistencia de contrapeso",
       "Plataforma de rodillas que reduce el peso corporal del usuario",
@@ -3323,13 +3471,12 @@ export const allProducts = [
       "Ideal para progresar en ejercicios de peso corporal"
     ],
     "specifications": {
-      dimensiones: "1278 x 1200 x 2208 mm",
+      "modelo": "PF-1008",
+      "dimensiones": "1278 x 1200 x 2208 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "215 kg",
       "peso bruto (W.G.)": "255 kg",
-      "músculo trabajado": "Dorsales, Bíceps, Pectoral, Tríceps",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Dorsales, Bíceps, Pectoral, Tríceps"
     }
   },
   {
@@ -3339,7 +3486,10 @@ export const allProducts = [
     "subCategories": ["Piernas", "Glúteos"],
     "image": "/pf/PF-1009 Leg Press - Calf Raise.png",
     "alt": "PF-1009 Leg Press - Calf Raise",
-    "description": "",
+    "description": [
+      "PF-1009 Leg Press - Calf Raise. Esta prensa de piernas cuenta con un asiento ajustable a la altura del usuario.",
+      "Su diseño es fácil de usar, está bien acolchada y cuenta con asas de apoyo a ambos lados del asiento. Su peso se ajusta fácilmente mediante una columna de pesas con pasador.",
+    ],
     "features": [
       "Máquina dual que combina prensa de piernas y elevación de talones",
       "Plataforma de pies sobredimensionada con superficie antideslizante",
@@ -3347,13 +3497,12 @@ export const allProducts = [
       "Permite un entrenamiento completo del tren inferior"
     ],
     "specifications": {
-      dimensiones: "1740 x 998 x 1715 mm",
+      "modelo": "PF-1009",
+      "dimensiones": "1740 x 998 x 1715 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "183 kg",
       "peso bruto (W.G.)": "223 kg",
-      "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales, Pantorrillas",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cuádriceps, Glúteos, Isquiotibiales, Pantorrillas"
     }
   },
   {
@@ -3363,7 +3512,10 @@ export const allProducts = [
     "subCategories": ["Pecho", "Espalda", "Hombros", "Bíceps", "Tríceps"],
     "image": "/pf/PF-1010 Double Pulley Machine.png",
     "alt": "PF-1010 Double Pulley Machine",
-    "description": "",
+    "description": [
+      "PF-1010 Double Pulley Machine. Esta máquina de doble polea se puede utilizar para una variedad de ejercicios. Su espacio abierto permite colocar otros soportes para ejercicios adicionales (como bancos).",
+      "Su peso se ajusta mediante una pila de pesas con pasador. Sus poleas de altura fija admiten diferentes accesorios de agarre. Los agarres en la base ofrecen soporte durante el ejercicio.",
+    ],
     "features": [
       "Máquina de polea doble ajustable o crossover funcional",
       "Dos poleas ajustables en altura de forma independiente",
@@ -3371,16 +3523,14 @@ export const allProducts = [
       "Incluye múltiples agarres y accesorios"
     ],
     "specifications": {
-      dimensiones: "1521 x 1368 x 2215 mm",
+      "modelo": "PF-1010",
+      "dimensiones": "1521 x 1368 x 2215 mm",
       "placas (Weight Stack)": "263 lbs/119.25 kg",
       "peso neto (N.W.)": "140 kg",
       "peso bruto (W.G.)": "180 kg",
-      "músculo trabajado": "Cuerpo Completo",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cuerpo Completo"
     }
   },
-
 // Equipo RS
 
   {
@@ -4712,7 +4862,7 @@ export const allProducts = [
     "id": 186,
     "name": "RCT-900M Commercial Treadmill Led Screen 4hp",
     "primaryCategory": "Cardio",
-    "subCategories": ["Piernas"],
+    "subCategories": ["Piernas", "Cardio"], // Añadido Cardio para consistencia
     "image": "/cardio/RCT-900M Commercial Treadmil Led Screen 4hp.png",
     "alt": "RCT-900M Commercial Treadmill Led Screen 4hp",
     "description": [
@@ -4720,29 +4870,32 @@ export const allProducts = [
       "Tiene ajustes de inclinación, una velocidad máxima de 20 km/h y más de 30 programas para elegir y disfrutar de una variedad de estímulos.",
       "Su pantalla LED muestra el tiempo, la distancia, la inclinación, la velocidad, la frecuencia cardíaca y las calorías quemadas, e incluye funciones de parada automática y de emergencia."
     ],
-      "features": [
+    "features": [
       "Motor de corriente alterna de 4 HP para uso comercial intensivo",
       "Pantalla LED de fácil lectura con métricas de entrenamiento",
       "Amplia superficie de carrera con sistema de amortiguación",
       "Ajuste electrónico de velocidad e inclinación"
     ],
     "specifications": {
-      "Modelo": "RCT-900M",
-      dimensiones: "2170 x 930 x 1650 mm",
+      "modelo": "RCT-900M",
+      "dimensiones": "2170 x 930 x 1650 mm",
       "peso neto (N.W.)": "230 kg",
       "peso bruto (W.G.)": "260 kg",
-      "músculo trabajado": "Cardiovascular, Piernas (Cuádriceps, Isquiotibiales, Glúteos)",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cardiovascular, Piernas (Cuádriceps, Isquiotibiales, Glúteos)"
     }
   },
   {
     "id": 187,
     "name": "RE-6600R Recumbent Bike",
     "primaryCategory": "Cardio",
-    "subCategories": ["Piernas"],
+    "subCategories": ["Piernas", "Cardio"],
     "image": "/cardio/RE-6600R Recumbent Bike.png",
     "alt": "RE-6600R Recumbent Bike",
-    "description": "",
+    "description": [
+      "RE-6600R Recumbent Bike. ",
+      "",
+      ""
+    ],
     "features": [
       "Bicicleta reclinada para un ejercicio de bajo impacto",
       "Asiento ergonómico con respaldo para soporte lumbar",
@@ -4750,22 +4903,25 @@ export const allProducts = [
       "Múltiples niveles de resistencia magnética"
     ],
     "specifications": {
-      dimensiones: "1520 x 585 x 1130 mm",
+      "modelo": "RE-6600R",
+      "dimensiones": "1520 x 585 x 1130 mm",
       "peso neto (N.W.)": "89 kg",
       "peso bruto (W.G.)": "92 kg",
-      "músculo trabajado": "Cardiovascular, Piernas (bajo impacto)",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cardiovascular, Piernas (bajo impacto)"
     }
   },
   {
     "id": 188,
     "name": "RE-6600U Upright Bike",
     "primaryCategory": "Cardio",
-    "subCategories": ["Piernas"],
+    "subCategories": ["Piernas", "Cardio"],
     "image": "/cardio/RE-6600U Upright Bike.png",
     "alt": "RE-6600U Upright Bike",
-    "description": "",
+    "description": [
+      "RE-6600U Upright Bike. ",
+      "",
+      ""
+    ],
     "features": [
       "Bicicleta estática vertical para una posición de ciclismo tradicional",
       "Asiento y manillar ajustables (altura y profundidad)",
@@ -4773,22 +4929,25 @@ export const allProducts = [
       "Consola con programas de entrenamiento preestablecidos"
     ],
     "specifications": {
-      dimensiones: "1120 x 580 x 1460 mm",
+      "modelo": "RE-6600U",
+      "dimensiones": "1120 x 580 x 1460 mm",
       "peso neto (N.W.)": "69 kg",
       "peso bruto (W.G.)": "85 kg",
-      "músculo trabajado": "Cardiovascular, Piernas, Glúteos",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cardiovascular, Piernas, Glúteos"
     }
   },
   {
     "id": 189,
     "name": "RS-260 Spinning Bike",
     "primaryCategory": "Cardio",
-    "subCategories": ["Piernas"],
+    "subCategories": ["Piernas", "Cardio"],
     "image": "/cardio/RS-260 Spinning Bike.png",
     "alt": "RS-260 Spinning Bike",
-    "description": "",
+    "description": [
+      "RS-260 Spinning Bike. ",
+      "",
+      ""
+    ],
     "features": [
       "Bicicleta de spinning para entrenamiento de alta intensidad",
       "Volante de inercia pesado para un pedaleo suave y constante",
@@ -4796,22 +4955,25 @@ export const allProducts = [
       "Manillar y sillín con micro-ajustes para una ergonomía perfecta"
     ],
     "specifications": {
-      dimensiones: "1145 x 630 x 970 mm",
+      "modelo": "RS-260",
+      "dimensiones": "1145 x 630 x 970 mm",
       "peso neto (N.W.)": "58 kg",
       "peso bruto (W.G.)": "60 kg",
-      "músculo trabajado": "Cardiovascular de alta intensidad, Piernas, Glúteos",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cardiovascular de alta intensidad, Piernas, Glúteos"
     }
   },
   {
     "id": 190,
     "name": "RS-800 Stair Mill",
     "primaryCategory": "Cardio",
-    "subCategories": ["Piernas", "Glúteos"],
+    "subCategories": ["Piernas", "Glúteos", "Cardio"],
     "image": "/cardio/RS-800 Stair Mill.png",
     "alt": "RS-800 Stair Mill",
-    "description": "",
+    "description": [
+      "RS-800 Stair Mill. ",
+      "",
+      ""
+    ],
     "features": [
       "Simulador de escaleras con escalones giratorios",
       "Ejercicio cardiovascular de alta intensidad y bajo impacto",
@@ -4819,22 +4981,25 @@ export const allProducts = [
       "Panel de control con diversos programas de entrenamiento"
     ],
     "specifications": {
-      dimensiones: "1570 x 760 x 2270 mm",
+      "modelo": "RS-800",
+      "dimensiones": "1570 x 760 x 2270 mm",
       "peso neto (N.W.)": "260 kg",
       "peso bruto (W.G.)": "300 kg",
-      "músculo trabajado": "Cardiovascular, Glúteos, Cuádriceps, Pantorrillas",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cardiovascular, Glúteos, Cuádriceps, Pantorrillas"
     }
   },
   {
     "id": 191,
     "name": "RS-6600E Elliptical",
     "primaryCategory": "Cardio",
-    "subCategories": ["Piernas", "Glúteos", "Bíceps", "Tríceps"],
+    "subCategories": ["Piernas", "Glúteos", "Bíceps", "Tríceps", "Cardio"],
     "image": "/cardio/RS-6600E Elliptical.png",
     "alt": "RS-6600E Elliptical",
-    "description": "",
+    "description": [
+      "RS-6600E Elliptical. ",
+      "",
+      ""
+    ],
     "features": [
       "Máquina elíptica para un entrenamiento de cuerpo completo",
       "Manillares móviles para trabajar el tren superior",
@@ -4842,22 +5007,25 @@ export const allProducts = [
       "Niveles de resistencia ajustables y programas de entrenamiento"
     ],
     "specifications": {
-      dimensiones: "2130 x 670 x 1780 mm",
+      "modelo": "RS-6600E",
+      "dimensiones": "2130 x 670 x 1780 mm",
       "peso neto (N.W.)": "100 kg",
       "peso bruto (W.G.)": "120 kg",
-      "músculo trabajado": "Cardiovascular (Cuerpo completo), Piernas, Glúteos, Brazos",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cardiovascular (Cuerpo completo), Piernas, Glúteos, Brazos"
     }
   },
   {
     "id": 192,
     "name": "RTC-900A Commercial Treadmill Touch Screen",
     "primaryCategory": "Cardio",
-    "subCategories": ["Piernas"],
+    "subCategories": ["Piernas", "Cardio"],
     "image": "/cardio/RTC-900A Commercial Treadmill Touch Screen.png",
     "alt": "RTC-900A Commercial Treadmill Touch Screen",
-    "description": "",
+    "description": [
+      "RTC-900A Commercial Treadmill Touch Screen. ",
+      "",
+      ""
+    ],
     "features": [
       "Caminadora comercial de alta gama con pantalla táctil",
       "Consola interactiva con aplicaciones, internet y recorridos virtuales",
@@ -4865,15 +5033,13 @@ export const allProducts = [
       "Sistema de inclinación y declinación para simular terrenos variados"
     ],
     "specifications": {
-      dimensiones: "2170 x 930 x 1650 mm",
+      "modelo": "RTC-900A",
+      "dimensiones": "2170 x 930 x 1650 mm",
       "peso neto (N.W.)": "230 kg",
       "peso bruto (W.G.)": "260 kg",
-      "músculo trabajado": "Cardiovascular, Piernas (Cuádriceps, Isquiotibiales, Glúteos)",
-      "color": "",
-      "uso": "Profesional / Gimnasio"
+      "músculo trabajado": "Cardiovascular, Piernas (Cuádriceps, Isquiotibiales, Glúteos)"
     }
   }
-
 
 ];
 export const primaryCategories = [
