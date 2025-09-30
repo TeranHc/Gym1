@@ -79,7 +79,7 @@ export default function WorldMapPage() {
 
   return (
     <div className="bg-gray-100 min-h-screen text-gray-800">
-      <section className="bg-white text-gray-800 py-12 text-center">
+      <section className="bg-gray-700 text-gray-800 py-12 text-center">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
             Nuestra <span className="text-red-500">Red Global</span>
