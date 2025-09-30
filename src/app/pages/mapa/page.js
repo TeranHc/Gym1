@@ -166,4 +166,5 @@ export default function WorldMapPage() {
       )}
     </div>
   );
+  
 }
