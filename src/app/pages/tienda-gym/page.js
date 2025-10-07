@@ -130,7 +130,7 @@ const CategoryHeader = ({ category }) => {
     return (
       <div 
         className="relative w-full bg-black shadow-lg mb-6 overflow-hidden 
-                   h-36 sm:h-48 md:h-64 lg:h-80" // CAMBIO: Altura mucho más corta en móvil
+                   h-36 sm:h-48 md:h-55 lg:h-65" // CAMBIO: Altura mucho más corta en móvil
       >
         
         {/* Contenedor de las imágenes (sin cambios) */}
