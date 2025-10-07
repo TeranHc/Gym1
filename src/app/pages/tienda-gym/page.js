@@ -5,6 +5,114 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { allProducts, primaryCategories, subCategories } from './products';
 import Link from 'next/link';
 
+// --- CAMBIO 1: Añadimos las imágenes y un pre-título para la serie LD ---
+const categoryHeaders = {
+  'Todos': { title: 'Todos los Productos', description: 'Equipa tu gimnasio con nuestras máquinas de alta calidad y accesorios profesionales.' },
+  'LD': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'LD SERIES', 
+    images: [
+      '/inicioLD/1.jpg',
+      '/inicioLD/2.jpg',
+      '/inicioLD/3.jpg',
+      '/inicioLD/4.jpg',
+      '/inicioLD/5.jpg',
+    ] 
+  },
+  'M2': { title: 'Serie M2', description: 'Explora la biomecánica avanzada de la serie M2.' },
+  'M3': { title: 'Serie M3', description: 'La serie M3: diseño innovador para resultados superiores.' },
+  'M7': { title: 'Serie M7', description: 'Rendimiento de élite con la robusta serie M7.' },
+  'RS': { title: 'Serie RS', description: 'Soluciones de fuerza para todos los niveles.' },
+  'FM': { title: 'Serie FM', description: 'Funcionalidad y versatilidad en la serie FM.' },
+  'FW': { title: 'Serie FW', description: 'Equipos de peso libre diseñados para durar.' },
+  'PF': { title: 'Serie PF', description: 'Lleva tu entrenamiento al siguiente nivel con la línea PF.' },
+  'Cardio': { title: 'Equipos de Cardio', description: 'Maximiza tu resistencia con nuestra selección de cardio.' },
+};
+
+// --- CAMBIO 2: Modificamos el componente Header para renderizar el banner con imágenes ---
+
+const CategoryHeader = ({ category }) => {
+  const headerContent = categoryHeaders[category] || categoryHeaders['Todos'];
+
+  if (headerContent.images && headerContent.images.length > 0) {
+    const diagonalStripeWidth = 90; // ancho de la franja diagonal
+
+    return (
+      <div className="relative w-full h-60 md:h-72 lg:h-70 bg-black shadow-lg mb-6 overflow-hidden">
+        {/* Contenedor de las imágenes */}
+        <div className="absolute inset-0 flex items-center">
+          {headerContent.images.map((imgSrc, index) => (
+            <div 
+              key={index} 
+              className="relative h-full flex-1 overflow-hidden" 
+              style={{
+                marginLeft: index > 0 ? `-${diagonalStripeWidth}px` : '0',
+                clipPath: index > 0 
+                  ? `polygon(${diagonalStripeWidth}px 0, 100% 0, 100% 100%, 0% 100%)` 
+                  : 'none'
+              }}
+            >
+              {/* Imagen */}
+              <img 
+                src={imgSrc} 
+                alt={`${headerContent.title} imagen ${index + 1}`} 
+                className="w-full h-full object-cover"
+              />
+
+              {/* Línea negra diagonal de separación */}
+              {index > 0 && (
+                <div 
+                  className="absolute top-0 left-0 h-full z-20"
+                  style={{
+                    width: '10px',                  // grosor de la línea
+                    backgroundColor: 'black',
+                    transform: `skewX(-18deg)`,    // inclinación diagonal
+                    transformOrigin: 'top left',
+                    left: `${diagonalStripeWidth - 2}px` // posición exacta
+                  }}
+                ></div>
+              )}
+            </div>
+          ))}
+        </div>
+        
+        {/* Panel de texto superpuesto */}
+        <div 
+          className="absolute inset-y-0 left-0 w-full md:w-[35%] lg:w-[28%] bg-black flex items-center justify-center p-4 z-10"
+          style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' }}
+        >
+          <div className="text-center md:pr-6 lg:pr-10">
+            {headerContent.preTitle && (
+              <p className="text-gray-300 font-light tracking-widest text-xs md:text-sm lg:text-base">
+                {headerContent.preTitle}
+              </p>
+            )}
+            <h1 className="text-white font-black text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none mt-1">
+              {headerContent.title}
+            </h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+
+
+  // Fallback para categorías sin imágenes (sin cambios)
+  return (
+    <div className="relative overflow-hidden bg-white shadow-sm mb-6">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 "></div>
+      <div className="relative max-w-7xl mx-auto px-4 py-8 text-center">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
+            {headerContent.title}
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {headerContent.description}
+          </p>
+      </div>
+    </div>
+  );
+};
 // Componente interno para poder usar hooks de Next.js
 function TiendaGymContent() {
   const router = useRouter();
@@ -27,7 +135,6 @@ function TiendaGymContent() {
     if (categoryFromUrl && primaryCategories.includes(categoryFromUrl)) {
       setSelectedPrimaryCategory(categoryFromUrl);
     } else {
-      // Si no hay categoría en la URL, establece el filtro a "Todos"
       setSelectedPrimaryCategory('Todos');
     }
   }, [searchParams]);
@@ -50,21 +157,15 @@ function TiendaGymContent() {
         const lowercasedFilter = searchTerm.toLowerCase();
         
         filtered = filtered.filter(product => {
-          // Búsqueda en el nombre (sin cambios)
           const nameMatch = product.name && product.name.toLowerCase().includes(lowercasedFilter);
-
-          // Búsqueda en la descripción (lógica nueva y segura)
           let descriptionMatch = false;
           if (product.description) {
             if (Array.isArray(product.description)) {
-              // Si es un array, junta los párrafos y luego busca
               descriptionMatch = product.description.join(' ').toLowerCase().includes(lowercasedFilter);
             } else if (typeof product.description === 'string') {
-              // Si es un texto, busca como antes
               descriptionMatch = product.description.toLowerCase().includes(lowercasedFilter);
             }
           }
-          
           return nameMatch || descriptionMatch;
         });
       }
@@ -211,13 +312,9 @@ function TiendaGymContent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="relative overflow-hidden bg-white shadow-sm mb-6">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 "></div>
-        <div className="relative max-w-7xl mx-auto px-4 py-8 text-center">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">Productos</h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Equipa tu gimnasio con nuestras máquinas de alta calidad y accesorios profesionales</p>
-        </div>
-      </div>
+      
+      {/* --- CAMBIO 3: Usamos el nuevo componente dinámico aquí --- */}
+      <CategoryHeader category={selectedPrimaryCategory} />
       
       <div className="max-w-7xl mx-auto px-4 mb-6">
         <nav className="flex items-center space-x-2 text-sm text-gray-600">
@@ -255,7 +352,7 @@ function TiendaGymContent() {
 
           {isSidebarOpen && (
             <>
-              <div className="lg:hidden fixed inset-0 bg-opacity-50 z-40" onClick={() => setIsSidebarOpen(false)}></div>
+              <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsSidebarOpen(false)}></div>
               <div className="lg:hidden fixed right-0 top-0 h-full w-96 max-w-[90vw] bg-white shadow-xl z-50 overflow-y-auto">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
@@ -298,14 +395,13 @@ function TiendaGymContent() {
                       <div className="p-6 flex-1 flex flex-col">
                         <div>
                           <h3 className={`font-bold text-gray-900 mb-2 text-sm line-clamp-2 group-hover:text-red-600 transition-colors ${viewMode === 'grid' ? 'text-center h-12 flex items-center justify-center' : ''}`}>{product.name || 'Producto sin nombre'}</h3>
-                          {viewMode === 'list' && <p className="text-gray-600 text-sm mb-4 line-clamp-3">{product.description || 'Sin descripción disponible.'}</p>}
+                          {viewMode === 'list' && <p className="text-gray-600 text-sm mb-4 line-clamp-3">{Array.isArray(product.description) ? product.description[0] : product.description || 'Sin descripción disponible.'}</p>}
                           <div className={`mb-3 flex flex-wrap gap-1 ${viewMode === 'grid' ? 'justify-center' : 'justify-start'}`}>{product.subCategories && product.subCategories.map(sc => (<span key={sc} className="bg-gray-200 text-gray-700 px-2 py-1 text-xs font-semibold rounded-full">{sc}</span>))}</div>
                         </div>
                         <div className={`flex items-center gap-4 ${viewMode === 'list' ? 'justify-end' : 'justify-end'} ${viewMode === 'grid' ? 'mt-auto' : 'mt-2'}`}>
                            <Link 
                               href="/pages/horarios" 
                               onClick={(e) => e.stopPropagation()}
-                              // <-- CAMBIO: Se aplica ancho condicional al botón -->
                               className={`bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg text-sm text-center ${viewMode === 'grid' ? 'w-full' : 'w-auto'}`}
                             >
                               Contáctanos
