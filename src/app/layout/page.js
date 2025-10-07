@@ -4,6 +4,40 @@ import { allProducts } from '../pages/tienda-gym/products';
 import Link from "next/link";
 import Image from 'next/image';
 
+// --- NUEVO: Datos para las tarjetas de gamas de productos ---
+const gamasDeProductos = [
+  {
+    title: "PIN LOAD SERIES",
+    description: "Conoce las diferentes gamas en peso integrado. Calidad inigualable, ergonomía y biomecánica, durabilidad y diseño.",
+    details: "M2, M3 y M7 Series Peso Integrado",
+    images: [
+      { src: "/maquinas/M2-1001 Chest Press.png", alt: "Máquina Pin Load 1", className: "w-1/3" },
+      { src: "/m3/M3-1008 Abdominal Crunch.png", alt: "Máquina Pin Load 2", className: "w-1/3" },
+      { src: "/m7/M7-2005 Seated Leg Press.png", alt: "Máquina Pin Load 3", className: "w-1/3" },
+    ]
+  },
+  {
+    title: "PLATE LOAD SERIES",
+    description: "Conoce las diferentes gamas en peso integrado. Calidad inigualable, ergonomía y biomecánica, durabilidad y diseño.",
+    details: "",
+    images: [
+      { src: "/inicioM7/3.jpg", alt: "Máquina Plate Load 1", className: "w-1/2" },
+      { src: "/galeriafoto/17g.jpg", alt: "Máquina Plate Load 2", className: "w-1/2" },
+    ]
+  },
+    {
+    title: "PLATE LOAD PROFESIONAL",
+    description: "Conoce las diferentes gamas en peso integrado. Calidad inigualable, ergonomía y biomecánica, durabilidad y diseño.",
+    details: "",
+    images: [
+      { src: "/iniciold/1.jpg", alt: "Máquina Profesional 1", className: "w-1/3" },
+      { src: "/inicioRS/5.jpg", alt: "Máquina Profesional 2", className: "w-1/3" },
+      { src: "/galeriafoto/18g.jpg", alt: "Máquina Profesional 3", className: "w-1/3" },
+    ]
+  },
+];
+
+
 export default function EalLeaderHomePage() {
   const [currentSlideDesktop, setCurrentSlideDesktop] = useState(0);
   const [currentSlideMobile, setCurrentSlideMobile] = useState(0);
@@ -50,7 +84,6 @@ export default function EalLeaderHomePage() {
           />
         </div>
         <div className="p-4 flex-1 flex flex-col">
-          {/* <-- CAMBIO: Ahora muestra las subcategorías en lugar de la categoría principal --> */}
           <div className="mb-2 flex flex-wrap gap-1 justify-center min-h-[22px]">
             {product.subCategories && product.subCategories.map(sc => (
               <span key={sc} className="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">
@@ -115,7 +148,7 @@ export default function EalLeaderHomePage() {
                 <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Productos</div>
               </div>
               <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-                <div className="text-xl md:text-3xl font-black text-white mb-1">5</div>
+                <div className="text-xl md:text-3xl font-black text-white mb-1">2</div>
                 <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Años Garantía</div>
               </div>
               <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
@@ -127,54 +160,33 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
 
-      {/* <-- SECCIÓN RESTAURADA: Equipamiento Premium --> */}
-      <section className="py-8 md:py-12 bg-gray-100 text-black">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="relative">
-              <div className="rounded-2xl md:rounded-3xl overflow-hidden h-64 md:h-96">
-                <Image  
-                  src="https://www.hola.com/horizon/landscape/8f63637f78d5-maquinasgimnasio-t.jpg?im=Resize=(640),type=downsize" 
-                  alt="Equipamiento profesional de gimnasio"
-                  fill
-                  className="w-full h-full object-cover"
-                />
+      {/* --- NUEVA SECCIÓN: N nuestras Gamas de Productos --- */}
+      <section className="py-16 md:py-24 bg-white text-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          {gamasDeProductos.map((gama, index) => (
+            <div key={gama.title} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              {/* Columna de Texto */}
+              <div className={`space-y-4 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{gama.title}</h2>
+                <p className="text-gray-600 text-base md:text-lg">{gama.description}</p>
+                {gama.details && <p className="text-gray-500 text-sm font-medium">{gama.details}</p>}
+              </div>
+              {/* Columna de Imágenes */}
+              <div className={`flex gap-2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
+                {gama.images.map((image, imgIndex) => (
+                  <div key={imgIndex} className={`${image.className}`}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={400}
+                      height={400}
+                      className="object-cover rounded-lg shadow-md"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="space-y-6 md:space-y-8">
-              <div className="text-sm font-bold text-red-500 tracking-wider uppercase">
-                Equipamiento Premium
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight">
-                La mejor calidad en
-                <br />
-                equipamiento fitness.
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600">
-                Ofrecemos equipamiento de las mejores marcas internacionales con garantía extendida y servicio técnico especializado.
-              </p>
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold mb-2">Máquinas cardiovasculares de última tecnología.</h3>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold mb-2">Equipos de fuerza y musculación profesional.</h3>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold mb-2">Accesorios y equipos de entrenamiento funcional.</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -309,50 +321,6 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
 
-      <section className="py-8 md:py-12 bg-neutral-700" id="quienes-somos">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-2">
-              <div className="rounded-2xl md:rounded-3xl overflow-hidden h-64 md:h-96 relative shadow-2xl">
-                <Image  
-                  src="https://www.gymtek.com.ec/wp-content/uploads/2019/08/como-elegir-equipos-de-gimnasio-gymtek.jpg" 
-                  alt="Gimnasio con equipamiento profesional"
-                  fill  
-                  className="object-cover" 
-                />
-              </div>
-            </div>
-            <div className="lg:col-span-3 space-y-4 md:space-y-6">
-              <div className="text-xs font-bold text-red-500 tracking-wider uppercase">
-                Quiénes Somos
-              </div>
-              <h2 className="text-2xl md:text-3xl font-black leading-snug text-white">
-                Pasión por el <span className="text-red-500">Fitness</span>,<br />
-                compromiso con tu gimnasio.
-              </h2>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                Somos una empresa dedicada a la venta de máquinas y equipamiento profesional
-                para gimnasios. Nuestro objetivo es ayudarte a crear espacios de entrenamiento 
-                modernos, seguros y funcionales, con productos de la más alta calidad.
-              </p>
-              <ul className="space-y-3 pt-2">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-sm text-white font-semibold">+10 años de experiencia en el sector fitness.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-sm text-white font-semibold">Equipamiento importado y nacional de alta durabilidad.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-sm text-white font-semibold">Asesoría personalizada para gimnasios y deportistas.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="py-12 bg-gray-50 text-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
