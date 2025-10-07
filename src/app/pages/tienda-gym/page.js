@@ -19,14 +19,104 @@ const categoryHeaders = {
       '/inicioLD/5.jpg',
     ] 
   },
+/*  'M2': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'M2 SERIES', 
+    images: [
+      '/inicioLD/1.jpg',
+      '/inicioLD/2.jpg',
+      '/inicioLD/3.jpg',
+      '/inicioLD/4.jpg',
+      '/inicioLD/5.jpg',
+    ] 
+  },*/
+
+  'M3': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'M3 SERIES', 
+    images: [
+      '/inicioM3/1.jpg',
+      '/inicioM3/3.jpg',
+      '/inicioM3/6.png',
+      '/inicioM3/1.jpg',
+      '/inicioM3/2.jpg',
+    ] 
+  },
+  'M7': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'M7 SERIES', 
+    images: [
+      '/inicioM7/1.jpg',
+      '/inicioM7/2.jpg',
+      '/inicioM7/1.jpg',
+      '/inicioM7/3.jpg',
+    ] 
+  },
+  'RS': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'RS SERIES', 
+    images: [
+      '/inicioRS/1.jpg',
+      '/inicioRS/8.jpg',
+      '/inicioRS/1.jpg',
+      '/inicioRS/4.jpg',
+      '/inicioRS/5.jpg',
+    ] 
+  },
+  /*
+  'FM': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'LD SERIES', 
+    images: [
+      '/inicioLD/1.jpg',
+      '/inicioLD/2.jpg',
+      '/inicioLD/3.jpg',
+      '/inicioLD/4.jpg',
+      '/inicioLD/5.jpg',
+    ] 
+  },
+  'FW': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'LD SERIES', 
+    images: [
+      '/inicioLD/1.jpg',
+      '/inicioLD/2.jpg',
+      '/inicioLD/3.jpg',
+      '/inicioLD/4.jpg',
+      '/inicioLD/5.jpg',
+    ] 
+  },
+  */
+  'PF': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'PF SERIES', 
+    images: [
+      '/inicioPF/1.jpg',
+      '/inicioPF/2.png',
+      '/inicioPF/4.png',
+      '/inicioPF/1.jpg',
+      '/inicioPF/5.png',
+    ] 
+  },
+  'Cardio': { 
+    preTitle: 'THE GAME-CHANGING',
+    title: 'CARDIO SERIES', 
+    images: [
+      '/inicioCardio/1.jpg',
+      '/inicioCardio/2.jpg',
+      '/inicioCardio/1.jpg',
+      '/inicioCardio/3.jpg',
+      '/inicioCardio/4.jpg',
+    ] 
+  },
   'M2': { title: 'Serie M2', description: 'Explora la biomecánica avanzada de la serie M2.' },
-  'M3': { title: 'Serie M3', description: 'La serie M3: diseño innovador para resultados superiores.' },
-  'M7': { title: 'Serie M7', description: 'Rendimiento de élite con la robusta serie M7.' },
-  'RS': { title: 'Serie RS', description: 'Soluciones de fuerza para todos los niveles.' },
+//  'M3': { title: 'Serie M3', description: 'La serie M3: diseño innovador para resultados superiores.' },
+//  'M7': { title: 'Serie M7', description: 'Rendimiento de élite con la robusta serie M7.' },
+//  'RS': { title: 'Serie RS', description: 'Soluciones de fuerza para todos los niveles.' },
   'FM': { title: 'Serie FM', description: 'Funcionalidad y versatilidad en la serie FM.' },
   'FW': { title: 'Serie FW', description: 'Equipos de peso libre diseñados para durar.' },
-  'PF': { title: 'Serie PF', description: 'Lleva tu entrenamiento al siguiente nivel con la línea PF.' },
-  'Cardio': { title: 'Equipos de Cardio', description: 'Maximiza tu resistencia con nuestra selección de cardio.' },
+//  'PF': { title: 'Serie PF', description: 'Lleva tu entrenamiento al siguiente nivel con la línea PF.' },
+//  'Cardio': { title: 'Equipos de Cardio', description: 'Maximiza tu resistencia con nuestra selección de cardio.' },
 };
 
 // --- CAMBIO 2: Modificamos el componente Header para renderizar el banner con imágenes ---
@@ -35,10 +125,10 @@ const CategoryHeader = ({ category }) => {
   const headerContent = categoryHeaders[category] || categoryHeaders['Todos'];
 
   if (headerContent.images && headerContent.images.length > 0) {
-    const diagonalStripeWidth = 90; // ancho de la franja diagonal
+    const diagonalStripeWidth = 0; // ancho de la franja diagonal
 
     return (
-      <div className="relative w-full h-60 md:h-72 lg:h-70 bg-black shadow-lg mb-6 overflow-hidden">
+      <div className="relative w-full h-60 md:h-72 lg:h-65 bg-black shadow-lg mb-6 overflow-hidden">
         {/* Contenedor de las imágenes */}
         <div className="absolute inset-0 flex items-center">
           {headerContent.images.map((imgSrc, index) => (
@@ -64,9 +154,9 @@ const CategoryHeader = ({ category }) => {
                 <div 
                   className="absolute top-0 left-0 h-full z-20"
                   style={{
-                    width: '10px',                  // grosor de la línea
+                    width: '8px',                  // grosor de la línea
                     backgroundColor: 'black',
-                    transform: `skewX(-18deg)`,    // inclinación diagonal
+                    transform: `skewX(-0deg)`,    // inclinación diagonal
                     transformOrigin: 'top left',
                     left: `${diagonalStripeWidth - 2}px` // posición exacta
                   }}
