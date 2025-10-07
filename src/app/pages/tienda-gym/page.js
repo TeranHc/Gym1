@@ -120,16 +120,20 @@ const categoryHeaders = {
 };
 
 // --- CAMBIO 2: Modificamos el componente Header para renderizar el banner con imágenes ---
-
 const CategoryHeader = ({ category }) => {
   const headerContent = categoryHeaders[category] || categoryHeaders['Todos'];
 
   if (headerContent.images && headerContent.images.length > 0) {
-    const diagonalStripeWidth = 0; // ancho de la franja diagonal
+    // Un ancho de franja pequeño (4px) se ve bien en todas las pantallas.
+    const diagonalStripeWidth = 4; 
 
     return (
-      <div className="relative w-full h-60 md:h-72 lg:h-65 bg-black shadow-lg mb-6 overflow-hidden">
-        {/* Contenedor de las imágenes */}
+      <div 
+        className="relative w-full bg-black shadow-lg mb-6 overflow-hidden 
+                   h-36 sm:h-48 md:h-64 lg:h-80" // CAMBIO: Altura mucho más corta en móvil
+      >
+        
+        {/* Contenedor de las imágenes (sin cambios) */}
         <div className="absolute inset-0 flex items-center">
           {headerContent.images.map((imgSrc, index) => (
             <div 
@@ -142,42 +146,31 @@ const CategoryHeader = ({ category }) => {
                   : 'none'
               }}
             >
-              {/* Imagen */}
               <img 
                 src={imgSrc} 
                 alt={`${headerContent.title} imagen ${index + 1}`} 
                 className="w-full h-full object-cover"
               />
-
-              {/* Línea negra diagonal de separación */}
-              {index > 0 && (
-                <div 
-                  className="absolute top-0 left-0 h-full z-20"
-                  style={{
-                    width: '8px',                  // grosor de la línea
-                    backgroundColor: 'black',
-                    transform: `skewX(-0deg)`,    // inclinación diagonal
-                    transformOrigin: 'top left',
-                    left: `${diagonalStripeWidth - 2}px` // posición exacta
-                  }}
-                ></div>
-              )}
             </div>
           ))}
         </div>
         
         {/* Panel de texto superpuesto */}
         <div 
-          className="absolute inset-y-0 left-0 w-full md:w-[35%] lg:w-[28%] bg-black flex items-center justify-center p-4 z-10"
+          className="absolute inset-y-0 left-0 bg-black flex items-center justify-center z-10 
+                     p-2 sm:p-3 md:p-4 
+                     w-[40%] sm:w-[38%] md:w-[35%] lg:w-[28%]" // CAMBIO: Panel más estrecho en móvil
           style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' }}
         >
-          <div className="text-center md:pr-6 lg:pr-10">
+          <div className="text-center md:pr-4 lg:pr-10">
             {headerContent.preTitle && (
-              <p className="text-gray-300 font-light tracking-widest text-xs md:text-sm lg:text-base">
+              <p className="text-gray-300 font-light tracking-widest
+                          text-[8px] sm:text-[10px] md:text-xs"> {/* CAMBIO: Texto más pequeño */}
                 {headerContent.preTitle}
               </p>
             )}
-            <h1 className="text-white font-black text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none mt-1">
+            <h1 className="text-white font-black leading-none mt-1
+                         text-lg sm:text-2xl md:text-4xl lg:text-5xl"> {/* CAMBIO: Título más pequeño */}
               {headerContent.title}
             </h1>
           </div>
@@ -186,12 +179,9 @@ const CategoryHeader = ({ category }) => {
     );
   }
 
-
-
   // Fallback para categorías sin imágenes (sin cambios)
   return (
     <div className="relative overflow-hidden bg-white shadow-sm mb-6">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 "></div>
       <div className="relative max-w-7xl mx-auto px-4 py-8 text-center">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
             {headerContent.title}
@@ -442,7 +432,7 @@ function TiendaGymContent() {
 
           {isSidebarOpen && (
             <>
-              <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsSidebarOpen(false)}></div>
+              <div className="lg:hidden fixed inset-0 bg-opacity-50 z-40" onClick={() => setIsSidebarOpen(false)}></div>
               <div className="lg:hidden fixed right-0 top-0 h-full w-96 max-w-[90vw] bg-white shadow-xl z-50 overflow-y-auto">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
