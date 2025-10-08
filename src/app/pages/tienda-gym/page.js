@@ -7,8 +7,18 @@ import Link from 'next/link';
 
 // --- CAMBIO 1: Añadimos las imágenes y un pre-título para la serie LD ---
 const categoryHeaders = {
-  'Todos': { title: 'Todos los Productos', description: 'Equipa tu gimnasio con nuestras máquinas de alta calidad y accesorios profesionales.' },
-  'LD': { 
+    'Todos': { 
+        preTitle: 'THE GAME-CHANGING',
+        title: 'Nuestros productos', 
+        images: [
+          '/inicioLD/1.jpg',
+      '/inicioM7/1.jpg',
+      '/inicioRS/1.jpg',
+          '/inicioLD/4.jpg',
+      '/inicioCardio/3.jpg',
+        ] 
+      },
+    'LD': { 
     preTitle: 'THE GAME-CHANGING',
     title: 'LD SERIES', 
     images: [
