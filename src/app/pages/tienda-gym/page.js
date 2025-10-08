@@ -29,17 +29,17 @@ const categoryHeaders = {
       '/inicioLD/5.jpg',
     ] 
   },
-/*  'M2': { 
+  'M2': { 
     preTitle: 'THE GAME-CHANGING',
     title: 'M2 SERIES', 
     images: [
-      '/inicioLD/1.jpg',
-      '/inicioLD/2.jpg',
-      '/inicioLD/3.jpg',
-      '/inicioLD/4.jpg',
-      '/inicioLD/5.jpg',
+      '/inicioM2/1.jpg',
+      '/inicioM2/1.png',
+      '/inicioM2/2.jpg',
+      '/inicioM2/3.jpg',
+      '/inicioM2/4.jpg',
     ] 
-  },*/
+  },
 
   'M3': { 
     preTitle: 'THE GAME-CHANGING',
@@ -73,30 +73,30 @@ const categoryHeaders = {
       '/inicioRS/5.jpg',
     ] 
   },
-  /*
+  
   'FM': { 
     preTitle: 'THE GAME-CHANGING',
-    title: 'LD SERIES', 
+    title: 'FM SERIES', 
     images: [
-      '/inicioLD/1.jpg',
-      '/inicioLD/2.jpg',
-      '/inicioLD/3.jpg',
-      '/inicioLD/4.jpg',
-      '/inicioLD/5.jpg',
+      '/inicioFM/1.jpg',
+      '/inicioFM/5.png',
+      '/inicioFM/2.jpg',
+      '/inicioFM/1.jpg',
+      '/inicioFM/4.png',
     ] 
   },
   'FW': { 
     preTitle: 'THE GAME-CHANGING',
-    title: 'LD SERIES', 
+    title: 'FW SERIES', 
     images: [
-      '/inicioLD/1.jpg',
-      '/inicioLD/2.jpg',
-      '/inicioLD/3.jpg',
-      '/inicioLD/4.jpg',
-      '/inicioLD/5.jpg',
+      '/inicioFW/1.png',
+      '/inicioFW/2.png',
+      '/inicioFW/1.jpg',
+      '/inicioFW/3.jpg',
+      '/inicioFW/4.png',
     ] 
   },
-  */
+  
   'PF': { 
     preTitle: 'THE GAME-CHANGING',
     title: 'PF SERIES', 
@@ -119,12 +119,12 @@ const categoryHeaders = {
       '/inicioCardio/4.jpg',
     ] 
   },
-  'M2': { title: 'Serie M2', description: 'Explora la biomecánica avanzada de la serie M2.' },
+//  'M2': { title: 'Serie M2', description: 'Explora la biomecánica avanzada de la serie M2.' },
 //  'M3': { title: 'Serie M3', description: 'La serie M3: diseño innovador para resultados superiores.' },
 //  'M7': { title: 'Serie M7', description: 'Rendimiento de élite con la robusta serie M7.' },
 //  'RS': { title: 'Serie RS', description: 'Soluciones de fuerza para todos los niveles.' },
-  'FM': { title: 'Serie FM', description: 'Funcionalidad y versatilidad en la serie FM.' },
-  'FW': { title: 'Serie FW', description: 'Equipos de peso libre diseñados para durar.' },
+//  'FM': { title: 'Serie FM', description: 'Funcionalidad y versatilidad en la serie FM.' },
+//  'FW': { title: 'Serie FW', description: 'Equipos de peso libre diseñados para durar.' },
 //  'PF': { title: 'Serie PF', description: 'Lleva tu entrenamiento al siguiente nivel con la línea PF.' },
 //  'Cardio': { title: 'Equipos de Cardio', description: 'Maximiza tu resistencia con nuestra selección de cardio.' },
 };
@@ -156,11 +156,13 @@ const CategoryHeader = ({ category }) => {
                   : 'none'
               }}
             >
-              <img 
-                src={imgSrc} 
-                alt={`${headerContent.title} imagen ${index + 1}`} 
-                className="w-full h-full object-cover"
-              />
+<img 
+  src={imgSrc} 
+  alt={`${headerContent.title} imagen ${index + 1}`} 
+  className="w-full h-full object-cover transform scale-98"
+  style={{ objectPosition: 'center' }}
+/>
+
             </div>
           ))}
         </div>
