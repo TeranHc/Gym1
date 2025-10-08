@@ -58,7 +58,8 @@ const categoryHeaders = {
     images: [
       '/inicioM7/1.jpg',
       '/inicioM7/1.jpg',
-      
+      '/inicioM7/5.jpg',
+
     ] 
   },
   'RS': { 
