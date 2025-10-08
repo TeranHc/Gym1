@@ -1,207 +1,145 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-// --- Datos Actualizados para la Galería ---
+// --- Datos organizados (sin cambios aquí) ---
 const galleryImages = [
-  { 
-    id: 1, 
-    src: "/galeria/instala1.jpg", // <-- CAMBIO
-    alt: "Sucursal favorita", 
-    category: "Instalaciones" 
-  },
-  { 
-    id: 2, 
-    src: "/galeria/instala2.jpg", // <-- CAMBIO
-    alt: "Área de peso libre con racks y barras olímpicas", 
-    category: "Instalaciones" 
-  },
-  { 
-    id: 3, 
-    src: "/galeria/uso1.jpg", // <-- CAMBIO
-    alt: "Hombre utilizando una máquina de press de banca", 
-    category: "Uso de Máquinas" 
-  },
-  { 
-    id: 4, 
-    src: "/galeria/instala3.jpg", // <-- CAMBIO
-    alt: "Vista general de un gimnasio con diversas estaciones de entrenamiento", 
-    category: "Instalaciones" 
-  },
-  { 
-    id: 5, 
-    src: "/galeria/instala4.jpg", // <-- CAMBIO
-    alt: "Zona de entrenamiento funcional con césped artificial y equipo", 
-    category: "Instalaciones" 
-  },
-  { 
-    id: 6, 
-    src: "/galeria/uso2.jpeg", // <-- CAMBIO
-    alt: "Persona ajustando una máquina de ejercicio para usarla", 
-    category: "Uso de Máquinas" 
-  },
-  { 
-    id: 7, 
-    src: "/galeria/mante1.jpg", // <-- CAMBIO
-    alt: "Técnico realizando mantenimiento a una bicicleta de spinning", 
-    category: "Mantenimiento" 
-  },
-  { 
-    id: 8, 
-    src: "/galeria/mante2.jpeg", // <-- CAMBIO
-    alt: "Persona limpiando y desinfectando equipo de gimnasio", 
-    category: "Mantenimiento" 
-  },
-  {   
-    id: 9, 
-    src: "/galeria/mante3.jpg", // <-- CAMBIO
-    alt: "Detalle de una máquina de cardio siendo inspeccionada", 
-    category: "Mantenimiento" 
-  },
-  { 
-    id: 10, 
-    src: "/galeria/uso3.jpg", // <-- CAMBIO
-    alt: "Hombre utilizando una máquina de remo en un gimnasio luminoso", 
-    category: "Uso de Máquinas" 
-  },
+  { id: 'img-1', src: "/galeriafoto/1g.jpg", alt: "Imagen de galería 1", category: "General" },
+  { id: 'img-2', src: "/galeriafoto/2g.jpg", alt: "Imagen de galería 2", category: "General" },
+  { id: 'img-3', src: "/galeriafoto/3g.jpg", alt: "Imagen de galería 3", category: "General" },
+  { id: 'img-4', src: "/galeriafoto/4g.jpg", alt: "Imagen de galería 4", category: "General" },
+  { id: 'img-5', src: "/galeriafoto/5g.jpg", alt: "Imagen de galería 5", category: "General" },
+  { id: 'img-6', src: "/galeriafoto/6g.png", alt: "Imagen de galería 6", category: "General" },
+  { id: 'img-7', src: "/galeriafoto/7g.jpg", alt: "Imagen de galería 7", category: "General" },
+  { id: 'img-8', src: "/galeriafoto/8g.jpg", alt: "Imagen de galería 8", category: "General" },
+  { id: 'img-9', src: "/galeriafoto/9g.jpg", alt: "Imagen de galería 9", category: "General" },
+  { id: 'img-10', src: "/galeriafoto/10g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-11', src: "/galeriafoto/11g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-12', src: "/galeriafoto/12g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-13', src: "/galeriafoto/13g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-14', src: "/galeriafoto/14g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-15', src: "/galeriafoto/15g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-16', src: "/galeriafoto/16g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-17', src: "/galeriafoto/17g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-18', src: "/galeriafoto/18g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-19', src: "/galeriafoto/19g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-20', src: "/galeriafoto/20g.jpg", alt: "Imagen de galería 20", category: "General" },
 ];
 
 const galleryVideos = [
-  { 
-    id: 1, 
-    title: "Tour de un Gimnasio Comercial de Élite", 
-    youtubeId: "UxZbuV_rPs0", // Ejemplo de Tour de gimnasio
-    description: "Un recorrido virtual por las instalaciones de un gimnasio equipado con las últimas máquinas de RealLeader.",
-    category: "Instalaciones"
-  },
-  { 
-    id: 2, 
-    title: "Técnica Correcta: Prensa de Piernas (Leg Press)", 
-    youtubeId: "ao7VCzeACyI", // Ejemplo de técnica de Leg Press
-    description: "Aprende la técnica correcta para maximizar tus entrenamientos de pierna con nuestra Leg Press.",
-    category: "Uso de Máquinas"
-  },
-  { 
-    id: 3, 
-    title: "Cómo Mantener tus Máquinas de Gimnasio en Perfecto Estado", 
-    youtubeId: "8e2iHuGdpsY", // Ejemplo de mantenimiento de equipo (genérico)
-    description: "Consejos sencillos para mantener tu equipo de gimnasio en óptimas condiciones y alargar su vida útil.",
-    category: "Mantenimiento"
-  },
-  { 
-    id: 4, 
-    title: "Entrenamiento de Cuerpo Completo con Cable Crossover", 
-    youtubeId: "VAyGIIa5VBM", // Ejemplo de entrenamiento con Functional Trainer/Cable Crossover
-    description: "Descubre la versatilidad de nuestros sistemas de poleas con esta rutina de cuerpo completo.",
-    category: "Uso de Máquinas"
-  },
+  // Usamos la propiedad 'featured' para identificar los videos horizontales grandes
+  { id: 'vid-uso-1', src: "/galeriavideo/1uso.mp4", title: "Uso Correcto de Equipo", category: "Uso de Máquinas", featured: true },
+  { id: 'vid-uso-2', src: "/galeriavideo/2uso.mp4", title: "Técnica de Máquina", category: "Uso de Máquinas" },
+  { id: 'vid-uso-3', src: "/galeriavideo/3uso.mp4", title: "Guía de Uso", category: "Uso de Máquinas", featured: true },
+  
+  // Videos generales
+  { id: 'vid-demo-1', src: "/galeriavideo/1entrenando.mp4", title: "Demostración de Entrenamiento", category: "Demostración" },
+{ id: 'vid-demo-2', src: "/galeriavideo/1presentacion.mp4", title: "Presentación del Gimnasio", category: "Uso de Máquinas" },
+  { id: 'vid-demo-3', src: "/galeriavideo/2entrenando.mp4", title: "Rutina Avanzada", category: "Demostración" },
+  { id: 'vid-demo-4', src: "/galeriavideo/3entrenando.mp4", title: "Entrenamiento Funcional", category: "Demostración" },
+  { id: 'vid-demo-5', src: "/galeriavideo/4entrenando.mp4", title: "Sesión de Cardio", category: "Demostración" },
+  { id: 'vid-demo-6', src: "/galeriavideo/5entrenando.mp4", title: "Fuerza y Resistencia", category: "Demostración" },
+  { id: 'vid-demo-7', src: "/galeriavideo/6entrenando.mp4", title: "Entrenamiento de Alta Intensidad", category: "Demostración" },
 ];
+
+const allMedia = [
+  ...galleryImages.map(img => ({ ...img, type: 'image' })),
+  ...galleryVideos.map(vid => ({ ...vid, type: 'video' }))
+].sort(() => Math.random() - 0.5); 
 
 
 export default function GalleryPage() {
-  const [filter, setFilter] = useState('all'); // 'all', 'Instalaciones', 'Uso de Máquinas', 'Mantenimiento'
+  const [filter, setFilter] = useState('all');
+  const [media, setMedia] = useState([]);
 
-  const filteredImages = filter === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === filter);
+  useEffect(() => {
+    if (filter === 'all') {
+      setMedia(allMedia);
+    } else {
+      const filtered = allMedia.filter(item => item.category === filter);
+      setMedia(filtered);
+    }
+  }, [filter]);
 
-  const filteredVideos = filter === 'all' 
-    ? galleryVideos 
-    : galleryVideos.filter(vid => vid.category === filter);
+  // --> CAMBIO: Separamos los videos para el diseño personalizado
+  const featuredVideos = media.filter(item => item.type === 'video' && item.featured);
+  const normalVideo = media.find(item => item.type === 'video' && !item.featured);
+
 
   return (
     <div className="bg-white min-h-screen">
-      {/* Encabezado de la página */}
       <section className="bg-gray-100 py-12 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900">Realleader in the World</h1>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            Explora nuestros proyectos, instalaciones de vanguardia y videos demostrativos de uso de equipo.
+            Explora nuestros proyectos y videos demostrativos de uso de equipo.
           </p>
         </div>
       </section>
 
-      {/* Sección de Filtros */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-          <button 
-            onClick={() => setFilter('all')} 
-            className={`py-2 px-5 rounded-full text-sm font-medium transition-all duration-200 ${filter === 'all' ? 'bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-          >
-            Todo
-          </button>
-          <button 
-            onClick={() => setFilter('Instalaciones')} 
-            className={`py-2 px-5 rounded-full text-sm font-medium transition-all duration-200 ${filter === 'Instalaciones' ? 'bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-          >
-            Instalaciones
-          </button>
-          <button 
-            onClick={() => setFilter('Uso de Máquinas')} 
-            className={`py-2 px-5 rounded-full text-sm font-medium transition-all duration-200 ${filter === 'Uso de Máquinas' ? 'bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-          >
-            Uso de Máquinas
-          </button>
-          <button 
-            onClick={() => setFilter('Mantenimiento')} 
-            className={`py-2 px-5 rounded-full text-sm font-medium transition-all duration-200 ${filter === 'Mantenimiento' ? 'bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-          >
-            Mantenimiento
-          </button>
+            <button 
+              onClick={() => setFilter('all')} 
+              className={`py-2 px-5 rounded-full text-sm font-medium transition-all duration-200 ${filter === 'all' ? 'bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}>
+              Todo
+            </button>
+            <button 
+              onClick={() => setFilter('Uso de Máquinas')} 
+              className={`py-2 px-5 rounded-full text-sm font-medium transition-all duration-200 ${filter === 'Uso de Máquinas' ? 'bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}>
+            Nuestras Máquinas
+            </button>
         </div>
       </div>
 
-      {/* Sección de Imágenes */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Nuestros Proyectos en Fotos</h2>
-        {filteredImages.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredImages.map(img => (
-              <div key={img.id} className="relative aspect-video rounded-lg overflow-hidden shadow-lg group">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <p className="text-white text-lg font-semibold">{img.alt}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-center text-gray-500 text-lg">No hay imágenes disponibles para esta categoría.</p>
-        )}
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-12">
+        {media.length > 0 ? (
+          <div>
+            {/* --> CAMBIO: Lógica de renderizado condicional */}
+            {filter === 'Uso de Máquinas' ? (
+// --> VISTA PERSONALIZADA PARA "USO DE MÁQUINAS"
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto">
+  {/* Columna izquierda para videos horizontales */}
+  <div className="md:col-span-2 flex flex-col gap-4">
+    {media.filter(v => v.featured).map(item => (
+      <div key={item.id} className="shadow-lg rounded-lg overflow-hidden">
+        <video className="w-full h-auto" src={item.src} controls playsInline>
+          Tu navegador no soporta la etiqueta de video.
+        </video>
       </div>
+    ))}
+  </div>
+  {/* Columna derecha para videos verticales (ahora acepta varios) */}
+  <div className="md:col-span-1 flex flex-col gap-4">
+    {media.filter(v => !v.featured).map(item => (
+      <div key={item.id} className="shadow-lg rounded-lg overflow-hidden">
+        <video className="w-full h-auto object-cover" src={item.src} controls playsInline>
+          Tu navegador no soporta la etiqueta de video.
+        </video>
+      </div>
+    ))}
+  </div>
+</div>
 
-      {/* Sección de Videos */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Videos Destacados</h2>
-        {filteredVideos.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredVideos.map(video => (
-              <div key={video.id} className="bg-gray-50 rounded-lg shadow-lg overflow-hidden flex flex-col">
-                <div className="relative w-full aspect-video">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="p-4 flex-grow">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{video.title}</h3>
-                  <p className="text-gray-600 text-sm">{video.description}</p>
-                </div>
+            ) : (
+              // --> VISTA GENERAL PARA "TODO" Y OTROS FILTROS
+            <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
+                {media.map(item => (
+                  <div key={item.id} className="break-inside-avoid shadow-lg rounded-lg overflow-hidden group">
+                    {item.type === 'image' ? (
+                       <Image src={item.src} alt={item.alt} width={500} height={500} className="object-cover w-full h-auto"/>
+                    ) : (
+                       <video className="w-full h-auto" src={item.src} autoPlay muted loop playsInline>
+                        Tu navegador no soporta la etiqueta de video.
+                       </video>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         ) : (
-          <p className="text-center text-gray-500 text-lg">No hay videos disponibles para esta categoría.</p>
+          <p className="text-center text-gray-500 text-lg">No hay contenido disponible para esta categoría.</p>
         )}
       </div>
     </div>
