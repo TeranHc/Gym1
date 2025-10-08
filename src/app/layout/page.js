@@ -30,7 +30,7 @@ const gamasDeProductos = [
     description: "Conoce las diferentes gamas en peso integrado. Calidad inigualable, ergonomía y biomecánica, durabilidad y diseño.",
     details: "",
     images: [
-      { src: "/iniciold/1.jpg", alt: "Máquina Profesional 1", className: "w-1/3" },
+      { src: "/inicioLD/1.jpg", alt: "Máquina Profesional 1", className: "w-1/3" },
       { src: "/inicioRS/5.jpg", alt: "Máquina Profesional 2", className: "w-1/3" },
       { src: "/galeriafoto/18g.jpg", alt: "Máquina Profesional 3", className: "w-1/3" },
     ]
