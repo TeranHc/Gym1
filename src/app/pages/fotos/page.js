@@ -52,7 +52,7 @@ const galleryImages = [
     alt: "Persona limpiando y desinfectando equipo de gimnasio", 
     category: "Mantenimiento" 
   },
-  { 
+  {   
     id: 9, 
     src: "/galeria/mante3.jpg", // <-- CAMBIO
     alt: "Detalle de una máquina de cardio siendo inspeccionada", 

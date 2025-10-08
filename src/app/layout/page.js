@@ -160,36 +160,56 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
 
-      {/* --- NUEVA SECCIÓN: N nuestras Gamas de Productos --- */}
-      <section className="py-16 md:py-24 bg-white text-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {gamasDeProductos.map((gama, index) => (
-            <div key={gama.title} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-              {/* Columna de Texto */}
-              <div className={`space-y-4 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{gama.title}</h2>
-                <p className="text-gray-600 text-base md:text-lg">{gama.description}</p>
-                {gama.details && <p className="text-gray-500 text-sm font-medium">{gama.details}</p>}
-              </div>
-              {/* Columna de Imágenes */}
-              <div className={`flex gap-2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
-                {gama.images.map((image, imgIndex) => (
-                  <div key={imgIndex} className={`${image.className}`}>
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={400}
-                      height={400}
-                      className="object-cover rounded-lg shadow-md"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+{/* --- SECCIÓN MEJORADA: Nuestras Gamas de Productos --- */}
+<section className="py-20 md:py-28 bg-slate-50 text-black">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Título principal de la sección */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+        Explora Nuestras Gamas de Productos
+      </h2>
+      <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        Diseñadas para máximo rendimiento, durabilidad y una biomecánica superior.
+      </p>
+    </div>
 
+    {/* Contenedor de las gamas */}
+    <div className="space-y-20">
+      {gamasDeProductos.map((gama, index) => (
+        <div key={gama.title} className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          
+          {/* --- Columna de Texto Mejorada --- */}
+          <div className={`space-y-6 text-center md:text-left ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
+            <p className="font-semibold text-red-600 uppercase tracking-wider">
+              Gama Profesional
+            </p>
+            <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">{gama.title}</h3>
+            <p className="text-gray-600 text-lg leading-relaxed">{gama.description}</p>
+            {gama.details && <p className="text-gray-500 text-base font-medium">{gama.details}</p>}
+            
+
+          </div>
+          
+          {/* --- Columna de Imágenes Interactiva --- */}
+          <div className={`flex gap-3 items-center justify-center ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
+            {gama.images.map((image, imgIndex) => (
+              <div key={imgIndex} className={`${image.className}`}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={400}
+                  height={400}
+                  className="object-cover rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       <section className="py-8 bg-gray-100 text-black bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center mb-6 md:mb-8">
