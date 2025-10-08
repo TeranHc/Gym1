@@ -46,7 +46,7 @@ const categoryHeaders = {
     title: 'M3 SERIES', 
     images: [
       '/inicioM3/1.jpg',
-      '/inicioM3/3.jpg',
+      '/inicioM3/5.png',
       '/inicioM3/6.png',
       '/inicioM3/1.jpg',
       '/inicioM3/2.jpg',
@@ -57,9 +57,8 @@ const categoryHeaders = {
     title: 'M7 SERIES', 
     images: [
       '/inicioM7/1.jpg',
-      '/inicioM7/2.jpg',
       '/inicioM7/1.jpg',
-      '/inicioM7/4.jpg',
+      
     ] 
   },
   'RS': { 
