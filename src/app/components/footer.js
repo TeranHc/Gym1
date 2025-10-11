@@ -17,12 +17,11 @@ export default function Footer() {
             
             {/* Logo y nombre - SECCIÓN CORREGIDA */}
             <div className="flex items-center gap-3">
-              <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center shadow-none">
-                <span className="text-white font-black text-xl">R</span>
-              </div>
-              <h2 className="text-2xl font-bold text-white">
-                ealLeader <span className="text-red-400">FITNESS CLUB</span>
-              </h2>             
+                 <img
+                    src="/images/LogoRealleader2026PaginaWebwhite.png" // Asegúrate de tener una versión del logo que se vea bien en fondo blanco
+                    alt="RealLeader Fitness Club"
+                    className="w-32 sm:w-40 lg:w-48 xl:w-56 object-contain cursor-pointer hover:opacity-80 transition-opacity duration-300"
+                  />           
             </div>
 
             {/* Sección MENÚ */}
@@ -49,11 +48,7 @@ export default function Footer() {
                     Galeria
                   </Link >
                 </div>
-                <div>
-                  <Link  href="/pages/Blog" className="hover:text-red-500 transition-colors">
-                    Blog
-                  </Link >
-                </div>
+
                 <div>
                   <Link  href="/pages/horarios" className="hover:text-red-500 transition-colors">
                     Contacto
@@ -67,8 +62,13 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4 text-white">SERVICIOS</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="//pages/tienda-gym" className="hover:text-red-500 transition-colors">
-                    Tienda de Equipamiento
+                  <a href="/pages/horarios" className="hover:text-red-500 transition-colors">
+                    Solicitud de Cotización Personalizada
+                  </a>
+                </div>
+                <div>
+                  <a href="/pages/tienda-gym" className="hover:text-red-500 transition-colors">
+                    Nuestras máquinas
                   </a>
                 </div>
               </div>

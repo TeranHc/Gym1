@@ -14,16 +14,22 @@ const galleryImages = [
   { id: 'img-8', src: "/galeriafoto/8g.jpg", alt: "Imagen de galería 8", category: "General" },
   { id: 'img-9', src: "/galeriafoto/9g.jpg", alt: "Imagen de galería 9", category: "General" },
   { id: 'img-10', src: "/galeriafoto/10g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-11', src: "/galeriafoto/11g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-12', src: "/galeriafoto/12g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-13', src: "/galeriafoto/13g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-14', src: "/galeriafoto/14g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-15', src: "/galeriafoto/15g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-16', src: "/galeriafoto/16g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-17', src: "/galeriafoto/17g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-18', src: "/galeriafoto/18g.jpg", alt: "Imagen de galería 10", category: "General" },
-  { id: 'img-19', src: "/galeriafoto/19g.jpg", alt: "Imagen de galería 10", category: "General" },
+  { id: 'img-11', src: "/galeriafoto/11g.jpg", alt: "Imagen de galería 11", category: "General" },
+  { id: 'img-12', src: "/galeriafoto/12g.jpg", alt: "Imagen de galería 12", category: "General" },
+  { id: 'img-13', src: "/galeriafoto/13g.jpg", alt: "Imagen de galería 13", category: "General" },
+  { id: 'img-14', src: "/galeriafoto/14g.jpg", alt: "Imagen de galería 14", category: "General" },
+  { id: 'img-15', src: "/galeriafoto/15g.jpg", alt: "Imagen de galería 15", category: "General" },
+  { id: 'img-16', src: "/galeriafoto/16g.jpg", alt: "Imagen de galería 16", category: "General" },
+  { id: 'img-17', src: "/galeriafoto/17g.jpg", alt: "Imagen de galería 17", category: "General" },
+  { id: 'img-18', src: "/galeriafoto/18g.jpg", alt: "Imagen de galería 18", category: "General" },
+  { id: 'img-19', src: "/galeriafoto/19g.jpg", alt: "Imagen de galería 19", category: "General" },
   { id: 'img-20', src: "/galeriafoto/20g.jpg", alt: "Imagen de galería 20", category: "General" },
+  { id: 'img-21', src: "/galeriafoto/21g.jpg", alt: "Imagen de galería 21", category: "General" },
+  { id: 'img-22', src: "/galeriafoto/22g.jpg", alt: "Imagen de galería 22", category: "General" },
+  { id: 'img-23', src: "/galeriafoto/23g.jpg", alt: "Imagen de galería 23", category: "General" },
+  { id: 'img-24', src: "/galeriafoto/24g.jpg", alt: "Imagen de galería 24", category: "General" },
+  { id: 'img-25', src: "/galeriafoto/25g.jpg", alt: "Imagen de galería 25", category: "General" },
+  { id: 'img-26', src: "/galeriafoto/26g.jpg", alt: "Imagen de galería 26", category: "General" },
 ];
 
 const galleryVideos = [
@@ -31,15 +37,20 @@ const galleryVideos = [
   { id: 'vid-uso-1', src: "/galeriavideo/1uso.mp4", title: "Uso Correcto de Equipo", category: "Uso de Máquinas", featured: true },
   { id: 'vid-uso-2', src: "/galeriavideo/2uso.mp4", title: "Técnica de Máquina", category: "Uso de Máquinas" },
   { id: 'vid-uso-3', src: "/galeriavideo/3uso.mp4", title: "Guía de Uso", category: "Uso de Máquinas", featured: true },
+  { id: 'vid-uso-4', src: "/galeriavideo/4uso.mp4", title: "Entrenamiento Seguro", category: "Uso de Máquinas", featured: true},
+  { id: 'vid-uso-5', src: "/galeriavideo/2presentacion.mp4", title: "Máquinas en Acción", category: "Uso de Máquinas" },
   
   // Videos generales
   { id: 'vid-demo-1', src: "/galeriavideo/1entrenando.mp4", title: "Demostración de Entrenamiento", category: "Demostración" },
-{ id: 'vid-demo-2', src: "/galeriavideo/1presentacion.mp4", title: "Presentación del Gimnasio", category: "Uso de Máquinas" },
+  { id: 'vid-demo-2', src: "/galeriavideo/1presentacion.mp4", title: "Presentación del Gimnasio", category: "Uso de Máquinas" },
   { id: 'vid-demo-3', src: "/galeriavideo/2entrenando.mp4", title: "Rutina Avanzada", category: "Demostración" },
   { id: 'vid-demo-4', src: "/galeriavideo/3entrenando.mp4", title: "Entrenamiento Funcional", category: "Demostración" },
   { id: 'vid-demo-5', src: "/galeriavideo/4entrenando.mp4", title: "Sesión de Cardio", category: "Demostración" },
   { id: 'vid-demo-6', src: "/galeriavideo/5entrenando.mp4", title: "Fuerza y Resistencia", category: "Demostración" },
   { id: 'vid-demo-7', src: "/galeriavideo/6entrenando.mp4", title: "Entrenamiento de Alta Intensidad", category: "Demostración" },
+  { id: 'vid-demo-8', src: "/galeriavideo/7entrenando.mp4", title: "Circuito de Ejercicios", category: "Demostración" },
+  { id: 'vid-demo-9', src: "/galeriavideo/8entrenando.mp4", title: "Entrenamiento de Fuerza", category: "Demostración" },
+  { id: 'vid-demo-10', src: "/galeriavideo/9entrenando.mp4", title: "Sesión de Estiramientos", category: "Demostración" },
 ];
 
 const allMedia = [
@@ -67,8 +78,8 @@ export default function GalleryPage() {
 
 
   return (
-    <div className="bg-white min-h-screen">
-      <section className="bg-gray-100 py-12 md:py-10">
+    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <section className="bg-gray-200 py-12 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900">Realleader in the World</h1>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -97,29 +108,29 @@ export default function GalleryPage() {
           <div>
             {/* --> CAMBIO: Lógica de renderizado condicional */}
             {filter === 'Uso de Máquinas' ? (
-// --> VISTA PERSONALIZADA PARA "USO DE MÁQUINAS"
-<div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto">
-  {/* Columna izquierda para videos horizontales */}
-  <div className="md:col-span-2 flex flex-col gap-4">
-    {media.filter(v => v.featured).map(item => (
-      <div key={item.id} className="shadow-lg rounded-lg overflow-hidden">
-        <video className="w-full h-auto" src={item.src} controls playsInline>
-          Tu navegador no soporta la etiqueta de video.
-        </video>
+    // --> VISTA PERSONALIZADA PARA "USO DE MÁQUINAS"
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+      {/* Columna izquierda para videos horizontales */}
+      <div className="md:col-span-2 flex flex-col gap-4">
+        {media.filter(v => v.featured).map(item => (
+          <div key={item.id} className="shadow-lg rounded-lg overflow-hidden">
+            <video className="w-full h-auto" src={item.src} controls playsInline>
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-  {/* Columna derecha para videos verticales (ahora acepta varios) */}
-  <div className="md:col-span-1 flex flex-col gap-4">
-    {media.filter(v => !v.featured).map(item => (
-      <div key={item.id} className="shadow-lg rounded-lg overflow-hidden">
-        <video className="w-full h-auto object-cover" src={item.src} controls playsInline>
-          Tu navegador no soporta la etiqueta de video.
-        </video>
+      {/* Columna derecha para videos verticales (ahora acepta varios) */}
+      <div className="md:col-span-1 flex flex-col gap-4">
+        {media.filter(v => !v.featured).map(item => (
+          <div key={item.id} className="shadow-lg rounded-lg overflow-hidden">
+            <video className="w-full h-auto object-cover" src={item.src} controls playsInline>
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
+    </div>
 
             ) : (
               // --> VISTA GENERAL PARA "TODO" Y OTROS FILTROS

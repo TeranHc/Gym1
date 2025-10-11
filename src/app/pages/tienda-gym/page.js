@@ -403,7 +403,7 @@ function TiendaGymContent() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       
       {/* --- CAMBIO 3: Usamos el nuevo componente dinámico aquí --- */}
       <CategoryHeader category={selectedPrimaryCategory} />

@@ -41,7 +41,7 @@ const countryColors = {
   
   // Nuevos colores
   "Rusia": "#F87171", "Brasil": "#34D399", "China": "#F472B6", "Sudáfrica": "#FB923C", 
-  "Alemania": "#60A5FA", "Arabia Saudita": "#A78BFA", "EAU": "#FACC15", "Egipto": "#4ADE80", 
+  "Alemania": "#60A5FA", "Arabia Saudita": "#A78BFA", "Emiratos Árabes Unidos": "#FACC15", "Egipto": "#4ADE80", 
   "Turquía": "#93C5FD"
 };
 
@@ -61,8 +61,8 @@ export default function WorldMapPage() {
   ), []);
 
   return (
-    <div className="bg-gray-100 min-h-screen text-gray-800">
-      <section className="bg-white text-gray-800 py-12 text-center">
+    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen text-gray-800">
+      <section className="bg-gray-200  text-gray-800 py-12 text-center">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
             Nuestra <span className="text-red-500">Red Global</span>
@@ -74,7 +74,7 @@ export default function WorldMapPage() {
       </section>
 
       <div className="max-w-screen-xl mx-auto p-4 md:p-8">
-        <div className="w-full bg-white p-4 md:p-6 rounded-2xl shadow-xl">
+        <div className="w-full bg-white p-4 md:p-6 rounded-2xl shadow-xl border border-gray-300">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Presencia Internacional</h2>
           <div className="flex justify-center w-full">
             {isClient && (
@@ -85,7 +85,7 @@ export default function WorldMapPage() {
                   fill: mapData.find(c => c.country === country.countryCode.toLowerCase()) 
                         ? countryColors[mapData.find(c => c.country === country.countryCode.toLowerCase()).name] 
                         : '#D1D5DB',
-                  stroke: "white",
+                  stroke: "black",
                   strokeWidth: 1,
                   cursor: "default",
                 })}
