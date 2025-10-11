@@ -82,7 +82,7 @@ export default function GymHeader() {
               </div>
             </Link>
 
-            <nav className="hidden lg:flex flex-1 justify-start pl-37">
+            <nav className="hidden lg:flex flex-1 justify-center -ml-25">
               {/* CAMBIO: Contenedor de la barra de navegación con fondo y borde claros */}
               <div className="bg-gray-100/70 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-md inline-flex items-center px-2 xl:px-8 py-2">
                 {menuItems.map((item, index) => (

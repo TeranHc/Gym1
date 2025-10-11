@@ -210,6 +210,8 @@ export default function EalLeaderHomePage() {
     </div>
   </div>
 </section>
+
+      {/* --- SECCIÓN DE PRODUCTOS DESTACADOS CON CARRUSEL --- 
       <section className="py-8 bg-gray-100 text-black bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center mb-6 md:mb-8">
@@ -286,7 +288,7 @@ export default function EalLeaderHomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       <section className="py-8 md:py-12 bg-zinc-800">
         <div className="max-w-7xl mx-auto px-4 md:px-10">
@@ -329,12 +331,12 @@ export default function EalLeaderHomePage() {
             </div>
             <div className="relative order-1 lg:order-2">
               <div className="rounded-2xl md:rounded-3xl overflow-hidden h-64 md:h-96">
-                <Image  
-                  src="https://poolsecuritysolution.com/wp-content/uploads/servicio-tecnico-para-equipos-y-maquinas-de-gimnasio.jpg" 
-                  alt="Instalación profesional de equipamiento de gimnasio"
-                  fill
-                  className="w-full h-full object-cover"
-                />
+                  <Image
+                    src="/images/ServiciosIntegrales.jpg"
+                    alt="Instalación profesional de equipamiento de gimnasio"
+                    fill
+                    className="w-full h-full object-cover"
+                  />
               </div>
             </div>
           </div>
@@ -382,30 +384,6 @@ export default function EalLeaderHomePage() {
         </div>
       </section>
       
-      <section className="py-15 bg-zinc-800 from-red-500 to-orange-500">
-        <div className="max-w-4xl mx-auto text-center px-8">
-          <h2 className="text-5xl lg:text-6xl font-black mb-8">
-            Construye el Gimnasio de tus Sueños
-          </h2>
-          <p className="text-2xl text-white/90 mb-12 font-light">
-            Únete a cientos de gimnasios que confían en nuestro equipamiento
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link
-              href="/pages/horarios"
-              className="bg-white text-red-500 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl text-center"
-            >
-              Solicitar Cotización
-            </Link>
-            <Link 
-              href="/pages/tienda-gym"
-              className="border-2 border-white text-white px-12 py-6 rounded-2xl font-bold text-xl hover:bg-white hover:text-red-500 transition-all duration-300 text-center"
-            >
-              Ver catálogo
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

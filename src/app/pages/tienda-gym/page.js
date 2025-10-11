@@ -218,6 +218,8 @@ function TiendaGymContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('');
+    const [stockStatus, setStockStatus] = useState('in-stock'); // <-- AÑADE ESTE ESTADO
+
   const [currentPage, setCurrentPage] = useState(1);
   const PRODUCTS_PER_PAGE = 16;
 
@@ -236,7 +238,12 @@ function TiendaGymContent() {
     setIsLoading(true);
     const timeoutId = setTimeout(() => {
       let filtered = [...allProducts];
-
+      // --- CAMBIO CLAVE: FILTRAR PRIMERO POR STOCK ---
+      // Filtra solo los productos con el estado seleccionado.
+      // Los productos 'upcoming' no se mostrarán aquí, los pondremos en su propia sección.
+      if (stockStatus) {
+        filtered = filtered.filter(product => product.status === stockStatus);
+      }
       if (selectedPrimaryCategory !== 'Todos') {
         filtered = filtered.filter(product => product.primaryCategory === selectedPrimaryCategory);
       }
@@ -271,7 +278,7 @@ function TiendaGymContent() {
       setIsLoading(false);
     }, 300);
     return () => clearTimeout(timeoutId);
-  }, [selectedPrimaryCategory, selectedSubCategories, searchTerm, sortBy]);
+  }, [selectedPrimaryCategory, selectedSubCategories, searchTerm, sortBy, stockStatus]); // <-- AÑADE stockStatus A LAS DEPENDENCIAS
 
   // Efecto para resetear la página a 1 cuando cambian los filtros
   useEffect(() => {
@@ -354,7 +361,34 @@ function TiendaGymContent() {
           />
         </div>
       </div>
-      
+      <div className="mb-6">
+        <h4 className="font-semibold text-gray-900 mb-3">Disponibilidad</h4>
+        <div className="flex flex-col space-y-2">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input 
+              type="radio" 
+              name="stock" 
+              value="in-stock"
+              checked={stockStatus === 'in-stock'}
+              onChange={(e) => setStockStatus(e.target.value)}
+              className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
+            />
+            <span className="font-medium text-gray-900 text-sm">En Stock</span>
+          </label>
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input 
+              type="radio" 
+              name="stock" 
+              value="out-of-stock"
+              checked={stockStatus === 'out-of-stock'}
+              onChange={(e) => setStockStatus(e.target.value)}
+              className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
+            />
+            <span className="font-medium text-gray-900 text-sm">Ver Agotados</span>
+          </label>
+        </div>
+      </div>
+
       <div className="mb-6">
         <h4 className="font-semibold text-gray-900 mb-2">Categoría Principal</h4>
         <select
@@ -401,20 +435,44 @@ function TiendaGymContent() {
       </div>
     </>
   );
-
+  // Filtramos los productos que están marcados como 'upcoming'
+  const upcomingProducts = allProducts.filter(p => p.status === 'upcoming');
+  // --- NUEVA FUNCIÓN PARA EL SCROLL ---
+  const scrollToUpcoming = () => {
+    const section = document.getElementById('proximas-entregas');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       
       {/* --- CAMBIO 3: Usamos el nuevo componente dinámico aquí --- */}
       <CategoryHeader category={selectedPrimaryCategory} />
       
-      <div className="max-w-7xl mx-auto px-4 mb-6">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600">
-          <Link href="/" className="text-gray-900 font-medium hover:underline">Inicio</Link>
-          <span>&gt;</span>
-          <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">Productos</Link>
-        </nav>
-      </div>
+<div className="max-w-7xl mx-auto px-4 mb-6 flex items-center justify-between">
+  {/* La navegación se queda como estaba */}
+  <nav className="flex items-center space-x-2 text-sm text-gray-600">
+    <Link href="/" className="text-gray-900 font-medium hover:underline">Inicio</Link>
+    <span>&gt;</span>
+    <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">Productos</Link>
+  </nav>
+  
+  {/* --- BOTÓN MOVIDO Y RE-ESTILIZADO AQUÍ --- */}
+  {upcomingProducts.length > 0 && (
+<button
+  onClick={scrollToUpcoming}
+  className="hidden lg:inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm"
+>
+  Ver Próximas Entregas
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+</button>
+  )}
+</div>
+
+
 
       <div className="max-w-7xl mx-auto px-4 pb-12">
         <div className="lg:hidden mb-6">
@@ -458,6 +516,7 @@ function TiendaGymContent() {
           )}
 
           <main className="flex-1">
+            
             <div className="hidden lg:flex items-center justify-between mb-6">
               <span className="text-gray-500">({filteredProducts.length} productos)</span>
               <div className="flex items-center gap-3">
@@ -477,13 +536,31 @@ function TiendaGymContent() {
             ) : (
               <>
                 <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
-                  {currentProducts.map((product) => (
-                    <div 
-                      key={product.id} 
-                      className={`group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer ${viewMode === 'grid' ? 'flex flex-col' : 'flex flex-row items-center'}`} 
-                      onClick={() => handleProductClick(product.id)}
-                    >
-                      <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden ${viewMode === 'list' ? 'w-48 h-48 flex-shrink-0' : 'aspect-square'}`}><img src={product.image || '/placeholder-image.jpg'} alt={product.alt || product.name || 'Producto'} className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105" /></div>
+{currentProducts.map((product) => (
+  <div 
+    key={product.id} 
+    // Si está agotado, quitamos la interacción de hover y el cursor de puntero
+    className={`group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${product.status === 'out-of-stock' ? 'cursor-not-allowed' : 'hover:shadow-xl cursor-pointer'} ${viewMode === 'grid' ? 'flex flex-col' : 'flex flex-row items-center'}`} 
+    // Hacemos que solo se pueda hacer click si no está agotado
+    onClick={() => product.status !== 'out-of-stock' && handleProductClick(product.id)}
+  >
+    <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden ${viewMode === 'list' ? 'w-48 h-48 flex-shrink-0' : 'aspect-square'}`}>
+      <img 
+        src={product.image || '/placeholder-image.jpg'} 
+        alt={product.alt || product.name || 'Producto'} 
+        // Aplicamos opacidad si está agotado
+        className={`max-w-full max-h-full object-contain transition-transform duration-300 ${product.status !== 'out-of-stock' ? 'group-hover:scale-105' : ''} ${product.status === 'out-of-stock' ? 'opacity-40' : ''}`} 
+      />
+      {/* --- NUEVA LÓGICA PARA LA ETIQUETA --- */}
+      {product.status === 'out-of-stock' && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="bg-black bg-opacity-70 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg">
+            AGOTADO
+          </span>
+        </div>
+      )}
+    </div>
+    <div className={`p-6 flex-1 flex flex-col ${product.status === 'out-of-stock' ? 'opacity-60' : ''}`}>
                       <div className="p-6 flex-1 flex flex-col">
                         <div>
                           <h3 className={`font-bold text-gray-900 mb-2 text-sm line-clamp-2 group-hover:text-red-600 transition-colors ${viewMode === 'grid' ? 'text-center h-12 flex items-center justify-center' : ''}`}>{product.name || 'Producto sin nombre'}</h3>
@@ -500,8 +577,9 @@ function TiendaGymContent() {
                             </Link>
                         </div>
                       </div>
-                    </div>
-                  ))}
+    </div>
+  </div>
+))}
                 </div>
                 
                 {totalPages > 1 && (
@@ -516,6 +594,49 @@ function TiendaGymContent() {
           </main>
         </div>
       </div>
+          {/* --- NUEVA SECCIÓN DE PRÓXIMAS ENTREGAS --- */}
+    {upcomingProducts.length > 0 && (
+  <div id="proximas-entregas" className="max-w-7xl mx-auto px-4 pb-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-black text-gray-900 tracking-tight sm:text-4xl">
+            Próximas Entregas
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            ¡Prepárate! Este equipo de última generación llegará muy pronto a nuestro inventario.
+          </p>
+        </div>
+        
+        <div className="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {upcomingProducts.map((product) => (
+            <div 
+              key={product.id}
+              className="group bg-white rounded-xl shadow-md overflow-hidden"
+            >
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 aspect-square relative">
+                <img 
+                  src={product.image || '/placeholder-image.jpg'} 
+                  alt={product.alt || product.name || 'Producto'}
+                  className="max-w-full max-h-full object-contain opacity-70"
+                />
+                <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  PRÓXIMAMENTE
+                </div>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="font-bold text-gray-900 mb-2 text-sm h-12 flex items-center justify-center">
+                  {product.name || 'Producto sin nombre'}
+                </h3>
+                <div className="flex flex-wrap gap-1 justify-center">
+                  {product.subCategories && product.subCategories.map(sc => (
+                    <span key={sc} className="bg-gray-200 text-gray-700 px-2 py-1 text-xs font-semibold rounded-full">{sc}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
     </div>
   );
 }
