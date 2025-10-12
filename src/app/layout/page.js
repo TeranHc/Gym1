@@ -8,7 +8,7 @@ import Image from 'next/image';
 const gamasDeProductos = [
   {
     title: "PIN LOAD SERIES",
-    description: "Conoce las diferentes gamas en peso integrado. Calidad inigualable, ergonomía y biomecánica, durabilidad y diseño.",
+    description: "Conoce las diferentes gamas en peso integrado. Calidad inigualable, ergonomía y biomecánica, durabilidad y diseño. ",
     details: "M2, M3 y M7 Series Peso Integrado",
     images: [
       { src: "/maquinas/M2-1001 Chest Press.png", alt: "Máquina Pin Load 1", className: "w-1/3" },
@@ -37,11 +37,35 @@ const gamasDeProductos = [
   },
 ];
 
+// ...justo después de la constante gamasDeProductos
+const seriesDestacadas = [
+  {
+    id: "PF",
+    title: "PF SERIES",
+    image: "/iniciosesion/pf.jpg",
+    description: "La Serie PF es una gama compacta de máquinas de entrenamiento de fuerza con dos estaciones, diseñadas para instalaciones que ahorran espacio. Estas máquinas combinan dos ejercicios en una sola unidad, lo que las hace ideales para gimnasios, hoteles y complejos residenciales. Su durabilidad, facilidad de uso y amplio rango de movimiento son características clave, mientras que su diseño robusto y elegante apariencia las convierten en una excelente opción para entornos con mucho tráfico."
+  },
+  {
+    id: "LD",
+    title: "LD SERIES",
+    image: "/iniciosesion/ld.jpg",
+    description: "La Serie HS Pro está diseñada para un entrenamiento de fuerza de alto rendimiento con un diseño avanzado. Esta serie incluye una gama de máquinas con selectores para atletas exigentes y entusiastas del fitness, proporcionando una biomecánica óptima para entrenamientos efectivos. Diseñada para soportar un uso intensivo, la Serie HS Pro garantiza estabilidad y seguridad, lo que la convierte en una excelente opción para gimnasios comerciales, estudios de fitness e instalaciones de bienestar corporativas."
+  },
+  {
+    id: "M2",
+    title: "M2 SERIES",
+    image: "/iniciosesion/m2.jpg",
+    description: "La Serie M2 es una gama robusta y de alto rendimiento de 23 máquinas de entrenamiento de fuerza diseñadas para la activación muscular específica y movimientos anatómicamente correctos. Fabricada con acero de grado comercial y características avanzadas como CAM, poleas y un amplio rango de movimiento, esta serie ofrece durabilidad y facilidad de uso, lo que la hace ideal para gimnasios, hoteles, empresas y hogares."
+  }
+];
+
 
 export default function EalLeaderHomePage() {
   const [currentSlideDesktop, setCurrentSlideDesktop] = useState(0);
   const [currentSlideMobile, setCurrentSlideMobile] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+    const [openAccordion, setOpenAccordion] = useState('PF'); // <-- AÑADE ESTA LÍNEA (iniciamos con 'PF' abierto)
+
   
   const productsPerSlideDesktop = 3;
   const productsPerSlideMobile = 2;
@@ -159,136 +183,346 @@ export default function EalLeaderHomePage() {
           </div>
         </div>
       </section>
-
-{/* --- SECCIÓN MEJORADA: Nuestras Gamas de Productos --- */}
-<section className="py-20 md:py-28 bg-slate-50 text-black">
+{/* ========================================
+   PROPUESTA 1: FRESH & CLEAN
+   Fondo blanco con acentos de color vibrantes
+   ======================================== */}
+<section className="py-20 md:py-15 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    {/* Título principal de la sección */}
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-        Explora Nuestras Gamas de Productos
+    {/* Header con badge */}
+    <div className="text-center mb-5">
+
+      <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+        Productos Profesionales
       </h2>
-      <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
-        Diseñadas para máximo rendimiento, durabilidad y una biomecánica superior.
+      <p className="max-w-2xl mx-auto text-xl text-gray-600">
+        Diseñadas para máximo rendimiento, durabilidad y biomecánica superior.
       </p>
     </div>
 
-    {/* Contenedor de las gamas */}
-    <div className="space-y-20">
+    {/* Grid de gamas */}
+    <div className="space-y-15">
       {gamasDeProductos.map((gama, index) => (
-        <div key={gama.title} className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          
-          {/* --- Columna de Texto Mejorada --- */}
-          <div className={`space-y-6 text-center md:text-left ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-            <p className="font-semibold text-red-600 uppercase tracking-wider">
-              Gama Profesional
-            </p>
-            <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">{gama.title}</h3>
-            <p className="text-gray-600 text-lg leading-relaxed">{gama.description}</p>
-            {gama.details && <p className="text-gray-500 text-base font-medium">{gama.details}</p>}
+        <div
+          key={gama.title}
+          className="group"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
+            {/* Contenido de texto */}
+            <div className={`space-y-6 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
+              {/* Numeración decorativa */}
+              <div className="flex items-center gap-4">
 
-          </div>
-          
-          {/* --- Columna de Imágenes Interactiva --- */}
-          <div className={`flex gap-3 items-center justify-center ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
-            {gama.images.map((image, imgIndex) => (
-              <div key={imgIndex} className={`${image.className}`}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={400}
-                  height={400}
-                  className="object-cover rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
-                />
+                <div className="h-1 flex-1 bg-gradient-to-r from-red-600 to-transparent" />
               </div>
-            ))}
+              <div>
+                <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+                  {gama.title}
+                </h3>
+                <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                  {gama.description}
+                </p>
+                {gama.details && (
+                  <p className="text-gray-500 text-base">
+                    {gama.details}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Imágenes con efecto */}
+            <div className={`relative ${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
+              <div className="flex gap-4 items-center justify-center">
+                {gama.images.map((image, imgIndex) => (
+                  <div 
+                    key={imgIndex} 
+                    className={`${image.className} relative group/img`}
+                  >
+                    <div className="absolute -inset-4 bg-gradient-to-r from-red-100 to-red-100 rounded-2xl opacity-0 group-hover/img:opacity-100  transition-opacity duration-500" />
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={380}
+                      height={380}
+                      className="relative object-cover rounded-2xl shadow-xl group-hover/img:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+<section className="bg-white text-gray-900 py-16">
+  {/* Header */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    {/* AJUSTE: Tamaños de fuente responsivos */}
+    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
+      Series
+    </h2>
+    <div className="flex items-center gap-4">
+      <div className="h-1 w-20 bg-red-600" />
+      {/* AJUSTE: Tamaño de fuente responsivo */}
+      <p className="text-lg md:text-xl text-gray-600">
+        Destacadas para proyectos extraordinarios
+      </p>
+    </div>
+  </div>
 
-      {/* --- SECCIÓN DE PRODUCTOS DESTACADOS CON CARRUSEL --- 
-      <section className="py-8 bg-gray-100 text-black bg-gray-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-            <div className="text-center mb-6 md:mb-8">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-2">
-                Nuestros productos
-              </h3>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-                Conoce nuestra variedad de productos diseñados para llevar tu gimnasio al siguiente nivel.
+  {/* Layout */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {seriesDestacadas.map((serie, index) => (
+      <div
+        key={serie.id}
+        className="group mb-8 border-t border-gray-200 hover:border-red-600 transition-colors duration-300"
+      >
+        {/* AJUSTE: El grid ahora es más simple y se apila en móvil. Se activa en 'lg' */}
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-x-8 gap-y-6 pt-8">
+          {/* Número */}
+          <div className="flex items-start">
+            {/* AJUSTE: Tamaño de fuente del número responsivo */}
+            <span className="text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-400 to-gray-400 group-hover:from-red-600 group-hover:to-red-700 transition-all duration-500">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+
+          {/* Contenido (Texto e Imagen) */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+            {/* Texto */}
+            {/* AJUSTE: Se reordena para que en móvil (por defecto) el texto vaya primero */}
+            <div className="md:col-span-3 space-y-6 order-2 md:order-1">
+              <div>
+                <span className="text-xs text-red-600 uppercase tracking-widest font-bold">
+                  {serie.id}
+                </span>
+                <h3 className="mt-2 text-3xl font-black uppercase tracking-tight group-hover:text-red-600 transition-colors duration-300">
+                  {serie.title}
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                {serie.description}
               </p>
+              <Link href={`/pages/tienda-gym?category=${serie.id}`} className="group/btn inline-flex items-center gap-3 text-gray-900 font-bold uppercase text-sm tracking-wider hover:text-red-600 transition-colors duration-300">
+                <span>Descubrir</span>
+                <div className="w-12 h-12 rounded-full border-2 border-gray-300 group-hover/btn:border-red-600 flex items-center justify-center transition-colors duration-300">
+                  <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </Link>
             </div>
-            <div className="relative">
-              <div className="flex justify-center gap-4 mb-6">
-                <button
-                  onClick={prevSlide}
-                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
-                  disabled={isMobile ? totalSlidesMobile <= 1 : totalSlidesDesktop <= 1}
-                >
-                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                  <span className="hidden sm:inline">Anterior</span>
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
-                  disabled={isMobile ? totalSlidesMobile <= 1 : totalSlidesDesktop <= 1}
-                >
-                  <span className="hidden sm:inline">Siguiente</span>
-                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </button>
-              </div>
-              <div className="overflow-hidden">
-                <div className="hidden md:block">
-                  <div 
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentSlideDesktop * 100}%)` }}
-                  >
-                    {Array.from({ length: totalSlidesDesktop }).map((_, slideIndex) => (
-                      <div key={slideIndex} className="w-full flex-shrink-0">
-                        <div className="grid grid-cols-3 gap-6">
-                          {allProducts.slice(slideIndex * productsPerSlideDesktop, (slideIndex + 1) * productsPerSlideDesktop).map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="block md:hidden">
-                  <div 
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentSlideMobile * 100}%)` }}
-                  >
-                    {Array.from({ length: totalSlidesMobile }).map((_, slideIndex) => (
-                      <div key={slideIndex} className="w-full flex-shrink-0 px-2">
-                        <div className="grid grid-cols-2 gap-4">
-                          {allProducts.slice(slideIndex * productsPerSlideMobile, (slideIndex + 1) * productsPerSlideMobile).map(product => <ProductCard key={product.id} product={product} />)}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center mt-6 space-x-2">
-                <div className="hidden md:flex space-x-2">
-                  {renderDots(currentSlideDesktop, totalSlidesDesktop, setCurrentSlideDesktop)}
-                </div>
-                <div className="flex md:hidden space-x-2">
-                  {renderDots(currentSlideMobile, totalSlidesMobile, setCurrentSlideMobile)}
-                </div>
-              </div>
+
+            {/* Imagen */}
+            {/* AJUSTE: Se reordena para que en móvil (por defecto) la imagen vaya después */}
+            <div className="md:col-span-2 relative aspect-[3/4] overflow-hidden rounded-lg order-1 md:order-2">
+              <Image src={serie.image} alt={serie.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 border-4 border-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </div>
-          <div className="flex justify-center pt-8">
-            <Link href="/pages/tienda-gym" className="bg-black text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-800 transition-all duration-300">
-              Ver Catálogo
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+<section className="bg-gray-50 py-20 md:py-24">
+  {/* Header */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+    {/* AJUSTE: Tamaños de fuente responsivos */}
+    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-4">
+      Series Destacadas
+    </h2>
+    <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
+      Colecciones curadas para proyectos que demandan un carácter único y un rendimiento superior.
+    </p>
+  </div>
+
+  {/* Layout de Series */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    {seriesDestacadas.map((serie, index) => (
+      <div
+        key={serie.id}
+        className="group relative rounded-2xl overflow-hidden shadow-2xl transition-shadow duration-500 hover:shadow-red-200/50"
+      >
+        <Image 
+          src={serie.image} 
+          alt={serie.title} 
+          fill 
+          className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" 
+        />
+        
+        {/* AJUSTE: El degradado cambia de dirección para adaptarse al layout */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/60 md:to-transparent transition-all duration-500 group-hover:from-black/90 group-hover:via-black/70" />
+        
+        {/* AJUSTE: Padding y altura mínima responsivos. El contenido se centra en móvil */}
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 md:p-12 min-h-[450px] md:min-h-[400px] text-center md:text-left">
+          
+          {/* Número Decorativo */}
+          <div className="md:col-span-4">
+            {/* AJUSTE: Tamaño de fuente responsivo */}
+            <span className="text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white/50 to-white/20 group-hover:from-red-500 group-hover:to-red-600 transition-all duration-500">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+
+          {/* Contenido de Texto */}
+          <div className="md:col-span-8 space-y-6 text-white">
+            <div>
+              <span className="text-sm font-bold uppercase tracking-widest text-red-400">
+                {serie.id}
+              </span>
+              {/* AJUSTE: Tamaño de fuente responsivo */}
+              <h3 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
+                {serie.title}
+              </h3>
+            </div>
+            {/* AJUSTE: Se centra el párrafo en móvil con mx-auto */}
+            <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+              {serie.description}
+            </p>
+            
+            <Link href={`/pages/tienda-gym?category=${serie.id}`} className="group/btn inline-flex items-center gap-3 text-white font-bold uppercase text-sm tracking-wider">
+              <span>Descubrir Serie</span>
+              <div className="w-12 h-12 rounded-full border-2 border-white/50 group-hover/btn:border-red-500 group-hover/btn:bg-red-500 flex items-center justify-center transition-all duration-300">
+                <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
             </Link>
           </div>
         </div>
-      </section>*/}
+      </div>
+    ))}
+  </div>
+</section>
+<section className="bg-gray-900 text-white py-20 md:py-24">
+  {/* Header */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <div className="max-w-3xl">
+      {/* AJUSTE: Tamaño de fuente responsivo */}
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4">
+        Líneas Exclusivas
+      </h2>
+      <div className="flex items-center gap-4">
+        <div className="h-1 w-24 bg-red-600" />
+        <p className="text-lg md:text-xl text-gray-400">
+          Diseñadas para proyectos con identidad propia.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Layout de Series */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="space-y-16">
+      {seriesDestacadas.map((serie, index) => (
+        <div 
+          key={serie.id} 
+          // AJUSTE: El grid se activa en 'lg', el gap es responsivo
+          className="group grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-12 items-center"
+        >
+          {/* Contenedor de la Imagen */}
+          <div className={`relative aspect-[4/5] rounded-xl overflow-hidden ${index % 2 !== 0 ? 'lg:order-last' : ''}`}>
+            <Image
+              src={serie.image}
+              alt={serie.title}
+              fill
+              className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 border-4 border-red-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+          </div>
+
+          {/* Contenedor de Texto */}
+          {/* AJUSTE: Texto centrado en móvil y alineado a la izquierda en 'lg' */}
+          <div className="space-y-6 text-center lg:text-left">
+            <div>
+              <span className="text-7xl font-black text-gray-700 group-hover:text-red-600 transition-colors duration-300">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mt-2">
+                {serie.title}
+              </h3>
+            </div>
+
+            {/* AJUSTE: Se centra el párrafo en móvil con mx-auto */}
+            <p className="text-gray-400 text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+              {serie.description}
+            </p>
+            
+            <Link 
+              href={`/pages/tienda-gym?category=${serie.id}`} 
+              className="inline-block py-3 px-8 border-2 border-red-600 text-red-600 font-bold uppercase text-sm tracking-wider rounded-md transition-all duration-300 hover:bg-red-600 hover:text-white"
+            >
+              Ver Colección
+            </Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section className="bg-white py-20 md:py-24">
+  {/* Header */}
+  <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+    {/* AJUSTE: Tamaño de fuente responsivo */}
+    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-4">
+      Evolución del Diseño
+    </h2>
+    <p className="text-lg md:text-xl text-gray-600">
+      Sigue la línea de nuestras series más innovadoras, cada una un paso adelante en rendimiento y estética.
+    </p>
+  </div>
+
+  {/* Layout de Línea de Tiempo */}
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative">
+      {/* AJUSTE: La línea vertical solo aparece en pantallas grandes ('lg') */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 hidden lg:block" aria-hidden="true"></div>
+
+      <div className="space-y-16">
+        {seriesDestacadas.map((serie, index) => (
+          // AJUSTE: Se elimina 'relative' en el contenedor principal en móvil. Se activa en 'lg'
+          <div key={serie.id} className="group lg:relative">
+            {/* AJUSTE: El punto solo aparece en pantallas grandes ('lg') */}
+            <div className="absolute left-1/2 top-5 -translate-x-1/2 w-8 h-8 bg-white border-4 border-gray-200 rounded-full group-hover:border-red-600 transition-colors duration-300 hidden lg:block"></div>
+
+            {/* AJUSTE: El grid se activa en 'lg'. En móvil es un layout de bloque normal. */}
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-x-16 items-center`}>
+              {/* Imagen */}
+              {/* AJUSTE: El orden se aplica solo en 'lg' */}
+              <div className={`relative aspect-square rounded-lg overflow-hidden ${index % 2 === 0 ? 'lg:order-last' : ''}`}>
+                <Image src={serie.image} alt={serie.title} fill className="object-cover" />
+              </div>
+
+              {/* Texto */}
+              {/* AJUSTE: El texto se centra en móvil y se alinea de forma alterna en 'lg' */}
+              <div className={`text-center ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
+                <h3 className="text-3xl font-black text-gray-900 group-hover:text-red-600 transition-colors duration-300">
+                  {serie.title}
+                </h3>
+                {/* AJUSTE: El texto no es justificado en móvil para mejor legibilidad */}
+                <p className="mt-3 text-gray-600 lg:text-justify">
+                  {serie.description}
+                </p>
+                <Link href={`/pages/tienda-gym?category=${serie.id}`} className="mt-4 inline-block font-bold text-red-600">
+                  Ver Detalles →
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
       <section className="py-8 md:py-12 bg-zinc-800">
         <div className="max-w-7xl mx-auto px-4 md:px-10">

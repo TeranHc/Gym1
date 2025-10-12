@@ -30,6 +30,10 @@ const galleryImages = [
   { id: 'img-24', src: "/galeriafoto/24g.jpg", alt: "Imagen de galería 24", category: "General" },
   { id: 'img-25', src: "/galeriafoto/25g.jpg", alt: "Imagen de galería 25", category: "General" },
   { id: 'img-26', src: "/galeriafoto/26g.jpg", alt: "Imagen de galería 26", category: "General" },
+  { id: 'img-27', src: "/galeriafoto/27g.jpg", alt: "Imagen de galería 27", category: "General" },
+  { id: 'img-28', src: "/galeriafoto/28g.jpg", alt: "Imagen de galería 28", category: "General" },
+  { id: 'img-29', src: "/galeriafoto/29g.jpg", alt: "Imagen de galería 29", category: "General" },
+  { id: 'img-30', src: "/galeriafoto/30g.jpg", alt: "Imagen de galería 30", category: "General" },
 ];
 
 const galleryVideos = [

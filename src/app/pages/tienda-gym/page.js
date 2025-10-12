@@ -536,31 +536,31 @@ function TiendaGymContent() {
             ) : (
               <>
                 <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
-{currentProducts.map((product) => (
-  <div 
-    key={product.id} 
-    // Si está agotado, quitamos la interacción de hover y el cursor de puntero
-    className={`group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${product.status === 'out-of-stock' ? 'cursor-not-allowed' : 'hover:shadow-xl cursor-pointer'} ${viewMode === 'grid' ? 'flex flex-col' : 'flex flex-row items-center'}`} 
-    // Hacemos que solo se pueda hacer click si no está agotado
-    onClick={() => product.status !== 'out-of-stock' && handleProductClick(product.id)}
-  >
-    <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden ${viewMode === 'list' ? 'w-48 h-48 flex-shrink-0' : 'aspect-square'}`}>
-      <img 
-        src={product.image || '/placeholder-image.jpg'} 
-        alt={product.alt || product.name || 'Producto'} 
-        // Aplicamos opacidad si está agotado
-        className={`max-w-full max-h-full object-contain transition-transform duration-300 ${product.status !== 'out-of-stock' ? 'group-hover:scale-105' : ''} ${product.status === 'out-of-stock' ? 'opacity-40' : ''}`} 
-      />
-      {/* --- NUEVA LÓGICA PARA LA ETIQUETA --- */}
-      {product.status === 'out-of-stock' && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="bg-black bg-opacity-70 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg">
-            AGOTADO
-          </span>
-        </div>
-      )}
-    </div>
-    <div className={`p-6 flex-1 flex flex-col ${product.status === 'out-of-stock' ? 'opacity-60' : ''}`}>
+                  {currentProducts.map((product) => (
+                    <div 
+                      key={product.id} 
+                      // Si está agotado, quitamos la interacción de hover y el cursor de puntero
+                      className={`group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${product.status === 'out-of-stock' ? 'cursor-not-allowed' : 'hover:shadow-xl cursor-pointer'} ${viewMode === 'grid' ? 'flex flex-col' : 'flex flex-row items-center'}`} 
+                      // Hacemos que solo se pueda hacer click si no está agotado
+                      onClick={() => product.status !== 'out-of-stock' && handleProductClick(product.id)}
+                    >
+                      <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden ${viewMode === 'list' ? 'w-48 h-48 flex-shrink-0' : 'aspect-square'}`}>
+                        <img 
+                          src={product.image || '/placeholder-image.jpg'} 
+                          alt={product.alt || product.name || 'Producto'} 
+                          // Aplicamos opacidad si está agotado
+                          className={`max-w-full max-h-full object-contain transition-transform duration-300 ${product.status !== 'out-of-stock' ? 'group-hover:scale-105' : ''} ${product.status === 'out-of-stock' ? 'opacity-40' : ''}`} 
+                        />
+                        {/* --- NUEVA LÓGICA PARA LA ETIQUETA --- */}
+                        {product.status === 'out-of-stock' && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="bg-black bg-opacity-70 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg">
+                              AGOTADO
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div className={`p-6 flex-1 flex flex-col ${product.status === 'out-of-stock' ? 'opacity-60' : ''}`}>
                       <div className="p-6 flex-1 flex flex-col">
                         <div>
                           <h3 className={`font-bold text-gray-900 mb-2 text-sm line-clamp-2 group-hover:text-red-600 transition-colors ${viewMode === 'grid' ? 'text-center h-12 flex items-center justify-center' : ''}`}>{product.name || 'Producto sin nombre'}</h3>

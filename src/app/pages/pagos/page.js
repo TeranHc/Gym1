@@ -17,6 +17,86 @@ const PaymentMethods = () => {
         </p>
       </div>
 
+
+            {/* --- SECCIÓN DE PRODUCTOS DESTACADOS CON CARRUSEL --- 
+      <section className="py-8 bg-gray-100 text-black bg-gray-200">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="text-center mb-6 md:mb-8">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-2">
+                Nuestros productos
+              </h3>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+                Conoce nuestra variedad de productos diseñados para llevar tu gimnasio al siguiente nivel.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="flex justify-center gap-4 mb-6">
+                <button
+                  onClick={prevSlide}
+                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
+                  disabled={isMobile ? totalSlidesMobile <= 1 : totalSlidesDesktop <= 1}
+                >
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                  <span className="hidden sm:inline">Anterior</span>
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2 min-w-[120px] md:min-w-[140px]"
+                  disabled={isMobile ? totalSlidesMobile <= 1 : totalSlidesDesktop <= 1}
+                >
+                  <span className="hidden sm:inline">Siguiente</span>
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+              <div className="overflow-hidden">
+                <div className="hidden md:block">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentSlideDesktop * 100}%)` }}
+                  >
+                    {Array.from({ length: totalSlidesDesktop }).map((_, slideIndex) => (
+                      <div key={slideIndex} className="w-full flex-shrink-0">
+                        <div className="grid grid-cols-3 gap-6">
+                          {allProducts.slice(slideIndex * productsPerSlideDesktop, (slideIndex + 1) * productsPerSlideDesktop).map((product) => (
+                            <ProductCard key={product.id} product={product} />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="block md:hidden">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentSlideMobile * 100}%)` }}
+                  >
+                    {Array.from({ length: totalSlidesMobile }).map((_, slideIndex) => (
+                      <div key={slideIndex} className="w-full flex-shrink-0 px-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          {allProducts.slice(slideIndex * productsPerSlideMobile, (slideIndex + 1) * productsPerSlideMobile).map(product => <ProductCard key={product.id} product={product} />)}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-center mt-6 space-x-2">
+                <div className="hidden md:flex space-x-2">
+                  {renderDots(currentSlideDesktop, totalSlidesDesktop, setCurrentSlideDesktop)}
+                </div>
+                <div className="flex md:hidden space-x-2">
+                  {renderDots(currentSlideMobile, totalSlidesMobile, setCurrentSlideMobile)}
+                </div>
+              </div>
+            </div>
+          <div className="flex justify-center pt-8">
+            <Link href="/pages/tienda-gym" className="bg-black text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-800 transition-all duration-300">
+              Ver Catálogo
+            </Link>
+          </div>
+        </div>
+      </section>*/}
+
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         {/* Métodos disponibles */}
         <div className="grid gap-6">
