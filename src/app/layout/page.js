@@ -466,6 +466,8 @@ export default function EalLeaderHomePage() {
     </div>
   </div>
 </section>
+
+
 <section className="bg-white py-20 md:py-24">
   {/* Header */}
   <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
@@ -522,6 +524,60 @@ export default function EalLeaderHomePage() {
 </section>
 
 
+{/* --- PROPUESTA 2 AJUSTADA Y MÁS COMPACTA --- */}
+<section>
+  {/* CAMBIO: Reducimos el padding vertical del título */}
+  <div className="text-center py-16 md:py-20 bg-white">
+    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight px-4">
+      Nuestras Series Destacadas
+    </h2>
+    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 px-4">
+      Soluciones específicas diseñadas para versatilidad, rendimiento y durabilidad.
+    </p>
+  </div>
+  
+  {/* CAMBIO: Usamos un max-width ligeramente más pequeño para un look más contenido */}
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="rounded-2xl overflow-hidden">
+      {seriesDestacadas.map((serie, index) => (
+        <div key={serie.id} className="grid grid-cols-1 lg:grid-cols-2">
+          
+          {/* CAMBIO CLAVE: Reducimos la altura mínima del panel de imagen */}
+          <div className={`min-h-[55vh] relative ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
+            <Image
+              src={serie.image}
+              alt={`Imagen de la serie ${serie.title}`}
+              fill
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* CAMBIO: Reducimos el padding del panel de texto */}
+          <div className={`flex items-center p-8 md:p-12 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
+            <div className="max-w-md mx-auto space-y-5">
+              {/* CAMBIO: Reducimos el tamaño del título de la serie */}
+              <h3 className="text-3xl font-black tracking-tight text-gray-900">{serie.title}</h3>
+              {/* CAMBIO: Reducimos el tamaño del texto de descripción */}
+              <p className="text-gray-700 text-lg leading-relaxed">{serie.description}</p>
+              <div className="pt-2">
+                <Link 
+                  href={`/pages/tienda-gym?category=${serie.id}`}
+                  className="inline-block bg-red-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors shadow-md"
+                >
+                  Ver Serie Completa
+                </Link>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* CAMBIO: Reducimos el padding-bottom final */}
+  <div className="pb-16 md:pb-20"></div>
+</section>
 
 
       <section className="py-8 md:py-12 bg-zinc-800">

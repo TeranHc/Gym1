@@ -450,8 +450,8 @@ function TiendaGymContent() {
       {/* --- CAMBIO 3: Usamos el nuevo componente dinámico aquí --- */}
       <CategoryHeader category={selectedPrimaryCategory} />
       
-<div className="max-w-7xl mx-auto px-4 mb-6 flex items-center justify-between">
-  {/* La navegación se queda como estaba */}
+<div className="max-w-[1600px] mx-auto px-4 mb-6 flex items-center justify-between">
+    {/* La navegación se queda como estaba */}
   <nav className="flex items-center space-x-2 text-sm text-gray-600">
     <Link href="/" className="text-gray-900 font-medium hover:underline">Inicio</Link>
     <span>&gt;</span>
@@ -474,8 +474,8 @@ function TiendaGymContent() {
 
 
 
-      <div className="max-w-7xl mx-auto px-4 pb-12">
-        <div className="lg:hidden mb-6">
+<div className="max-w-[1600px] mx-auto px-4 pb-12">
+          <div className="lg:hidden mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-bold text-gray-900">Productos</h2>
             <button onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')} className="p-2 bg-black rounded-lg shadow-md hover:shadow-lg transition-all">
@@ -582,13 +582,30 @@ function TiendaGymContent() {
 ))}
                 </div>
                 
-                {totalPages > 1 && (
-                  <div className="mt-12 flex items-center justify-center gap-4">
-                    <button onClick={handlePrevPage} disabled={currentPage === 1} className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Anterior</button>
-                    <span className="text-gray-700 font-medium">Página {currentPage} de {totalPages}</span>
-                    <button onClick={handleNextPage} disabled={currentPage === totalPages} className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Siguiente</button>
-                  </div>
-                )}
+{totalPages > 1 && (
+  // Aumentamos el espacio entre los elementos con gap-6
+  <div className="mt-12 flex items-center justify-center gap-6"> 
+    <button 
+      onClick={handlePrevPage} 
+      disabled={currentPage === 1} 
+      // Aumentamos padding y tamaño de texto
+      className="px-5 py-3 text-base bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+    >
+      Anterior
+    </button>
+    <span className="text-gray-700 font-medium text-base"> {/* Aumentamos tamaño de texto */}
+      Página {currentPage} de {totalPages}
+    </span>
+    <button 
+      onClick={handleNextPage} 
+      disabled={currentPage === totalPages} 
+      // Aumentamos padding y tamaño de texto
+      className="px-5 py-3 text-base bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+    >
+      Siguiente
+    </button>
+  </div>
+)}
               </>
             )}
           </main>
@@ -596,8 +613,8 @@ function TiendaGymContent() {
       </div>
           {/* --- NUEVA SECCIÓN DE PRÓXIMAS ENTREGAS --- */}
     {upcomingProducts.length > 0 && (
-  <div id="proximas-entregas" className="max-w-7xl mx-auto px-4 pb-20">
-        <div className="text-center mb-12">
+<div id="proximas-entregas" className="max-w-[1600px] mx-auto px-4 pb-20">
+          <div className="text-center mb-12">
           <h2 className="text-3xl font-black text-gray-900 tracking-tight sm:text-4xl">
             Próximas Entregas
           </h2>
