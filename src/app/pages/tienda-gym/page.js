@@ -462,7 +462,7 @@ function TiendaGymContent() {
   {upcomingProducts.length > 0 && (
 <button
   onClick={scrollToUpcoming}
-  className="hidden lg:inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm"
+  className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm"
 >
   Ver Próximas Entregas
   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -613,7 +613,7 @@ function TiendaGymContent() {
       </div>
           {/* --- NUEVA SECCIÓN DE PRÓXIMAS ENTREGAS --- */}
     {upcomingProducts.length > 0 && (
-<div id="proximas-entregas" className="max-w-[1600px] mx-auto px-4 pb-20">
+      <div id="proximas-entregas" className="max-w-[1600px] mx-auto px-4 pb-20">
           <div className="text-center mb-12">
           <h2 className="text-3xl font-black text-gray-900 tracking-tight sm:text-4xl">
             Próximas Entregas
