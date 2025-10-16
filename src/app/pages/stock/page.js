@@ -681,7 +681,7 @@ const upcomingProducts = allProducts.filter(p => p.status && p.status.includes('
                     )}
 
                     {displayAsUpcoming && (
-                        <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                        <div className="absolute top-3 right-3 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                             PRÓXIMAMENTE
                         </div>
                     )}
