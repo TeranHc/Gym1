@@ -36,6 +36,7 @@ export default function GymHeader() {
       isDropdown: true
     },
     { href: '/pages/fotos', label: 'Galeria' },
+    { href: '/pages/stock', label: 'Stock' },
     { href: '/pages/mapa', label: 'Red Global' },
     { href: '/pages/horarios', label: 'Contacto' }
   ];

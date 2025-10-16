@@ -56,6 +56,12 @@ const seriesDestacadas = [
     title: "M2 SERIES",
     image: "/iniciosesion/m2.jpg",
     description: "La Serie M2 es una gama robusta y de alto rendimiento de 23 máquinas de entrenamiento de fuerza diseñadas para la activación muscular específica y movimientos anatómicamente correctos. Fabricada con acero de grado comercial y características avanzadas como CAM, poleas y un amplio rango de movimiento, esta serie ofrece durabilidad y facilidad de uso, lo que la hace ideal para gimnasios, hoteles, empresas y hogares."
+  },
+    {
+    id: "FM",
+    title: "FM SERIES",
+    image: "/iniciosesion/fm.png",
+    description: "La Serie M2 es una gama robusta y de alto rendimiento de 23 máquinas de entrenamiento de fuerza diseñadas para la activación muscular específica y movimientos anatómicamente correctos. Fabricada con acero de grado comercial y características avanzadas como CAM, poleas y un amplio rango de movimiento, esta serie ofrece durabilidad y facilidad de uso, lo que la hace ideal para gimnasios, hoteles, empresas y hogares."
   }
 ];
 
@@ -183,6 +189,8 @@ export default function EalLeaderHomePage() {
           </div>
         </div>
       </section>
+
+      
 {/* ========================================
    PROPUESTA 1: FRESH & CLEAN
    Fondo blanco con acentos de color vibrantes
@@ -259,81 +267,10 @@ export default function EalLeaderHomePage() {
     </div>
   </div>
 </section>
-<section className="bg-white text-gray-900 py-16">
-  {/* Header */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-    {/* AJUSTE: Tamaños de fuente responsivos */}
-    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
-      Series
-    </h2>
-    <div className="flex items-center gap-4">
-      <div className="h-1 w-20 bg-red-600" />
-      {/* AJUSTE: Tamaño de fuente responsivo */}
-      <p className="text-lg md:text-xl text-gray-600">
-        Destacadas para proyectos extraordinarios
-      </p>
-    </div>
-  </div>
 
-  {/* Layout */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    {seriesDestacadas.map((serie, index) => (
-      <div
-        key={serie.id}
-        className="group mb-8 border-t border-gray-200 hover:border-red-600 transition-colors duration-300"
-      >
-        {/* AJUSTE: El grid ahora es más simple y se apila en móvil. Se activa en 'lg' */}
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-x-8 gap-y-6 pt-8">
-          {/* Número */}
-          <div className="flex items-start">
-            {/* AJUSTE: Tamaño de fuente del número responsivo */}
-            <span className="text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-400 to-gray-400 group-hover:from-red-600 group-hover:to-red-700 transition-all duration-500">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-          </div>
-
-          {/* Contenido (Texto e Imagen) */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-            {/* Texto */}
-            {/* AJUSTE: Se reordena para que en móvil (por defecto) el texto vaya primero */}
-            <div className="md:col-span-3 space-y-6 order-2 md:order-1">
-              <div>
-                <span className="text-xs text-red-600 uppercase tracking-widest font-bold">
-                  {serie.id}
-                </span>
-                <h3 className="mt-2 text-3xl font-black uppercase tracking-tight group-hover:text-red-600 transition-colors duration-300">
-                  {serie.title}
-                </h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                {serie.description}
-              </p>
-              <Link href={`/pages/tienda-gym?category=${serie.id}`} className="group/btn inline-flex items-center gap-3 text-gray-900 font-bold uppercase text-sm tracking-wider hover:text-red-600 transition-colors duration-300">
-                <span>Descubrir</span>
-                <div className="w-12 h-12 rounded-full border-2 border-gray-300 group-hover/btn:border-red-600 flex items-center justify-center transition-colors duration-300">
-                  <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-              </Link>
-            </div>
-
-            {/* Imagen */}
-            {/* AJUSTE: Se reordena para que en móvil (por defecto) la imagen vaya después */}
-            <div className="md:col-span-2 relative aspect-[3/4] overflow-hidden rounded-lg order-1 md:order-2">
-              <Image src={serie.image} alt={serie.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 border-4 border-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
 <section className="bg-gray-50 py-20 md:py-24">
-  {/* Header */}
+  {/* Header (sin cambios) */}
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-    {/* AJUSTE: Tamaños de fuente responsivos */}
     <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-4">
       Series Destacadas
     </h2>
@@ -343,11 +280,17 @@ export default function EalLeaderHomePage() {
   </div>
 
   {/* Layout de Series */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+  {/* CAMBIO 1: AÑADIMOS 'space-y-4' o similar para un espacio consistente */}
+  <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4"> 
     {seriesDestacadas.map((serie, index) => (
       <div
         key={serie.id}
-        className="group relative rounded-2xl overflow-hidden shadow-2xl transition-shadow duration-500 hover:shadow-red-200/50"
+        // CAMBIO 2: La tarjeta ahora tiene un ancho menor (11/12) y un margen automático condicional
+        // Esto es lo que mueve TODA LA TARJETA a la izquierda o derecha
+        className={`
+          group relative rounded-2xl overflow-hidden shadow-2xl transition-shadow duration-500 hover:shadow-red-200/50 
+          lg:w-8/12 ${index % 2 !== 0 ? 'ml-auto' : 'mr-auto'}`
+        }
       >
         <Image 
           src={serie.image} 
@@ -356,32 +299,39 @@ export default function EalLeaderHomePage() {
           className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" 
         />
         
-        {/* AJUSTE: El degradado cambia de dirección para adaptarse al layout */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/60 md:to-transparent transition-all duration-500 group-hover:from-black/90 group-hover:via-black/70" />
+        {/* El degradado alterna su dirección para seguir al texto */}
+        <div className={`
+          absolute inset-0 bg-gradient-to-t from-black/80 to-transparent 
+          ${index % 2 === 0 ? 'md:bg-gradient-to-r' : 'md:bg-gradient-to-l'} 
+          md:from-black/80 md:via-black/60 md:to-transparent transition-all duration-500 
+          group-hover:from-black/90 group-hover:via-black/70`} 
+        />
         
-        {/* AJUSTE: Padding y altura mínima responsivos. El contenido se centra en móvil */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 md:p-12 min-h-[450px] md:min-h-[400px] text-center md:text-left">
+        {/* La alineación del texto dentro del contenedor también alterna */}
+        <div className={`
+          relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center 
+          p-8 md:p-12 min-h-[450px] md:min-h-[400px] text-center 
+          ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}
+        >
           
-          {/* Número Decorativo */}
-          <div className="md:col-span-4">
-            {/* AJUSTE: Tamaño de fuente responsivo */}
+          {/* El número decorativo cambia de orden en los impares */}
+          <div className={`md:col-span-4 ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
             <span className="text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white/50 to-white/20 group-hover:from-red-500 group-hover:to-red-600 transition-all duration-500">
               {String(index + 1).padStart(2, '0')}
             </span>
           </div>
 
-          {/* Contenido de Texto */}
-          <div className="md:col-span-8 space-y-6 text-white">
+          {/* El bloque de texto también cambia de orden */}
+          <div className={`md:col-span-8 space-y-6 text-white ${index % 2 !== 0 ? 'md:order-first' : ''}`}>
             <div>
               <span className="text-sm font-bold uppercase tracking-widest text-red-400">
                 {serie.id}
               </span>
-              {/* AJUSTE: Tamaño de fuente responsivo */}
               <h3 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
                 {serie.title}
               </h3>
             </div>
-            {/* AJUSTE: Se centra el párrafo en móvil con mx-auto */}
+            
             <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
               {serie.description}
             </p>
@@ -399,184 +349,6 @@ export default function EalLeaderHomePage() {
       </div>
     ))}
   </div>
-</section>
-<section className="bg-gray-900 text-white py-20 md:py-24">
-  {/* Header */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-    <div className="max-w-3xl">
-      {/* AJUSTE: Tamaño de fuente responsivo */}
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4">
-        Líneas Exclusivas
-      </h2>
-      <div className="flex items-center gap-4">
-        <div className="h-1 w-24 bg-red-600" />
-        <p className="text-lg md:text-xl text-gray-400">
-          Diseñadas para proyectos con identidad propia.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  {/* Layout de Series */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="space-y-16">
-      {seriesDestacadas.map((serie, index) => (
-        <div 
-          key={serie.id} 
-          // AJUSTE: El grid se activa en 'lg', el gap es responsivo
-          className="group grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-12 items-center"
-        >
-          {/* Contenedor de la Imagen */}
-          <div className={`relative aspect-[4/5] rounded-xl overflow-hidden ${index % 2 !== 0 ? 'lg:order-last' : ''}`}>
-            <Image
-              src={serie.image}
-              alt={serie.title}
-              fill
-              className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 border-4 border-red-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-          </div>
-
-          {/* Contenedor de Texto */}
-          {/* AJUSTE: Texto centrado en móvil y alineado a la izquierda en 'lg' */}
-          <div className="space-y-6 text-center lg:text-left">
-            <div>
-              <span className="text-7xl font-black text-gray-700 group-hover:text-red-600 transition-colors duration-300">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mt-2">
-                {serie.title}
-              </h3>
-            </div>
-
-            {/* AJUSTE: Se centra el párrafo en móvil con mx-auto */}
-            <p className="text-gray-400 text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-              {serie.description}
-            </p>
-            
-            <Link 
-              href={`/pages/tienda-gym?category=${serie.id}`} 
-              className="inline-block py-3 px-8 border-2 border-red-600 text-red-600 font-bold uppercase text-sm tracking-wider rounded-md transition-all duration-300 hover:bg-red-600 hover:text-white"
-            >
-              Ver Colección
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-<section className="bg-white py-20 md:py-24">
-  {/* Header */}
-  <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-    {/* AJUSTE: Tamaño de fuente responsivo */}
-    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-4">
-      Evolución del Diseño
-    </h2>
-    <p className="text-lg md:text-xl text-gray-600">
-      Sigue la línea de nuestras series más innovadoras, cada una un paso adelante en rendimiento y estética.
-    </p>
-  </div>
-
-  {/* Layout de Línea de Tiempo */}
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="relative">
-      {/* AJUSTE: La línea vertical solo aparece en pantallas grandes ('lg') */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 hidden lg:block" aria-hidden="true"></div>
-
-      <div className="space-y-16">
-        {seriesDestacadas.map((serie, index) => (
-          // AJUSTE: Se elimina 'relative' en el contenedor principal en móvil. Se activa en 'lg'
-          <div key={serie.id} className="group lg:relative">
-            {/* AJUSTE: El punto solo aparece en pantallas grandes ('lg') */}
-            <div className="absolute left-1/2 top-5 -translate-x-1/2 w-8 h-8 bg-white border-4 border-gray-200 rounded-full group-hover:border-red-600 transition-colors duration-300 hidden lg:block"></div>
-
-            {/* AJUSTE: El grid se activa en 'lg'. En móvil es un layout de bloque normal. */}
-            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-x-16 items-center`}>
-              {/* Imagen */}
-              {/* AJUSTE: El orden se aplica solo en 'lg' */}
-              <div className={`relative aspect-square rounded-lg overflow-hidden ${index % 2 === 0 ? 'lg:order-last' : ''}`}>
-                <Image src={serie.image} alt={serie.title} fill className="object-cover" />
-              </div>
-
-              {/* Texto */}
-              {/* AJUSTE: El texto se centra en móvil y se alinea de forma alterna en 'lg' */}
-              <div className={`text-center ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
-                <h3 className="text-3xl font-black text-gray-900 group-hover:text-red-600 transition-colors duration-300">
-                  {serie.title}
-                </h3>
-                {/* AJUSTE: El texto no es justificado en móvil para mejor legibilidad */}
-                <p className="mt-3 text-gray-600 lg:text-justify">
-                  {serie.description}
-                </p>
-                <Link href={`/pages/tienda-gym?category=${serie.id}`} className="mt-4 inline-block font-bold text-red-600">
-                  Ver Detalles →
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-
-{/* --- PROPUESTA 2 AJUSTADA Y MÁS COMPACTA --- */}
-<section>
-  {/* CAMBIO: Reducimos el padding vertical del título */}
-  <div className="text-center py-16 md:py-20 bg-white">
-    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight px-4">
-      Nuestras Series Destacadas
-    </h2>
-    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 px-4">
-      Soluciones específicas diseñadas para versatilidad, rendimiento y durabilidad.
-    </p>
-  </div>
-  
-  {/* CAMBIO: Usamos un max-width ligeramente más pequeño para un look más contenido */}
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="rounded-2xl overflow-hidden">
-      {seriesDestacadas.map((serie, index) => (
-        <div key={serie.id} className="grid grid-cols-1 lg:grid-cols-2">
-          
-          {/* CAMBIO CLAVE: Reducimos la altura mínima del panel de imagen */}
-          <div className={`min-h-[55vh] relative ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
-            <Image
-              src={serie.image}
-              alt={`Imagen de la serie ${serie.title}`}
-              fill
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* CAMBIO: Reducimos el padding del panel de texto */}
-          <div className={`flex items-center p-8 md:p-12 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
-            <div className="max-w-md mx-auto space-y-5">
-              {/* CAMBIO: Reducimos el tamaño del título de la serie */}
-              <h3 className="text-3xl font-black tracking-tight text-gray-900">{serie.title}</h3>
-              {/* CAMBIO: Reducimos el tamaño del texto de descripción */}
-              <p className="text-gray-700 text-lg leading-relaxed">{serie.description}</p>
-              <div className="pt-2">
-                <Link 
-                  href={`/pages/tienda-gym?category=${serie.id}`}
-                  className="inline-block bg-red-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors shadow-md"
-                >
-                  Ver Serie Completa
-                </Link>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      ))}
-    </div>
-  </div>
-
-  {/* CAMBIO: Reducimos el padding-bottom final */}
-  <div className="pb-16 md:pb-20"></div>
 </section>
 
 

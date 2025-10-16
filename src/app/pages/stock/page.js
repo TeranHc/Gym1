@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { allProducts, primaryCategories, subCategories } from './products';
+import { allProducts, primaryCategories, subCategories } from '../tienda-gym/products';
 import Link from 'next/link';
 
 // --- CAMBIO 1: Añadimos las imágenes y un pre-título para la serie LD ---
@@ -156,12 +156,12 @@ const CategoryHeader = ({ category }) => {
                   : 'none'
               }}
             >
-<img 
-  src={imgSrc} 
-  alt={`${headerContent.title} imagen ${index + 1}`} 
-  className="w-full h-full object-cover transform scale-98"
-  style={{ objectPosition: 'center' }}
-/>
+            <img 
+              src={imgSrc} 
+              alt={`${headerContent.title} imagen ${index + 1}`} 
+              className="w-full h-full object-cover transform scale-98"
+              style={{ objectPosition: 'center' }}
+            />
 
             </div>
           ))}
@@ -191,16 +191,70 @@ const CategoryHeader = ({ category }) => {
     );
   }
 
+  
+
   // Fallback para categorías sin imágenes (sin cambios)
   return (
     <div className="relative overflow-hidden bg-white shadow-sm mb-6">
-      <div className="relative max-w-[1600px] mx-auto px-4 py-8 text-center">
+      <div className="relative max-w-7xl mx-auto px-4 py-8 text-center">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
             {headerContent.title}
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {headerContent.description}
           </p>
+      </div>
+    </div>
+  );
+
+
+  
+};
+
+// --- NUEVO COMPONENTE PARA EL FILTRO DE COLOR CON ESTILOS OSCUROS ---
+const ColorFilterDropdown = ({ selectedColor, setSelectedColor }) => {
+  const colorNames = {
+    todos: 'Todos los colores',
+    negroRojo: 'Negro con Rojo',
+    todoNegro: 'Todo Negro',
+  };
+
+  const colorOptions = [
+    { key: 'todos', name: 'Todos los colores' },
+    { key: 'negroRojo', name: 'Negro con Rojo' },
+    { key: 'todoNegro', name: 'Todo Negro' },
+  ];
+
+  return (
+    <div className="relative group">
+      {/* Botón que muestra la selección actual y activa el hover */}
+      <button className="flex items-center gap-2 text-sm font-medium 
+                         bg-gray-800 text-white border border-gray-700 
+                         px-4 py-2 rounded-lg 
+                         hover:bg-gray-700 transition-colors duration-200"> {/* ESTILO MODIFICADO */}
+        <span>Color: <strong className="font-semibold">{colorNames[selectedColor]}</strong></span>
+        <svg className="w-4 h-4 text-gray-300 transform transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+
+      {/* Menú desplegable que aparece en hover */}
+      <div className="absolute top-full right-0 mt-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-20
+                     opacity-0 scale-95 transform transition-all duration-200 ease-in-out 
+                     group-hover:opacity-100 group-hover:scale-100">
+        <div className="p-1"> {/* Padding un poco más pequeño */}
+          {colorOptions.map((option) => (
+            <button
+              key={option.key}
+              onClick={() => setSelectedColor(option.key)}
+              className={`w-full text-left px-3 py-2 text-sm rounded-md transition-colors duration-200 ${
+                selectedColor === option.key 
+                  ? 'bg-red-500 text-white font-semibold' // Color rojo intenso para la opción seleccionada
+                  : 'text-gray-200 hover:bg-gray-700' // Texto claro y fondo más oscuro al pasar el mouse
+              }`}
+            >
+              {option.name}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -218,6 +272,8 @@ function TiendaGymContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('');
+  const [stockStatus, setStockStatus] = useState('in-stock'); // <-- AÑADE ESTE ESTADO
+  const [selectedColor, setSelectedColor] = useState('todos'); // <-- AÑADE ESTE ESTADO
   const [currentPage, setCurrentPage] = useState(1);
   const PRODUCTS_PER_PAGE = 16;
 
@@ -236,7 +292,11 @@ function TiendaGymContent() {
     setIsLoading(true);
     const timeoutId = setTimeout(() => {
       let filtered = [...allProducts];
-
+      // --- CAMBIO CLAVE: FILTRAR PRIMERO POR STOCK ---
+      // Filtra solo los productos con el estado seleccionado.
+      // Los productos 'upcoming' no se mostrarán aquí, los pondremos en su propia sección.
+      if (stockStatus) {
+        filtered = filtered.filter(product => product.status && product.status.includes(stockStatus));      }
       if (selectedPrimaryCategory !== 'Todos') {
         filtered = filtered.filter(product => product.primaryCategory === selectedPrimaryCategory);
       }
@@ -271,7 +331,7 @@ function TiendaGymContent() {
       setIsLoading(false);
     }, 300);
     return () => clearTimeout(timeoutId);
-  }, [selectedPrimaryCategory, selectedSubCategories, searchTerm, sortBy]);
+}, [selectedPrimaryCategory, selectedSubCategories, searchTerm, sortBy, stockStatus, selectedColor]); // <-- AÑADE selectedColor A LAS DEPENDENCIAS
 
   // Efecto para resetear la página a 1 cuando cambian los filtros
   useEffect(() => {
@@ -308,6 +368,8 @@ function TiendaGymContent() {
     setSelectedSubCategories([]);
     setSearchTerm('');
     setSortBy('');
+    setStockStatus('in-stock'); // Reseteamos también el estado del stock
+    setSelectedColor('todos'); // <-- AÑADE ESTO
     router.push('/pages/tienda-gym', { scroll: false });
   };
 
@@ -320,6 +382,7 @@ function TiendaGymContent() {
     if (selectedPrimaryCategory !== 'Todos') count++;
     count += selectedSubCategories.length;
     if (searchTerm) count++;
+    if (stockStatus !== 'in-stock') count++; // Contamos si el filtro de stock no es el por defecto
     return count;
   };
 
@@ -328,6 +391,7 @@ function TiendaGymContent() {
   const indexOfFirstProduct = indexOfLastProduct - PRODUCTS_PER_PAGE;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+  
 
   const handleNextPage = () => {
     setCurrentPage(prev => Math.min(prev + 1, totalPages));
@@ -354,7 +418,47 @@ function TiendaGymContent() {
           />
         </div>
       </div>
-      
+      {/* CAMBIO 2: Añadimos una opción para filtrar por "Próximamente" */}
+      <div className="mb-6">
+        <h4 className="font-semibold text-gray-900 mb-3">Disponibilidad</h4>
+        <div className="flex flex-col space-y-2">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input 
+              type="radio" 
+              name="stock" 
+              value="in-stock"
+              checked={stockStatus === 'in-stock'}
+              onChange={(e) => setStockStatus(e.target.value)}
+              className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
+            />
+            <span className="font-medium text-gray-900 text-sm">En Stock</span>
+          </label>
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input 
+              type="radio" 
+              name="stock" 
+              value="out-of-stock"
+              checked={stockStatus === 'out-of-stock'}
+              onChange={(e) => setStockStatus(e.target.value)}
+              className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
+            />
+            <span className="font-medium text-gray-900 text-sm">Ver Agotados</span>
+          </label>
+          {/* Nueva opción de filtro */}
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input 
+              type="radio" 
+              name="stock" 
+              value="upcoming"
+              checked={stockStatus === 'upcoming'}
+              onChange={(e) => setStockStatus(e.target.value)}
+              className="w-4 h-4 text-red-600 border-2 border-gray-300 focus:ring-red-500"
+            />
+            <span className="font-medium text-gray-900 text-sm">Próximamente</span>
+          </label>
+        </div>
+      </div>
+
       <div className="mb-6">
         <h4 className="font-semibold text-gray-900 mb-2">Categoría Principal</h4>
         <select
@@ -367,7 +471,21 @@ function TiendaGymContent() {
           ))}
         </select>
       </div>
-
+{/* --- ¡AQUÍ ESTÁ LA PARTE QUE FALTA! --- */}
+      {/* Este bloque solo aparece en pantallas pequeñas gracias a la clase lg:hidden */}
+      <div className="mb-6 lg:hidden">
+        <h4 className="font-semibold text-gray-900 mb-3">Color de Equipo</h4>
+        <select
+          value={selectedColor}
+          onChange={(e) => setSelectedColor(e.target.value)}
+          className="w-full p-3 border-2 border-gray-200 text-black rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+        >
+          <option value="todos">Todos los colores</option>
+          <option value="negroRojo">Negro con Rojo</option>
+          <option value="todoNegro">Todo Negro</option>
+        </select>
+      </div>
+      {/* --- FIN DEL CÓDIGO CLAVE --- */}
       <div className="mb-6">
         <h4 className="font-semibold text-gray-900 mb-2">Subcategorías</h4>
         <div className="space-y-1 max-h-60 overflow-y-auto pr-2">
@@ -401,23 +519,34 @@ function TiendaGymContent() {
       </div>
     </>
   );
-
+  // Filtramos los productos que están marcados como 'upcoming'
+const upcomingProducts = allProducts.filter(p => p.status && p.status.includes('upcoming'));  // --- NUEVA FUNCIÓN PARA EL SCROLL ---
+  const scrollToUpcoming = () => {
+    const section = document.getElementById('proximas-entregas');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       
       {/* --- CAMBIO 3: Usamos el nuevo componente dinámico aquí --- */}
       <CategoryHeader category={selectedPrimaryCategory} />
       
-      <div className="max-w-[1600px] mx-auto px-4 mb-6">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600">
-          <Link href="/" className="text-gray-900 font-medium hover:underline">Inicio</Link>
-          <span>&gt;</span>
-          <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">Productos</Link>
-        </nav>
-      </div>
+<div className="max-w-[1600px] mx-auto px-4 mb-6 flex items-center justify-between">
+    {/* La navegación se queda como estaba */}
+  <nav className="flex items-center space-x-2 text-sm text-gray-600">
+    <Link href="/" className="text-gray-900 font-medium hover:underline">Inicio</Link>
+    <span>&gt;</span>
+    <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">Productos</Link>
+  </nav>
+  
+</div>
 
-      <div className="max-w-[1600px] mx-auto px-4 pb-12">
-        <div className="lg:hidden mb-6">
+
+
+<div className="max-w-[1600px] mx-auto px-4 pb-12">
+          <div className="lg:hidden mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-bold text-gray-900">Productos</h2>
             <button onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')} className="p-2 bg-black rounded-lg shadow-md hover:shadow-lg transition-all">
@@ -458,14 +587,29 @@ function TiendaGymContent() {
           )}
 
           <main className="flex-1">
-            <div className="hidden lg:flex items-center justify-between mb-6">
-              <span className="text-gray-500">({filteredProducts.length} productos)</span>
-              <div className="flex items-center gap-3">
-                <button onClick={() => setViewMode('grid')} className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg></button>
-                <button onClick={() => setViewMode('list')} className={`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg></button>
-              </div>
-            </div>
+            
+<div className="hidden lg:flex items-center justify-between mb-6">
+        <span className="text-gray-500">({filteredProducts.length} productos)</span>
+        
+        {/* Contenedor para los nuevos controles */}
+        <div className="flex items-center gap-4">
+            
+            {/* --- AQUÍ INTEGRAMOS EL NUEVO COMPONENTE --- */}
+            <ColorFilterDropdown 
+              selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
+            />
 
+            {/* Divisor visual opcional */}
+            <div className="h-6 w-px bg-gray-300"></div>
+
+            {/* Botones de vista (Grid/List) */}
+            <div className="flex items-center gap-3">
+              <button onClick={() => setViewMode('grid')} className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg></button>
+              <button onClick={() => setViewMode('list')} className={`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg></button>
+            </div>
+        </div>
+    </div>
             {isLoading ? (
               <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
                 {[...Array(8)].map((_, i) => (
@@ -476,62 +620,129 @@ function TiendaGymContent() {
               <div className="text-center py-16"><div className="inline-block p-6 rounded-full bg-gray-100 mb-6"><svg className="mx-auto h-16 w-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div><h3 className="text-2xl font-bold text-gray-900 mb-3">No se encontraron productos</h3><p className="text-gray-500 text-lg mb-6">Intente ajustar sus filtros o términos de búsqueda</p><button onClick={clearAllFilters} className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">Borrar todos los filtros</button></div>
             ) : (
               <>
+
 <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
-    {currentProducts.map((product) => (
-        <div 
-            key={product.id} 
-            className={`group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col`} // Se quita la lógica de flex-row ya que la tarjeta siempre será vertical
-            onClick={() => handleProductClick(product.id)}
-        >
-            {/* --- Contenedor de la Imagen --- */}
-            <div className={`bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 relative overflow-hidden aspect-square`}> {/* Padding reducido */}
-                <img 
-                    src={product.image || '/placeholder-image.jpg'} 
-                    alt={product.alt || product.name || 'Producto'} 
-                    className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105" 
-                />
-            </div>
-            
-            {/* --- Contenedor del Contenido (CAMBIO ESTRUCTURAL) --- */}
-            <div className="p-4 flex flex-col flex-grow"> {/* Padding reducido y flex-grow para empujar el botón */}
-                <div className="flex-grow">
-                    {/* TÍTULO MEJORADO: Sin límite de líneas, altura mínima y alineado a la izquierda */}
-                    <h3 className="font-bold text-gray-800 mb-2 text-sm min-h-[40px] group-hover:text-red-600 transition-colors">
-                        {product.name || 'Producto sin nombre'}
-                    </h3>
+    {currentProducts
+      .filter(product => {
+        if (stockStatus !== 'upcoming' && selectedColor !== 'todos') {
+          return product.stockByColor && product.stockByColor[selectedColor] > 0;
+        }
+        return true;
+      })
+      .map((product) => {
+        const isOutOfStock = product.status.includes('out-of-stock');
+        const isInStock = product.status.includes('in-stock');
+        const displayAsUpcoming = stockStatus === 'upcoming' && product.status.includes('upcoming');
+
+        let stockQuantityToShow = 0;
+        if (isInStock && product.stockByColor) {
+            if (selectedColor === 'todos') {
+                stockQuantityToShow = Object.values(product.stockByColor).reduce((sum, qty) => sum + qty, 0);
+            } else {
+                stockQuantityToShow = product.stockByColor[selectedColor] || 0;
+            }
+        }
+        
+        return (
+            <div 
+                key={product.id} 
+                className={`group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 flex flex-col ${isOutOfStock ? 'cursor-not-allowed' : 'hover:shadow-xl'}`}
+                onClick={() => !isOutOfStock && handleProductClick(product.id)}
+            >
+                {/* --- Contenedor de la Imagen --- */}
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 relative overflow-hidden aspect-square">
+                    <img 
+                      src={product.image || '/placeholder-image.jpg'} 
+                      alt={product.alt || product.name || 'Producto'}
+                      className={`max-w-full max-h-full object-contain transition-transform duration-300 
+                          ${!isOutOfStock && !displayAsUpcoming ? 'group-hover:scale-105' : ''}
+                          ${isOutOfStock ? 'opacity-40' : ''} 
+                          ${displayAsUpcoming ? 'opacity-70' : ''}`}
+                    />
                     
-                    {/* DESCRIPCIÓN PARA VISTA DE LISTA (sin cambios, ya estaba bien) */}
-                    {viewMode === 'list' && <p className="text-gray-600 text-sm mb-4 line-clamp-3">{Array.isArray(product.description) ? product.description[0] : product.description || 'Sin descripción disponible.'}</p>}
-                    
-                    {/* SUBCATEGORÍAS MEJORADAS: Más pequeñas */}
-                    <div className="mb-3 flex flex-wrap gap-1">
-                        {product.subCategories && product.subCategories.map(sc => (
-                            <span key={sc} className="bg-gray-200 text-gray-700 px-1.5 py-0.5 text-[10px] font-semibold rounded-full">{sc}</span>
-                        ))}
-                    </div>
+                    {stockStatus !== 'upcoming' && isInStock && stockQuantityToShow > 0 && (
+                        <div className="absolute bottom-2 left-2 bg-red-100 text-red-800 text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md z-10">
+                            {stockQuantityToShow} {stockQuantityToShow === 1 ? 'disponible' : 'disponibles'}
+                        </div>
+                    )}
+
+                    {displayAsUpcoming && product.upcomingQuantity > 0 && (
+                        <div className="absolute bottom-2 left-2 bg-yellow-100 text-yellow-800 text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md z-10">
+                            {product.upcomingQuantity} {product.upcomingQuantity === 1 ? 'por llegar' : 'por llegar'}
+                        </div>
+                    )}
+
+                    {isOutOfStock && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-20">
+                            <span className="bg-black bg-opacity-70 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg">
+                                AGOTADO
+                            </span>
+                        </div>
+                    )}
+
+                    {displayAsUpcoming && (
+                        <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                            PRÓXIMAMENTE
+                        </div>
+                    )}
                 </div>
                 
-                {/* BOTÓN AJUSTADO: Se empuja al fondo con mt-auto */}
-                <div className="mt-auto pt-2">
-                    <Link 
-                        href="/pages/horarios" 
-                        onClick={(e) => e.stopPropagation()}
-                        // --- CAMBIOS EN EL BOTÓN ---
-                        className={`block w-full bg-red-600 text-white px-3 py-1.5 rounded-lg font-medium transition-all shadow-md text-xs text-center hover:bg-red-700 hover:shadow-lg`}
-                    >
-                        Contáctanos
-                    </Link>
+                {/* --- Contenedor del Contenido --- */}
+                <div className="p-4 flex flex-col flex-grow">
+                    <div className="flex-grow">
+                        {/* TÍTULO MEJORADO: Sin límite de líneas y con altura mínima */}
+                        <h3 className="font-bold text-gray-800 mb-2 text-sm min-h-[40px] group-hover:text-red-600 transition-colors">
+                            {product.name || 'Producto sin nombre'}
+                        </h3>
+                        
+                        {/* SUBCATEGORÍAS */}
+                        <div className="mb-3 flex flex-wrap gap-1">
+                            {product.subCategories && product.subCategories.map(sc => (
+                                <span key={sc} className="bg-gray-200 text-gray-700 px-1.5 py-0.5 text-[10px] font-semibold rounded-full">{sc}</span>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    {/* BOTÓN AJUSTADO: Más pequeño */}
+                    {!displayAsUpcoming && (
+                        <div className="mt-auto pt-2">
+                            <Link 
+                                href="/pages/horarios" 
+                                onClick={(e) => e.stopPropagation()}
+                                className={`block w-full bg-red-600 text-white px-3 py-1.5 rounded-lg font-medium transition-all shadow-md text-xs text-center ${isOutOfStock ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-700 hover:shadow-lg'}`}
+                            >
+                                Contáctanos
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
-        </div>
-    ))}
+        )
+    })}
 </div>
                 
                 {totalPages > 1 && (
-                  <div className="mt-12 flex items-center justify-center gap-4">
-                    <button onClick={handlePrevPage} disabled={currentPage === 1} className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Anterior</button>
-                    <span className="text-gray-700 font-medium">Página {currentPage} de {totalPages}</span>
-                    <button onClick={handleNextPage} disabled={currentPage === totalPages} className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Siguiente</button>
+                  // Aumentamos el espacio entre los elementos con gap-6
+                  <div className="mt-12 flex items-center justify-center gap-6"> 
+                    <button 
+                      onClick={handlePrevPage} 
+                      disabled={currentPage === 1} 
+                      // Aumentamos padding y tamaño de texto
+                      className="px-5 py-3 text-base bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Anterior
+                    </button>
+                    <span className="text-gray-700 font-medium text-base"> {/* Aumentamos tamaño de texto */}
+                      Página {currentPage} de {totalPages}
+                    </span>
+                    <button 
+                      onClick={handleNextPage} 
+                      disabled={currentPage === totalPages} 
+                      // Aumentamos padding y tamaño de texto
+                      className="px-5 py-3 text-base bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Siguiente
+                    </button>
                   </div>
                 )}
               </>
@@ -539,6 +750,15 @@ function TiendaGymContent() {
           </main>
         </div>
       </div>
+      {/* --- NUEVA SECCIÓN DE PRÓXIMAS ENTREGAS --- */}
+      {upcomingProducts.length > 0 && (
+        
+      <div id="proximas-entregas" className="max-w-[1600px] mx-auto px-4 pb-20">
+
+        
+
+      </div>
+    )}
     </div>
   );
 }

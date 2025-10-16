@@ -78,14 +78,7 @@ export default function Footer() {
             <div className="text-center md:text-left">
               <h3 className="text-xl font-bold mb-4">Contáctanos</h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <i className="fas fa-envelope"></i>
-                  <span>info@realleadermex.com</span>
-                </div>
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <i className="fas fa-envelope"></i>
-                  <span>ventas@realleadermex.com</span>
-                </div>
+
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <i className="fas fa-map-marker-alt"></i>
                   <span>Puebla, Mexico</span>
