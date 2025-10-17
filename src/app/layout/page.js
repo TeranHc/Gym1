@@ -170,7 +170,7 @@ export default function EalLeaderHomePage() {
 
       
 
-<section className="h-[60vh] md:h-[70vh] min-h-[700px] relative flex items-center overflow-hidden">
+<section className="h-[70vh] md:h-[60vh] min-h-[650px] relative flex items-center overflow-hidden">
   {/* --- FONDO DE VIDEO --- */}
   <div className="absolute inset-0 z-0">
     <video
@@ -186,7 +186,7 @@ export default function EalLeaderHomePage() {
       muted
       playsInline
     ></video>
-    <div className="absolute inset-0 bg-black/30"></div>
+    <div className="absolute inset-0 bg-black/10"></div>
   </div>
 
   {/* --- CONTENEDOR DE REVELACIÓN (El panel que se anima) --- */}
