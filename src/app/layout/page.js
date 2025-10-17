@@ -167,314 +167,69 @@ export default function EalLeaderHomePage() {
 
   return (
     <div className="min-h-screen bg-white text-white overflow-x-hidden">
-      <section className="min-h-[60vh] md:min-h-[70vh] flex items-center relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image  
-            src="https://www.salter.es/modules/ph_simpleblog/covers/271.png" 
-            alt="Equipamiento de gimnasio profesional"
-            fill
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
-        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 relative z-10">
-          <div className="max-w-2xl space-y-6 md:space-y-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-white">
-              Tu Gimnasio.
-              <br />
-              <span className="text-red-400">Nuestro Equipamiento.</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-light max-w-xl">
-              RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Desde máquinas profesionales hasta accesorios especializados para crear el gimnasio perfecto.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 pt-6 md:pt-8">
-              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-                <div className="text-xl md:text-3xl font-black text-white mb-1">150+</div>
-                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Productos</div>
-              </div>
-              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-                <div className="text-xl md:text-3xl font-black text-white mb-1">2</div>
-                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Años Garantía</div>
-              </div>
-              <div className="bg-black/10 backdrop-blur-md rounded-xl md:rounded-2xl px-3 py-3 md:px-6 md:py-4 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
-                <div className="text-xl md:text-3xl font-black text-white mb-1">10+</div>
-                <div className="text-xs md:text-sm text-white/80 font-semibold uppercase tracking-wider">Años Experiencia</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
       
-{/* SECCIÓN 1 - CÓDIGO RESPONSIVE MEJORADO */}
-<section className="h-screen min-h-[650px] md:min-h-[700px] relative flex items-center overflow-hidden">
-  
+
+<section className="md:h-[70vh] min-h-[700px] relative flex items-center overflow-hidden">
   {/* --- FONDO DE VIDEO --- */}
   <div className="absolute inset-0 z-0">
-    <video 
+    <video
       className="w-full h-full object-cover"
-      src="/galeriavideo/1presentacion.mp4"
-      autoPlay 
-      loop 
-      muted 
+      src="/galeriavideo/1uso.mp4" // <- REEMPLAZA CON LA RUTA A TU VIDEO
+      autoPlay
+      loop
+      muted
       playsInline
     ></video>
-    <div className="absolute inset-0 bg-black/40"></div> {/* Aumenté un poco la opacidad para mejorar contraste */}
+    <div className="absolute inset-0 bg-black/30"></div> {/* Superposición oscura opcional */}
   </div>
-
   {/* --- CONTENEDOR DE REVELACIÓN (El panel que se anima) --- */}
-  <div 
-    className={`absolute inset-0 z-10 grid grid-cols-1 lg:grid-cols-2 transition-transform duration-1000 ease-in-out ${
-      isRevealed ? 'translate-x-0' : '-translate-x-full lg:-translate-x-1/2'
-    }`}
-  >
-    {/* Panel Izquierdo (el que se mueve) */}
-    {/* Se ajustó el padding para ser más consistente en diferentes tamaños */}
-    <div className="bg-gray-900/80 backdrop-blur-sm flex flex-col justify-center p-6 sm:p-12 md:p-16">
 
-      {/* Se ajustó el max-w y los márgenes para un mejor control */}
-      <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto space-y-6 md:space-y-8">
-        
-        {/* Tipografía responsiva para el título */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white">
+  <div
+
+    className={`absolute inset-0 z-10 grid grid-cols-1 lg:grid-cols-2 transition-transform duration-1000 ease-in-out ${
+
+      isRevealed ? 'translate-x-0' : '-translate-x-full lg:-translate-x-1/2'
+
+    }`}
+
+  >
+
+    {/* Panel Izquierdo (el que se mueve) */}
+
+    <div className="bg-gray-900/80 backdrop-blur-sm flex flex-col justify-center p-8 md:p-16 -translate-x-60">
+      <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto left-40 space-y-8">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">
           Tu Gimnasio.
           <br />
           <span className="text-red-500">Nuestro Equipamiento.</span>
         </h1>
-        
-        <p className="text-base sm:text-lg text-gray-300">
+        <p className="text-lg text-gray-300">
           RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
         </p>
-        
-        {/* --- Estadísticas responsivas --- */}
-        {/* Ahora es una columna en móvil y 3 en pantallas más grandes */}
         <div className="grid grid-cols-3 gap-4 pt-6 text-white text-center">
           <div>
-            {/* Se ajustó el tamaño de la fuente para móviles */}
-            <div className="text-3xl sm:text-4xl font-bold">150+</div>
+            <div className="text-3xl font-bold">150+</div>
             <div className="text-xs text-gray-400 uppercase tracking-wider">Productos</div>
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-bold">2</div>
+            <div className="text-3xl font-bold">2</div>
             <div className="text-xs text-gray-400 uppercase tracking-wider">Años Garantía</div>
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-bold">10+</div>
+            <div className="text-3xl font-bold">10+</div>
             <div className="text-xs text-gray-400 uppercase tracking-wider">Años Experiencia</div>
           </div>
         </div>
       </div>
     </div>
-    
-    {/* Panel Derecho (transparente) */}
+       {/* Panel Derecho (transparente, queda cubierto y luego se descubre) */}
     <div className="hidden lg:block"></div>
   </div>
 </section>
 
-{/* SECCIÓN 2 - CÓDIGO RESPONSIVE MEJORADO */}
-<section className="h-auto min-h-[650px] md:h-[70vh] md:min-h-[700px] relative flex items-center py-16 md:py-0 overflow-hidden bg-black">
-  {/* --- VIDEO DE FONDO --- */}
-  <div className="absolute inset-0 z-0">
-    <video 
-      className="w-full h-full object-cover"
-      src="/galeriavideo/1uso.mp4"
-      autoPlay 
-      loop 
-      muted 
-      playsInline
-    />
-    {/* Gradiente que es más fuerte en móviles para asegurar legibilidad del texto */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
-  </div>
-
-  {/* --- CONTENEDOR ANIMADO --- */}
-  <div 
-    className={`relative z-10 flex items-center transition-all duration-1000 ease-out w-full ${
-      isRevealed ? 'opacity-100' : 'opacity-0'
-    }`}
-  >
-    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-      {/* Grid ahora con texto centrado en móviles */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* --- CONTENIDO IZQUIERDO --- */}
-        {/* Se centra el texto en móviles para mejor estética */}
-        <div className={`space-y-6 md:space-y-8 text-center lg:text-left transform transition-all duration-1000 ease-out ${
-          isRevealed ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
-        }`}>
-
-          {/* Título principal con tipografía responsiva */}
-          <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white [text-shadow:0_3px_5px_rgba(0,0,0,0.8)]">
-              Tu Gimnasio.
-              <br />
-              <span className="text-red-500">Nuestro Equipamiento.</span>
-            </h1>
-            {/* Se ajusta tamaño de texto y se quita el justificado en móvil */}
-            <p className="mt-4 text-base sm:text-lg text-gray-200 leading-relaxed max-w-lg mx-auto lg:mx-0 [text-shadow:0_2px_4px_rgba(0,0,0,0.7)]">
-              RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
-            </p>
-            <p className="mt-2 text-base sm:text-lg text-gray-300 leading-relaxed max-w-lg mx-auto lg:mx-0 [text-shadow:0_2px_4px_rgba(0,0,0,0.7)]">
-              Distribuimos equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
-            </p>
-          </div>
-
-          {/* --- Estadísticas mejoradas --- */}
-          {/* Ahora con espaciado vertical en móvil y horizontal en desktop */}
-          <div className="grid grid-cols-3 gap-x-4 sm:gap-x-6 text-center bg-black/40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg max-w-md mx-auto lg:mx-0">
-            <div className="group">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
-                150+
-              </div>
-              <div className="text-xs text-gray-200 uppercase tracking-wider mt-1 sm:mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
-                Productos
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
-                2
-              </div>
-              <div className="text-xs text-gray-200 uppercase tracking-wider mt-1 sm:mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
-                Años Garantía
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
-                10+
-              </div>
-              <div className="text-xs text-gray-200 uppercase tracking-wider mt-1 sm:mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
-                Años en Industria
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* --- PANEL DERECHO (Decorativo con imagen) --- */}
-        <div className={`hidden lg:flex items-center justify-center h-full transform transition-all duration-1000 ease-out delay-200 ${
-          isRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-        }`}>
-          <div className="relative w-full max-w-md aspect-square overflow-hidden rounded-2xl shadow-xl shadow-red-500/20 hover:shadow-2xl hover:shadow-red-500/30 transition-shadow duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent blur-3xl" />
-            <div className="absolute inset-0 border-2 border-red-500/30 rounded-2xl backdrop-blur-sm" />
-            <img
-              src="/galeriafoto/5g.jpg"
-              alt="Equipamiento de gimnasio de alta calidad"
-              className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-            />
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</section>
 
 
-<section className="
-  h-auto min-h-screen 
-  md:h-[70vh] md:min-h-[700px] 
-  relative flex items-center py-20 md:py-0 overflow-hidden bg-black">
-  {/* CAMBIOS CLAVE:
-    1. h-auto y py-20: En móviles, la altura se adapta al contenido y añadimos un amplio padding vertical.
-    2. md:h-[70vh] y md:py-0: En pantallas medianas y grandes, volvemos a la altura fija.
-    3. min-h-screen: Asegura que ocupe al menos toda la pantalla del móvil.
-  */}
-
-  {/* --- VIDEO DE FONDO --- */}
-  <div className="absolute inset-0 z-0">
-    <video 
-      className="w-full h-full object-cover"
-      src="/galeriavideo/1uso.mp4"
-      autoPlay 
-      loop 
-      muted 
-      playsInline
-    />
-    {/* Gradiente más oscuro a la izquierda para garantizar la legibilidad del texto en cualquier condición del video */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-  </div>
-
-  {/* --- CONTENEDOR ANIMADO --- */}
-  <div 
-    className={`relative z-10 w-full flex items-center transition-all duration-1000 ease-out ${
-      isRevealed ? 'opacity-100' : 'opacity-0'
-    }`}
-  >
-    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* --- CONTENIDO IZQUIERDO --- */}
-        <div className={`
-          space-y-8 transform transition-all duration-1000 ease-out 
-          text-center lg:text-left 
-          ${isRevealed ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}
-        `}>
-          {/* CAMBIO CLAVE:
-            - text-center lg:text-left: El contenido se centra en móviles y se alinea a la izquierda en pantallas grandes.
-          */}
-
-          {/* Título principal con tipografía adaptable */}
-          <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white [text-shadow:0_3px_5px_rgba(0,0,0,0.8)]">
-              Tu Gimnasio.
-              <br />
-              <span className="text-red-500">Nuestro Equipamiento.</span>
-            </h1>
-            {/* Párrafos con texto más pequeño y centrados en móvil */}
-            <p className="mt-4 text-base sm:text-lg text-gray-200 leading-relaxed max-w-lg mx-auto lg:mx-0 [text-shadow:0_2px_4px_rgba(0,0,0,0.7)]">
-              RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
-            </p>
-            <p className="mt-2 text-base sm:text-lg text-gray-300 leading-relaxed max-w-sm mx-auto lg:mx-0 [text-shadow:0_2px_4px_rgba(0,0,0,0.7)]">
-              Distribuimos equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
-            </p>
-             {/* CAMBIOS CLAVE:
-              1. text-base sm:text-lg: La fuente es más pequeña en móviles.
-              2. mx-auto lg:mx-0: Centra los párrafos en móvil y los alinea a la izquierda en desktop.
-              3. Eliminado 'text-justify': Evita espacios raros en texto en columnas estrechas.
-            */}
-          </div>
-
-          {/* Estadísticas con números más pequeños en móvil */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 text-center bg-black/40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg max-w-md mx-auto lg:mx-0">
-            <div className="group">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
-                150+
-              </div>
-              <div className="text-xs text-gray-200 uppercase tracking-wider mt-2">
-                Productos
-              </div>
-            </div>
-            <div className="group">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
-                2
-              </div>
-              <div className="text-xs text-gray-200 uppercase tracking-wider mt-2">
-                Años Garantía
-              </div>
-            </div>
-            <div className="group">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
-                10+
-              </div>
-              <div className="text-xs text-gray-200 uppercase tracking-wider mt-2">
-                Años en Industria
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* --- PANEL DERECHO (Decorativo) --- */}
-        {/* Esta parte ya era responsive al ocultarse en móvil, no necesita cambios */}
-        <div className={`hidden lg:flex items-center justify-center h-full transform transition-all duration-1000 ease-out delay-200 ${
-          isRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-        }`}>
-          {/* ... tu contenido para el panel derecho aquí ... */}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
       
 
 <section className="py-20 md:py-15 bg-white">
@@ -633,7 +388,77 @@ export default function EalLeaderHomePage() {
   </div>
 </section>
 
+<section className="bg-white text-gray-900 py-16">
+  {/* Header */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    {/* AJUSTE: Tamaños de fuente responsivos */}
+    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
+      Series
+    </h2>
+    <div className="flex items-center gap-4">
+      <div className="h-1 w-20 bg-red-600" />
+      {/* AJUSTE: Tamaño de fuente responsivo */}
+      <p className="text-lg md:text-xl text-gray-600">
+        Destacadas para proyectos extraordinarios
+      </p>
+    </div>
+  </div>
 
+  {/* Layout */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {seriesDestacadas.map((serie, index) => (
+      <div
+        key={serie.id}
+        className="group mb-8 border-t border-gray-200 hover:border-red-600 transition-colors duration-300"
+      >
+        {/* AJUSTE: El grid ahora es más simple y se apila en móvil. Se activa en 'lg' */}
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-x-8 gap-y-6 pt-8">
+          {/* Número */}
+          <div className="flex items-start">
+            {/* AJUSTE: Tamaño de fuente del número responsivo */}
+            <span className="text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-400 to-gray-400 group-hover:from-red-600 group-hover:to-red-700 transition-all duration-500">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+
+          {/* Contenido (Texto e Imagen) */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+            {/* Texto */}
+            {/* AJUSTE: Se reordena para que en móvil (por defecto) el texto vaya primero */}
+            <div className="md:col-span-3 space-y-6 order-2 md:order-1">
+              <div>
+                <span className="text-xs text-red-600 uppercase tracking-widest font-bold">
+                  {serie.id}
+                </span>
+                <h3 className="mt-2 text-3xl font-black uppercase tracking-tight group-hover:text-red-600 transition-colors duration-300">
+                  {serie.title}
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                {serie.description}
+              </p>
+              <Link href={`/pages/tienda-gym?category=${serie.id}`} className="group/btn inline-flex items-center gap-3 text-gray-900 font-bold uppercase text-sm tracking-wider hover:text-red-600 transition-colors duration-300">
+                <span>Descubrir</span>
+                <div className="w-12 h-12 rounded-full border-2 border-gray-300 group-hover/btn:border-red-600 flex items-center justify-center transition-colors duration-300">
+                  <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </Link>
+            </div>
+
+            {/* Imagen */}
+            {/* AJUSTE: Se reordena para que en móvil (por defecto) la imagen vaya después */}
+            <div className="md:col-span-2 relative aspect-[3/4] overflow-hidden rounded-lg order-1 md:order-2">
+              <Image src={serie.image} alt={serie.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 border-4 border-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
       <section className="py-8 md:py-12 bg-zinc-800">
         <div className="max-w-7xl mx-auto px-4 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-1">
