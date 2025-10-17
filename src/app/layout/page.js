@@ -170,7 +170,7 @@ export default function EalLeaderHomePage() {
 
       
 
-<section className="md:h-[70vh] min-h-[700px] relative flex items-center overflow-hidden">
+<section className="h-[60vh] md:h-[70vh] min-h-[700px] relative flex items-center overflow-hidden">
   {/* --- FONDO DE VIDEO --- */}
   <div className="absolute inset-0 z-0">
     <video
