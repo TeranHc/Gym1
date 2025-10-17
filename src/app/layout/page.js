@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { allProducts } from '../pages/tienda-gym/products';
 import Link from "next/link";
 import Image from 'next/image';
+import { Play } from 'lucide-react';
+
 
 // --- NUEVO: Datos para las tarjetas de gamas de productos ---
 const gamasDeProductos = [
@@ -72,18 +74,31 @@ export default function EalLeaderHomePage() {
   const [isMobile, setIsMobile] = useState(false);
     const [openAccordion, setOpenAccordion] = useState('PF'); // <-- AÑADE ESTA LÍNEA (iniciamos con 'PF' abierto)
 
-  
+  const [isRevealed, setIsRevealed] = useState(false);
   const productsPerSlideDesktop = 3;
   const productsPerSlideMobile = 2;
   const totalSlidesDesktop = Math.ceil(allProducts.length / productsPerSlideDesktop);
   const totalSlidesMobile = Math.ceil(allProducts.length / productsPerSlideMobile);
 
+// ✅ **PASO 2: useEffect CORREGIDO**
+  // Aquí combinamos toda la lógica que debe ejecutarse cuando la página carga.
   useEffect(() => {
+    // Lógica para detectar el tamaño de la pantalla
     const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, []);
+
+    // Lógica para activar la animación del panel
+    const timer = setTimeout(() => {
+      setIsRevealed(true);
+    }, 200); // Un pequeño retraso para que el efecto sea más suave
+
+    // Función de limpieza: se ejecuta cuando el componente se "desmonta"
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+      clearTimeout(timer);
+    };
+  }, []); // El array vacío [] asegura que esto solo se ejecute una vez.
 
   const nextSlide = () => {
     if (isMobile) {
@@ -189,7 +204,252 @@ export default function EalLeaderHomePage() {
           </div>
         </div>
       </section>
+      
 
+<section className="h-screen min-h-[700px] relative flex items-center overflow-hidden">
+  
+  {/* --- FONDO DE VIDEO --- */}
+  <div className="absolute inset-0 z-0">
+    <video 
+      className="w-full h-full object-cover"
+      src="/galeriavideo/1presentacion.mp4" // <- REEMPLAZA CON LA RUTA A TU VIDEO
+      autoPlay 
+      loop 
+      muted 
+      playsInline
+    ></video>
+    <div className="absolute inset-0 bg-black/30"></div> {/* Superposición oscura opcional */}
+  </div>
+
+  {/* --- CONTENEDOR DE REVELACIÓN (El panel que se anima) --- */}
+  <div 
+    className={`absolute inset-0 z-10 grid grid-cols-1 lg:grid-cols-2 transition-transform duration-1000 ease-in-out ${
+      isRevealed ? 'translate-x-0' : '-translate-x-full lg:-translate-x-1/2'
+    }`}
+  >
+    {/* Panel Izquierdo (el que se mueve) */}
+    <div className="bg-gray-900/80 backdrop-blur-sm flex flex-col justify-center p-8 md:p-16 -translate-x-60">
+
+      <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto left-40 space-y-8">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">
+          Tu Gimnasio.
+          <br />
+          <span className="text-red-500">Nuestro Equipamiento.</span>
+        </h1>
+        <p className="text-lg text-gray-300">
+          RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
+        </p>
+        <div className="grid grid-cols-3 gap-4 pt-6 text-white text-center">
+          <div>
+            <div className="text-3xl font-bold">150+</div>
+            <div className="text-xs text-gray-400 uppercase tracking-wider">Productos</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold">2</div>
+            <div className="text-xs text-gray-400 uppercase tracking-wider">Años Garantía</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold">10+</div>
+            <div className="text-xs text-gray-400 uppercase tracking-wider">Años Experiencia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Panel Derecho (transparente, queda cubierto y luego se descubre) */}
+    <div className="hidden lg:block"></div>
+  </div>
+</section>
+
+    <section className="h-[70vh] min-h-[700px] relative flex items-center overflow-hidden bg-black">
+      {/* --- VIDEO DE FONDO --- */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          className="w-full h-full object-cover"
+          src="/galeriavideo/1uso.mp4"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        />
+        {/* Gradiente más sutil y elegante */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      </div>
+
+      {/* --- CONTENEDOR ANIMADO --- */}
+      <div 
+        className={`absolute inset-0 z-10 flex items-center transition-all duration-1000 ease-out ${
+          isRevealed ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+          {/* Grid con dos columnas en desktop */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* --- CONTENIDO IZQUIERDO --- */}
+            <div className={`space-y-8 transform transition-all duration-1000 ease-out ${
+              isRevealed ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+            }`}>
+
+
+              {/* Título principal */}
+              <div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white [text-shadow:0_3px_5px_rgba(0,0,0,0.8)]">
+                  Tu Gimnasio.
+                  <br />
+                  <span className="text-red-500">Nuestro Equipamiento.</span>
+                </h1>
+                <p className="text-lg text-gray-200 leading-relaxed max-w-lg  [text-shadow:0_2px_4px_rgba(0,0,0,0.7)] text-justify">
+                  RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed max-w-sm [text-shadow:0_2px_4px_rgba(0,0,0,0.7)]  text-justify">
+                  Distribuimos equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
+                </p>
+              </div>
+
+              {/* Estadísticas mejoradas */}
+<div className="grid grid-cols-3 gap-6 pt-4 text-center bg-black/40 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+  <div className="group">
+    <div className="text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
+      150+
+    </div>
+    <div className="text-xs text-gray-200 uppercase tracking-wider mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
+      Productos
+    </div>
+  </div>
+
+  <div className="group">
+    <div className="text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
+      2
+    </div>
+    <div className="text-xs text-gray-200 uppercase tracking-wider mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
+      Años Garantía
+    </div>
+  </div>
+
+  <div className="group">
+    <div className="text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
+      10+
+    </div>
+    <div className="text-xs text-gray-200 uppercase tracking-wider mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
+      Años en Industria
+    </div>
+  </div>
+</div>
+
+            </div>
+            {/* --- PANEL DERECHO (Decorativo) --- */}
+            <div className={`hidden lg:flex items-center justify-center h-full transform transition-all duration-1000 ease-out delay-200 ${
+              isRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}>
+              <div className="relative w-full max-w-md aspect-square overflow-hidden rounded-2xl shadow-xl shadow-red-500/20 hover:shadow-2xl hover:shadow-red-500/30 transition-shadow duration-500">
+                {/* Elemento decorativo con gradiente */}
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent blur-3xl" />
+                <div className="absolute inset-0 border-2 border-red-500/30 rounded-2xl backdrop-blur-sm" />
+
+                {/* Imagen */}
+                <img
+                  src="/galeriafoto/5g.jpg"
+                  alt="Descripción de la imagen"
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                />
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="h-[70vh] min-h-[700px] relative flex items-center overflow-hidden bg-black">
+      {/* --- VIDEO DE FONDO --- */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          className="w-full h-full object-cover"
+          src="/galeriavideo/1uso.mp4"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        />
+        {/* Gradiente más sutil y elegante */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      </div>
+
+      {/* --- CONTENEDOR ANIMADO --- */}
+      <div 
+        className={`absolute inset-0 z-10 flex items-center transition-all duration-1000 ease-out ${
+          isRevealed ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+          {/* Grid con dos columnas en desktop */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* --- CONTENIDO IZQUIERDO --- */}
+            <div className={`space-y-8 transform transition-all duration-1000 ease-out ${
+              isRevealed ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+            }`}>
+
+
+              {/* Título principal */}
+              <div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white [text-shadow:0_3px_5px_rgba(0,0,0,0.8)]">
+                  Tu Gimnasio.
+                  <br />
+                  <span className="text-red-500">Nuestro Equipamiento.</span>
+                </h1>
+                <p className="text-lg text-gray-200 leading-relaxed max-w-lg  [text-shadow:0_2px_4px_rgba(0,0,0,0.7)] text-justify">
+                  RealLeader distribuye equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed max-w-sm [text-shadow:0_2px_4px_rgba(0,0,0,0.7)]  text-justify">
+                  Distribuimos equipamiento de gimnasio de la más alta calidad. Diseñado para superar tus límites.
+                </p>
+              </div>
+
+              {/* Estadísticas mejoradas */}
+<div className="grid grid-cols-3 gap-6 pt-4 text-center bg-black/40 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+  <div className="group">
+    <div className="text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
+      150+
+    </div>
+    <div className="text-xs text-gray-200 uppercase tracking-wider mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
+      Productos
+    </div>
+  </div>
+
+  <div className="group">
+    <div className="text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
+      2
+    </div>
+    <div className="text-xs text-gray-200 uppercase tracking-wider mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
+      Años Garantía
+    </div>
+  </div>
+
+  <div className="group">
+    <div className="text-4xl font-extrabold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] group-hover:text-red-400 group-hover:scale-105 transition-all duration-300">
+      10+
+    </div>
+    <div className="text-xs text-gray-200 uppercase tracking-wider mt-2 [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
+      Años en Industria
+    </div>
+  </div>
+</div>
+
+            </div>
+            {/* --- PANEL DERECHO (Decorativo) --- */}
+            <div className={`hidden lg:flex items-center justify-center h-full transform transition-all duration-1000 ease-out delay-200 ${
+              isRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
       
 {/* ========================================
    PROPUESTA 1: FRESH & CLEAN

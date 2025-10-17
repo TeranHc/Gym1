@@ -346,7 +346,7 @@ function TiendaGymContent() {
     setIsSidebarOpen(false);
     const params = new URLSearchParams();
     if (category !== 'Todos') params.set('category', category);
-    router.push(`/pages/tienda-gym?${params.toString()}`, { scroll: false });
+    router.push(`/pages/stock?${params.toString()}`, { scroll: false });
   };
 
   const handleSubCategoryToggle = (subCategory) => {
@@ -370,11 +370,11 @@ function TiendaGymContent() {
     setSortBy('');
     setStockStatus('in-stock'); // Reseteamos también el estado del stock
     setSelectedColor('todos'); // <-- AÑADE ESTO
-    router.push('/pages/tienda-gym', { scroll: false });
+    router.push('/pages/stock', { scroll: false });
   };
 
   const handleProductClick = (productId) => {
-    router.push(`/pages/tienda-gym/productos/${productId}`);
+    router.push(`/pages/stock/productos/${productId}`);
   };
 
   const getActiveFiltersCount = () => {
@@ -538,7 +538,7 @@ const upcomingProducts = allProducts.filter(p => p.status && p.status.includes('
   <nav className="flex items-center space-x-2 text-sm text-gray-600">
     <Link href="/" className="text-gray-900 font-medium hover:underline">Inicio</Link>
     <span>&gt;</span>
-    <Link href="/pages/tienda-gym" className="text-gray-900 font-medium hover:underline">Productos</Link>
+    <Link href="/pages/stock" className="text-gray-900 font-medium hover:underline">Productos</Link>
   </nav>
   
 </div>
