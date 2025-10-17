@@ -41,11 +41,11 @@ const gamasDeProductos = [
 
 // ...justo después de la constante gamasDeProductos
 const seriesDestacadas = [
-  {
-    id: "PF",
-    title: "PF SERIES",
-    image: "/iniciosesion/pf.jpg",
-    description: "La Serie PF es una gama compacta de máquinas de entrenamiento de fuerza con dos estaciones, diseñadas para instalaciones que ahorran espacio. Estas máquinas combinan dos ejercicios en una sola unidad, lo que las hace ideales para gimnasios, hoteles y complejos residenciales. Su durabilidad, facilidad de uso y amplio rango de movimiento son características clave, mientras que su diseño robusto y elegante apariencia las convierten en una excelente opción para entornos con mucho tráfico."
+    {
+    id: "M2",
+    title: "M2 SERIES",
+    image: "/iniciosesion/m2.jpg",
+    description: "La Serie M2 es una gama robusta y de alto rendimiento de 23 máquinas de entrenamiento de fuerza diseñadas para la activación muscular específica y movimientos anatómicamente correctos. Fabricada con acero de grado comercial y características avanzadas como CAM, poleas y un amplio rango de movimiento, esta serie ofrece durabilidad y facilidad de uso, lo que la hace ideal para gimnasios, hoteles, empresas y hogares."
   },
   {
     id: "LD",
@@ -54,16 +54,16 @@ const seriesDestacadas = [
     description: "La Serie HS Pro está diseñada para un entrenamiento de fuerza de alto rendimiento con un diseño avanzado. Esta serie incluye una gama de máquinas con selectores para atletas exigentes y entusiastas del fitness, proporcionando una biomecánica óptima para entrenamientos efectivos. Diseñada para soportar un uso intensivo, la Serie HS Pro garantiza estabilidad y seguridad, lo que la convierte en una excelente opción para gimnasios comerciales, estudios de fitness e instalaciones de bienestar corporativas."
   },
   {
-    id: "M2",
-    title: "M2 SERIES",
-    image: "/iniciosesion/m2.jpg",
-    description: "La Serie M2 es una gama robusta y de alto rendimiento de 23 máquinas de entrenamiento de fuerza diseñadas para la activación muscular específica y movimientos anatómicamente correctos. Fabricada con acero de grado comercial y características avanzadas como CAM, poleas y un amplio rango de movimiento, esta serie ofrece durabilidad y facilidad de uso, lo que la hace ideal para gimnasios, hoteles, empresas y hogares."
+    id: "PF",
+    title: "PF SERIES",
+    image: "/iniciosesion/pf.jpg",
+    description: "La Serie PF es una gama compacta de máquinas de entrenamiento de fuerza con dos estaciones, diseñadas para instalaciones que ahorran espacio. Estas máquinas combinan dos ejercicios en una sola unidad, lo que las hace ideales para gimnasios, hoteles y complejos residenciales. Su durabilidad, facilidad de uso y amplio rango de movimiento son características clave, mientras que su diseño robusto y elegante apariencia las convierten en una excelente opción para entornos con mucho tráfico."
   },
-    {
+  {
     id: "FM",
     title: "FM SERIES",
     image: "/iniciosesion/fm.png",
-    description: "La Serie M2 es una gama robusta y de alto rendimiento de 23 máquinas de entrenamiento de fuerza diseñadas para la activación muscular específica y movimientos anatómicamente correctos. Fabricada con acero de grado comercial y características avanzadas como CAM, poleas y un amplio rango de movimiento, esta serie ofrece durabilidad y facilidad de uso, lo que la hace ideal para gimnasios, hoteles, empresas y hogares."
+    description: "La Serie FM es una gama de máquinas de entrenamiento de fuerza con peso integrado, diseñada para ofrecer un entrenamiento completo en un espacio compacto. Con máquinas que cubren todos los grupos musculares principales, esta serie es ideal para gimnasios, hoteles y complejos residenciales. Fabricada con materiales duraderos y características ergonómicas, la Serie FM garantiza comodidad y seguridad durante el entrenamiento, proporcionando una solución eficiente para instalaciones con espacio limitado."
   }
 ];
 
@@ -174,31 +174,38 @@ export default function EalLeaderHomePage() {
   {/* --- FONDO DE VIDEO --- */}
   <div className="absolute inset-0 z-0">
     <video
+      /*
+        - `object-cover` y `object-center` (por defecto de `object-cover` si no se especifica otro)
+          aseguran que el video cubra todo y mantenga su centro visible.
+          Se eliminó `lg:object-right` para que el sujeto del video quede más visible.
+      */
       className="w-full h-full object-cover"
-      src="/galeriavideo/1uso.mp4" // <- REEMPLAZA CON LA RUTA A TU VIDEO
+      src="/galeriavideo/1uso.mp4"
       autoPlay
       loop
       muted
       playsInline
     ></video>
-    <div className="absolute inset-0 bg-black/30"></div> {/* Superposición oscura opcional */}
+    <div className="absolute inset-0 bg-black/30"></div>
   </div>
+
   {/* --- CONTENEDOR DE REVELACIÓN (El panel que se anima) --- */}
-
   <div
-
     className={`absolute inset-0 z-10 grid grid-cols-1 lg:grid-cols-2 transition-transform duration-1000 ease-in-out ${
-
       isRevealed ? 'translate-x-0' : '-translate-x-full lg:-translate-x-1/2'
-
     }`}
-
   >
-
-    {/* Panel Izquierdo (el que se mueve) */}
-
-    <div className="bg-gray-900/80 backdrop-blur-sm flex flex-col justify-center p-8 md:p-16 -translate-x-60">
-      <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto left-40 space-y-8">
+    {/* --- Panel Izquierdo (el que se mueve y ahora se desplaza más a la izquierda) --- */}
+    <div
+      /*
+        - `lg:-translate-x-1/4`: Mueve este panel (que es la mitad izquierda del contenedor de revelación)
+          un 25% de su propio ancho hacia la izquierda, logrando que el texto y el panel gris
+          se superpongan más en el área del video.
+          Puedes ajustar el `1/4` a `1/3`, `1/2` o incluso más si quieres que se mueva más.
+      */
+      className="bg-gray-900/80 backdrop-blur-sm flex flex-col justify-center p-8 md:p-16 lg:-translate-x-1/4"
+    >
+      <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto space-y-8">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">
           Tu Gimnasio.
           <br />
@@ -223,11 +230,11 @@ export default function EalLeaderHomePage() {
         </div>
       </div>
     </div>
-       {/* Panel Derecho (transparente, queda cubierto y luego se descubre) */}
+    
+    {/* --- Panel Derecho (transparente) --- */}
     <div className="hidden lg:block"></div>
   </div>
 </section>
-
 
 
       
@@ -305,100 +312,16 @@ export default function EalLeaderHomePage() {
   </div>
 </section>
 
-<section className="bg-gray-50 py-20 md:py-24">
-  {/* Header (sin cambios) */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-4">
-      Series Destacadas
-    </h2>
-    <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
-      Colecciones curadas para proyectos que demandan un carácter único y un rendimiento superior.
-    </p>
-  </div>
-
-  {/* Layout de Series */}
-  {/* CAMBIO 1: AÑADIMOS 'space-y-4' o similar para un espacio consistente */}
-  <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4"> 
-    {seriesDestacadas.map((serie, index) => (
-      <div
-        key={serie.id}
-        // CAMBIO 2: La tarjeta ahora tiene un ancho menor (11/12) y un margen automático condicional
-        // Esto es lo que mueve TODA LA TARJETA a la izquierda o derecha
-        className={`
-          group relative rounded-2xl overflow-hidden shadow-2xl transition-shadow duration-500 hover:shadow-red-200/50 
-          lg:w-8/12 ${index % 2 !== 0 ? 'ml-auto' : 'mr-auto'}`
-        }
-      >
-        <Image 
-          src={serie.image} 
-          alt={serie.title} 
-          fill 
-          className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" 
-        />
-        
-        {/* El degradado alterna su dirección para seguir al texto */}
-        <div className={`
-          absolute inset-0 bg-gradient-to-t from-black/80 to-transparent 
-          ${index % 2 === 0 ? 'md:bg-gradient-to-r' : 'md:bg-gradient-to-l'} 
-          md:from-black/80 md:via-black/60 md:to-transparent transition-all duration-500 
-          group-hover:from-black/90 group-hover:via-black/70`} 
-        />
-        
-        {/* La alineación del texto dentro del contenedor también alterna */}
-        <div className={`
-          relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center 
-          p-8 md:p-12 min-h-[450px] md:min-h-[400px] text-center 
-          ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}
-        >
-          
-          {/* El número decorativo cambia de orden en los impares */}
-          <div className={`md:col-span-4 ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
-            <span className="text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white/50 to-white/20 group-hover:from-red-500 group-hover:to-red-600 transition-all duration-500">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-          </div>
-
-          {/* El bloque de texto también cambia de orden */}
-          <div className={`md:col-span-8 space-y-6 text-white ${index % 2 !== 0 ? 'md:order-first' : ''}`}>
-            <div>
-              <span className="text-sm font-bold uppercase tracking-widest text-red-400">
-                {serie.id}
-              </span>
-              <h3 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
-                {serie.title}
-              </h3>
-            </div>
-            
-            <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
-              {serie.description}
-            </p>
-            
-            <Link href={`/pages/tienda-gym?category=${serie.id}`} className="group/btn inline-flex items-center gap-3 text-white font-bold uppercase text-sm tracking-wider">
-              <span>Descubrir Serie</span>
-              <div className="w-12 h-12 rounded-full border-2 border-white/50 group-hover/btn:border-red-500 group-hover/btn:bg-red-500 flex items-center justify-center transition-all duration-300">
-                <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
-
-<section className="bg-white text-gray-900 py-16">
+<section className="bg-gradient-to-br from-gray-100 to-blue-50 text-gray-900 py-8 md:py-12"> {/* AJUSTE: Menos padding vertical en móvil */}
   {/* Header */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-    {/* AJUSTE: Tamaños de fuente responsivos */}
-    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+    {/* AJUSTE: Título principal más pequeño en móviles */}
+    <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
       Series
     </h2>
     <div className="flex items-center gap-4">
       <div className="h-1 w-20 bg-red-600" />
-      {/* AJUSTE: Tamaño de fuente responsivo */}
-      <p className="text-lg md:text-xl text-gray-600">
+      <p className="text-base sm:text-lg md:text-xl text-gray-600"> {/* AJUSTE: Texto más pequeño en móviles */}
         Destacadas para proyectos extraordinarios
       </p>
     </div>
@@ -409,32 +332,32 @@ export default function EalLeaderHomePage() {
     {seriesDestacadas.map((serie, index) => (
       <div
         key={serie.id}
-        className="group mb-8 border-t border-gray-200 hover:border-red-600 transition-colors duration-300"
+        className="group mb-4 border-t border-gray-200 hover:border-red-600 transition-colors duration-300"
       >
-        {/* AJUSTE: El grid ahora es más simple y se apila en móvil. Se activa en 'lg' */}
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-x-8 gap-y-6 pt-8">
-          {/* Número */}
-          <div className="flex items-start">
-            {/* AJUSTE: Tamaño de fuente del número responsivo */}
-            <span className="text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-400 to-gray-400 group-hover:from-red-600 group-hover:to-red-700 transition-all duration-500">
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-x-8 gap-y-4 md:gap-y-6 pt-4 md:pt-6"> {/* AJUSTE: Menos espacio y padding en móvil */}
+          {/* Número (Lógica Zig-Zag) */}
+          <div className={`flex items-start ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
+            {/* AJUSTE: Número más pequeño en móviles */}
+            <span className="text-6xl sm:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-400 to-gray-400 group-hover:from-red-600 group-hover:to-red-700 transition-all duration-500">
               {String(index + 1).padStart(2, '0')}
             </span>
           </div>
 
-          {/* Contenido (Texto e Imagen) */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+          {/* Contenido (Lógica Zig-Zag) */}
+          <div className={`grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-center ${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
             {/* Texto */}
-            {/* AJUSTE: Se reordena para que en móvil (por defecto) el texto vaya primero */}
-            <div className="md:col-span-3 space-y-6 order-2 md:order-1">
+            <div className={`md:col-span-3 space-y-4 order-2 ${index % 2 !== 0 ? 'md:order-2' : 'md:order-1'}`}>
               <div>
                 <span className="text-xs text-red-600 uppercase tracking-widest font-bold">
                   {serie.id}
                 </span>
-                <h3 className="mt-2 text-3xl font-black uppercase tracking-tight group-hover:text-red-600 transition-colors duration-300">
+                {/* AJUSTE: Título de la serie más pequeño en móviles */}
+                <h3 className="mt-2 text-2xl sm:text-3xl font-black uppercase tracking-tight group-hover:text-red-600 transition-colors duration-300">
                   {serie.title}
                 </h3>
               </div>
-              <p className="text-gray-600 leading-relaxed">
+              {/* AJUSTE: Texto justificado solo a partir de `sm` para evitar "ríos" en pantallas muy estrechas */}
+              <p className="text-gray-600 leading-relaxed text-left sm:text-justify">
                 {serie.description}
               </p>
               <Link href={`/pages/tienda-gym?category=${serie.id}`} className="group/btn inline-flex items-center gap-3 text-gray-900 font-bold uppercase text-sm tracking-wider hover:text-red-600 transition-colors duration-300">
@@ -448,8 +371,8 @@ export default function EalLeaderHomePage() {
             </div>
 
             {/* Imagen */}
-            {/* AJUSTE: Se reordena para que en móvil (por defecto) la imagen vaya después */}
-            <div className="md:col-span-2 relative aspect-[3/4] overflow-hidden rounded-lg order-1 md:order-2">
+            {/* AJUSTE: Se cambió `aspect-[3/3]` por `aspect-square` que es más claro y estándar */}
+            <div className={`md:col-span-2 relative aspect-square overflow-hidden rounded-lg order-1 ${index % 2 !== 0 ? 'md:order-1' : 'md:order-2'}`}>
               <Image src={serie.image} alt={serie.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 border-4 border-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </div>
