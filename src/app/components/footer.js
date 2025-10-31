@@ -48,6 +48,11 @@ export default function Footer() {
                     Galeria
                   </Link >
                 </div>
+                <div>
+                  <Link  href="/pages/mapa" className="hover:text-red-500 transition-colors">
+                    Red Global
+                  </Link >
+                </div>
 
                 <div>
                   <Link  href="/pages/horarios" className="hover:text-red-500 transition-colors">
