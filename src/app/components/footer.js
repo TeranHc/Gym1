@@ -71,6 +71,11 @@ export default function Footer() {
                     Nuestras máquinas
                   </a>
                 </div>
+                <div>
+                  <a href="/pages/stock" className="hover:text-red-500 transition-colors">
+                    Nuestro Stock
+                  </a>
+                </div>
               </div>
             </div>
 
