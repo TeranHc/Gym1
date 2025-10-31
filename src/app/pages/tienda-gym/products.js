@@ -27,61 +27,7 @@ export const allProducts = [
       "músculo trabajado": "Pectorales, hombros y tríceps",
     }
   },
-  {
-    id: 2,
-    name: "M2-1012 Pectoral Machine",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Pecho", "Hombros"],
-    image: "/maquinas/M2-1012 Pectoral Machine.png",
-    alt: "M2-1012 Pectoral Machine",
-    "description": [
-      "M2-1012 Pectoral Machine. Esta máquina Pec Fly incluye dos juegos de palancas de ajuste: una debajo del asiento para la altura del usuario y otra en la base de los brazos para ajustar la posición inicial.",
-      "Las manijas de esta máquina giran durante el movimiento, lo que permite un movimiento más natural. El peso se ajusta mediante una pila de pesas con pasador."
-    ],
-      features: [
-      "Asiento ajustable",
-      "Agarres ergonómicos",
-      "Sistema de peso integrado",
-      "Estructura estable de acero"
-    ],
-    specifications: {
-      Modelo: "M2-1012",
-      dimensiones: "1650 x 1175 x 1515 mm",
-      "placas (Weight Stack)": "263lbs/119.25kg",
-      "peso neto (N.W.)": "130 kg",
-      "peso bruto (W.G.)": "170 kg",
-      "músculo trabajado": "Pectorales y hombros",
-    }
-  },
-  {
-    id: 7,
-    name: "M2-1007 Shoulder Press",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Hombros"],
-    image: "/maquinas/M2-1007 Shoulder Press.png",
-    alt: "M2-1007 Shoulder Press",
-    "description": [
-      "M2-1007 Shoulder Press. El asiento de esta máquina de prensa de hombros se ajusta a la altura del usuario. Cuenta con asas en ángulo que permiten realizar press con agarre neutral y prono.",
-      "Está bien acolchada, es duradera y ofrece un movimiento suave. Su peso se ajusta mediante una columna de pesas con pasador."
-    ],
-    features: [
-      "Asiento ajustable",
-      "Agarres ergonómicos",
-      "Sistema de peso integrado",
-      "Estructura resistente de acero"
-    ],
-    specifications: {
-      Modelo: "M2-1007",
-      dimensiones: "1455 x 1685 x 1515 mm",
-      "placas (Weight Stack)": "218 lbs/99 kg",
-      "peso neto (N.W.)": "172 kg",
-      "peso bruto (W.G.)": "212 kg",
-      "músculo trabajado": "Deltoides y hombros",
-    }
-  },
-  {
+    {
     id: 14,
     name: "M2-1002 Lateral Rise",
     primaryCategory: "M2",
@@ -107,35 +53,7 @@ export const allProducts = [
       "músculo trabajado": "Deltoides laterales y hombros",
     }
   },
-  {
-    id: 18,
-    name: "M2-1015 Row Rear Delt",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Hombros", "Espalda"],
-    image: "/maquinas/M2-1015 Row Rear Delt.png",
-    alt: "M2-1015 Row Rear Delt",
-    "description": [
-      "M2-1015 Row Rear Delt. Esta robusta máquina de remo sentado incluye un asiento y una almohadilla pectoral ajustables a la altura del usuario.",
-      "Está bien acolchada, ofrece un movimiento suave y cuenta con asas móviles que permiten un movimiento más natural. Su peso es ajustable mediante una columna de pesas con pasador."
-    ],
-    features: [
-      "Asiento ajustable",
-      "Agarres ergonómicos",
-      "Resistencia integrada",
-      "Estructura sólida de acero"
-    ],
-    specifications: {
-      Modelo: "Negro con detalles en gris",
-      dimensiones: "M2-1015",
-      "placas (Weight Stack)": "	263 lbs/119.25 kg",
-      "peso neto (N.W.)": "140 kg",
-      "peso bruto (W.G.)": "180 kg",
-      "músculo trabajado": "Deltoides posteriores y dorsales",
-      color: "Negro con detalles en gris",
-    }
-  },
-  {
+    {
     id: 3,
     name: "M2-1003 Hip Abductor",
     primaryCategory: "M2",
@@ -161,7 +79,7 @@ export const allProducts = [
       "músculo trabajado": "Abductores de cadera",
     }
   },
-  {
+    {
     id: 4,
     name: "M2-1004 Hip Adductor",
     primaryCategory: "M2",
@@ -187,34 +105,7 @@ export const allProducts = [
       "músculo trabajado": "Aductores de cadera",
     }
   },
-  {
-    id: 17,
-    name: "M2-1014 Multi Hip",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Cadera", "Glúteos", "Piernas"],
-    image: "/maquinas/M2-1014 Multi Hip.png",
-    alt: "M2-1014 Multi Hip",
-    "description": [
-      "M2-1014 Multi Hip. Esta máquina es robusta y muy funcional, con opciones para entrenar glúteos y flexores de cadera desde múltiples ángulos.",
-      "Cuenta con varias funciones ajustables, incluyendo una palanca en el centro para ajustar la posición inicial del ejercicio, una palanca para ajustar la altura de la rodillera según las preferencias del usuario y palancas en las asas de apoyo para ajustar la altura."
-    ],
-    features: [
-      "Múltiples posiciones de ejercicio",
-      "Resistencia ajustable",
-      "Almohadillas acolchadas",
-      "Estructura robusta de acero"
-    ],
-    specifications: {
-      modelo: "M2-1014",
-      dimensiones: "1180 x 1125 x 1615 mm",
-      "placas (Weight Stack)": "263 lbs/119.25 kg",
-      "peso neto (N.W.)": "220 kg",
-      "peso bruto (W.G.)": "260 kg",
-      "músculo trabajado": "Abductores y aductores de cadera",
-    }
-  },
-  {
+    {
     id: 5,
     name: "M2-1005 Leg Extension",
     primaryCategory: "M2",
@@ -270,6 +161,59 @@ export const allProducts = [
       "músculo trabajado": "Isquiotibiales",
     }
   },
+    {
+    id: 7,
+    name: "M2-1007 Shoulder Press",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Hombros"],
+    image: "/maquinas/M2-1007 Shoulder Press.png",
+    alt: "M2-1007 Shoulder Press",
+    "description": [
+      "M2-1007 Shoulder Press. El asiento de esta máquina de prensa de hombros se ajusta a la altura del usuario. Cuenta con asas en ángulo que permiten realizar press con agarre neutral y prono.",
+      "Está bien acolchada, es duradera y ofrece un movimiento suave. Su peso se ajusta mediante una columna de pesas con pasador."
+    ],
+    features: [
+      "Asiento ajustable",
+      "Agarres ergonómicos",
+      "Sistema de peso integrado",
+      "Estructura resistente de acero"
+    ],
+    specifications: {
+      Modelo: "M2-1007",
+      dimensiones: "1455 x 1685 x 1515 mm",
+      "placas (Weight Stack)": "218 lbs/99 kg",
+      "peso neto (N.W.)": "172 kg",
+      "peso bruto (W.G.)": "212 kg",
+      "músculo trabajado": "Deltoides y hombros",
+    }
+  },
+      {
+    id: 8,
+    name: "M2-1008 Abdominal Crunch",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Abdominales"],
+    image: "/maquinas/M2-1008 Abdominal Crunch.png",
+    alt: "M2-1008 Abdominal Crunch",
+    "description": [
+      "M2-1008 Abdominal Crunch. Esta máquina viene con un asiento ajustable para distintas alturas de usuario y una pila de pesas con pasador."    
+    ],
+    features: [
+      "Soporte lumbar acolchado",
+      "Asiento cómodo",
+      "Resistencia ajustable",
+      "Estructura estable de acero"
+    ],
+    specifications: {
+      modelo: "M2-1008",
+      dimensiones: "1285 x 1095 x 1515 mm",
+      "placas (Weight Stack)": "218 lbs/99 kg",
+      "peso neto (N.W.)": "155 kg",
+      "peso bruto (W.G.)": "195 kg",
+      "músculo trabajado": "Abdominales",
+    }
+  },
   {
     id: 9,
     name: "M2-1009 Leg Press",
@@ -297,223 +241,7 @@ export const allProducts = [
       "músculo trabajado": "Cuádriceps, glúteos e isquiotibiales",
     }
   },
-  {
-    id: 21,
-    name: "M2-1019 Standing Calf",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Piernas"],
-    image: "/maquinas/M2-1019 Standing Calf.png",
-    alt: "M2-1019 Standing Calf",
-    "description": [
-      "M2-1019 Standing Calf. Esta máquina de elevación de pantorrillas de pie tiene un diseño ergonómico y fácil de usar. Incluye una palanca bajo las hombreras para ajustar la altura del usuario.",
-      "Es una máquina duradera y robusta con reposapiés de buen agarre. El peso se ajusta mediante un conjunto de discos con pasador."
-    ],
-    features: [
-      "Plataforma ajustable",
-      "Soporte acolchado",
-      "Resistencia con pesas integradas",
-      "Estructura sólida de acero"
-    ],
-    specifications: {
-      modelo: "M2-1019",
-      dimensiones: "1108 x 1018 x 1633 mm	",
-      "placas (Weight Stack)": "263 lbs/119.25 kg	",
-      "peso neto (N.W.)": "123 kg",
-      "peso bruto (W.G.)": "163 kg",
-      "músculo trabajado": "Pantorrillas",
-    }
-  },
-  {
-    id: 24,
-    name: "M2-1023 Seated Leg Curl",
-    primaryCategory: "M2",
-    status: "upcoming",
-    upcomingQuantity: 2,
-    subCategories: ["Piernas"],
-    image: "/maquinas/M2-1023 Seated Leg Curl.png",
-    alt: "M2-1023 Seated Leg Curl",
-    "description": [
-      "M2-1023 Seated Leg Curl. Esta máquina de curl de piernas sentado cuenta con varias funciones ajustables: el asiento, la almohadilla para los muslos y la almohadilla para los tobillos se pueden ajustar a la altura del usuario.",
-      "Una palanca adicional en la articulación de la rodilla permite ajustar la posición inicial y final del ejercicio. El peso se ajusta mediante una columna de pesas con pasador."
-    ],
-    features: [
-      "Rodillos acolchados",
-      "Asiento ajustable",
-      "Resistencia con pesas integradas",
-      "Estructura sólida de acero"
-    ],
-    specifications: {
-      modelo: "M2-1023",
-      dimensiones: "1500 x 1077 x 1515 mm	",
-      "placas (Weight Stack)": "293 lbs/132.75 kg	",
-      "peso neto (N.W.)": "160 kg",
-      "peso bruto (W.G.)": "200 kg",
-      "músculo trabajado": "Isquiotibiales",
-    }
-  },
-  {
-    id: 8,
-    name: "M2-1008 Abdominal Crunch",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Abdominales"],
-    image: "/maquinas/M2-1008 Abdominal Crunch.png",
-    alt: "M2-1008 Abdominal Crunch",
-    "description": [
-      "M2-1008 Abdominal Crunch. Esta máquina viene con un asiento ajustable para distintas alturas de usuario y una pila de pesas con pasador."    
-    ],
-    features: [
-      "Soporte lumbar acolchado",
-      "Asiento cómodo",
-      "Resistencia ajustable",
-      "Estructura estable de acero"
-    ],
-    specifications: {
-      modelo: "M2-1008",
-      dimensiones: "1285 x 1095 x 1515 mm",
-      "placas (Weight Stack)": "218 lbs/99 kg",
-      "peso neto (N.W.)": "155 kg",
-      "peso bruto (W.G.)": "195 kg",
-      "músculo trabajado": "Abdominales",
-    }
-  },
-  {
-    id: 15,
-    name: "M2-1013 Lat Pull Down",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Espalda"],
-    image: "/maquinas/M2-1013 Lat Pull Down.png",
-    alt: "M2-1013 Lat Pull Down",
-    "description": [
-      "M2-1013 Lat Pull Down. Esta máquina de polea dorsal incluye un asiento y rodilleras ajustables en altura para adaptarse a las preferencias del usuario. También incluye una pila de pesas con pasadores.",
-      "Los brazos de esta máquina se mueven de forma natural."    
-    ],
-    features: [
-      "Barra ajustable",
-      "Asiento acolchado",
-      "Resistencia con pesas integradas",
-      "Estructura sólida de acero"
-    ],
-    specifications: {
-      modelo: "M2-1013",
-      dimensiones: "1970 x 1135 x 1887 mm",
-      "placas (Weight Stack)": "263 lbs/119.25 kg",
-      "peso neto (N.W.)": "167 kg",
-      "peso bruto (W.G.)": "207 kg",
-      "músculo trabajado": "Dorsal ancho y espalda",
-    }
-  },
-  {
-    id: 16,
-    name: "M2-1013A Lat Pull Down",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Espalda"],
-    image: "/maquinas/M2-1013A Lat Pull Down.png",
-    alt: "M2-1013A Lat Pull Down",
-    "description": [
-      "M2-1013A Lat Pull Down. Este equipo de dominadas tiene un asiento y una rodillera ajustables en altura para adaptarse a la altura del usuario. Incluye una pila de pesas con pasador.",
-      "El mango es ajustable, lo que permite probar diferentes tipos de dominadas. También incluye un soporte superior para sujetar las barras de forma segura cuando no se usan."    
-    ],
-    features: [
-      "Barra ajustable",
-      "Asiento acolchado",
-      "Resistencia con pesas integradas",
-      "Estructura estable de acero"
-    ],
-    specifications: {
-      modelo: "M2-1013A",
-      dimensiones: "1325 x 1255 x 2215 mm",
-      "placas (Weight Stack)": "263 lbs/119.25 kg",
-      "peso neto (N.W.)": "135 kg",
-      "peso bruto (W.G.)": "175 kg",
-      "músculo trabajado": "Dorsal ancho y espalda",
-    }
-  },
-  {
-    id: 20,
-    name: "M2-1018 Seated Low Row",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Espalda"],
-    image: "/maquinas/M2-1018 Seated Low Row.png",
-    alt: "M2-1018 Seated Low Row",
-    "description": [
-      "M2-1018 Seated Low Row. Esta máquina de remo bajo sentado es robusta y robusta, con un diseño minimalista.",
-      "Está bien acolchada, cuenta con reposapiés con agarre firme y permite intercambiar las asas. Su peso se ajusta mediante una pila de pesas con pasador."    
-    ],
-    features: [
-      "Asiento ergonómico",
-      "Barra de agarre ajustable",
-      "Resistencia integrada",
-      "Estructura sólida de acero"
-    ],
-    specifications: {
-      modelo: "M2-1018",
-      dimensiones: "1810 x 1185 x 2015 mm",
-      "placas (Weight Stack)": "293 lbs/132.75 kg",
-      "peso neto (N.W.)": "125 kg",
-      "peso bruto (W.G.)": "165 kg",
-      "músculo trabajado": "Dorsal ancho y espalda",
-    }
-  },
-  {
-    id: 22,
-    name: "M2-1020 Chindip Assist",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Espalda", "Bíceps", "Tríceps"],
-    image: "/maquinas/M2-1020 Chindip Assist.png",
-    alt: "M2-1020 Chindip Assist",
-    "description": [
-      "M2-1020 Chindip Assist. Esta máquina permite realizar dominadas y fondos con asistencia.",
-      "Se ajusta mediante una palanca debajo del asiento de apoyo para retirar el soporte. Además, cuenta con asas para fondos que giran hacia adentro o hacia afuera según las preferencias del usuario. Las múltiples asas para dominadas permiten entrenar dominadas desde diferentes ángulos.",
-      "El nivel de asistencia se puede ajustar mediante la columna de pesas con pasador."    
-    ],
-    features: [
-      "Asistencia ajustable",
-      "Agarres ergonómicos",
-      "Estructura estable de acero",
-      "Almohadillas para rodillas acolchadas"
-    ],
-    specifications: {
-      modelo: "M2-1020",
-      dimensiones: "1278 x 1202 x 2208 mm",
-      "placas (Weight Stack)": "263 lbs/119.25 kg",
-      "peso neto (N.W.)": "210 kg",
-      "peso bruto (W.G.)": "250 kg",
-      "músculo trabajado": "Espalda, bíceps y tríceps",
-    }
-  },
-  {
-    id: 23,
-    name: "M2-1022 Glute Machine",
-    primaryCategory: "M2",
-    status: "stock",
-    subCategories: ["Glúteos", "Piernas"],
-    image: "/maquinas/M2-1022 Glute Machine.png",
-    alt: "M2-1022 Glute Machine",
-    "description": [
-      "M2-1022 Glute Machine. Esta máquina para glúteos permite realizar patadas de pie. Incluye una almohadilla para el pecho y asas de apoyo, una columna de pesas con pasadores y una plataforma para los pies con rotación suave para un movimiento más natural."
-    ],
-    features: [
-      "Almohadillas acolchadas",
-      "Resistencia ajustable",
-      "Asiento ergonómico",
-      "Estructura robusta de acero"
-    ],
-    specifications: {
-      modelo: "M2-1022",
-      dimensiones: "1310 x 1108 x 1595 mm",
-      "placas (Weight Stack)": "174 lbs/78.75 kg",
-      "peso neto (N.W.)": "155 kg",
-      "peso bruto (W.G.)": "195 kg",
-      "músculo trabajado": "Glúteos y femorales",
-    }
-  },
-  {
+    {
     id: 10,
     name: "M2-1010A Biceps Curl",
     primaryCategory: "M2",
@@ -623,6 +351,144 @@ export const allProducts = [
     }
   },
   {
+    id: 2,
+    name: "M2-1012 Pectoral Machine",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Pecho", "Hombros"],
+    image: "/maquinas/M2-1012 Pectoral Machine.png",
+    alt: "M2-1012 Pectoral Machine",
+    "description": [
+      "M2-1012 Pectoral Machine. Esta máquina Pec Fly incluye dos juegos de palancas de ajuste: una debajo del asiento para la altura del usuario y otra en la base de los brazos para ajustar la posición inicial.",
+      "Las manijas de esta máquina giran durante el movimiento, lo que permite un movimiento más natural. El peso se ajusta mediante una pila de pesas con pasador."
+    ],
+      features: [
+      "Asiento ajustable",
+      "Agarres ergonómicos",
+      "Sistema de peso integrado",
+      "Estructura estable de acero"
+    ],
+    specifications: {
+      Modelo: "M2-1012",
+      dimensiones: "1650 x 1175 x 1515 mm",
+      "placas (Weight Stack)": "263lbs/119.25kg",
+      "peso neto (N.W.)": "130 kg",
+      "peso bruto (W.G.)": "170 kg",
+      "músculo trabajado": "Pectorales y hombros",
+    }
+  },
+
+    {
+    id: 15,
+    name: "M2-1013 Lat Pull Down",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Espalda"],
+    image: "/maquinas/M2-1013 Lat Pull Down.png",
+    alt: "M2-1013 Lat Pull Down",
+    "description": [
+      "M2-1013 Lat Pull Down. Esta máquina de polea dorsal incluye un asiento y rodilleras ajustables en altura para adaptarse a las preferencias del usuario. También incluye una pila de pesas con pasadores.",
+      "Los brazos de esta máquina se mueven de forma natural."    
+    ],
+    features: [
+      "Barra ajustable",
+      "Asiento acolchado",
+      "Resistencia con pesas integradas",
+      "Estructura sólida de acero"
+    ],
+    specifications: {
+      modelo: "M2-1013",
+      dimensiones: "1970 x 1135 x 1887 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "167 kg",
+      "peso bruto (W.G.)": "207 kg",
+      "músculo trabajado": "Dorsal ancho y espalda",
+    }
+  },
+  {
+    id: 16,
+    name: "M2-1013A Lat Pull Down",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Espalda"],
+    image: "/maquinas/M2-1013A Lat Pull Down.png",
+    alt: "M2-1013A Lat Pull Down",
+    "description": [
+      "M2-1013A Lat Pull Down. Este equipo de dominadas tiene un asiento y una rodillera ajustables en altura para adaptarse a la altura del usuario. Incluye una pila de pesas con pasador.",
+      "El mango es ajustable, lo que permite probar diferentes tipos de dominadas. También incluye un soporte superior para sujetar las barras de forma segura cuando no se usan."    
+    ],
+    features: [
+      "Barra ajustable",
+      "Asiento acolchado",
+      "Resistencia con pesas integradas",
+      "Estructura estable de acero"
+    ],
+    specifications: {
+      modelo: "M2-1013A",
+      dimensiones: "1325 x 1255 x 2215 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "135 kg",
+      "peso bruto (W.G.)": "175 kg",
+      "músculo trabajado": "Dorsal ancho y espalda",
+    }
+  },
+
+  {
+    id: 17,
+    name: "M2-1014 Multi Hip",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Cadera", "Glúteos", "Piernas"],
+    image: "/maquinas/M2-1014 Multi Hip.png",
+    alt: "M2-1014 Multi Hip",
+    "description": [
+      "M2-1014 Multi Hip. Esta máquina es robusta y muy funcional, con opciones para entrenar glúteos y flexores de cadera desde múltiples ángulos.",
+      "Cuenta con varias funciones ajustables, incluyendo una palanca en el centro para ajustar la posición inicial del ejercicio, una palanca para ajustar la altura de la rodillera según las preferencias del usuario y palancas en las asas de apoyo para ajustar la altura."
+    ],
+    features: [
+      "Múltiples posiciones de ejercicio",
+      "Resistencia ajustable",
+      "Almohadillas acolchadas",
+      "Estructura robusta de acero"
+    ],
+    specifications: {
+      modelo: "M2-1014",
+      dimensiones: "1180 x 1125 x 1615 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "220 kg",
+      "peso bruto (W.G.)": "260 kg",
+      "músculo trabajado": "Abductores y aductores de cadera",
+    }
+  },
+  {
+    id: 18,
+    name: "M2-1015 Row Rear Delt",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Hombros", "Espalda"],
+    image: "/maquinas/M2-1015 Row Rear Delt.png",
+    alt: "M2-1015 Row Rear Delt",
+    "description": [
+      "M2-1015 Row Rear Delt. Esta robusta máquina de remo sentado incluye un asiento y una almohadilla pectoral ajustables a la altura del usuario.",
+      "Está bien acolchada, ofrece un movimiento suave y cuenta con asas móviles que permiten un movimiento más natural. Su peso es ajustable mediante una columna de pesas con pasador."
+    ],
+    features: [
+      "Asiento ajustable",
+      "Agarres ergonómicos",
+      "Resistencia integrada",
+      "Estructura sólida de acero"
+    ],
+    specifications: {
+      Modelo: "Negro con detalles en gris",
+      dimensiones: "M2-1015",
+      "placas (Weight Stack)": "	263 lbs/119.25 kg",
+      "peso neto (N.W.)": "140 kg",
+      "peso bruto (W.G.)": "180 kg",
+      "músculo trabajado": "Deltoides posteriores y dorsales",
+      color: "Negro con detalles en gris",
+    }
+  },
+  {
     id: 19,
     name: "M2-1017 Rear Delt - Pec Fly",
     primaryCategory: "M2",
@@ -651,6 +517,144 @@ export const allProducts = [
 
     }
   },
+  {
+    id: 20,
+    name: "M2-1018 Seated Low Row",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Espalda"],
+    image: "/maquinas/M2-1018 Seated Low Row.png",
+    alt: "M2-1018 Seated Low Row",
+    "description": [
+      "M2-1018 Seated Low Row. Esta máquina de remo bajo sentado es robusta y robusta, con un diseño minimalista.",
+      "Está bien acolchada, cuenta con reposapiés con agarre firme y permite intercambiar las asas. Su peso se ajusta mediante una pila de pesas con pasador."    
+    ],
+    features: [
+      "Asiento ergonómico",
+      "Barra de agarre ajustable",
+      "Resistencia integrada",
+      "Estructura sólida de acero"
+    ],
+    specifications: {
+      modelo: "M2-1018",
+      dimensiones: "1810 x 1185 x 2015 mm",
+      "placas (Weight Stack)": "293 lbs/132.75 kg",
+      "peso neto (N.W.)": "125 kg",
+      "peso bruto (W.G.)": "165 kg",
+      "músculo trabajado": "Dorsal ancho y espalda",
+    }
+  },
+    {
+    id: 21,
+    name: "M2-1019 Standing Calf",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Piernas"],
+    image: "/maquinas/M2-1019 Standing Calf.png",
+    alt: "M2-1019 Standing Calf",
+    "description": [
+      "M2-1019 Standing Calf. Esta máquina de elevación de pantorrillas de pie tiene un diseño ergonómico y fácil de usar. Incluye una palanca bajo las hombreras para ajustar la altura del usuario.",
+      "Es una máquina duradera y robusta con reposapiés de buen agarre. El peso se ajusta mediante un conjunto de discos con pasador."
+    ],
+    features: [
+      "Plataforma ajustable",
+      "Soporte acolchado",
+      "Resistencia con pesas integradas",
+      "Estructura sólida de acero"
+    ],
+    specifications: {
+      modelo: "M2-1019",
+      dimensiones: "1108 x 1018 x 1633 mm	",
+      "placas (Weight Stack)": "263 lbs/119.25 kg	",
+      "peso neto (N.W.)": "123 kg",
+      "peso bruto (W.G.)": "163 kg",
+      "músculo trabajado": "Pantorrillas",
+    }
+  },
+  {
+    id: 22,
+    name: "M2-1020 Chindip Assist",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Espalda", "Bíceps", "Tríceps"],
+    image: "/maquinas/M2-1020 Chindip Assist.png",
+    alt: "M2-1020 Chindip Assist",
+    "description": [
+      "M2-1020 Chindip Assist. Esta máquina permite realizar dominadas y fondos con asistencia.",
+      "Se ajusta mediante una palanca debajo del asiento de apoyo para retirar el soporte. Además, cuenta con asas para fondos que giran hacia adentro o hacia afuera según las preferencias del usuario. Las múltiples asas para dominadas permiten entrenar dominadas desde diferentes ángulos.",
+      "El nivel de asistencia se puede ajustar mediante la columna de pesas con pasador."    
+    ],
+    features: [
+      "Asistencia ajustable",
+      "Agarres ergonómicos",
+      "Estructura estable de acero",
+      "Almohadillas para rodillas acolchadas"
+    ],
+    specifications: {
+      modelo: "M2-1020",
+      dimensiones: "1278 x 1202 x 2208 mm",
+      "placas (Weight Stack)": "263 lbs/119.25 kg",
+      "peso neto (N.W.)": "210 kg",
+      "peso bruto (W.G.)": "250 kg",
+      "músculo trabajado": "Espalda, bíceps y tríceps",
+    }
+  },
+  {
+    id: 23,
+    name: "M2-1022 Glute Machine",
+    primaryCategory: "M2",
+    status: "stock",
+    subCategories: ["Glúteos", "Piernas"],
+    image: "/maquinas/M2-1022 Glute Machine.png",
+    alt: "M2-1022 Glute Machine",
+    "description": [
+      "M2-1022 Glute Machine. Esta máquina para glúteos permite realizar patadas de pie. Incluye una almohadilla para el pecho y asas de apoyo, una columna de pesas con pasadores y una plataforma para los pies con rotación suave para un movimiento más natural."
+    ],
+    features: [
+      "Almohadillas acolchadas",
+      "Resistencia ajustable",
+      "Asiento ergonómico",
+      "Estructura robusta de acero"
+    ],
+    specifications: {
+      modelo: "M2-1022",
+      dimensiones: "1310 x 1108 x 1595 mm",
+      "placas (Weight Stack)": "174 lbs/78.75 kg",
+      "peso neto (N.W.)": "155 kg",
+      "peso bruto (W.G.)": "195 kg",
+      "músculo trabajado": "Glúteos y femorales",
+    }
+  },
+
+    {
+    id: 24,
+    name: "M2-1023 Seated Leg Curl",
+    primaryCategory: "M2",
+    status: "upcoming",
+    upcomingQuantity: 2,
+    subCategories: ["Piernas"],
+    image: "/maquinas/M2-1023 Seated Leg Curl.png",
+    alt: "M2-1023 Seated Leg Curl",
+    "description": [
+      "M2-1023 Seated Leg Curl. Esta máquina de curl de piernas sentado cuenta con varias funciones ajustables: el asiento, la almohadilla para los muslos y la almohadilla para los tobillos se pueden ajustar a la altura del usuario.",
+      "Una palanca adicional en la articulación de la rodilla permite ajustar la posición inicial y final del ejercicio. El peso se ajusta mediante una columna de pesas con pasador."
+    ],
+    features: [
+      "Rodillos acolchados",
+      "Asiento ajustable",
+      "Resistencia con pesas integradas",
+      "Estructura sólida de acero"
+    ],
+    specifications: {
+      modelo: "M2-1023",
+      dimensiones: "1500 x 1077 x 1515 mm	",
+      "placas (Weight Stack)": "293 lbs/132.75 kg	",
+      "peso neto (N.W.)": "160 kg",
+      "peso bruto (W.G.)": "200 kg",
+      "músculo trabajado": "Isquiotibiales",
+    }
+  },
+
 
 
 // Equipos FM
