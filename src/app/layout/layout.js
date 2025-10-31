@@ -1,4 +1,3 @@
-import { CartProvider } from '../pages/carrito/CartContext';
 import '../globals.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -17,11 +16,9 @@ export default function RootLayout({ children }) {
       
       </head>
       <body className="flex flex-col min-h-screen">
-        <CartProvider>
 
           <main className=" lg:pt-2 bg-main ">{children}</main>
 
-        </CartProvider>
       </body>
     </html>
   );
