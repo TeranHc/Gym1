@@ -180,7 +180,7 @@ export default function EalLeaderHomePage() {
           Se eliminó `lg:object-right` para que el sujeto del video quede más visible.
       */
       className="w-full h-full object-cover"
-      src="/galeriavideo/1uso.mp4"
+      src="/galeriavideo/inicio1.mp4"
       autoPlay
       loop
       muted
